@@ -10,7 +10,7 @@ func draw():
 	for i in range(-255, 255):
 		for j in range(-255, 255):
 			set_cell(0, Vector2i(i, j), 2, Vector2i(0, 0))
-				
+	
 func tick(position: Vector2):
 	var factor = 1
 	var tmp: Vector2
