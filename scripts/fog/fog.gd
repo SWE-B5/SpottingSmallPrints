@@ -1,27 +1,32 @@
+# Benutzung: Am Anfang der Level Generation $Fog.draw() laden, bei _process: Fog.tick(player.position)
 extends TileMap
 
 const BLACK_ID = 1
 const BLACK_BIG_ID = 2
 
-func _ready():
-	draw()
-
-func draw():
+func draw():	
 	for i in range(-255, 255):
 		for j in range(-255, 255):
-			set_cell(0, Vector2i(i, j), 2, Vector2i(0, 0))
+			set_cell(0, Vector2i(i, j), BLACK_ID, Vector2i(0, 0))
 	
 func tick(position: Vector2):
-	var factor = 1
-	var tmp: Vector2
+	remove_circle(position, 2)
 	
-	for i in range(-16 * factor, 16 * factor):
-		for j in range(-16 * factor, 16 * factor):
-			tmp = position
-			tmp.x += i
-			tmp.y += j
-			
-			erase_cell(0, local_to_map(tmp))
-	
+func remove_circle(center: Vector2, radius: float):
+	radius *= 16 # Damit wir richtig skalieren
+
+	# Ein Kreis Umfang erstellen und deren Tiles entfernen
+	# TODO: Kreisinnere löscht sich am Anfang des Spieles nicht!
+	for i in range(0, 360):
+		# Convert degrees to radians
+		var angle = deg_to_rad(i)
+		
+		# Calculate the position on the circle using trigonometry
+		var x = center.x + radius * cos(angle)
+		var y = center.y + radius * sin(angle)
+		
+		# Erase the cell at the calculated position
+		erase_cell(0, local_to_map(Vector2(x, y)))
+
 func _process(delta):
 	pass

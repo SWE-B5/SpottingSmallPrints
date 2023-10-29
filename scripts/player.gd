@@ -15,6 +15,8 @@ func _ready():
 
 func _process(delta):
 	handle_movement_input()
+	handle_map_input()
+	handle_camera()
 
 func handle_movement_input():
 	if Input.is_action_pressed("up"):
@@ -69,6 +71,19 @@ func play_animation(movement: MovementState):
 				anim.play("side_walk")
 			else:
 				anim.play("side_idle")	
+
+func handle_map_input():
+	if Input.is_action_just_pressed("map") && can_open_map():
+		PlayerVariables.active_camera = PlayerVariables.CameraTypes.MAP
+		get_tree().paused = true
+
+func handle_camera():
+	if PlayerVariables.active_camera == PlayerVariables.CameraTypes.FOLLOW:
+		$FollowCamera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
+		$FollowCamera.make_current()
+	else:
+		$MapNode/MapCamera.zoom = Vector2(0.5, 0.5)
+		$MapNode/MapCamera.make_current()
 
 func can_open_map():
 	return true
