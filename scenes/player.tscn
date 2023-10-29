@@ -337,17 +337,19 @@ position_smoothing_enabled = true
 position_smoothing_speed = 30.0
 rotation_smoothing_enabled = true
 
-[node name="MapNode" type="Node" parent="."]
-process_mode = 2
-script = ExtResource("3_igln0")
-
-[node name="MapCamera" type="Camera2D" parent="MapNode"]
-z_index = 11
-position = Vector2(4, -1)
-
 [node name="PauseUI" type="Node" parent="."]
 process_mode = 3
 
 [node name="PauseMenu" parent="PauseUI" instance=ExtResource("3_qr3mx")]
 process_mode = 0
 visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MapNode" type="Node" parent="CanvasLayer"]
+process_mode = 3
+script = ExtResource("3_igln0")
+
+[node name="MapCamera" type="Camera2D" parent="CanvasLayer/MapNode"]
+z_index = 11
+position = Vector2(4, -1)
