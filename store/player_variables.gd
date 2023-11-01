@@ -1,6 +1,7 @@
 extends Node
 
 enum CameraTypes { MAP, FOLLOW }
+enum Difficulty { EASY, NORMAL, HARD }
 
 func _ready():
 	load_from_path(Constants.SAVE_PATH)
@@ -8,7 +9,8 @@ func _ready():
 # Erstellt ein JSON-String von den Daten, welche gespeichert werden sollten
 func jsonify():
 	return JSON.stringify({
-		"completed_levels": completed_levels
+		"completed_levels": completed_levels,
+		"difficulty": difficulty
 	})
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
@@ -29,8 +31,15 @@ func save_to_path(path: String):
 
 var speed: int = 40
 var active_camera: CameraTypes = CameraTypes.FOLLOW
+var difficulty: Difficulty = Difficulty.NORMAL
 var hp: float = Constants.START_HP
 var zoom_niveau: float = 5
-var freezed: bool = false
 
+# heißt, alle Movement sind geblockt aber andere Projektile usw. bewegen sich trotzdem
+var immobile: bool = false
+
+# In welchem Level der Spieler sich befindet, 0 ist Hub, 1-N sind die Labyrinthe
+var current_level = 0
+
+# erstes Level = 0, diese Türen kann man dann nicht mehr öffnen
 var completed_levels = []

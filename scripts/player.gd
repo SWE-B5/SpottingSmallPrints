@@ -5,8 +5,6 @@ enum Direction { UP, DOWN, LEFT, RIGHT }
 enum MovementState { WALK, IDLE }
 
 @onready var anim = $AnimatedSprite2D
-
-
 var direction: Direction = Direction.DOWN
 
 func _ready():
@@ -16,6 +14,11 @@ func _process(delta):
 	handle_movement_input()
 
 func handle_movement_input():
+	if PlayerVariables.immobile:
+		play_animation(MovementState.IDLE)
+		move_and_slide()
+		return
+	
 	if Input.is_action_pressed("up"):
 		velocity = Vector2(0, -PlayerVariables.speed)
 		play_animation(MovementState.WALK)
@@ -69,6 +72,8 @@ func play_animation(movement: MovementState):
 			else:
 				anim.play("side_idle")	
 
-
 func can_open_map():
-	return true
+	# check if nicht in der hub noch machen
+	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.NORMAL:
+		return true
+	return false
