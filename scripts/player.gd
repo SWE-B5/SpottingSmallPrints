@@ -5,16 +5,18 @@ enum Direction { UP, DOWN, LEFT, RIGHT }
 enum MovementState { WALK, IDLE }
 
 @onready var anim = $AnimatedSprite2D
+@onready var follow_camera = $FollowCamera
 var direction: Direction = Direction.DOWN
 
 func _ready():
-	pass
+	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
 func _process(delta):
 	handle_movement_input()
 
 func handle_movement_input():
 	if PlayerVariables.immobile:
+		velocity = Vector2.ZERO
 		play_animation(MovementState.IDLE)
 		move_and_slide()
 		return

@@ -29,10 +29,33 @@ func save_to_path(path: String):
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_line(jsonify())
 
+func generate_hard_game():
+	speed = 20
+	difficulty = Difficulty.HARD
+	max_lives = 1
+	current_lives = 1
+	
+func generate_medium_game():
+	speed = 50
+	difficulty = Difficulty.NORMAL
+	max_lives = 2
+	current_lives = 2
+	
+func generate_easy_game():
+	speed = 100
+	difficulty = Difficulty.EASY
+	max_lives = 3
+	current_lives = 3
+
+var max_lives: int = 3
+var current_lives: int = 3
+
 var speed: int = 40
 var active_camera: CameraTypes = CameraTypes.FOLLOW
 var difficulty: Difficulty = Difficulty.NORMAL
 var hp: float = Constants.START_HP
+
+# Je höher das Zoom Niveau ist desto mehr reingezoomt ist der Spieler
 var zoom_niveau: float = 5
 
 # heißt, alle Movement sind geblockt aber andere Projektile usw. bewegen sich trotzdem
