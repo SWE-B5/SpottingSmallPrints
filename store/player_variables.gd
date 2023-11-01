@@ -66,3 +66,5 @@ var current_level = 0
 
 # erstes Level = 0, diese Türen kann man dann nicht mehr öffnen
 var completed_levels = []
+
+var notes_collected = []
