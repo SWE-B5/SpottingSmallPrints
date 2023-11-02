@@ -46,3 +46,10 @@ func _on_normal_difficulty_button_pressed():
 func _on_hard_difficulty_button_pressed():
 	PlayerVariables.generate_hard_game()
 	spawn_to_hub()
+
+
+func _on_back_to_menu_button_pressed():
+	start_menu.show()
+	credits.hide()
+	difficulty_selector.hide()
+
