@@ -64,4 +64,4 @@ func _on_return_to_menu_button_pressed():
 func _on_back_to_menu_button_pressed():
 	start_menu.show()
 	credits.hide()
-	difficulty_selector.hide()
+	difficulty_selector.hide()	
