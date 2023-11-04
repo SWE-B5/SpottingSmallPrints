@@ -118,72 +118,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CreditsMenu/CenterContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CreditsMenu/CenterContainer/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 40
-text = "Schwierigkeitsgrad wählen"
-
-[node name="EasyDifficultyButton" type="Button" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 24
-text = "EINFACH"
-
-[node name="NormalDifficultyButton" type="Button" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 24
-text = "NORMAL"
-
-[node name="HardDifficultyButton" type="Button" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 24
-text = "SCHWER"
-
-[node name="LoadGameError" type="CanvasLayer" parent="."]
-
-[node name="CenterContainer" type="CenterContainer" parent="LoadGameError"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="LoadGameError/CenterContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LoadGameError/CenterContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameError/CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="LoadGameError/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ES WURDE KEIN VORHERIGER SPIELSTAND GEFUNDEN"
-
-[node name="ReturnToMenuButton" type="Button" parent="LoadGameError/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ZÜRUCK ZUM MENU"
-
 [connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
@@ -191,7 +125,3 @@ text = "ZÜRUCK ZUM MENU"
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/EasyDifficultyButton" to="." method="_on_easy_difficulty_button_pressed"]
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NormalDifficultyButton" to="." method="_on_normal_difficulty_button_pressed"]
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HardDifficultyButton" to="." method="_on_hard_difficulty_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/EasyDifficultyButton" to="." method="_on_easy_difficulty_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NormalDifficultyButton" to="." method="_on_normal_difficulty_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HardDifficultyButton" to="." method="_on_hard_difficulty_button_pressed"]
-[connection signal="pressed" from="LoadGameError/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ReturnToMenuButton" to="." method="_on_return_to_menu_button_pressed"]
