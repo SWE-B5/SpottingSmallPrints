@@ -76,6 +76,6 @@ func play_animation(movement: MovementState):
 
 func can_open_map():
 	# check if nicht in der hub noch machen
-	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.NORMAL:
+	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
 	return false
