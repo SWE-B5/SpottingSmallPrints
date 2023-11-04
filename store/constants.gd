@@ -1,5 +1,8 @@
 extends Node
 
+# fyi: C:\Users\UserName\AppData\Roaming\Godot\app_userdata\Spotting Small Prints\spotting_small_prints.save
+# falls man löschen will oder sowas
+# todo: bei end game auch löschen
 const SAVE_PATH = "user://spotting_small_prints.save"
 const START_HP = 100
 
@@ -11,3 +14,6 @@ const LEVEL_1_SPAWN = Vector2(0, 0)
 const LEVEL_1_MAP_OFFSET = Vector2(0, 0)
 const LEVEL_1_MAP_ZOOM = Vector2(0.5, 0.5)
 
+const EASY_SPEED = 100
+const MEDIUM_SPEED = 30
+const HARD_SPEED = 20
