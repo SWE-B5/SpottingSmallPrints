@@ -60,8 +60,3 @@ func _on_hard_difficulty_button_pressed():
 func _on_return_to_menu_button_pressed():
 	load_game_error.hide()
 	start_menu.show()
-
-func _on_back_to_menu_button_pressed():
-	start_menu.show()
-	credits.hide()
-	difficulty_selector.hide()
