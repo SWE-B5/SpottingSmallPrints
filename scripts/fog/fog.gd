@@ -8,7 +8,6 @@ func draw():
 	for i in range(-255, 255):
 		for j in range(-255, 255):
 			set_cell(0, Vector2i(i, j), BLACK_ID, Vector2i(0, 0))
-	
 func tick(position: Vector2):
 	remove_circle(position, 2)
 	
