@@ -20,6 +20,8 @@ func jsonify():
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
 func load_from_path(path: String):
+	print(FileAccess.file_exists(path))
+	
 	if not FileAccess.file_exists(path):
 		return false
 
