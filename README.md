@@ -12,6 +12,10 @@
 - Datein werden immer kleingeschrieben
 - Eine Szene kommt in den Ordner `scenes\x\y\scene.tscn` und die dazugehörige Script in `scripts\x\y\scene.gd`
 
+### Commitnamensbenennung
+Damit man Commits unterscheiden kann, soll man laut folgender Resource seine Commits nennen, damit es einheiterlicher ist
+[conventionalcommits.org](https://www.conventionalcommits.org/en/v1.0.0)
+
 ### Wo tuhe ich welchen Code hin?
 - Konstante Variablen die man einfach tauschen soll, kommen in store/Constants.gd
 - Spieler Variablen die sich über die Szenen hinweg nicht ändern sollen kommen store/PlayerVariables.gd
