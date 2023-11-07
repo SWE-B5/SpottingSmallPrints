@@ -17,6 +17,9 @@ Damit man Commits unterscheiden kann, soll man laut folgender Resource seine Com
 
 [conventionalcommits.org](https://www.conventionalcommits.org/en/v1.0.0)
 
+### TODO-Liste
+zur Übersichitlichkeit wird eine [TODO Liste](https://github.com/orgs/SWE-B5/projects/2) in GitHub eingefügt, in dem wir Status haben, welche features oder fixes in Bearbeitung sind oder noch gemacht werden müssen.
+
 ### Wo tuhe/finde ich was hin?
 - Konstante Variablen die man einfach tauschen soll, kommen in `store/Constants.gd`
 - Spieler Variablen die sich über die Szenen hinweg nicht ändern sollen kommen `store/PlayerVariables.gd`
