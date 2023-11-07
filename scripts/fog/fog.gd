@@ -1,8 +1,7 @@
 # Benutzung: Am Anfang der Level Generation $Fog.draw() laden, bei _process: Fog.tick(player.position)
 extends TileMap
 
-const BLACK_ID = 1
-const BLACK_BIG_ID = 2
+const BLACK_ID = 1 # ID von unserer TileMap
 
 func draw():	
 	for i in range(-255, 255):
@@ -26,6 +25,3 @@ func remove_circle(center: Vector2, radius: float):
 		
 		# Erase the cell at the calculated position
 		erase_cell(0, local_to_map(Vector2(x, y)))
-
-func _process(delta):
-	pass
