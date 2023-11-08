@@ -24,7 +24,7 @@ zur Übersichitlichkeit wird eine [TODO Liste](https://github.com/orgs/SWE-B5/pr
 - Konstante Variablen die man einfach tauschen soll, kommen in `store\Constants.gd`
 - Spieler Variablen die sich über die Szenen hinweg nicht ändern sollen kommen `store\PlayerVariables.gd`
 - Spieler Variablen die sich über die Szene handeln, kommen in `scripts\scenes\<Szene>.gd`
-- Notes werden unter `notes/<Zahl>.txt` gespeichert
+- Notes werden unter `notes\<Zahl>.txt` gespeichert
 
 ### Templates
 #### Level
