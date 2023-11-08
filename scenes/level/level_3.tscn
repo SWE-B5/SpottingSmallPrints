@@ -11,7 +11,7 @@ script = ExtResource("1_mbl2y")
 
 [node name="CustomTileMap" parent="." instance=ExtResource("2_wsxwy")]
 
+[node name="Fog" parent="." instance=ExtResource("5_qllyy")]
+
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
 script = ExtResource("4_wsryb")
-
-[node name="Fog" parent="." instance=ExtResource("5_qllyy")]

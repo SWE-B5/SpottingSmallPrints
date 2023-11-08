@@ -1,4 +1,4 @@
-﻿# SpottingSmallPrints
+# SpottingSmallPrints
 
 ## Documentation
 
@@ -36,6 +36,7 @@ extends Node2D
 
 func _ready():
 	fog.draw()
+	fog.remove_standart_circle(player.position)
 
 func _process(delta):
 	fog.tick(player.position)

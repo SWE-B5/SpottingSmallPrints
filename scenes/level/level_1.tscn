@@ -10,6 +10,6 @@ script = ExtResource("1_tv1sp")
 
 [node name="CustomTileMap" parent="." instance=ExtResource("2_n4mis")]
 
-[node name="Player" parent="." instance=ExtResource("3_kwb6j")]
-
 [node name="Fog" parent="." instance=ExtResource("4_vn3xq")]
+
+[node name="Player" parent="." instance=ExtResource("3_kwb6j")]
