@@ -25,3 +25,18 @@ zur Übersichitlichkeit wird eine [TODO Liste](https://github.com/orgs/SWE-B5/pr
 - Spieler Variablen die sich über die Szenen hinweg nicht ändern sollen kommen `store\PlayerVariables.gd`
 - Spieler Variablen die sich über die Szene handeln, kommen in `scripts\scenes\<Szene>.gd`
 - Notes werden unter `notes/<Zahl>.txt` gespeichert
+
+### Templates
+#### Level
+```gdscript
+extends Node2D
+
+@onready var player = $Player
+@onready var fog = $Fog
+
+func _ready():
+	fog.draw()
+
+func _process(delta):
+	fog.tick(player.position)
+``` 
