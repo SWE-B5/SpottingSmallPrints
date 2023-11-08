@@ -21,7 +21,7 @@ Damit man Commits unterscheiden kann, soll man laut folgender Resource seine Com
 zur Übersichitlichkeit wird eine [TODO Liste](https://github.com/orgs/SWE-B5/projects/2) in GitHub eingefügt, in dem wir Status haben, welche features oder fixes in Bearbeitung sind oder noch gemacht werden müssen.
 
 ### Wo tuhe/finde ich was hin?
-- Konstante Variablen die man einfach tauschen soll, kommen in `store/Constants.gd`
-- Spieler Variablen die sich über die Szenen hinweg nicht ändern sollen kommen `store/PlayerVariables.gd`
-- Spieler Variablen die sich über die Szene handeln, kommen in `scripts/scenes/SZENE.gd`
+- Konstante Variablen die man einfach tauschen soll, kommen in `store\Constants.gd`
+- Spieler Variablen die sich über die Szenen hinweg nicht ändern sollen kommen `store\PlayerVariables.gd`
+- Spieler Variablen die sich über die Szene handeln, kommen in `scripts\scenes\<Szene>.gd`
 - Notes werden unter `notes/<Zahl>.txt` gespeichert
