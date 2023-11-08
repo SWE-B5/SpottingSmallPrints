@@ -55,8 +55,3 @@ func _on_normal_difficulty_button_pressed():
 func _on_hard_difficulty_button_pressed():
 	PlayerVariables.generate_hard_game()
 	spawn_to_hub()
-
-
-
-
-
