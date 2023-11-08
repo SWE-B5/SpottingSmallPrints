@@ -12,7 +12,50 @@ func draw():
 			set_cell(0, Vector2i(i, j), BLACK_ID, Vector2i(0, 0))
 
 func tick(position: Vector2):
-	remove_circle(position)
+	remove_circle_optimized(position)
+
+func remove_circle_optimized(center: Vector2): # womöglich optimiziert
+	var num_steps = 36  # Anzahl der Schritte reduziert
+	var step_size = 10  # Winkel in Grad für jeden Schritt
+
+	for i in range(num_steps):
+		var angle = deg_to_rad(i * step_size)
+		var x = center.x + FOG_RADIUS * cos(angle)
+		var y = center.y + FOG_RADIUS * sin(angle)
+		erase_cell(0, local_to_map(Vector2(x, y)))
+
+	# Den verbleibenden Winkel (360 Grad) behandeln
+	var last_angle = deg_to_rad(360)
+	var last_x = center.x + FOG_RADIUS * cos(last_angle)
+	var last_y = center.y + FOG_RADIUS * sin(last_angle)
+	erase_cell(0, local_to_map(Vector2(last_x, last_y)))
+
+func remove_standart_circle_optimized(center: Vector2): # womöglich optimiziert
+	var x_stored = []
+	var y_stored = []
+	var num_steps = 36  # Anzahl der Schritte reduziert
+	var step_size = 10  # Winkel in Grad für jeden Schritt
+
+	for i in range(num_steps):
+		var angle = deg_to_rad(i * step_size)
+		var x = center.x + FOG_RADIUS * cos(angle)
+		var y = center.y + FOG_RADIUS * sin(angle)
+		x_stored.append(x)
+		y_stored.append(y)
+		erase_cell(0, local_to_map(Vector2(x, y)))
+
+	# Den verbleibenden Winkel (360 Grad) behandeln
+	var last_angle = deg_to_rad(360)
+	var last_x = center.x + FOG_RADIUS * cos(last_angle)
+	var last_y = center.y + FOG_RADIUS * sin(last_angle)
+	x_stored.append(last_x)
+	y_stored.append(last_y)
+	erase_cell(0, local_to_map(Vector2(last_x, last_y)))
+	
+	for i in range(x_stored.min(), x_stored.max()):
+		for j in range(y_stored.min(), y_stored.max()):
+			erase_cell(0, local_to_map(Vector2(i, j)))
+
 	
 func remove_circle(center: Vector2):
 	# Ein Kreis Umfang erstellen und deren Tiles entfernen
