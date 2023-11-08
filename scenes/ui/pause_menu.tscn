@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c70emhr8dng6o"]
+[gd_scene load_steps=5 format=3 uid="uid://c70emhr8dng6o"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_tk502"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_v6hhf"]
+[ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="3_k4vqs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0a32"]
 shader = ExtResource("1_v6hhf")
@@ -43,12 +44,18 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 24
 text = "DAS SPIEL IST PAUSIERT"
 
 [node name="ResumeButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 24
 text = "SPIELEN"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 24
 text = "VERLASSEN"

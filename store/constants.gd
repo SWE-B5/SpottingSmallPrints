@@ -1,6 +1,7 @@
 extends Node
 
 # fyi: C:\Users\UserName\AppData\Roaming\Godot\app_userdata\Spotting Small Prints\spotting_small_prints.save
+# Linux: /home/UserName/.local/share/godot/app_userdata/Spooting Small Prints/spotting_small_prints.save
 # falls man löschen will oder sowas
 # todo: bei end game auch löschen
 const SAVE_PATH = "user://spotting_small_prints.save"
