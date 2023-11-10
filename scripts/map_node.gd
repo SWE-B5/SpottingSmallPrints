@@ -22,5 +22,5 @@ func handle_camera():
 		follow_camera.make_current()
 	else:
 		PlayerVariables.immobile = true
-		map_camera.zoom = Vector2(0.5, 0.5)
-		map_camera.make_current()
+		follow_camera.zoom = Vector2(0.6, 0.6)
+		follow_camera.make_current()
