@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsabnbl5via5c"]
+[gd_scene load_steps=5 format=3 uid="uid://bsabnbl5via5c"]
 
+[ext_resource type="Script" path="res://scripts/level/level_1.gd" id="1_tv1sp"]
 [ext_resource type="PackedScene" uid="uid://srdxuwocoxpv" path="res://scenes/custom_tile_map.tscn" id="2_n4mis"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="3_kwb6j"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="4_vn3xq"]
 
-[node name="level_1" type="Node2D"]
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_tv1sp")
 
 [node name="CustomTileMap" parent="." instance=ExtResource("2_n4mis")]
 
