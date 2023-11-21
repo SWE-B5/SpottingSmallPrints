@@ -42,4 +42,4 @@ func _process(delta):
 	fog.tick(player.position)
 ```
 
-TEST too
+TEST
