@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfyu7gq17qdg"]
+[gd_scene load_steps=9 format=3 uid="uid://rfyu7gq17qdg"]
 
-[ext_resource type="Texture2D" uid="uid://d1ij3wqjsfgw1" path="res://art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_udxb4"]
-[ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://art/customs/GeschlosseneTueren.png" id="2_8tmrb"]
-[ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://art/customs/TruhenVerschlossen.png" id="3_j2xjc"]
+[ext_resource type="Texture2D" uid="uid://bvoi3u0igh0ud" path="res://assets/pixel_dungeon/character and tileset/Dungeon_Tileset.png" id="1_udxb4"]
+[ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="2_8tmrb"]
+[ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="3_j2xjc"]
+[ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="4_bw17u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6sia"]
 texture = ExtResource("1_udxb4")
@@ -477,3 +478,6 @@ layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(131085, 0, 9, 131082, 0, 9, 655386, 65536, 9, 720903, 65536, 9, 589831, 65536, 9, 458759, 65536, 9, 327687, 65536, 9, 196634, 458752, 9, 393245, 458752, 9, 524302, 196608, 9)
+
+[node name="Player" parent="." instance=ExtResource("4_bw17u")]
+position = Vector2(193, 64)
