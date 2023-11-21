@@ -40,6 +40,4 @@ func _ready():
 
 func _process(delta):
 	fog.tick(player.position)
-```
-
-TEST
+``` 
