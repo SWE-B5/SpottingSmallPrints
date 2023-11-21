@@ -5,7 +5,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PlayerVariables.load_easy_game()
 	fog.draw()
+	fog.remove_standart_circle_optimized(player.position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
