@@ -1,7 +1,7 @@
 extends Node
 
-const ZOOM_LEVEL = 0.8
-const ZOOM_INCREASE = 0.01
+const ZOOM_LEVEL = 1.6
+const ZOOM_INCREASE = 0.5
 
 @onready var player = $"../.."
 @onready var map_camera = $MapCamera
