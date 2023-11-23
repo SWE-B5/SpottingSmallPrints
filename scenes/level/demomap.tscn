@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfyu7gq17qdg"]
+[gd_scene load_steps=7 format=3 uid="uid://rfyu7gq17qdg"]
 
-[ext_resource type="Texture2D" uid="uid://d1ij3wqjsfgw1" path="res://art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_udxb4"]
-[ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://art/customs/GeschlosseneTueren.png" id="2_8tmrb"]
-[ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://art/customs/TruhenVerschlossen.png" id="3_j2xjc"]
+[ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="2_8tmrb"]
+[ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="3_j2xjc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6sia"]
-texture = ExtResource("1_udxb4")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
