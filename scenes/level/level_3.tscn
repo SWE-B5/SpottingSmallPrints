@@ -7,6 +7,7 @@
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(0, -8)
 script = ExtResource("1_mbl2y")
 
 [node name="TileMap" parent="." instance=ExtResource("2_jquff")]
@@ -18,6 +19,9 @@ position = Vector2(0, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
 position = Vector2(-4.53476, 27.7386)
+
+[node name="MapCamera" parent="Player/MapCanvasLayer/MapNode" index="0"]
+position = Vector2(0, -8)
 
 [editable path="Fog"]
 [editable path="Player"]
