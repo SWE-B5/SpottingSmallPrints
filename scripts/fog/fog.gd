@@ -42,8 +42,6 @@ func _physics_process(delta):
 		if ray:
 			position = TILEMAP.local_to_map(ray.position)
 			#print("wall hit: ", position)
-			#if(position.x < PLAYER_POS.x || position.y < PLAYER_POS.y):
-				#position = Vector2(position.x - 1, position.y - 1)
 		else:
 			position = TILEMAP.local_to_map(PLAYER_POS + ray_direction * RAY_LENGTH)
 			#print("not max length: ", position)
@@ -52,16 +50,6 @@ func _physics_process(delta):
 			scatter_erase(position)
 
 func scatter_erase(pos: Vector2):
-	"""
-	var trace = pos
-	print("Collision Position: ", pos)
-	print("Player Position: ", PLAYER_POS)
-	for i in range(0, ceil(pos.distance_to(PLAYER_POS))):
-		trace = trace.move_toward(PLAYER_POS, 0.5)
-		if TILEMAP.get_cell_tile_data(WALL_ID, trace):
-			print("Trace: ", trace)
-			return
-	"""
 	for i in TILEMAP.get_surrounding_cells(pos):
 		if(TILEMAP.get_cell_tile_data(WALL_ID, i)):
 			erase_cell(FOG_LAYER, i)
