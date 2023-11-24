@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://srdxuwocoxpv" path="res://scenes/custom_tile_map.tscn" id="2_nh4fa"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="3_r744i"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="4_4e50j"]
-[ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür2.tscn" id="5_3bf10"]
+[ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="6_c1i8b"]
 
 [node name="MapTemplate" type="Node2D"]
 script = ExtResource("1_7ilt5")
@@ -27,6 +27,5 @@ position = Vector2(0, 0)
 [node name="Player" parent="." instance=ExtResource("4_4e50j")]
 position = Vector2(287, -231)
 
-[node name="tür2" parent="." instance=ExtResource("5_3bf10")]
-position = Vector2(288, -271)
-rotation = 0.000474195
+[node name="NormaleTruhe" parent="." instance=ExtResource("6_c1i8b")]
+position = Vector2(226, -207)
