@@ -106,4 +106,4 @@ var notes_collected = []
 var current_level_collected_notes = []
 
 # Gesammelte Schluessel
-var collected_keys = []
+var collected_keys = [3]
