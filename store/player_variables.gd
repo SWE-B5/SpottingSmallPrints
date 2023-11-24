@@ -104,3 +104,6 @@ var notes_collected = []
 
 # Die Notes die wir gerade im Level gespeichert haben
 var current_level_collected_notes = []
+
+# Gesammelte Schluessel
+var collected_keys = []
