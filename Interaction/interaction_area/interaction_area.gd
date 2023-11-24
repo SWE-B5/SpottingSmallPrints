@@ -8,6 +8,8 @@ var interact : Callable = func ():
 
 
 func _on_body_entered(body):
+	print("Body entered:")
+	print(body)
 	InteractionManager.register_area(self)
 	
 

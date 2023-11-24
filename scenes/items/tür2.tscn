@@ -37,6 +37,7 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_0reds")
 
 [node name="Interaction_Area" parent="." instance=ExtResource("3_db8vm")]
+collision_mask = 16
 action_name = "öffnen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area"]
