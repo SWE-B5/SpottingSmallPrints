@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_0reds")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_05icb")]
 collision_mask = 16
-action_name = "öffnen"
+action_name = "<E> Tür öffnen"
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
 z_index = 2

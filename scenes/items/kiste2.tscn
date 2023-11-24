@@ -1,8 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://qy81cjhqsvk4"]
+[gd_scene load_steps=8 format=3 uid="uid://dogt4bojrpokm"]
 
-[ext_resource type="Script" path="res://scripts/items/kiste.gd" id="1_5x5o5"]
 [ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="2_2xvlf"]
 [ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="3_wmr4e"]
+
+[sub_resource type="GDScript" id="GDScript_221v3"]
+script/source = "extends Node2D
+
+@onready var interaction_area: InteractionArea = $Interaction_Area
+@onready var sprite = $AnimatedSprite2D
+
+
+func _ready():
+	interaction_area.interact = Callable(self, \"_on_interact\")
+#Schluessel Drop
+func _on_interact():
+	pass
+	
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkwwi"]
 atlas = ExtResource("2_2xvlf")
@@ -26,7 +40,7 @@ radius = 28.0
 size = Vector2(14, 7)
 
 [node name="Kiste" type="Node2D"]
-script = ExtResource("1_5x5o5")
+script = SubResource("GDScript_221v3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_74y71")

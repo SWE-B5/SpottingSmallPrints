@@ -23,7 +23,17 @@ func _ready():
 #Schluessel Drop
 func _on_interact():
 	if is_closed:
-		#Sucht nach dem passenden Schlüssel
+		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
+		# Interaktion mit Truhe deaktivieren
 		detecion_area.disabled = true
+		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
+		if type == truhen_typ.SCHLÜSSEL:
+			# Silbernen schluessel zu den gesammelten schluesseln hinzufuegen
+			PlayerVariables.collected_silver_keys.push_back(schlüssel_id)
+		if type == truhen_typ.TRANK:
+			# Fuellt den Trank des Spielers auf
+			PlayerVariables.shield = true
+		
+		

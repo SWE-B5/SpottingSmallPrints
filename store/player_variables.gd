@@ -106,7 +106,7 @@ var notes_collected = []
 var current_level_collected_notes = []
 
 # Gesammelte silberne Schluessel
-var collected_silver_keys = [3]
+var collected_silver_keys = []
 
 # Gesammelte goldende Schluessel
-var collected_golden_keys = [5]
+var collected_golden_keys = []
