@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 enum Direction { UP, DOWN, LEFT, RIGHT }
 enum MovementState { WALK, IDLE }

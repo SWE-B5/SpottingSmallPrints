@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://duoixx4uhwude"]
+
+[ext_resource type="Script" path="res://scripts/level/lights_out_game.gd" id="1_xagbv"]
+[ext_resource type="PackedScene" uid="uid://chvmjg662vc5e" path="res://scenes/structures/pressure_plate_lights_out.tscn" id="4_jqnww"]
+
+[node name="LightsOutGameExample" type="Node2D"]
+script = ExtResource("1_xagbv")
+
+[node name="0" parent="." instance=ExtResource("4_jqnww")]
+
+[node name="1" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(40, 0)
+
+[node name="2" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(80, 0)
+
+[node name="3" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(0, 40)
+
+[node name="4" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(40, 40)
+
+[node name="5" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(80, 40)
+
+[node name="6" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(0, 80)
+
+[node name="7" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(40, 80)
+
+[node name="8" parent="." instance=ExtResource("4_jqnww")]
+position = Vector2(80, 80)
+
+[connection signal="mode_manually_changed" from="0" to="." method="_on__mode_manually_changed"]
+[connection signal="mode_manually_changed" from="0" to="." method="_on__mode_manually_changed_0"]
+[connection signal="mode_manually_changed" from="1" to="." method="_on__mode_manually_changed"]
+[connection signal="mode_manually_changed" from="1" to="." method="_on__mode_manually_changed_1"]
+[connection signal="mode_manually_changed" from="2" to="." method="_on__mode_manually_changed_2"]
+[connection signal="mode_manually_changed" from="3" to="." method="_on__mode_manually_changed_3"]
+[connection signal="mode_manually_changed" from="4" to="." method="_on__mode_manually_changed_4"]
+[connection signal="mode_manually_changed" from="5" to="." method="_on__mode_manually_changed_5"]
+[connection signal="mode_manually_changed" from="6" to="." method="_on__mode_manually_changed_6"]
+[connection signal="mode_manually_changed" from="7" to="." method="_on__mode_manually_changed_7"]
+[connection signal="mode_manually_changed" from="8" to="." method="_on__mode_manually_changed_8"]
