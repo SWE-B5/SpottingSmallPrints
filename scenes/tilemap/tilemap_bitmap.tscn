@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvbf27l5utcfv"]
+
+[ext_resource type="TileSet" uid="uid://bq2fkyd2xktho" path="res://scenes/tilemap/tileset_bitmap.tres" id="1_4wsoi"]
+
+[node name="TileMap" type="TileMap"]
+y_sort_enabled = true
+tile_set = ExtResource("1_4wsoi")
+format = 2
+layer_0/name = "Background"
+layer_0/z_index = -1
+layer_1/name = "Labyrinth"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Item/Decoration"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
