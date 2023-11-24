@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qy81cjhqsvk4"]
+[gd_scene load_steps=8 format=3 uid="uid://qy81cjhqsvk4"]
 
 [ext_resource type="Script" path="res://scenes/items/kiste.gd" id="1_k2u5v"]
 [ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="2_41j3e"]
@@ -22,6 +22,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3me2t"]
 radius = 28.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6law0"]
+size = Vector2(14, 7)
+
 [node name="Kiste" type="Node2D"]
 script = ExtResource("1_k2u5v")
 
@@ -29,6 +32,13 @@ script = ExtResource("1_k2u5v")
 sprite_frames = SubResource("SpriteFrames_74y71")
 
 [node name="Interaction_Area" parent="." instance=ExtResource("3_4kflp")]
+action_name = "1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area"]
 shape = SubResource("CircleShape2D_3me2t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_6law0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
