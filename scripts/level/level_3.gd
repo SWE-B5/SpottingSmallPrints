@@ -3,12 +3,10 @@ extends Node2D
 @onready var player = $Player
 @onready var fog = $Fog
 
-const FOG_PATH = "fog_level3.save"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerVariables.load_easy_game()
-	fog.init($TileMap, $Player, FOG_PATH)
+	fog.init($TileMap, $Player)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

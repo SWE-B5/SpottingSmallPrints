@@ -1,7 +1,5 @@
 extends TileMap
 
-var timer: Timer
-
 const FOG_ID = 1
 const FOG_LAYER = 0
 const FOG_START = 3
@@ -19,22 +17,25 @@ var TILEMAP: TileMap
 var PLAYER_RID: RID
 var PLAYER_POS: Vector2
 
-var PATH: String
+const FOG_PATH = "fog_level.save"
 var revealed_tiles = {}
 
-func init(tilemap: TileMap, player: CharacterBody2D, path: String):
+#var timer: Timer
+
+func init(tilemap: TileMap, player: CharacterBody2D):
 	TILEMAP = tilemap
 	PLAYER_RID = player.get_rid()
 	var canvas = TILEMAP.get_used_rect()
 	var pos = Vector2(canvas.position.x - 50, canvas.position.y - 50)
 	var size = Vector2(canvas.size.x + 100, canvas.size.y + 100)
-	PATH = path
 	
 	for i in range(int(size.x)):
 		for j in range(int(size.y)):
 			set_cell(FOG_LAYER, Vector2i(pos.x + i, pos.y + j), FOG_ID, Vector2i(0, 0))
-	load_fog()
-	init_timer()
+	
+	if FileAccess.file_exists(get_file_path()):
+		load_fog()
+	#init_timer()
 
 func update_pos(pos):
 	PLAYER_POS = pos
@@ -82,30 +83,24 @@ func scatter_erase(pos: Vector2):
 		if(TILEMAP.get_cell_tile_data(WALL_ID, i)):
 			erase_cell(FOG_LAYER, i)
 			revealed_tiles[stringify_vector(i)] = ''
-			
+
 func save_fog():
 	var file = FileAccess.open(get_file_path(), FileAccess.WRITE)
 	var data = JSON.stringify(revealed_tiles)
 	file.store_line(data)
 	
 func load_fog():
-	if not does_file_exist():
-		return
-
 	var file = FileAccess.open(get_file_path(), FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	revealed_tiles = data
 
 	for pos in revealed_tiles.keys():
 		erase_cell(FOG_LAYER, parse_vector(pos))
-	
-func does_file_exist():
-	return FileAccess.file_exists(get_file_path())
 
 func get_file_path():
-	return "user://" + PATH
+	return "user://" + FOG_PATH
 
-# Save the fog every 10 seconds
+"""
 func init_timer():
 	timer = Timer.new()
 	add_child(timer)
@@ -114,8 +109,8 @@ func init_timer():
 	timer.set_wait_time(10)
 	timer.set_one_shot(false)
 	timer.start()
+"""
 
-# Utility functions to serialize and unserialze a vector
 func stringify_vector(vec: Vector2i):
 	return "{x}:{y}".format({ "x": vec.x, "y": vec.y })
 	
