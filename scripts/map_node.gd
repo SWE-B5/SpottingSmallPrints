@@ -1,6 +1,6 @@
 extends Node
 
-const ZOOM_LEVEL = 1.6
+const ZOOM_LEVEL = 2
 const ZOOM_INCREASE = 0.5
 
 @onready var player = $"../.."

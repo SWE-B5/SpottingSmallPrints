@@ -2,12 +2,17 @@ extends TileMap
 
 const FOG_ID = 1
 const FOG_LAYER = 0
-const RAY_LENGTH = 60
+const FOG_START = 3
 const WALL_ID = 1
 const COLLISION_ID = 1
-const NUM_RAYS = 360
+const NUM_RAYS = (360 / 4) * 0.5
 const RAYS_INC = (360 / NUM_RAYS)
+#RAY_OFFSET very delicate and is related to collision box sizes
 const RAY_OFFSET = 10
+const RAY_LENGTH = 75
+const PATH_ERASE_ACC = RAY_LENGTH * 0.1
+const PATH_ERASE_INTERVAL = RAY_LENGTH / PATH_ERASE_ACC
+const TILE_SIZE = 16
 var TILEMAP: TileMap
 var PLAYER_RID: RID
 var PLAYER_POS: Vector2
@@ -21,14 +26,14 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 
 	for i in range(int(size.x)):
 		for j in range(int(size.y)):
-			set_cell(0, Vector2i(pos.x + i, pos.y + j), FOG_ID, Vector2i(0, 0))
+			set_cell(FOG_LAYER, Vector2i(pos.x + i, pos.y + j), FOG_ID, Vector2i(0, 0))
 
 func update_pos(pos):
 	PLAYER_POS = pos
 
 func _physics_process(delta):
-	var position = PLAYER_POS
-	var space_state = get_world_2d().direct_space_state
+	var pos = PLAYER_POS
+	var space_state = TILEMAP.get_world_2d().direct_space_state
 
 	if(PLAYER_POS == null):
 		return
@@ -40,28 +45,30 @@ func _physics_process(delta):
 		var ray = space_state.intersect_ray(query)
 
 		if ray:
-			position = TILEMAP.local_to_map(ray.position)
-			#print("wall hit: ", position)
-			#if(position.x < PLAYER_POS.x || position.y < PLAYER_POS.y):
-				#position = Vector2(position.x - 1, position.y - 1)
+			pos = TILEMAP.local_to_map(ray.position)
 		else:
-			position = TILEMAP.local_to_map(PLAYER_POS + ray_direction * RAY_LENGTH)
-			#print("not max length: ", position)
-		if(TILEMAP.get_cell_tile_data(WALL_ID, position)):
-			#erase_cell(FOG_LAYER, position)
-			scatter_erase(position)
+			pos = TILEMAP.local_to_map(PLAYER_POS + ray_direction * RAY_LENGTH)
+		
+		if(TILEMAP.get_cell_tile_data(WALL_ID, pos)):
+			path_erase(pos)
+
+func path_erase(pos: Vector2):
+	var player_pos = Vector2(PLAYER_POS.x / TILE_SIZE, PLAYER_POS.y / TILE_SIZE)
+	var start_distance = pos.distance_to(player_pos)
+	var delta = start_distance / PATH_ERASE_INTERVAL
+	var start = pos
+	#for all wall tiles
+	scatter_erase(pos)
+	while(pos.distance_to(player_pos) <= start_distance && !is_zero_approx(pos.distance_to(player_pos))):
+		#security
+		if(TILEMAP.get_cell_tile_data(WALL_ID, pos)):
+			#erase_cell way more processing power, but less accurate
+			erase_cell(FOG_LAYER, pos)
+			#scatter_erase more processing power, but more accurate
+			#scatter_erase(pos)
+		pos = pos.move_toward(player_pos, delta)
 
 func scatter_erase(pos: Vector2):
-	"""
-	var trace = pos
-	print("Collision Position: ", pos)
-	print("Player Position: ", PLAYER_POS)
-	for i in range(0, ceil(pos.distance_to(PLAYER_POS))):
-		trace = trace.move_toward(PLAYER_POS, 0.5)
-		if TILEMAP.get_cell_tile_data(WALL_ID, trace):
-			print("Trace: ", trace)
-			return
-	"""
 	for i in TILEMAP.get_surrounding_cells(pos):
 		if(TILEMAP.get_cell_tile_data(WALL_ID, i)):
 			erase_cell(FOG_LAYER, i)
