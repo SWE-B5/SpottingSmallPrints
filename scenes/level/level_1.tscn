@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx35ajh5kengc"]
+[gd_scene load_steps=8 format=3 uid="uid://dx35ajh5kengc"]
 
 [ext_resource type="Script" path="res://scripts/level/map_template.gd" id="1_7ilt5"]
 [ext_resource type="PackedScene" uid="uid://srdxuwocoxpv" path="res://scenes/custom_tile_map.tscn" id="2_nh4fa"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="3_r744i"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="4_4e50j"]
+[ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="5_3bf10"]
+[ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="6_c1i8b"]
+[ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="7_1phki"]
 
 [node name="MapTemplate" type="Node2D"]
 script = ExtResource("1_7ilt5")
@@ -24,4 +27,15 @@ layer_0/tile_data = PackedInt32Array(-327648, 65539, 1, -262112, 65539, 2, -1376
 position = Vector2(0, 0)
 
 [node name="Player" parent="." instance=ExtResource("4_4e50j")]
-position = Vector2(-1, 432)
+position = Vector2(287, -231)
+
+[node name="NormaleTruhe" parent="." instance=ExtResource("6_c1i8b")]
+position = Vector2(226, -207)
+type = 0
+"schlüssel_id" = 3
+
+[node name="tür_eckig" parent="." instance=ExtResource("5_3bf10")]
+position = Vector2(288, -278)
+
+[node name="note" parent="." instance=ExtResource("7_1phki")]
+position = Vector2(249, -208)
