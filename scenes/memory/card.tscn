@@ -104,7 +104,7 @@ texture = ExtResource("2_kshgk")
 
 [node name="obverse" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(-1, 1)
+position = Vector2(-9.83477e-07, 9.83477e-07)
 texture = ExtResource("3_jigps")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -115,9 +115,9 @@ libraries = {
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -49.0
+offset_left = -50.0
 offset_top = -49.0
-offset_right = 50.0
+offset_right = 49.0
 offset_bottom = 49.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
