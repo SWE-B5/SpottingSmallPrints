@@ -27,12 +27,12 @@ layer_0/tile_data = PackedInt32Array(-327648, 65539, 1, -262112, 65539, 2, -1376
 position = Vector2(0, 0)
 
 [node name="Player" parent="." instance=ExtResource("4_4e50j")]
+y_sort_enabled = true
 position = Vector2(287, -231)
 
 [node name="NormaleTruhe" parent="." instance=ExtResource("6_c1i8b")]
 position = Vector2(226, -207)
-type = 0
-"schlüssel_id" = 3
+type = 1
 
 [node name="tür_eckig" parent="." instance=ExtResource("5_3bf10")]
 position = Vector2(288, -278)

@@ -110,3 +110,6 @@ var collected_silver_keys = []
 
 # Gesammelte goldende Schluessel
 var collected_golden_keys = []
+
+
+
