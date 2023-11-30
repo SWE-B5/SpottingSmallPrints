@@ -7,16 +7,16 @@ var max_game_moves = 50
 
 var card = preload("res://scenes/memory/card.tscn")
 var Textures = [
-	preload("res://assets/memory/000.png"),
-	preload("res://assets/memory/001.png"),
-	preload("res://assets/memory/002.png"),
-	preload("res://assets/memory/003.png"),
-	preload("res://assets/memory/004.png"),
-	preload("res://assets/memory/005.png"),
-	preload("res://assets/memory/006.png"),
-	preload("res://assets/memory/007.png"),
-	preload("res://assets/memory/008.png"),
-	preload("res://assets/memory/009.png")
+	preload("res://assets/memory/memory_card0.png"),
+	preload("res://assets/memory/memory_card1.png"),
+	preload("res://assets/memory/memory_card2.png"),
+	preload("res://assets/memory/memory_card3.png"),
+	preload("res://assets/memory/memory_card4.png"),
+	preload("res://assets/memory/memory_card5.png"),
+	preload("res://assets/memory/memory_card6.png"),
+	preload("res://assets/memory/memory_card7.png"),
+	preload("res://assets/memory/memory_card8.png"),
+	preload("res://assets/memory/memory_card9.png")
 ]
 var cards = []
 var open_cards = []
@@ -29,6 +29,8 @@ var gameMovesLabel
 
 func _ready():
 	setupHUD()
+	var cards_container = get_node("CanvasLayer/Panel/cards") # pfad zum sprite an dem die karten spawnen
+	
 	for t in Textures:
 		var newCard = card.instantiate()
 		newCard.get_node("obverse").texture = t
@@ -43,10 +45,10 @@ func _ready():
 		for col in COL:
 			var c = cards[col + row * 5]
 			c.position = Vector2(125 * col, 125 * row)
-			add_child(c)
+			cards_container.add_child(c)
 
 func setupHUD():
-	gameMovesLabel = get_node("CanvasLayer/PanelContainerTop/VBoxContainer/HBoxContainer/counter")
+	gameMovesLabel = get_node("CanvasLayer/Panel/PanelContainerTop/VBoxContainer/HBoxContainer/counter")
 	gameMovesLabel.text = str(gameMoves)
 
 func check():
@@ -119,3 +121,7 @@ func increase_move_count():
 func load_new_memory_game():
 	get_tree().reload_current_scene()
 	print("new scene")
+	
+func card_selected(card):
+	open_cards.append(card)
+	check()
