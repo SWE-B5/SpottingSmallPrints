@@ -1,5 +1,8 @@
 extends Panel
 
+# VARIABLEN HIER ANPASSEN UND ENTSPRECHENDE METHODEN UNTEN AUSKOMMENTIEREN
+var next_scene_path = "res://path/to/your_next_scene.tscn"
+
 var rng = RandomNumberGenerator.new()
 var max_rounds = 10
 var arr = [] #Länge = max_rounds, gefüllt mit zufälligen Zahlen zwischen 0-3
@@ -9,6 +12,7 @@ var buttons =[] #Array mit allen Buttons
 var awaitingInput = false
 var currentRound = 1 
 var pointer = 0 # welche Position des Arrays grade angeklickt werden muss
+var current_round_label
 
 
 var green_texture = preload("res://assets/simonsays/buttontextures/greenbutton/greenbutton_hovered.png")
@@ -16,6 +20,7 @@ var red_texture = preload("res://assets/simonsays/buttontextures/redbutton/redbu
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	setupHUD()
 	buttons = [$BoxContainer/GreenButton,$BoxContainer/BlueButton,$BoxContainer/RedButton,$BoxContainer/YellowButton]
 	for x in max_rounds:
 		arr.append(rng.randi_range(0, buttons.size()-1))
@@ -23,9 +28,6 @@ func _ready():
 	await disableButtons();
 	await blinkAllButtons(2)
 	await StartRound()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 #disabled den Input vom User -> texture_disabled
 func disableButtons():
@@ -100,8 +102,10 @@ func checkInput(buttonIndex):
 				if currentRound < max_rounds:
 					print("Neue Runde")
 					currentRound=currentRound+1
+					setupHUD()
 					StartRound()
 				else:
+					on_all_pairs_found()
 					print("Geschafft")
 					await blinkGreen(3)
 			else:
@@ -111,6 +115,7 @@ func checkInput(buttonIndex):
 			print("Falsch, reset")
 			pointer = 0
 			currentRound=1
+			setupHUD()
 			arr =[]
 			for x in max_rounds:
 				arr.append(rng.randi_range(0, buttons.size()-1))
@@ -136,3 +141,33 @@ func _on_yellow_button_pressed():
 	if awaitingInput:
 		#print("pressed Yellow 3")
 		checkInput(3)
+
+# funktion um <q> tastendruck abzufangen 
+var is_scene_changing = false
+func _process(delta):
+	if Input.is_key_pressed(KEY_Q) and not is_scene_changing:
+		is_scene_changing = true
+		print("q")
+		# Weitere Logik für den Szenenwechsel
+		# Zum Beispiel: get_tree().change_scene(next_scene_path)
+
+# interface button 
+func _on_button_pressed():
+	# hier kann eine neue scene geladen werden 
+	# zum beispiel: get_tree().change_scene(next_scene_path)
+	print("q")
+
+# gibt anzahl der runden auf interface aus
+func setupHUD():
+	current_round_label = get_node("PanelContainerTop/VBoxContainer/HBoxContainer/counter")
+	current_round_label.text = str(currentRound)
+
+# nach timer ende wird diese funktion ausgeführt
+func _on_scene_change_timer_timeout():
+	# hier kann eine neue scene geladen werden 
+	# zum beispiel: get_tree().change_scene(next_scene_path)
+	print("Rätsel gelöst! Scene wechsel.")
+
+# startet timer zum scenen wechsel
+func on_all_pairs_found():
+	$SceneChangeTimer.start()
