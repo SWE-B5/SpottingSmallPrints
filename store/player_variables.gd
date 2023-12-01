@@ -13,9 +13,7 @@ func _process(delta):
 func jsonify():
 	return JSON.stringify({
 		"completed_levels": completed_levels,
-		"notes_collected": notes_collected,
 		"difficulty": difficulty,
-		"shield": shield
 	})
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
@@ -80,9 +78,6 @@ var current_lives: int
 var speed: int
 var active_camera: CameraTypes = CameraTypes.FOLLOW
 var difficulty: Difficulty
-
-# brauchen wir das? nö oder
-var hp: float = Constants.START_HP 
 
 # Ob der Spieler ein Schild hat oder nicht
 var shield: bool = false
