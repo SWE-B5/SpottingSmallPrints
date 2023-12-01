@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bwkl6br8k7yx4"]
+[gd_scene load_steps=15 format=3 uid="uid://bwkl6br8k7yx4"]
 
 [ext_resource type="Script" path="res://scenes/memory/memory.gd" id="1_5lp68"]
 [ext_resource type="Theme" uid="uid://dgaagtf2ilgyq" path="res://scenes/memory/raetsel_theme.tres" id="2_2kxt3"]
 [ext_resource type="StyleBox" uid="uid://buu3vm8g07k1k" path="res://assets/simonsays/paneltexture.tres" id="2_4dvq0"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="3_1hgq8"]
+[ext_resource type="PackedScene" uid="uid://c70emhr8dng6o" path="res://scenes/ui/pause_menu.tscn" id="5_02vsh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_04dpf"]
 
@@ -47,6 +48,16 @@ font = ExtResource("3_1hgq8")
 [node name="memory" type="Node2D"]
 position = Vector2(67, 63)
 script = ExtResource("1_5lp68")
+
+[node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 5
+
+[node name="PauseUI" type="Node" parent="PauseCanvasLayer"]
+process_mode = 3
+
+[node name="PauseMenu" parent="PauseCanvasLayer/PauseUI" instance=ExtResource("5_02vsh")]
+layer = 2
 
 [node name="SceneChangeTimer" type="Timer" parent="."]
 wait_time = 3.0

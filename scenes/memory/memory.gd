@@ -3,7 +3,15 @@ extends Node2D
 # VARIABLEN HIER ANPASSEN UND ENTSPRECHENDE METHODEN UNTEN AUSKOMMENTIEREN
 var memory_scene_path = "res://scenes/memory/memory.tscn"
 var next_scene_path = "res://path/to/your_next_scene.tscn"
-var max_game_moves = 50
+
+var max_game_moves
+func set_difficulty():
+	if (PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY):
+		max_game_moves = 50
+	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM):
+		max_game_moves = 30
+	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.HARD):
+		max_game_moves = 20
 
 # lade memory karten assets
 var card = preload("res://scenes/memory/card.tscn")
@@ -30,7 +38,10 @@ var gameMoves = 0
 var gameMovesLabel
 
 func _ready():
+	PlayerVariables.load_easy_game() # kann später vermutlich raus
+	set_difficulty()
 	setupHUD()
+	print(max_game_moves)
 	var cards_container = get_node("CanvasLayer/Panel/cards") # pfad zum sprite an dem die karten spawnen
 	
 	# instanziiere memory karten
