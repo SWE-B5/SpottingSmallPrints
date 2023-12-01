@@ -4,7 +4,7 @@ extends Panel
 var next_scene_path = "res://path/to/your_next_scene.tscn"
 
 var rng = RandomNumberGenerator.new()
-var max_rounds = 10
+var max_rounds
 var arr = [] #Länge = max_rounds, gefüllt mit zufälligen Zahlen zwischen 0-3
 var buttons =[] #Array mit allen Buttons
 
@@ -14,13 +14,23 @@ var currentRound = 1
 var pointer = 0 # welche Position des Arrays grade angeklickt werden muss
 var current_round_label
 
-
 var green_texture = preload("res://assets/simonsays/buttontextures/greenbutton/greenbutton_hovered.png")
 var red_texture = preload("res://assets/simonsays/buttontextures/redbutton/redbutton_hovered.png")
+
+func set_difficulty():
+	if (PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY):
+		max_rounds = 5
+	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM):
+		max_rounds = 7
+	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.HARD):
+		max_rounds = 10
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PlayerVariables.load_easy_game() # kann später vermutlich raus
 	setupHUD()
+	set_difficulty()
+	print(max_rounds)
 	buttons = [$BoxContainer/GreenButton,$BoxContainer/BlueButton,$BoxContainer/RedButton,$BoxContainer/YellowButton]
 	for x in max_rounds:
 		arr.append(rng.randi_range(0, buttons.size()-1))
