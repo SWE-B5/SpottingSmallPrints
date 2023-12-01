@@ -32,6 +32,7 @@ func _on_interact():
 		if type == truhen_typ.SCHLÜSSEL:
 			# Silbernen schluessel zu den gesammelten schluesseln hinzufuegen
 			PlayerVariables.collected_silver_keys.push_back(schlüssel_id)
+			print(PlayerVariables.collected_silver_keys)
 		if type == truhen_typ.TRANK:
 			# Fuellt den Trank des Spielers auf
 			PlayerVariables.shield = true

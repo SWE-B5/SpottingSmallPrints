@@ -30,7 +30,6 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:
 		if active_areas.size() > 0:
-			print("interact")
 			can_interact = false
 			label.hide()
 			await active_areas[0].interact.call()

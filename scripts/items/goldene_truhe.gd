@@ -30,10 +30,10 @@ func _on_interact():
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
 		if type == rätsel_typ.SIMONSAYS:
-			# Silbernen schluessel zu den gesammelten schluesseln hinzufuegen
-			PlayerVariables.collected_silver_keys.push_back(schlüssel_id)
+			# Hier Simon Says Rätsel starten
+			pass
 		if type == rätsel_typ.MEMORY:
-			# Fuellt den Trank des Spielers auf
-			PlayerVariables.shield = true
+			# Hier Memory Rätsel starten
+			pass
 		
 		

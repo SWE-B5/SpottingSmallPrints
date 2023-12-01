@@ -17,7 +17,9 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 #Schluessel Drop
 func _on_interact():
-	if is_closed && PlayerVariables.collected_silver_keys.find(id) != -1:
+	print(PlayerVariables.collected_golden_keys.find(id))
+	# Logik muss noch angepasst werden wenn die neuen Scripts für Variablen im Master sind
+	if is_closed && PlayerVariables.collected_golden_keys.find(id) != -1:
 		#Sucht nach dem passenden Schlüssel
 		is_closed = false
 		self.visible = false
