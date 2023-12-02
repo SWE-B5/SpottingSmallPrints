@@ -16,10 +16,14 @@ enum Mode {
 @onready var ACTIVATE_DEFAULT_PRESSURE_PLATE_TEXTURE = load("res://assets/lights_out/default_activated_pressure_plate.png")
 
 var current_mode = Mode.DEFAULT
+var active = true
 
 signal change_mode(mode)
 
 func _on_area_2d_body_entered(body):
+	if !active:
+		return
+	
 	if body is Player:
 		if current_mode == Mode.DEFAULT:
 			sprite.texture = ACTIVATE_DEFAULT_PRESSURE_PLATE_TEXTURE
@@ -29,6 +33,9 @@ func _on_area_2d_body_entered(body):
 			current_mode = Mode.PRESSED_ACTIVATED
 
 func _on_area_2d_body_exited(body):
+	if !active:
+		return
+	
 	if body is Player:
 		if current_mode == Mode.PRESSED_ACTIVATED:
 			sprite.texture = DEFAULT_PRESSURE_PLATE_TEXTURE
@@ -40,9 +47,15 @@ func _on_area_2d_body_exited(body):
 		change_mode.emit(current_mode)
 
 func toggle():
+	if !active:
+		return
+	
 	if current_mode == Mode.ACTIVATED:
 		sprite.texture = DEFAULT_PRESSURE_PLATE_TEXTURE
 		current_mode = Mode.DEFAULT
 	elif current_mode == Mode.DEFAULT:
 		sprite.texture = ACTIVATED_PRESSURE_PLATE_TEXTURE
 		current_mode = Mode.ACTIVATED
+
+func disable():
+	active = false
