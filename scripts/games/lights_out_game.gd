@@ -1,4 +1,5 @@
 extends Node2D
+class_name LightsOutGame
 
 func _process(delta):
 	print(is_finished())
@@ -10,6 +11,7 @@ func is_finished():
 			finished = false
 	return finished
 	
+
 func _on__mode_manually_changed_0(new_mode):
 	$"1".toggle()
 	$"3".toggle()

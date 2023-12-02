@@ -17,7 +17,7 @@ enum Mode {
 
 var current_mode = Mode.DEFAULT
 
-signal mode_manually_changed(new_mode)
+signal change_mode(mode)
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
@@ -37,7 +37,7 @@ func _on_area_2d_body_exited(body):
 			sprite.texture = ACTIVATED_PRESSURE_PLATE_TEXTURE
 			current_mode = Mode.ACTIVATED
 		
-		mode_manually_changed.emit(current_mode)
+		change_mode.emit(current_mode)
 
 func toggle():
 	if current_mode == Mode.ACTIVATED:
