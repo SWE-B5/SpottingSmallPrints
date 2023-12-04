@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c3ts1ce4hptid"]
 
 [ext_resource type="Script" path="res://scenes/memory/card.gd" id="1_fml1e"]
-[ext_resource type="Texture2D" uid="uid://cd0f7gu8l08lk" path="res://assets/memory/memory_backside.png" id="2_dtokw"]
-[ext_resource type="Texture2D" uid="uid://cqxyq0njt8f37" path="res://assets/memory/memory_card0.png" id="3_bocn4"]
+[ext_resource type="Texture2D" uid="uid://irdqd1uyrgh6" path="res://assets/memory/memory_backside.png" id="2_dtokw"]
+[ext_resource type="Texture2D" uid="uid://3m8ixch0lhg4" path="res://assets/memory/memory_card0.png" id="3_bocn4"]
 
 [sub_resource type="Animation" id="Animation_i0ons"]
 length = 0.001
