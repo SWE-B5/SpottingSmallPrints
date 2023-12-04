@@ -14,6 +14,7 @@ var currentRound = 1
 var pointer = 0 # welche Position des Arrays grade angeklickt werden muss
 var current_round_label
 
+const speed = 0.5
 var green_texture = preload("res://assets/simonsays/buttontextures/greenbutton/greenbutton_hovered.png")
 var red_texture = preload("res://assets/simonsays/buttontextures/redbutton/redbutton_hovered.png")
 
@@ -24,6 +25,8 @@ func set_difficulty():
 		max_rounds = 7
 	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.HARD):
 		max_rounds = 10
+	else:
+		max_rounds = 5
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,7 +39,7 @@ func _ready():
 		arr.append(rng.randi_range(0, buttons.size()-1))
 	currentRound = 1
 	await disableButtons();
-	await blinkAllButtons(2)
+	await blinkAllButtons(2,'')
 	await StartRound()
 
 #disabled den Input vom User -> texture_disabled
@@ -57,44 +60,30 @@ func StartRound():
 
 #Zeigt die Reihenfolge bis i an
 func ShowRound(i):
-	await  get_tree().create_timer(1).timeout
+	await  get_tree().create_timer(1,false).timeout
 	for x in i:
 		#print(arr[x])
 		buttons[arr[x]].texture_disabled = buttons[arr[x]].texture_hover
-		await  get_tree().create_timer(0.1).timeout
+		await  get_tree().create_timer(speed,false).timeout
 		buttons[arr[x]].texture_disabled = buttons[arr[x]].texture_normal
-		await  get_tree().create_timer(0.1).timeout
+		await  get_tree().create_timer(speed,false).timeout
 	
 	
 #blinkt alle Knöpfe in ihren Farben 
-func blinkAllButtons(howOften):
+func blinkAllButtons(howOften,color):
 	for i in howOften:
 		for x in buttons:
-			x.texture_disabled = x.texture_hover
-		await  get_tree().create_timer(0.5).timeout
+			if color == 'red':
+				x.texture_disabled = red_texture
+			elif color == 'green':
+				x.texture_disabled = green_texture
+			else:
+				x.texture_disabled = x.texture_hover
+		await  get_tree().create_timer(0.5,false).timeout
 		for x in buttons:
 			x.texture_disabled = x.texture_normal
-		await  get_tree().create_timer(0.5).timeout
+		await  get_tree().create_timer(0.5,false).timeout
 
-#blinkt alle Knöpfe in Rot
-func blinkRed(howOften):
-	for i in howOften:
-		for x in buttons:
-			x.texture_disabled = red_texture
-		await  get_tree().create_timer(0.5).timeout
-		for x in buttons:
-			x.texture_disabled = x.texture_normal
-		await  get_tree().create_timer(0.5).timeout	
-
-#blinkt alle Knöpfe in Grün
-func blinkGreen(howOften):
-	for i in howOften:
-		for x in buttons:
-			x.texture_disabled = green_texture
-		await  get_tree().create_timer(0.5).timeout
-		for x in buttons:
-			x.texture_disabled = x.texture_normal
-		await  get_tree().create_timer(0.5).timeout	
 
 #Rechnet den Input aus, ob er richtig ist.
 #falsch-> rot blinken, reset neue Reihenfolge
@@ -117,7 +106,7 @@ func checkInput(buttonIndex):
 				else:
 					on_all_pairs_found()
 					print("Geschafft")
-					await blinkGreen(3)
+					await blinkAllButtons(3,'green')
 			else:
 				enableButtons()
 			awaitingInput=true
@@ -129,7 +118,7 @@ func checkInput(buttonIndex):
 			arr =[]
 			for x in max_rounds:
 				arr.append(rng.randi_range(0, buttons.size()-1))
-			await blinkRed(2)
+			await blinkAllButtons(2,'red')
 			StartRound()
 
 func _on_green_button_pressed():
