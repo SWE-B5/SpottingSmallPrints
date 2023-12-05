@@ -71,3 +71,30 @@ func _on__change_mode8(new_mode):
 	$"5".toggle()
 	$"7".toggle()
 	check_game()
+
+func toggle_0():
+	$"0".toggle()
+	
+func toggle_1():
+	$"1".toggle()
+
+func toggle_2():
+	$"2".toggle()
+	
+func toggle_3():
+	$"3".toggle()
+	
+func toggle_4():
+	$"4".toggle()
+	
+func toggle_5():
+	$"5".toggle()
+	
+func toggle_6():
+	$"6".toggle()
+	
+func toggle_7():
+	$"7".toggle()
+
+func toggle_8():
+	$"8".toggle()
