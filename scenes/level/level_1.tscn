@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://drtks826wm2wu"]
+[gd_scene load_steps=5 format=3 uid="uid://dx35ajh5kengc"]
 
-[ext_resource type="Script" path="res://scripts/level/level_2.gd" id="1_tp8ra"]
+[ext_resource type="Script" path="res://scripts/level/level_1.gd" id="1_ya33k"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_mi72s"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="3_8i062"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="4_ytvme"]
 
 [node name="test_tilemap" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_tp8ra")
+script = ExtResource("1_ya33k")
 metadata/_edit_vertical_guides_ = []
 
 [node name="TileMap" parent="." instance=ExtResource("2_mi72s")]
