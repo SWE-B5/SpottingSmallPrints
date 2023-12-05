@@ -15,6 +15,6 @@ const LEVEL_1_SPAWN = Vector2(0, 0)
 const LEVEL_1_MAP_OFFSET = Vector2(0, 0)
 const LEVEL_1_MAP_ZOOM = Vector2(0.5, 0.5)
 
-const EASY_SPEED = 50
-const MEDIUM_SPEED = 30
-const HARD_SPEED = 20
+const EASY_SPEED = 100
+const MEDIUM_SPEED = 100
+const HARD_SPEED = 100
