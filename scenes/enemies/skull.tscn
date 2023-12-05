@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ct52rv75rn1xl"]
+[gd_scene load_steps=13 format=3 uid="uid://ct52rv75rn1xl"]
 
 [ext_resource type="Script" path="res://scripts/enemies/skull.gd" id="1_hvlik"]
 [ext_resource type="Texture2D" uid="uid://mno2o01f70uk" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="2_xdx6h"]
@@ -45,11 +45,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkceu"]
+radius = 8.24621
+
 [node name="skull" type="CharacterBody2D"]
 script = ExtResource("1_hvlik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5faco")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gcqtb")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_qkceu")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

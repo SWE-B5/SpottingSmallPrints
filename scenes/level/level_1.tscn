@@ -25,22 +25,36 @@ layer_0/tile_data = PackedInt32Array(-327648, 65539, 1, -262112, 65539, 2, -1376
 position = Vector2(0, 0)
 
 [node name="Player" parent="." instance=ExtResource("4_4e50j")]
-position = Vector2(-199, -375)
+position = Vector2(-225, -386)
 
-[node name="skull" parent="." instance=ExtResource("5_faho2")]
-position = Vector2(-153, -396)
+[node name="skull1" parent="." instance=ExtResource("5_faho2")]
+position = Vector2(-192, -340)
+markerid = "marker1"
 
-[node name="Marker2D" type="Marker2D" parent="." groups=["marker"]]
-position = Vector2(-161, -360)
+[node name="Marker1" type="Marker2D" parent="." groups=["marker1"]]
+position = Vector2(-210, -314)
 
-[node name="Marker2D2" type="Marker2D" parent="." groups=["marker"]]
-position = Vector2(-113, -318)
+[node name="Marker2" type="Marker2D" parent="." groups=["marker1"]]
+position = Vector2(-178, -368)
 
-[node name="Marker2D3" type="Marker2D" parent="." groups=["marker"]]
-position = Vector2(-193, -321)
+[node name="Marker3" type="Marker2D" parent="." groups=["marker1"]]
+position = Vector2(-211, -370)
 
-[node name="Marker2D4" type="Marker2D" parent="." groups=["marker"]]
-position = Vector2(-202, -393)
+[node name="Marker4" type="Marker2D" parent="." groups=["marker1"]]
+position = Vector2(-168, -315)
 
-[node name="Marker2D5" type="Marker2D" parent="." groups=["marker"]]
-position = Vector2(-118, -389)
+[node name="skull2" parent="." instance=ExtResource("5_faho2")]
+position = Vector2(-141, -407)
+markerid = "marker2"
+
+[node name="Marker5" type="Marker2D" parent="." groups=["marker2"]]
+position = Vector2(-165, -392)
+
+[node name="Marker6" type="Marker2D" parent="." groups=["marker2"]]
+position = Vector2(-165, -423)
+
+[node name="Marker7" type="Marker2D" parent="." groups=["marker2"]]
+position = Vector2(-111, -418)
+
+[node name="Marker8" type="Marker2D" parent="." groups=["marker2"]]
+position = Vector2(-125, -389)
