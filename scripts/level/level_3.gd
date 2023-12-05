@@ -9,7 +9,6 @@ func _ready():
 	fog.init($TileMap, $Player)
 	Health.reset_health() #muss bleiben
 	Inventory.update_after_death() #muss bleiben
-	Hud.reset_queue_overlay() #muss bleiben
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 static var cnt = 299 #zum testen
@@ -121,9 +120,9 @@ func _process(_delta):
 		125:
 			Inventory.use_key(Inventory.GOLD)
 		126:
-			print(Inventory.highest_found_note_id())
+			print(Inventory.number_of_notes_found())
 		127:
-			print(Inventory.highest_opened_gold_id())
+			print(Inventory.number_of_opened_gold_doors())
 		128:
 			cnt = 199
 		#inventory part 2 (HUB-MODE)

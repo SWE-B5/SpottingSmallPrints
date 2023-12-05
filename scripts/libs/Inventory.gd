@@ -37,6 +37,7 @@ func update_after_death():
 #resets silver_keys and notes from current level in inventory
 func update_after_level_completed():
 	inventory[NOTE_GLOBAL] += inventory[NOTE]
+	active_items_count[NOTE_GLOBAL] += active_items_count[NOTE]
 	update_after_death()
 
 #adds item to inventory
@@ -70,15 +71,13 @@ func check_all_notes_current_level():
 	return NOTES_PER_LEVEL <= inventory[NOTE].size()
 
 #for hub setup
-#returns the id of highest opened gold door
-#setzt vorraus, dass id's 1,2,3,4,... nummeriert sind
-func highest_opened_gold_id():
+#returns the number of opened gold doors
+func number_of_opened_gold_doors():
 	return inventory[GOLD].size() - active_items_count[GOLD]
 
 #for hub setup
-#returns the id of highest note found (after update_level_completed())
-#setzt vorraus, dass id's 1,2,3,4,... nummeriert sind
-func highest_found_note_id():
+#returns the number of notes found (AFTER update_level_completed())
+func number_of_notes_found():
 		return inventory[NOTE_GLOBAL].size()
 
 
