@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://srdxuwocoxpv" path="res://scenes/custom_tile_map.tscn" id="2_nh4fa"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="3_r744i"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="4_4e50j"]
-[ext_resource type="PackedScene" uid="uid://487jabrxyxi8" path="res://scenes/enemies/sceleton.tscn" id="5_5a40t"]
+[ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="5_faho2"]
 
 [node name="MapTemplate" type="Node2D"]
 script = ExtResource("1_7ilt5")
@@ -27,6 +27,20 @@ position = Vector2(0, 0)
 [node name="Player" parent="." instance=ExtResource("4_4e50j")]
 position = Vector2(-199, -375)
 
-[node name="sceleton" parent="." instance=ExtResource("5_5a40t")]
-position = Vector2(-183, -363)
-speed = 10
+[node name="skull" parent="." instance=ExtResource("5_faho2")]
+position = Vector2(-153, -396)
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["marker"]]
+position = Vector2(-161, -360)
+
+[node name="Marker2D2" type="Marker2D" parent="." groups=["marker"]]
+position = Vector2(-113, -318)
+
+[node name="Marker2D3" type="Marker2D" parent="." groups=["marker"]]
+position = Vector2(-193, -321)
+
+[node name="Marker2D4" type="Marker2D" parent="." groups=["marker"]]
+position = Vector2(-202, -393)
+
+[node name="Marker2D5" type="Marker2D" parent="." groups=["marker"]]
+position = Vector2(-118, -389)

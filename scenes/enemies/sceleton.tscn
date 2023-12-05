@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://487jabrxyxi8"]
+[gd_scene load_steps=18 format=3 uid="uid://487jabrxyxi8"]
 
 [ext_resource type="Script" path="res://scripts/enemies/sceleton.gd" id="1_iiiwg"]
 [ext_resource type="Texture2D" uid="uid://c8sa61c7o0w5x" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_1.png" id="2_6p5rg"]
@@ -97,7 +97,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_br1t2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r7rvj"]
+radius = 17.0294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovojm"]
 radius = 5.09902
 
 [node name="sceleton" type="CharacterBody2D"]
@@ -107,12 +110,22 @@ script = ExtResource("1_iiiwg")
 sprite_frames = SubResource("SpriteFrames_0a5y6")
 animation = &"move_left"
 
+[node name="hitbox" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_r7rvj")
+debug_color = Color(0.894118, 0.235294, 0.552941, 0.419608)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
-shape = SubResource("CircleShape2D_br1t2")
+light_mask = 17
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_ovojm")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 autostart = true
 
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

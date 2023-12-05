@@ -6,19 +6,26 @@ var current_state : enemy_state
 enum enemy_state {MOVERIGHT, MOVELEFT, MOVEUP, MOVEDOWN}
 
 func _physics_process(delta):
-	
+	if is_on_wall():
+		print('wall')
+		$Timer.start(1.5)
+		match current_state:
+			enemy_state.MOVERIGHT:
+				move_left()
+			enemy_state.MOVELEFT:
+				move_right()
+			enemy_state.MOVEUP:
+				move_down()
+			enemy_state.MOVEDOWN:
+				move_up()
 	match current_state:
 		enemy_state.MOVERIGHT:
-			sprite.animation = "move_right"
 			move_right()
 		enemy_state.MOVELEFT:
-			sprite.animation = "move_left"
 			move_left()
 		enemy_state.MOVEUP:
-			sprite.animation = "move_up"
 			move_up()
 		enemy_state.MOVEDOWN:
-			sprite.animation = "move_down"
 			move_down()
 	move_and_slide()
 
