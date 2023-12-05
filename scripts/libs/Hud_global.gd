@@ -8,7 +8,8 @@ func queue_overlay():
 	overlay_cnt += 1
 	
 func dequeue_overlay():
-	overlay_cnt += -1
+	if (overlay_cnt > 0):
+		overlay_cnt -= 1
 	
 func reset_queue_overlay():
 	overlay_cnt = 0

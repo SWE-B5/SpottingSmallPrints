@@ -30,7 +30,7 @@ func _ready():
 
 #passt Sichtbarkeit der einzelnen HUD-Elemente den aktuellen Einstellungen an
 func _process(_delta):
-	self.visible = Hud.overlay_cnt == 0
+	self.visible = Hud.overlay_cnt <= 0
 	#print(get_tree().get_current_scene().name)
 	#print("process self")
 	#print(self)
