@@ -10,7 +10,6 @@ func is_finished():
 	for plate in plates:
 		if plate.current_mode != PressurePlateLO.Mode.ACTIVATED:
 			finished = false
-	print(finished)
 	return finished
 
 func block_all_changes():
