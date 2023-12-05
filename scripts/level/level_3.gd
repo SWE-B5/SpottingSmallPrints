@@ -9,14 +9,15 @@ func _ready():
 	fog.init($TileMap, $Player)
 	Health.reset_health() #muss bleiben
 	Inventory.update_after_death() #muss bleiben
+	Hud.reset_queue_overlay() #muss bleiben
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-static var cnt = 0 #zum testen
+static var cnt = 299 #zum testen
 static var temp_save_health #zum testen
 static var temp_save_inventory #zum testen
 func _process(_delta):
 	fog.update_pos(player.position)
-	#cnt += 1
+	cnt += 1
 	match cnt:
 		#Health
 		1:

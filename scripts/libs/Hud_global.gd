@@ -10,6 +10,9 @@ func queue_overlay():
 func dequeue_overlay():
 	overlay_cnt += -1
 	
+func reset_queue_overlay():
+	overlay_cnt = 0
+	
 const HUB_NAME = "Level"
 #HUD shown if equal to 0
 static var overlay_cnt: int = 0
