@@ -1,37 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://c70emhr8dng6o"]
+[gd_scene load_steps=6 format=3 uid="uid://c70emhr8dng6o"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_tk502"]
-[ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="2_3jpwi"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_v6hhf"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="3_k4vqs"]
+[ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="3_w0o4f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0a32"]
+shader = ExtResource("1_v6hhf")
+shader_parameter/blur = 2.191
+shader_parameter/brightness = 0.345
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_tk502")
 
+[node name="BlurBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g0a32")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="BackgroundV1" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 scale = Vector2(1.32419, 1.32419)
-texture = ExtResource("2_3jpwi")
+texture = ExtResource("3_w0o4f")
 
 [node name="Label" type="Label" parent="."]
-layout_direction = 2
-offset_left = 523.0
-offset_top = 444.0
-offset_right = 1403.0
-offset_bottom = 487.0
+offset_left = 561.0
+offset_top = 461.0
+offset_right = 1089.0
+offset_bottom = 488.0
+scale = Vector2(1.45704, 1.54657)
 theme_override_fonts/font = ExtResource("3_k4vqs")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 24
 text = "PAUSE"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 43.0
-offset_right = 1.0
-offset_bottom = 43.0
+offset_top = 65.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -54,9 +65,9 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 24
-text = "Fortsetzen"
+text = "Spiel fortsetzen"
 
-[node name="MenuButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 24
