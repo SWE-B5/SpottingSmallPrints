@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb46ffsrq3rri"]
+
+[ext_resource type="Texture2D" uid="uid://bbid1mgsuqd5y" path="res://assets/utils/Multiplikation.png" id="1_ncg2a"]
+
+[node name="multiplikation_panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(72, 112)
+offset_right = 72.0
+offset_bottom = 112.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("1_ncg2a")
+centered = false
