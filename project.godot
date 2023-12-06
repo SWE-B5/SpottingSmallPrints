@@ -19,6 +19,9 @@ config/icon="res://icon.svg"
 
 Constants="*res://store/constants.gd"
 PlayerVariables="*res://store/player_variables.gd"
+Health="*res://scripts/libs/Health.gd"
+Inventory="*res://scripts/libs/Inventory.gd"
+Hud="*res://scripts/libs/Hud_global.gd"
 
 [display]
 

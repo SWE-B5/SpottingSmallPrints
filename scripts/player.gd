@@ -8,11 +8,14 @@ enum MovementState { WALK, IDLE }
 @onready var follow_camera = $FollowCamera
 var direction: Direction = Direction.DOWN
 
+
 func _ready():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
 func _process(delta):
 	handle_movement_input()
+	if PlayerVariables.immunity_frames > 0:
+		PlayerVariables.immunity_frames -= delta
 
 func handle_movement_input():
 	if PlayerVariables.immobile:

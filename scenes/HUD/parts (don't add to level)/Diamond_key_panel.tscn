@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlc701wuhd0qn"]
+
+[ext_resource type="Texture2D" uid="uid://bs4sl682fx8w2" path="res://assets/pixel_dungeon/customs/DiaSchluessel.png" id="1_v5jbn"]
+
+[node name="Diamond_key_panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(112, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-29, -24)
+scale = Vector2(10, 10)
+texture = ExtResource("1_v5jbn")
+centered = false

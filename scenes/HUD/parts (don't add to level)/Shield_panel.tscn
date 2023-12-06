@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1g66si1aqgqt"]
+
+[ext_resource type="Texture2D" uid="uid://ue6fv8ur831q" path="res://assets/pixel_dungeon/items and trap_animation/flasks/flasks_3_2.png" id="1_5doqq"]
+
+[node name="Shield_panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(112, 112)
+offset_right = 112.0
+offset_bottom = 112.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -12)
+scale = Vector2(8, 8)
+texture = ExtResource("1_5doqq")
+centered = false

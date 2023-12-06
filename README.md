@@ -34,10 +34,12 @@ extends Node2D
 @onready var player = $Player
 @onready var fog = $Fog
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	fog.draw()
-	fog.remove_standart_circle(player.position)
-
+	PlayerVariables.load_easy_game()
+	fog.init($TileMap, $Player)
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	fog.tick(player.position)
+	fog.update_pos(player.position)
 ``` 
