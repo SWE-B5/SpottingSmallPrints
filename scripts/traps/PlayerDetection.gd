@@ -3,13 +3,9 @@ extends Area2D
 var ACTIVE: bool
 var ACTIVATION_TIME: float
 var DEVIATION: float
-const SPEED_FACTOR = 0.002
-const DEVIATION_FACTOR = 0.2
+const SPEED_FACTOR = 0.004
+const DEVIATION_FACTOR = 0.5
 var RANDOMIZER = RandomNumberGenerator.new()
-
-func _ready():
-	$AnimationPlayer.play("flamethrower_trap")
-	$AnimationPlayer.stop()
 
 func _on_body_entered(body):
 	ACTIVATION_TIME = PlayerVariables.speed * SPEED_FACTOR
@@ -29,4 +25,4 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_timer_timeout():
 	ACTIVE = true
-	$AnimationPlayer.play()
+	$AnimationPlayer.play("flamethrower_trap")

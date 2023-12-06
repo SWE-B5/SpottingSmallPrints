@@ -34,7 +34,29 @@ position = Vector2(-40, -96)
 [node name="Spikes4" parent="." instance=ExtResource("5_ibvwb")]
 position = Vector2(-40, -112)
 
+[node name="Flamethrower4" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(-232, -64)
+rotation = -1.5708
+
+[node name="Flamethrower3" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(-232, -80)
+rotation = -1.5708
+
+[node name="Flamethrower2" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(-184, -96)
+rotation = -1.5708
+
 [node name="Flamethrower" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-72, -120)
+position = Vector2(-184, -112)
+rotation = -1.5708
+
+[node name="Flamethrower5" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(-296, -112)
+
+[node name="Flamethrower6" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(-312, -112)
+
+[node name="Flamethrower7" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(-328, -112)
 
 [editable path="Fog"]
