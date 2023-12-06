@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cg0a3x4bucb1n" path="res://assets/pixel_dungeon/items and trap_animation/peaks/peaks.png" id="2_37756"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jchsy"]
-size = Vector2(16, 14)
+size = Vector2(14, 14)
 
 [sub_resource type="Animation" id="Animation_45je7"]
 length = 0.001

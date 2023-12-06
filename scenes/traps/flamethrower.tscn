@@ -1,0 +1,201 @@
+[gd_scene load_steps=7 format=3 uid="uid://m5k8w8y5lkaj"]
+
+[ext_resource type="Script" path="res://scripts/traps/flamethrower.gd" id="1_7556i"]
+[ext_resource type="Texture2D" uid="uid://ditjpidaa6b4l" path="res://assets/pixel_dungeon/items and trap_animation/flamethrower/flamethrower_trap.png" id="1_whg4x"]
+[ext_resource type="Script" path="res://scripts/traps/PlayerDetection.gd" id="2_neqt0"]
+
+[sub_resource type="Animation" id="Animation_54mml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerDetection/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Frame2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Frame1:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Frame3:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Frame4:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w1vrd"]
+resource_name = "flamethrower_trap"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerDetection/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0217741, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Frame2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Frame1:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Frame3:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Frame4:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1yr5"]
+_data = {
+"RESET": SubResource("Animation_54mml"),
+"flamethrower_trap": SubResource("Animation_w1vrd")
+}
+
+[node name="Flamethrower" type="Area2D"]
+top_level = true
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_7556i")
+
+[node name="Frame1" type="CollisionPolygon2D" parent="."]
+light_mask = 0
+visibility_layer = 16
+polygon = PackedVector2Array(-7, -5, 0, 2, 7, -5, 5, -8, -6, -8)
+disabled = true
+
+[node name="Frame2" type="CollisionPolygon2D" parent="."]
+light_mask = 0
+visibility_layer = 16
+polygon = PackedVector2Array(7, 0, 0, 6, -7, 1, -7, -5, -4, -7, 4, -7, 7, -5)
+disabled = true
+
+[node name="Frame3" type="CollisionPolygon2D" parent="."]
+light_mask = 0
+visibility_layer = 16
+polygon = PackedVector2Array(-6, -5, -8, 4, 0, 9, 7, 4, 5, -5, 0, -5)
+disabled = true
+
+[node name="Frame4" type="CollisionPolygon2D" parent="."]
+light_mask = 0
+visibility_layer = 16
+polygon = PackedVector2Array(-8, 5, -6, 9, -1, 13, 6, 9, 8, 5, 5, -7, -5, -7)
+disabled = true
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_neqt0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerDetection"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_u1yr5")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerDetection"]
+y_sort_enabled = true
+texture = ExtResource("1_whg4x")
+hframes = 6
+frame = 1
+
+[node name="Timer" type="Timer" parent="PlayerDetection"]
+one_shot = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetection"]
+light_mask = 0
+visibility_layer = 16
+polygon = PackedVector2Array(0, -8, -40, 0, -32, 40, 0, 56, 32, 40, 40, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerDetection" to="PlayerDetection" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="PlayerDetection" method="_on_body_exited"]
+[connection signal="animation_finished" from="PlayerDetection/AnimationPlayer" to="PlayerDetection" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="PlayerDetection/Timer" to="PlayerDetection" method="_on_timer_timeout"]
