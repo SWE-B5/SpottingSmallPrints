@@ -5,7 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PlayerVariables.load_easy_game()
+	PlayerVariables.load_medium_game()
 	fog.init($TileMap, $Player)
 	Health.reset_health() #muss bleiben
 	Inventory.update_after_death() #muss bleiben
