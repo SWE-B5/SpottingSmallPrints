@@ -5,7 +5,7 @@ const FOG_LAYER = 0
 const FOG_START = 3
 const WALL_ID = 1
 const COLLISION_ID = 1
-const NUM_RAYS = (360 / 4) * 0.5
+const NUM_RAYS = (360 / 4) * 0.35
 const RAYS_INC = (360 / NUM_RAYS)
 #RAY_OFFSET very delicate and is related to collision box sizes
 const RAY_OFFSET = 10
@@ -38,7 +38,8 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	#init_timer()
 
 func update_pos(pos):
-	PLAYER_POS = pos
+	#print("player pos: ", pos)
+	PLAYER_POS = Vector2(pos.x, pos.y + 8)
 
 func _physics_process(delta):
 	var pos = PLAYER_POS
@@ -60,6 +61,8 @@ func _physics_process(delta):
 		
 		if(TILEMAP.get_cell_tile_data(WALL_ID, pos)):
 			path_erase(pos)
+	#erase_cell(FOG_LAYER, Vector2(-38, -1))
+	#erase_cell(FOG_LAYER, Vector2(-37, -2))
 
 func path_erase(pos: Vector2):
 	var player_pos = Vector2(PLAYER_POS.x / TILE_SIZE, PLAYER_POS.y / TILE_SIZE)
@@ -68,21 +71,39 @@ func path_erase(pos: Vector2):
 	var start = pos
 	#for all wall tiles
 	scatter_erase(pos)
+	
+	#if(pos.distance_squared_to(Vector2(-38, -1)) < 4):
+	#	print("close to corner", pos)
+	
 	while(pos.distance_to(player_pos) <= start_distance && !is_zero_approx(pos.distance_to(player_pos))):
 		#security
 		if(TILEMAP.get_cell_tile_data(WALL_ID, pos)):
-			#erase_cell way more processing power, but less accurate
+			#erase_cell less processing power, but less accurate
 			erase_cell(FOG_LAYER, pos)
 			revealed_tiles[stringify_vector(pos)] = ''
 			#scatter_erase more processing power, but more accurate
 			#scatter_erase(pos)
 		pos = pos.move_toward(player_pos, delta)
 
+func get_cardinals(pos: Vector2): 
+	var cardinals = [
+		Vector2(pos.x, pos.y - 1),
+		Vector2(pos.x, pos.y + 1),
+		Vector2(pos.x - 1, pos.y),
+		Vector2(pos.x + 1, pos.y)
+	]
+	return cardinals
+
 func scatter_erase(pos: Vector2):
 	for i in TILEMAP.get_surrounding_cells(pos):
+	#for i in get_cardinals(pos):
 		if(TILEMAP.get_cell_tile_data(WALL_ID, i)):
 			erase_cell(FOG_LAYER, i)
 			revealed_tiles[stringify_vector(i)] = ''
+	var bottom_left_corner = Vector2i(pos.x - 1, pos.y + 1)
+	if(TILEMAP.get_cell_tile_data(WALL_ID, bottom_left_corner) && !TILEMAP.get_cell_tile_data(WALL_ID, Vector2i(pos.x - 2, pos.y + 2))):
+		erase_cell(FOG_LAYER, bottom_left_corner)
+		revealed_tiles[stringify_vector(bottom_left_corner)] = ''
 
 func save_fog():
 	var file = FileAccess.open(get_file_path(), FileAccess.WRITE)
