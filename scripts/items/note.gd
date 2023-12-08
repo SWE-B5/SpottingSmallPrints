@@ -13,12 +13,16 @@ enum note_type {LEVEL, HUB}
 
 @onready var collected = false
 
+const lines : Array[String]= ["Du hast eine Note gefunden", "Das ist die zweite Line"]
+
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 #Notiz aufsammeln
 func _on_interact():
 	if !collected:
 		if type == note_type.LEVEL:
+			var resource = load("res://dialogs/note_dialog.dialogue")
+			DialogueManager.show_dialogue_balloon(resource, "Note")
 			#Hier muss noch der Dialog abgespielt werden
 			collected = true
 			# Interaktion mit Truhe deaktivieren
