@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfmxy6x23j4ec"]
+
+[ext_resource type="Texture2D" uid="uid://c14a5xpecdc8n" path="res://assets/pixel_dungeon/items and trap_animation/arrow/arrow_2.png" id="1_fsp3o"]
+[ext_resource type="Script" path="res://scripts/traps/dispenser.gd" id="1_xiwwd"]
+
+[node name="dispenser" type="Node2D"]
+script = ExtResource("1_xiwwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+z_index = 1
+texture = ExtResource("1_fsp3o")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
