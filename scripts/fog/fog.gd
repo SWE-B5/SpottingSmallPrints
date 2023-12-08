@@ -85,12 +85,12 @@ func path_erase(pos: Vector2):
 			#scatter_erase(pos)
 		pos = pos.move_toward(player_pos, delta)
 
-func get_cardinals(pos: Vector2): 
+func get_cardinals(pos: Vector2i): 
 	var cardinals = [
-		Vector2(pos.x, pos.y - 1),
-		Vector2(pos.x, pos.y + 1),
-		Vector2(pos.x - 1, pos.y),
-		Vector2(pos.x + 1, pos.y)
+		Vector2i(pos.x, pos.y - 1),
+		Vector2i(pos.x, pos.y + 1),
+		Vector2i(pos.x - 1, pos.y),
+		Vector2i(pos.x + 1, pos.y)
 	]
 	return cardinals
 
