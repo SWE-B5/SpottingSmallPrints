@@ -35,6 +35,8 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	
 	if FileAccess.file_exists(get_file_path()):
 		load_fog()
+		var dir = DirAccess.open("user://")
+		dir.remove(get_file_path())
 	#init_timer()
 
 func update_pos(pos):
@@ -42,11 +44,11 @@ func update_pos(pos):
 	PLAYER_POS = Vector2(pos.x, pos.y + 8)
 
 func _physics_process(delta):
-	var pos = PLAYER_POS
-	var space_state = TILEMAP.get_world_2d().direct_space_state
-
 	if(PLAYER_POS == null):
 		return
+	
+	var pos = PLAYER_POS
+	var space_state = TILEMAP.get_world_2d().direct_space_state
 
 	for i in range(NUM_RAYS):
 		var angle = deg_to_rad(RAYS_INC * i)
@@ -61,8 +63,6 @@ func _physics_process(delta):
 		
 		if(TILEMAP.get_cell_tile_data(WALL_ID, pos)):
 			path_erase(pos)
-	#erase_cell(FOG_LAYER, Vector2(-38, -1))
-	#erase_cell(FOG_LAYER, Vector2(-37, -2))
 
 func path_erase(pos: Vector2):
 	var player_pos = Vector2(PLAYER_POS.x / TILE_SIZE, PLAYER_POS.y / TILE_SIZE)
