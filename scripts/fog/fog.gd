@@ -101,7 +101,7 @@ func scatter_erase(pos: Vector2):
 			erase_cell(FOG_LAYER, i)
 			revealed_tiles[stringify_vector(i)] = ''
 	var bottom_left_corner = Vector2i(pos.x - 1, pos.y + 1)
-	if(TILEMAP.get_cell_tile_data(WALL_ID, bottom_left_corner)):
+	if(TILEMAP.get_cell_tile_data(WALL_ID, bottom_left_corner) && !TILEMAP.get_cell_tile_data(WALL_ID, Vector2i(pos.x - 2, pos.y + 2))):
 		erase_cell(FOG_LAYER, bottom_left_corner)
 		revealed_tiles[stringify_vector(bottom_left_corner)] = ''
 
