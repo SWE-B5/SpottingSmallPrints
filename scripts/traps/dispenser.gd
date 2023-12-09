@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 var ARROW = preload("res://scenes/traps/projectiles/arrow.tscn")
 var TILEMAP: TileMap
