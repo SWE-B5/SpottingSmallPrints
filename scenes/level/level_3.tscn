@@ -64,7 +64,7 @@ position = Vector2(-312, -112)
 position = Vector2(-328, -112)
 
 [node name="dispenser" parent="." instance=ExtResource("8_w8w8t")]
-position = Vector2(24, -184)
+position = Vector2(-8, -328)
 rotation = 1.5708
 
 [editable path="Fog"]

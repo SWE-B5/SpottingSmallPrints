@@ -2,9 +2,10 @@ extends Node2D
 
 var ARROW = preload("res://scenes/traps/projectiles/arrow.tscn")
 var TILEMAP: TileMap
-var RAY_LENGTH = 4000
-var WALL_FOUND = false
-const COLLISION_LAYER = 1
+var RAY_LENGTH = 800
+#var WALL_FOUND = false
+#collision layer as binary bits for 5th position
+const COLLISION_LAYER = 16
 var ACTIVE = false
 
 func _ready():
@@ -12,10 +13,6 @@ func _ready():
 
 func _on_timer_timeout():
 	ACTIVE = false
-	var arrowInstance = ARROW.instantiate() as Node2D
-	arrowInstance.global_position = Vector2i(self.global_position.x, self.global_position.y + 8)
-	arrowInstance.init(self.rotation)
-	get_parent().add_child(arrowInstance)
 	
 func _physics_process(delta):
 	var space_state = TILEMAP.get_world_2d().direct_space_state
@@ -24,9 +21,17 @@ func _physics_process(delta):
 	var ray = space_state.intersect_ray(query)
 	
 	if ray && !ACTIVE:
-		if(ray["collider"].get_class() != "TileMap"):
-			ACTIVE = true
-			$Timer.start()
-		elif(ray["collider"].get_class() == "TileMap" && !WALL_FOUND):
-			WALL_FOUND = true
-			RAY_LENGTH = ray["position"].distance_to(self.global_position)
+		#if(ray["collider"].get_class() != "TileMap"):
+		ACTIVE = true
+		$Timer.start()
+		fire_arrow()
+		#elif(!WALL_FOUND && ray["collider"].get_class() == "TileMap"):
+		#	print("wall hit")
+		#	WALL_FOUND = true
+		#	RAY_LENGTH = ray["position"].distance_to(self.global_position)
+
+func fire_arrow():
+	var arrowInstance = ARROW.instantiate() as Node2D
+	arrowInstance.global_position = Vector2i(self.global_position.x, self.global_position.y + 8)
+	arrowInstance.init(self.rotation, arrowInstance.global_position)
+	get_parent().add_child(arrowInstance)
