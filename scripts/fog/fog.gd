@@ -46,6 +46,9 @@ func update_pos(pos):
 func _physics_process(delta):
 	if(PLAYER_POS == null):
 		return
+		
+	if TILEMAP == null:
+		return
 	
 	var pos = PLAYER_POS
 	var space_state = TILEMAP.get_world_2d().direct_space_state
