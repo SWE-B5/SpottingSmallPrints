@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/traps/flamethrower.gd" id="1_7556i"]
 [ext_resource type="Texture2D" uid="uid://ditjpidaa6b4l" path="res://assets/pixel_dungeon/items and trap_animation/flamethrower/flamethrower_trap.png" id="1_whg4x"]
-[ext_resource type="Script" path="res://scripts/traps/PlayerDetection.gd" id="2_neqt0"]
+[ext_resource type="Script" path="res://scripts/traps/misc/PlayerDetection.gd" id="2_neqt0"]
 
 [sub_resource type="Animation" id="Animation_54mml"]
 length = 0.001

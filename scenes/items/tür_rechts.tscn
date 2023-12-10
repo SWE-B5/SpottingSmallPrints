@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://k1jrqqjkdxlh"]
+
+[ext_resource type="Script" path="res://scripts/items/tür_eckig.gd" id="1_xefr5"]
+[ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="2_vamhg"]
+[ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="3_05icb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u7k1"]
+atlas = ExtResource("2_vamhg")
+region = Rect2(0, 16, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyqyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u7k1")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0reds"]
+size = Vector2(6, 31.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pvkv"]
+radius = 25.4951
+
+[node name="TürRechts" type="StaticBody2D"]
+z_index = 2
+script = ExtResource("1_xefr5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kyqyf")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_0reds")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_05icb")]
+collision_mask = 16
+action_name = "<E> Tür öffnen"
+
+[node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
+z_index = 2
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_6pvkv")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ewhc8vnu7phk"]
+
+[ext_resource type="Script" path="res://scripts/items/goldene_truhe.gd" id="1_epo18"]
+[ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="1_gmu1x"]
+[ext_resource type="Texture2D" uid="uid://bvoi3u0igh0ud" path="res://assets/pixel_dungeon/character and tileset/Dungeon_Tileset.png" id="2_linch"]
+[ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="4_vehks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3i3f"]
+atlas = ExtResource("1_gmu1x")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohpxk"]
+atlas = ExtResource("2_linch")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7emc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3i3f")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohpxk")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqe5m"]
+size = Vector2(14, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhna6"]
+radius = 20.0
+
+[node name="GoldeneTruhe" type="StaticBody2D"]
+z_index = 2
+script = ExtResource("1_epo18")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7emc8")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lqe5m")
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_vehks")]
+collision_mask = 16
+
+[node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_uhna6")
