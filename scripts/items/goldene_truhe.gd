@@ -1,9 +1,9 @@
 
 extends StaticBody2D
 
-enum truhen_typ {SCHLÜSSEL, TRANK}
+enum rätsel_typ {SIMONSAYS, MEMORY}
 
-@export var type : truhen_typ
+@export var type : rätsel_typ
 #Speichert die ID des Schluessel der gedropped wird
 @export var schlüssel_id = 0
 
@@ -20,7 +20,7 @@ enum truhen_typ {SCHLÜSSEL, TRANK}
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	sprite.animation =  "closed"
-# Funktion wird ausgeführt wenn Spieler mit der Truhe interagiert
+#Schluessel Drop
 func _on_interact():
 	if is_closed:
 		#Hier muss noch der Dialog abgespielt werden
@@ -29,15 +29,14 @@ func _on_interact():
 		detecion_area.disabled = true
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
-		if type == truhen_typ.SCHLÜSSEL:
-			# Silbernen schluessel zu den gesammelten schluesseln hinzufuegen
-			Inventory.collect_item(Inventory.Item_Type.SILVER, schlüssel_id)
-			print(Inventory.inventory)
-		if type == truhen_typ.TRANK:
-			# Überprüfen ob Schildtrank schon aktiv ist
-			if Health.check_shield_possible():
-				# Wenn nicht, Schildtrank auffüllen
-				Health.apply_shield()
-				print(Health.shield)
+		if type == rätsel_typ.SIMONSAYS:
+			# Hier Simon Says Rätsel starten
+			# Schluessel wird nach erfolgreichem Raetsel eingesammelt
+			Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+		if type == rätsel_typ.MEMORY:
+			# Hier Memory Rätsel starten
+			# Schluessel wird nach erfolgreichem Raetsel eingesammelt
+			Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+		print(Inventory)
 		
 		

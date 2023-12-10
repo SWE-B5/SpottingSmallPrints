@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = get_tree().get_first_node_in_group("Player")
 @onready var label = $Label
 @onready var active_areas = []
 @onready var can_interact = true
@@ -10,11 +10,13 @@ extends Node2D
 
 func register_area(area : InteractionArea):
 	active_areas.push_back(area)
+	print(active_areas)
 	
 func unregister_area(area : InteractionArea):
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
+	print(active_areas)
 		
 func _process(delta):
 	if active_areas.size() > 0 && can_interact:
@@ -30,7 +32,7 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:
 		if active_areas.size() > 0:
-			print("interact")
+			print('interact')
 			can_interact = false
 			label.hide()
 			await active_areas[0].interact.call()

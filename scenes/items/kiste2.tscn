@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dogt4bojrpokm"]
+[gd_scene load_steps=8 format=3 uid="uid://bh1cb83sn48km"]
 
 [ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="2_2xvlf"]
 [ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="3_wmr4e"]

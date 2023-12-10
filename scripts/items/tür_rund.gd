@@ -19,10 +19,8 @@ func _ready():
 func _on_interact():
 	
 	# Überprüft ob man den passenden Schlüssel hat
-	if is_closed && Inventory.check_key(Inventory.Item_Type.SILVER, id):
-		# Schlüssel wird benutzt
-		Inventory.use_key(Inventory.Item_Type.SILVER)
-		# Tür deaktivieren
+	if is_closed && Inventory.check_key(Inventory.Item_Type.GOLD, id):
+		#Sucht nach dem passenden Schlüssel
 		is_closed = false
 		self.visible = false
 		collisionshape.queue_free()
