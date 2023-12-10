@@ -105,8 +105,8 @@ var notes_collected = []
 # Die Notes die wir gerade im Level gespeichert haben
 var current_level_collected_notes = []
 
-# Gesammelte silberne Schluessel
-var collected_silver_keys = []
+# Immunity Frames
+var immunity_frames: float
 
-# Gesammelte goldende Schluessel
-var collected_golden_keys = []
+# Immunity Duration
+const immunity_duration = 1.2
