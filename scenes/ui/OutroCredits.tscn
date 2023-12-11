@@ -1,0 +1,189 @@
+[gd_scene load_steps=6 format=3 uid="uid://cklkd2a0380p3"]
+
+[ext_resource type="Script" path="res://scripts/ui/OutroCredits_script.gd" id="1_tpdn5"]
+[ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="2_yskrm"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_eg8le"]
+[ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="4_0ayxk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys4w5"]
+shader = ExtResource("3_eg8le")
+shader_parameter/blur = 0.674
+shader_parameter/brightness = 0.764
+
+[node name="OutroCredits" type="CanvasLayer"]
+script = ExtResource("1_tpdn5")
+
+[node name="BackgroundV1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.32419, 1.32419)
+texture = ExtResource("2_yskrm")
+
+[node name="BlurBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ys4w5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Outro" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Label5" type="Label" parent="Outro"]
+offset_left = 195.0
+offset_top = 100.0
+offset_right = 1755.0
+offset_bottom = 760.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = " §16
+
+Findet der Neuling selbstständig auf dem Labyrinth, 
+
+so gilt seine Prüfung als bestanden.
+
+
+Alle Mitglieder des Ordens mögen ihn auf der anderen
+
+Seite der Dimanttür empfangen.
+
+
+Das älteste Mitglied möge ihm seine neue Robe
+
+überreichen und ihn im Orden willkommen heißen.
+
+
+Er ist nur berechtigt an den Sitzungen des Ordens
+
+am großen Tisch teilzunehmen."
+
+[node name="CenterContainer2" type="CenterContainer" parent="Outro"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 920.0
+offset_right = -300.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Outro/CenterContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outro/CenterContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outro/CenterContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="Outro/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 24
+text = "Zu den Credits"
+
+[node name="Credits" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Label3" type="Label" parent="Credits"]
+offset_top = 100.0
+offset_right = 1920.0
+offset_bottom = 445.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 60
+text = "Danke fürs Spielen."
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
+offset_left = 210.0
+offset_top = 215.0
+offset_right = 1710.0
+offset_bottom = 865.0
+theme_override_fonts/normal_font = ExtResource("4_0ayxk")
+theme_override_fonts/bold_font = ExtResource("4_0ayxk")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 40
+text = "Creditstesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+
+Credits
+"
+
+[node name="CenterContainer3" type="CenterContainer" parent="Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 920.0
+offset_right = -300.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Credits/CenterContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/CenterContainer3/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer3/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Hauptmenu" type="Button" parent="Credits/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 24
+text = "Zum Hauptmenü"
+
+[connection signal="pressed" from="Outro/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Credits/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer/Hauptmenu" to="." method="_on_hauptmenu_pressed"]
