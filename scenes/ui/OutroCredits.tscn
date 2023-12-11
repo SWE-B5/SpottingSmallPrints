@@ -28,6 +28,7 @@ grow_vertical = 2
 
 [node name="Outro" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="Label5" type="Label" parent="Outro"]
 offset_left = 195.0
@@ -63,9 +64,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 300.0
-offset_top = 920.0
+offset_top = 940.0
 offset_right = -300.0
-offset_bottom = -60.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -92,75 +93,121 @@ text = "Zu den Credits"
 
 [node name="Credits" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
-[node name="Label3" type="Label" parent="Credits"]
-offset_top = 100.0
-offset_right = 1920.0
-offset_bottom = 445.0
+[node name="titel" type="Label" parent="Credits"]
+anchors_preset = -1
+anchor_left = 0.325
+anchor_top = 0.044
+anchor_right = 0.325
+anchor_bottom = 0.044
+offset_left = 7.99994
+offset_top = 0.479996
+offset_right = 673.0
+offset_bottom = 79.48
 theme_override_fonts/font = ExtResource("4_0ayxk")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 35
 text = "Danke fürs Spielen."
+
+[node name="credits" type="TextEdit" parent="Credits"]
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 1860.0
+offset_bottom = 920.0
+
+[node name="team_mitglieder" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 30.0
+offset_right = 870.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = "Team Mitglieder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="auftraggeber" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 930.0
+offset_top = 30.0
+offset_right = 1740.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = "Auftraggeber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lizenzen" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 420.0
+offset_right = 1740.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = "Lizenzen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lizenzen_text" type="TextEdit" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 480.0
+offset_right = 1740.0
+offset_bottom = 740.0
+
+[node name="team_namen" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 90.0
+offset_right = 870.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 22
+text = "
+Amro Elsaadany
+Benedikt Schmitz
+Julius Boeder
+Kilian Wiesen
+Leon Frings
+Marc Spitzfaden
+Martin Packbier
+Til Zölzer
+Till Voss
+Wei-Ting Chang"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
-offset_left = 210.0
-offset_top = 215.0
-offset_right = 1710.0
-offset_bottom = 865.0
-theme_override_fonts/normal_font = ExtResource("4_0ayxk")
-theme_override_fonts/bold_font = ExtResource("4_0ayxk")
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 40
-text = "Creditstesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-
-Credits
-"
+[node name="namen" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 930.0
+offset_top = 90.0
+offset_right = 1740.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 22
+text = "
+AppVenture
+	
+Fabian Ferrari
+Hannes Gierth
+Jonah HeisterKamp"
+horizontal_alignment = 1
 
 [node name="CenterContainer3" type="CenterContainer" parent="Credits"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 300.0
-offset_top = 920.0
+offset_top = 940.0
 offset_right = -300.0
-offset_bottom = -60.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -15,7 +15,7 @@ func jsonify():
 		"completed_levels": completed_levels,
 		"notes_collected": notes_collected,
 		"difficulty": difficulty,
-		"shield": shield
+		"health": Health.get_for_save()
 	})
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
@@ -39,7 +39,7 @@ func load_from_path(path: String):
 	
 	completed_levels = obj.completed_levels
 	notes_collected = obj.notes_collected
-	shield = obj.shield
+	Health.set_for_load(obj.health)
 	return true
 	
 # Speichert die Daten zu einem bestimmten Path
@@ -48,44 +48,38 @@ func save_to_path(path: String):
 	file.store_line(jsonify())
 
 func generate_hard_game():
+	Health.reset_health(3, Health.INACTIVE)
 	load_hard_game()
 	
 func generate_medium_game():
+	Health.reset_health(2, Health.INACTIVE)
 	load_medium_game()
 	
 func generate_easy_game():
+	Health.reset_health(1, Health.INACTIVE)
 	load_easy_game()
 	
 func load_easy_game():
 	difficulty = Difficulty.EASY
 	speed = Constants.EASY_SPEED
-	max_lives = 3
-	current_lives = 3
+	
 	
 func load_medium_game():
 	difficulty = Difficulty.MEDIUM
 	speed = Constants.MEDIUM_SPEED
-	max_lives = 2
-	current_lives = 2
+	
 
 func load_hard_game():
 	difficulty = Difficulty.HARD
 	speed = Constants.HARD_SPEED
-	max_lives = 1
-	current_lives = 1
+	
 
-var max_lives: int
-var current_lives: int
 
 var speed: int
 var active_camera: CameraTypes = CameraTypes.FOLLOW
 var difficulty: Difficulty
 
-# brauchen wir das? nö oder
-var hp: float = Constants.START_HP 
 
-# Ob der Spieler ein Schild hat oder nicht
-var shield: bool = false
 
 # Je höher das Zoom Niveau ist desto mehr reingezoomt ist der Spieler
 var zoom_niveau: float = 5

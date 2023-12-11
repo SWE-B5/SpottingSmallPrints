@@ -195,17 +195,17 @@ text = "Spiel beenden"
 
 [node name="ConfirmationScreen" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="Label" type="Label" parent="ConfirmationScreen"]
-offset_left = 585.0
+offset_left = 60.0
 offset_top = 625.0
-offset_right = 1335.0
-offset_bottom = 658.0
+offset_right = 1860.0
+offset_bottom = 685.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 30
 text = "Sicher, dass du das Spiel beenden möchtest?"
+horizontal_alignment = 1
 uppercase = true
 
 [node name="CenterContainer" type="CenterContainer" parent="ConfirmationScreen"]
