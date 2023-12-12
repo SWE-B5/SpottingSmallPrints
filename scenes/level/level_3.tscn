@@ -15,10 +15,41 @@
 [ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="9_qu8x2"]
 [ext_resource type="PackedScene" uid="uid://bmc65gjk84m30" path="res://scenes/items/tür_links.tscn" id="13_5spip"]
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="15_ucguw"]
-[ext_resource type="Script" path="res://scripts/enemies/sceleton2.gd" id="16_4ypf8"]
 [ext_resource type="Texture2D" uid="uid://cjtgcucbk56ni" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_2.png" id="17_bb5hf"]
 [ext_resource type="Texture2D" uid="uid://cqa5b0guw7bqm" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_3.png" id="18_wicol"]
 [ext_resource type="Texture2D" uid="uid://bo2r1uhp842eg" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_4.png" id="19_qgs2o"]
+
+[sub_resource type="GDScript" id="GDScript_bqapj"]
+script/source = "extends Node2D
+
+@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
+@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
+@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
+@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
+@onready var timer = $hitbox_timer
+@export var speed = 100
+
+func _ready():
+	sprite.play()
+	
+func _process(delta):
+	path_follow.progress += speed * delta
+	
+func _on_hitbox_timer_timeout():
+	hitbox.set_deferred(\"disabled\", false)
+	collision_shape.set_deferred(\"disabled\", false)
+	
+func _on_hitbox_area_entered(area):
+	print(\"Damage dealt to player:\")
+	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
+		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
+		get_tree().get_first_node_in_group('Player').damage_animation()
+		await get_tree().create_timer(0.1).timeout
+		hitbox.set_deferred(\"disabled\", true)
+		collision_shape.set_deferred(\"disabled\", true)
+		timer.start()
+		Health.damage_player(1)
+"
 
 [sub_resource type="Curve2D" id="Curve2D_eu37o"]
 _data = {
@@ -95,7 +126,7 @@ layer_1/tile_data = PackedInt32Array(-4522090, 2, 2, -5111914, 2, 1, -5046378, 2
 layer_2/tile_data = PackedInt32Array(-31, 65536, 3, -32, 0, 3, -4980815, 0, 3, -4980814, 65536, 3, -6619111, 65536, 3, -6619112, 0, 3, -5570483, 0, 3, -5570482, 65536, 3, -5570468, 0, 3, -5570467, 65536, 3, -7012381, 262146, 7, -6160343, 262146, 7, -2687010, 262146, 7, -6291445, 262145, 0, 196607, 0, 3, 131072, 65536, 3)
 
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
-position = Vector2(19, -41)
+position = Vector2(-479, -113)
 
 [node name="Spikes" parent="." instance=ExtResource("5_ibvwb")]
 position = Vector2(-40, -64)
@@ -194,7 +225,7 @@ position = Vector2(-578, -30)
 [node name="sceleton2" type="Node2D" parent="."]
 z_index = 5
 position = Vector2(-456, -151)
-script = ExtResource("16_4ypf8")
+script = SubResource("GDScript_bqapj")
 
 [node name="Path2D" type="Path2D" parent="sceleton2"]
 curve = SubResource("Curve2D_eu37o")
@@ -228,7 +259,7 @@ shape = SubResource("CircleShape2D_1oiqy")
 [node name="sceleton3" type="Node2D" parent="."]
 z_index = 5
 position = Vector2(-401, -30)
-script = ExtResource("16_4ypf8")
+script = SubResource("GDScript_bqapj")
 
 [node name="Path2D" type="Path2D" parent="sceleton3"]
 curve = SubResource("Curve2D_yb0yf")

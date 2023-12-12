@@ -1,9 +1,40 @@
 [gd_scene load_steps=13 format=3 uid="uid://cceyrlmr0wshm"]
 
-[ext_resource type="Script" path="res://scripts/enemies/sceleton2.gd" id="1_5nscr"]
 [ext_resource type="Texture2D" uid="uid://cjtgcucbk56ni" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_2.png" id="3_f2pv3"]
 [ext_resource type="Texture2D" uid="uid://cqa5b0guw7bqm" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_3.png" id="3_j1vn6"]
 [ext_resource type="Texture2D" uid="uid://bo2r1uhp842eg" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_4.png" id="4_hcgxu"]
+
+[sub_resource type="GDScript" id="GDScript_bqapj"]
+script/source = "extends Node2D
+
+@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
+@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
+@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
+@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
+@onready var timer = $hitbox_timer
+@export var speed = 100
+
+func _ready():
+	sprite.play()
+	
+func _process(delta):
+	path_follow.progress += speed * delta
+	
+func _on_hitbox_timer_timeout():
+	hitbox.set_deferred(\"disabled\", false)
+	collision_shape.set_deferred(\"disabled\", false)
+	
+func _on_hitbox_area_entered(area):
+	print(\"Damage dealt to player:\")
+	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
+		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
+		get_tree().get_first_node_in_group('Player').damage_animation()
+		await get_tree().create_timer(0.1).timeout
+		hitbox.set_deferred(\"disabled\", true)
+		collision_shape.set_deferred(\"disabled\", true)
+		timer.start()
+		Health.damage_player(1)
+"
 
 [sub_resource type="Curve2D" id="Curve2D_ruj4q"]
 _data = {
@@ -55,7 +86,7 @@ radius = 6.08276
 
 [node name="sceleton2" type="Node2D"]
 z_index = 5
-script = ExtResource("1_5nscr")
+script = SubResource("GDScript_bqapj")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ruj4q")
