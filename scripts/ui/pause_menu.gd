@@ -21,5 +21,9 @@ func back_to_mainmenu():
 	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
 func toggle():
+	if is_active:
+		Hud.dequeue_overlay()
+	else:
+		Hud.queue_overlay()
 	is_active = !is_active
 	visible = is_active
