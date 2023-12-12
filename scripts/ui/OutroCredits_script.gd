@@ -17,5 +17,5 @@ func _on_credits_pressed():
 	credits.show()
 
 func _on_hauptmenu_pressed():
-	#delete save file?
+	PlayerVariables.delete_save_file()
 	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")

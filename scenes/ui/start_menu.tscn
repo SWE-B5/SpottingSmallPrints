@@ -1,125 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqoxpxne4rcpy"]
 
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="1_8sqo3"]
+[ext_resource type="Script" path="res://scripts/ui/start_menu_script.gd" id="1_i2cnv"]
 [ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="1_t17bx"]
 [ext_resource type="Texture2D" uid="uid://b2fbnhta1nneh" path="res://scenes/ui/title.png" id="2_2ah1h"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="4_oalls"]
-
-[sub_resource type="GDScript" id="GDScript_ijatr"]
-script/source = "extends CanvasLayer
-#Autor: Til Zölzer
-#Autor: Leon Frings
-
-@onready var background = $BackgroundV1 #Hintergrund
-@onready var title = $Title #Titel
-@onready var background_blurr = $BlurBackground #Shader für Hintergrund
-@onready var start_menu = $StartMenu # Start Menu mit Laden, Neues Spiel, Quit
-@onready var confirmation_screen = $ConfirmationScreen # Confirmation Screen, bei Spiel Verlassen
-@onready var difficulty_selector = $DifficultySelector # 3 Schwierigkeiten wählen
-@onready var load_game_error = $LoadGameError # Fehler Nachricht, maybe popup möglich?
-@onready var death_screen = $DeathScreen #DeathScreen nach Tod
-@onready var intro_part_1 = $IntroPart1 #Intro nach Schwierigkeitsgrad
-@onready var intro_part_2 = $IntroPart2	#Intro Part 2 nach Intro Part 1
-#2 Intro Parts, weil sonst Schrift zu unleserlich
-#shader über Hintergrund bei Intro, weil sonst Schrift zu Unleserlich (besonders bei der Treppe unten links)
-
-func _ready():
-	background.show()
-	background_blurr.hide()
-	title.show()
-	if Health.is_death:
-		Health.is_death = false
-		start_menu.hide()
-		death_screen.show()
-	else:
-		start_menu.show()
-		death_screen.hide()
-	confirmation_screen.hide()
-	difficulty_selector.hide()
-	load_game_error.hide()
-	intro_part_1.hide()
-	intro_part_2.hide()
-
-func spawn_to_hub():
-	get_tree().change_scene_to_file(\"res://scenes/level/hub.tscn\")
-
-func _on_new_game_button_pressed():
-	start_menu.hide()
-	difficulty_selector.show()
-
-func _on_load_game_button_pressed():
-	#probleme?
-	if not PlayerVariables.load_from_path(Constants.SAVE_PATH):
-		load_game_error.show()
-		start_menu.hide()
-		return
-	spawn_to_hub()
-
-func _on_load_game_error_back_button_pressed():
-	load_game_error.hide()
-	start_menu.show()
-
-func _on_difficulty_back_to_menu_button_pressed():
-	difficulty_selector.hide()
-	start_menu.show()
-
-func _on_quit_button_pressed():
-	start_menu.hide()
-	confirmation_screen.show()
-
-func _on_easy_difficulty_button_pressed():
-	#delete save file?
-	PlayerVariables.generate_easy_game()
-	title.hide()
-	difficulty_selector.hide()
-	background_blurr.show()
-	intro_part_1.show()
-	
-
-func _on_normal_difficulty_button_pressed():
-	#delete save file?
-	PlayerVariables.generate_medium_game()
-	title.hide()
-	difficulty_selector.hide()
-	background_blurr.show()
-	intro_part_1.show()
-
-func _on_hard_difficulty_button_pressed():
-	#delete save file?
-	PlayerVariables.generate_hard_game()
-	title.hide()
-	difficulty_selector.hide()
-	background_blurr.show()
-	intro_part_1.show()
-
-func _on_besiegeln_pressed():
-	intro_part_1.hide()
-	intro_part_2.show()
-
-func _on_prufung_starten_pressed():
-	#save actions?
-	spawn_to_hub()
-
-func _on_respawn_pressed():
-	#load save file?
-	#load fog save file?
-	#change scene to level?
-	get_tree().change_scene_to_file(\"\") # anpassen
-
-func _on_hauptmenu_pressed():
-	# fog save löschen 		#auch in Hauptmenü?
-	#just died flag delete
-	death_screen.hide()
-	start_menu.show()
-
-func _on_confirm_quit_pressed():
-	get_tree().quit()
-
-func _on_confirm_abbruch_pressed():
-	confirmation_screen.hide()
-	start_menu.show()
-
-"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qayps"]
 shader = ExtResource("4_oalls")
@@ -127,7 +12,7 @@ shader_parameter/blur = 0.674
 shader_parameter/brightness = 0.764
 
 [node name="StartMenu" type="CanvasLayer"]
-script = SubResource("GDScript_ijatr")
+script = ExtResource("1_i2cnv")
 
 [node name="BackgroundV1" type="Sprite2D" parent="."]
 position = Vector2(960, 540)

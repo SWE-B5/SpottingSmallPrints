@@ -16,7 +16,7 @@ func _process(delta):
 	get_tree().paused = is_active # wenns nicht hier ist, spielt er trotzdem weiter
 
 func back_to_mainmenu():
-	PlayerVariables.save_to_path(Constants.SAVE_PATH)
+	PlayerVariables.save_game() #notwendig
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
