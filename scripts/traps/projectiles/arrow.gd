@@ -6,9 +6,11 @@ const COLLISION_LAYER = 1 as int
 var TILEMAP: TileMap
 var ROTATION: float
 var DISPENSER_POS: Vector2i
+var PARENT: StaticBody2D
 
-func init(rotation: float, dispenser_pos: Vector2i):
-	ROTATION = rotation
+func init(parent: StaticBody2D, dispenser_pos: Vector2i):
+	PARENT = parent
+	ROTATION = parent.rotation
 	DISPENSER_POS = dispenser_pos
 
 func _ready():
@@ -23,3 +25,4 @@ func _process(delta):
 		if(result.get_collider() == get_parent().find_child("Player")):
 			Health.damage_player()
 		queue_free()
+		PARENT.ARROW_ACTIVE = false
