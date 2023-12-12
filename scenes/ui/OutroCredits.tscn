@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cklkd2a0380p3"]
+[gd_scene load_steps=6 format=3 uid="uid://v5kfkbko8h6a"]
 
 [ext_resource type="Script" path="res://scripts/ui/OutroCredits_script.gd" id="1_tpdn5"]
 [ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="2_yskrm"]
@@ -12,6 +12,8 @@ shader_parameter/brightness = 0.764
 
 [node name="OutroCredits" type="CanvasLayer"]
 script = ExtResource("1_tpdn5")
+metadata/_edit_vertical_guides_ = [953.0]
+metadata/_edit_horizontal_guides_ = [191.0]
 
 [node name="BackgroundV1" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -101,9 +103,9 @@ anchor_top = 0.044
 anchor_right = 0.325
 anchor_bottom = 0.044
 offset_left = 7.99994
-offset_top = 0.479996
+offset_top = -11.52
 offset_right = 673.0
-offset_bottom = 79.48
+offset_bottom = 67.48
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 35
 text = "Danke fürs Spielen."
@@ -117,36 +119,36 @@ offset_bottom = 920.0
 [node name="team_mitglieder" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 60.0
-offset_top = 30.0
-offset_right = 870.0
-offset_bottom = 90.0
+offset_left = 72.0
+offset_top = 10.0
+offset_right = 882.0
+offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
-text = "Team Mitglieder"
+text = "Team B5 Mitglieder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="auftraggeber" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 930.0
-offset_top = 30.0
-offset_right = 1740.0
-offset_bottom = 90.0
+offset_left = 949.0
+offset_top = 10.0
+offset_right = 1759.0
+offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
-text = "Auftraggeber"
+text = "Auftraggeber - AppVenture"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="lizenzen" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 60.0
-offset_top = 420.0
-offset_right = 1740.0
-offset_bottom = 480.0
+offset_left = 61.0
+offset_top = 354.0
+offset_right = 1741.0
+offset_bottom = 414.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
 text = "Lizenzen"
@@ -156,18 +158,35 @@ vertical_alignment = 1
 [node name="lizenzen_text" type="TextEdit" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 60.0
-offset_top = 480.0
-offset_right = 1740.0
-offset_bottom = 740.0
+offset_left = 59.0
+offset_top = 410.0
+offset_right = 1739.0
+offset_bottom = 768.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 22
+text = "Game Asset: 
+
+  Mystic Woods (https://game-endeavor.itch.io/mystic-woods)
+
+  2D Pixel Dungeon (https://pixel-poem.itch.io/dungeon-assetpuck)
+
+Bild:
+
+  Dungeon Hintergrund (MIDJOURNEY™)
+
+Font:
+
+  (https://fontmeme.com/fonts/dabir-font/)
+
+"
 
 [node name="team_namen" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 60.0
-offset_top = 90.0
+offset_top = 73.0
 offset_right = 870.0
-offset_bottom = 390.0
+offset_bottom = 373.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
 text = "
@@ -178,8 +197,8 @@ Kilian Wiesen
 Leon Frings
 Marc Spitzfaden
 Martin Packbier
-Til Zölzer
 Till Voss
+Til Zölzer
 Wei-Ting Chang"
 horizontal_alignment = 1
 
@@ -187,17 +206,18 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 offset_left = 930.0
-offset_top = 90.0
+offset_top = 74.0
 offset_right = 1740.0
-offset_bottom = 390.0
+offset_bottom = 374.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
 text = "
-AppVenture
 	
 Fabian Ferrari
+
 Hannes Gierth
-Jonah HeisterKamp"
+
+Jonah Heisterkamp"
 horizontal_alignment = 1
 
 [node name="CenterContainer3" type="CenterContainer" parent="Credits"]
