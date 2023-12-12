@@ -17,6 +17,12 @@ enum rätsel_typ {SIMONSAYS, MEMORY}
 
 @onready var is_closed = true
 
+@onready var awaitingSignal = false
+
+
+
+signal startSimonSays
+
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	sprite.animation =  "closed"
@@ -29,14 +35,34 @@ func _on_interact():
 		detecion_area.disabled = true
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
+		PlayerVariables.immobile = true
 		if type == rätsel_typ.SIMONSAYS:
-			# Hier Simon Says Rätsel starten
-			# Schluessel wird nach erfolgreichem Raetsel eingesammelt
-			Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+			startSimonSays.emit()
+			awaitingSignal = true
 		if type == rätsel_typ.MEMORY:
 			# Hier Memory Rätsel starten
 			# Schluessel wird nach erfolgreichem Raetsel eingesammelt
 			Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
-		print(Inventory)
 		
+
+
+
+func _on_simon_says_puzzle_successful():
+	if awaitingSignal:
+		print("Simon Says successful: adding item To Inventory")
+		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+		print(Inventory)
+		PlayerVariables.immobile = false
+		awaitingSignal = false
+
+
+func _on_simon_says_puzzle_canceled():
+	if awaitingSignal:
+		awaitingSignal = false
+		print("Simon Says Cancelled")
+		is_closed = true
+		detecion_area.disabled = false
+		# Textur der offenen Truhe laden 
+		sprite.animation =  "closed"
+		PlayerVariables.immobile = false
 		

@@ -1,4 +1,26 @@
-extends Panel
+extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#_on_goldene_truhe_start_simon_says()
+	pass
+
+
+
+var isActive = false
+signal puzzleSuccessful
+signal puzzleCanceled
+
+func _on_goldene_truhe_start_simon_says():
+	isActive = true
+	print("Starting Simon Says")
+	visible = isActive
+	startGame()
+	
+func closeSimonSays():
+	isActive = false
+	visible = false
 
 # VARIABLEN HIER ANPASSEN UND ENTSPRECHENDE METHODEN UNTEN AUSKOMMENTIEREN
 var next_scene_path = "res://path/to/your_next_scene.tscn"
@@ -18,6 +40,7 @@ const speed = 0.5
 var green_texture = preload("res://assets/simonsays/buttontextures/greenbutton/greenbutton_hovered.png")
 var red_texture = preload("res://assets/simonsays/buttontextures/redbutton/redbutton_hovered.png")
 
+
 func set_difficulty():
 	if (PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY):
 		max_rounds = 5
@@ -27,21 +50,20 @@ func set_difficulty():
 		max_rounds = 10
 	else:
 		max_rounds = 5
-	
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func startGame():
 	PlayerVariables.load_easy_game() # kann später vermutlich raus
 	setupHUD()
 	set_difficulty()
+	max_rounds = 2
 	print(max_rounds)
-	buttons = [$BoxContainer/GreenButton,$BoxContainer/BlueButton,$BoxContainer/RedButton,$BoxContainer/YellowButton]
+	buttons = [$Panel/BoxContainer/GreenButton,$Panel/BoxContainer/BlueButton,$Panel/BoxContainer/RedButton,$Panel/BoxContainer/YellowButton]
 	for x in max_rounds:
 		arr.append(rng.randi_range(0, buttons.size()-1))
 	currentRound = 1
 	await disableButtons();
 	await blinkAllButtons(2,'')
 	await StartRound()
-
 #disabled den Input vom User -> texture_disabled
 func disableButtons():
 	for x in buttons:
@@ -147,6 +169,9 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_Q) and not is_scene_changing:
 		is_scene_changing = true
 		print("q")
+		puzzleCanceled.emit()
+		closeSimonSays()
+		is_scene_changing = false
 		# Weitere Logik für den Szenenwechsel
 		# Zum Beispiel: get_tree().change_scene(next_scene_path)
 
@@ -158,7 +183,7 @@ func _on_button_pressed():
 
 # gibt anzahl der runden auf interface aus
 func setupHUD():
-	current_round_label = get_node("PanelContainerTop/VBoxContainer/HBoxContainer/counter")
+	current_round_label = get_node("Panel/PanelContainerTop/VBoxContainer/HBoxContainer/counter")
 	current_round_label.text = str(currentRound)
 
 # nach timer ende wird diese funktion ausgeführt
@@ -166,7 +191,9 @@ func _on_scene_change_timer_timeout():
 	# hier kann eine neue scene geladen werden 
 	# zum beispiel: get_tree().change_scene(next_scene_path)
 	print("Rätsel gelöst! Scene wechsel.")
+	puzzleSuccessful.emit()
+	closeSimonSays()
 
 # startet timer zum scenen wechsel
 func on_all_pairs_found():
-	$SceneChangeTimer.start()
+	$Panel/SceneChangeTimer.start()
