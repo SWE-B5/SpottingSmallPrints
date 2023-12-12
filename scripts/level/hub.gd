@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = $Player
 
-@onready var anzahl_Notes = 1
+@onready var anzahl_Notes = Inventory.number_of_notes_found()
 @onready var node_scene = load("res://scenes/items/note.tscn")
 
 @onready var hub_Note_1 = self.get_child(7)
@@ -13,7 +13,7 @@ extends Node2D
 func _ready():
 	PlayerVariables.load_easy_game()
 	for i in anzahl_Notes:
-		var id = 6
+		var id = Inventory.get_xth_found_note_id(i)
 		scene = node_scene.instantiate()
 		scene.type = scene.note_type.HUB
 		scene.note_id = id
@@ -42,12 +42,15 @@ func _ready():
 			
 		elif id > 3 && id <= 6:
 			scene.set_position(Vector2(560 + ((id-4) * 64), -40))
+			scene.show()
 			
 		elif id > 6 && id <= 9:
 			scene.set_position(Vector2(320 + ((id-7) * 64), 40))
+			scene.show()
 			
 		elif id > 9:
 			scene.set_position(Vector2(560 + ((id-10) * 64), 40))
+			scene.show()
 
 func _process(delta):
 	anzahl_Notes = Inventory.number_of_notes_found()
