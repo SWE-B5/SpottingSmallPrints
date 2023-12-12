@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vx4xx8vyfj7b"]
+[gd_scene load_steps=15 format=3 uid="uid://vx4xx8vyfj7b"]
 
 [ext_resource type="Script" path="res://scripts/level/level_3.gd" id="1_mbl2y"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_jquff"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://m5k8w8y5lkaj" path="res://scenes/traps/flamethrower.tscn" id="6_774h7"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="7_6vwq6"]
 [ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="8_22t8n"]
+[ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="8_w8w8t"]
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="8_xkosi"]
 [ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="9_qu8x2"]
 [ext_resource type="PackedScene" uid="uid://bmc65gjk84m30" path="res://scenes/items/tür_links.tscn" id="13_5spip"]
-[ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="8_w8w8t"]
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
@@ -34,7 +34,6 @@ layer_1/tile_data = PackedInt32Array(-4522090, 2, 2, -5111914, 2, 1, -5046378, 2
 layer_2/tile_data = PackedInt32Array(-31, 65536, 3, -32, 0, 3, -4980815, 0, 3, -4980814, 65536, 3, -6619111, 65536, 3, -6619112, 0, 3, -5570483, 0, 3, -5570482, 65536, 3, -5570468, 0, 3, -5570467, 65536, 3, -7012381, 262146, 7, -6160343, 262146, 7, -2687010, 262146, 7, -6291445, 262145, 0, 196607, 0, 3, 131072, 65536, 3)
 
 [node name="HUD" parent="." instance=ExtResource("4_lxyga")]
-
 
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
 position = Vector2(19, -41)
@@ -96,6 +95,5 @@ id = 1
 [node name="dispenser" parent="." instance=ExtResource("8_w8w8t")]
 position = Vector2(7.99999, -328)
 rotation = 1.5708
-
 
 [editable path="Fog"]
