@@ -8,11 +8,14 @@ enum MovementState { WALK, IDLE }
 @onready var follow_camera = $FollowCamera
 var direction: Direction = Direction.DOWN
 
+var is_zooming_in: bool = false
+var is_zooming_out: bool = true
 
 func _ready():
-	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
+	$FollowCamera.make_current()
 
 func _process(delta):
+	handle_zoom()
 	handle_movement_input()
 	if PlayerVariables.immunity_frames > 0:
 		PlayerVariables.immunity_frames -= delta
@@ -82,3 +85,42 @@ func can_open_map():
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
 	return false
+
+func set_zoom_niveau():
+	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
+
+func switch_level(level: Level):
+	pass
+
+func zoom_in():
+	is_zooming_in = true
+	is_zooming_out = false
+
+func zoom_out():
+	is_zooming_out = true
+	is_zooming_in = false
+
+func stop_zoom():
+	is_zooming_in = false
+	is_zooming_out = false
+	
+func handle_zoom():
+	if is_zooming_in:
+		PlayerVariables.immobile = true
+		PlayerVariables.zoom_niveau += 0.005
+
+		if PlayerVariables.zoom_niveau >= 5.0:  # Adjust this value based on your desired maximum zoom level
+			is_zooming_in = false
+			PlayerVariables.immobile = false
+
+	elif is_zooming_out:
+		PlayerVariables.immobile = true
+		PlayerVariables.zoom_niveau -= 0.005
+
+		if PlayerVariables.zoom_niveau <= 2.0:  # Adjust this value based on your desired minimum zoom level
+			is_zooming_out = false
+			PlayerVariables.immobile = false
+
+	# Ensure that zoom_niveau stays within a reasonable range
+	PlayerVariables.zoom_niveau = clamp(PlayerVariables.zoom_niveau, 2, 5)
+	set_zoom_niveau()
