@@ -46,7 +46,7 @@ animations = [{
 radius = 8.24621
 
 [node name="skull" type="CharacterBody2D"]
-z_index = 20
+z_index = 1
 script = ExtResource("1_hvlik")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

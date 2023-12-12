@@ -85,7 +85,7 @@ radius = 4.47214
 radius = 6.08276
 
 [node name="sceleton2" type="Node2D"]
-z_index = 5
+z_index = 1
 script = SubResource("GDScript_bqapj")
 
 [node name="Path2D" type="Path2D" parent="."]
