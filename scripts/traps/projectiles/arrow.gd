@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 #speed should be calculated by player speed to allow for evasion
-const SPEED = 120
+const SPEED = 100
 const COLLISION_LAYER = 1 as int
 var TILEMAP: TileMap
 var ROTATION: float
