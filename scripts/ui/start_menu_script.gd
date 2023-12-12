@@ -40,7 +40,6 @@ func _on_new_game_button_pressed():
 	difficulty_selector.show()
 
 func _on_load_game_button_pressed():
-	#probleme?
 	if not PlayerVariables.load_save_file():
 		start_menu.hide()
 		load_game_error.show()
@@ -89,17 +88,15 @@ func _on_prufung_starten_pressed():
 	go_to_level()
 
 func _on_respawn_pressed():
-	#load fog save file?
 	if not PlayerVariables.load_save_file():
 		death_screen.hide()
 		load_game_error.show()
 		return
+	Health.is_death = true # damit fog save geladen wird
 	go_to_level()
 
 
 func _on_hauptmenu_pressed():
-	# fog save löschen 		#auch in Hauptmenü?
-	#just died flag delete
 	death_screen.hide()
 	start_menu.show()
 

@@ -56,6 +56,7 @@ func damage_player(damage:int = 1):
 	update_hud()
 	if current_lives <= 0 :
 		is_death = true
+		get_tree().current_scene.fog.save_fog()
 		get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
 
