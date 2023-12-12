@@ -76,10 +76,23 @@ func number_of_opened_gold_doors():
 	return inventory[GOLD].size() - active_items_count[GOLD]
 
 #for hub setup
-#returns the number of notes found (AFTER update_level_completed())
+#returns the number of notes found 
 func number_of_notes_found():
-		return inventory[NOTE_GLOBAL].size()
+	return inventory[NOTE_GLOBAL].size() + inventory[NOTE].size()
 
+#returns the id x'th note in Inventory
+#index starts at 0
+#after NOTE-Inventory continues in NOTE_GLOBAL-Inentory
+#returns -1 if x >= number of collected notes or <0
+func get_xth_found_note_id(x: int):
+	if (x >= 0):
+		if (x < inventory[NOTE].size()):
+			return inventory[NOTE][x]
+		else:
+			x -= inventory[NOTE].size()
+			if (x < inventory[NOTE].size()):
+				return inventory[NOTE_GLOBAL][x]
+	return -1
 
 ###########################################
 # Alles hier drunter nur intern verwendet #
