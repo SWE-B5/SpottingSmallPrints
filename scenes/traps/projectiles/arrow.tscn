@@ -5,6 +5,7 @@
 
 [node name="arrow" type="StaticBody2D"]
 show_behind_parent = true
+top_level = true
 light_mask = 0
 y_sort_enabled = true
 collision_layer = 0
