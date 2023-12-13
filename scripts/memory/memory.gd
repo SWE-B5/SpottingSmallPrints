@@ -200,3 +200,12 @@ func card_selected(card):
 	open_cards.append(card)
 	check()
 
+func _on_button_pressed():
+	is_scene_changing = true
+	#var oldCards = $CanvasLayer/Panel/cards.get_children()
+	for card in cards:
+		if card != null:
+			card.queue_free()
+	memoryCanceled.emit()
+	closeMemory()
+	is_scene_changing = false

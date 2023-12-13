@@ -175,12 +175,6 @@ func _process(delta):
 		# Weitere Logik für den Szenenwechsel
 		# Zum Beispiel: get_tree().change_scene(next_scene_path)
 
-# interface button 
-func _on_button_pressed():
-	# hier kann eine neue scene geladen werden 
-	# zum beispiel: get_tree().change_scene(next_scene_path)
-	print("q")
-
 # gibt anzahl der runden auf interface aus
 func setupHUD():
 	current_round_label = get_node("Panel/PanelContainerTop/VBoxContainer/HBoxContainer/counter")
@@ -197,3 +191,11 @@ func _on_scene_change_timer_timeout():
 # startet timer zum scenen wechsel
 func on_all_pairs_found():
 	$Panel/SceneChangeTimer.start()
+
+# interface button
+func _on_button_pressed():
+	print("q")
+	is_scene_changing = true
+	puzzleCanceled.emit()
+	closeSimonSays()
+	is_scene_changing = false # Replace with function body.
