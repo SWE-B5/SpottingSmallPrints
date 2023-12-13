@@ -136,7 +136,7 @@ func handle_zoom():
 	# Ensure that zoom_niveau stays within a reasonable range
 	PlayerVariables.zoom_niveau = clamp(PlayerVariables.zoom_niveau, Constants.DEFAULT_ZOOM_NIVEAU, Constants.HEAD_ZOOM_NIVEAU)
 	set_zoom_niveau()
-
+ 
 func damage_animation():
 	for i in 4:
 		anim.self_modulate = Color(1,0,0,0.5)
