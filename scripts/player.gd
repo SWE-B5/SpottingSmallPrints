@@ -10,11 +10,20 @@ var direction: Direction = Direction.DOWN
 
 var is_zooming_in: bool = false
 var is_zooming_out: bool = true
+signal is_zooming_in_finished
+signal is_zooming_out_finished
 
 func _ready():
 	$FollowCamera.make_current()
 
 func _process(delta):
+	if Input.is_key_pressed(KEY_7):
+		print("7")
+		switch_level("testing/a")
+	elif Input.is_key_pressed(KEY_8):
+		print("8")
+		switch_level("testing/b")
+		
 	handle_zoom()
 	handle_movement_input()
 	if PlayerVariables.immunity_frames > 0:
@@ -82,6 +91,9 @@ func play_animation(movement: MovementState):
 
 func can_open_map():
 	# check if nicht in der hub noch machen
+	if is_zooming_in || is_zooming_out:
+		return false
+	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
 	return false
@@ -89,8 +101,12 @@ func can_open_map():
 func set_zoom_niveau():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
-func switch_level(level: Level):
-	pass
+func switch_level(level: String):
+	zoom_in()
+	
+	await is_zooming_in_finished
+	var scene_name = "res://scenes/level/" + level + ".tscn"
+	get_tree().change_scene_to_file(scene_name)
 
 func zoom_in():
 	is_zooming_in = true
@@ -112,6 +128,7 @@ func handle_zoom():
 		if PlayerVariables.zoom_niveau >= 5.0:  # Adjust this value based on your desired maximum zoom level
 			is_zooming_in = false
 			PlayerVariables.immobile = false
+			is_zooming_in_finished.emit()
 
 	elif is_zooming_out:
 		PlayerVariables.immobile = true
@@ -120,7 +137,8 @@ func handle_zoom():
 		if PlayerVariables.zoom_niveau <= 2.0:  # Adjust this value based on your desired minimum zoom level
 			is_zooming_out = false
 			PlayerVariables.immobile = false
-
+			is_zooming_out_finished.emit()
+			
 	# Ensure that zoom_niveau stays within a reasonable range
 	PlayerVariables.zoom_niveau = clamp(PlayerVariables.zoom_niveau, 2, 5)
 	set_zoom_niveau()
