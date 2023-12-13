@@ -34,6 +34,6 @@ func _physics_process(delta):
 
 func fire_arrow():
 	var arrowInstance = ARROW.instantiate() as Node2D
-	arrowInstance.global_position = Vector2i(self.global_position.x, self.global_position.y + 8)
+	arrowInstance.global_position = Vector2i(self.global_position.x, self.global_position.y + 5)
 	arrowInstance.init(self, arrowInstance.global_position)
 	get_parent().add_child(arrowInstance)
