@@ -18,3 +18,7 @@ const LEVEL_1_MAP_ZOOM = Vector2(0.5, 0.5)
 const EASY_SPEED = 140
 const MEDIUM_SPEED = 90
 const HARD_SPEED = 60
+
+const DEFAULT_ZOOM_NIVEAU = 5
+const HEAD_ZOOM_NIVEAU = 10
+const ZOOM_TICK = 0.01

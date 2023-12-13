@@ -15,6 +15,7 @@ signal is_zooming_out_finished
 
 func _ready():
 	$FollowCamera.make_current()
+	zoom_out()
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_7):
@@ -23,6 +24,8 @@ func _process(delta):
 	elif Input.is_key_pressed(KEY_8):
 		print("8")
 		switch_level("testing/b")
+	elif Input.is_key_pressed(KEY_9):
+		switch_level("level_3")
 		
 	handle_zoom()
 	handle_movement_input()
@@ -109,36 +112,34 @@ func switch_level(level: String):
 	get_tree().change_scene_to_file(scene_name)
 
 func zoom_in():
+	PlayerVariables.zoom_niveau = Constants.DEFAULT_ZOOM_NIVEAU
 	is_zooming_in = true
 	is_zooming_out = false
 
 func zoom_out():
+	PlayerVariables.zoom_niveau = Constants.HEAD_ZOOM_NIVEAU
 	is_zooming_out = true
 	is_zooming_in = false
 
-func stop_zoom():
-	is_zooming_in = false
-	is_zooming_out = false
-	
 func handle_zoom():
 	if is_zooming_in:
 		PlayerVariables.immobile = true
-		PlayerVariables.zoom_niveau += 0.005
+		PlayerVariables.zoom_niveau += Constants.ZOOM_TICK
 
-		if PlayerVariables.zoom_niveau >= 5.0:  # Adjust this value based on your desired maximum zoom level
+		if PlayerVariables.zoom_niveau >= Constants.HEAD_ZOOM_NIVEAU:  
 			is_zooming_in = false
 			PlayerVariables.immobile = false
 			is_zooming_in_finished.emit()
 
 	elif is_zooming_out:
 		PlayerVariables.immobile = true
-		PlayerVariables.zoom_niveau -= 0.005
+		PlayerVariables.zoom_niveau -= Constants.ZOOM_TICK
 
-		if PlayerVariables.zoom_niveau <= 2.0:  # Adjust this value based on your desired minimum zoom level
+		if PlayerVariables.zoom_niveau <= Constants.DEFAULT_ZOOM_NIVEAU:  
 			is_zooming_out = false
 			PlayerVariables.immobile = false
 			is_zooming_out_finished.emit()
-			
+
 	# Ensure that zoom_niveau stays within a reasonable range
-	PlayerVariables.zoom_niveau = clamp(PlayerVariables.zoom_niveau, 2, 5)
+	PlayerVariables.zoom_niveau = clamp(PlayerVariables.zoom_niveau, Constants.DEFAULT_ZOOM_NIVEAU, Constants.HEAD_ZOOM_NIVEAU)
 	set_zoom_niveau()

@@ -87,11 +87,8 @@ var hp: float = Constants.START_HP
 # Ob der Spieler ein Schild hat oder nicht
 var shield: bool = false
 
-# Mit diesem Zoom Niveau wird das Spiel level etc gestartet
-var default_zoom_niveau: float = 5
-
 # Je höher das Zoom Niveau ist desto mehr reingezoomt ist der Spieler
-var zoom_niveau: float = default_zoom_niveau
+var zoom_niveau: float = Constants.DEFAULT_ZOOM_NIVEAU
 
 # heißt, alle Movement sind geblockt aber andere Projektile usw. bewegen sich trotzdem
 var immobile: bool = false
