@@ -110,3 +110,5 @@ var immunity_frames: float
 
 # Immunity Duration
 const immunity_duration = 1.2
+
+var global_position: Vector2

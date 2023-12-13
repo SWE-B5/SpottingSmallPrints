@@ -18,15 +18,8 @@ func _ready():
 	zoom_out()
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_7):
-		print("7")
-		switch_level("testing/a")
-	elif Input.is_key_pressed(KEY_8):
-		print("8")
-		switch_level("testing/b")
-	elif Input.is_key_pressed(KEY_9):
-		switch_level("level_3")
-		
+	PlayerVariables.global_position = self.global_position
+	
 	handle_zoom()
 	handle_movement_input()
 	if PlayerVariables.immunity_frames > 0:
