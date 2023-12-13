@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ewhc8vnu7phk"]
+[gd_scene load_steps=11 format=3 uid="uid://ewhc8vnu7phk"]
 
 [ext_resource type="Script" path="res://scripts/items/goldene_truhe.gd" id="1_epo18"]
 [ext_resource type="Texture2D" uid="uid://demtffmtqi4u0" path="res://assets/pixel_dungeon/customs/TruhenVerschlossen.png" id="1_gmu1x"]
+[ext_resource type="PackedScene" uid="uid://dwec3yp6sfy1a" path="res://scenes/simonsays/simonsays.tscn" id="2_il7m6"]
 [ext_resource type="Texture2D" uid="uid://bvoi3u0igh0ud" path="res://assets/pixel_dungeon/character and tileset/Dungeon_Tileset.png" id="2_linch"]
 [ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="4_vehks"]
 
@@ -42,6 +43,8 @@ radius = 20.0
 z_index = 2
 script = ExtResource("1_epo18")
 
+[node name="SimonSays" parent="." instance=ExtResource("2_il7m6")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7emc8")
 animation = &"closed"
@@ -55,3 +58,7 @@ collision_mask = 16
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_uhna6")
+
+[connection signal="startSimonSays" from="." to="SimonSays" method="_on_goldene_truhe_start_simon_says"]
+[connection signal="puzzleCanceled" from="SimonSays" to="." method="_on_simon_says_puzzle_canceled"]
+[connection signal="puzzleSuccessful" from="SimonSays" to="." method="_on_simon_says_puzzle_successful"]

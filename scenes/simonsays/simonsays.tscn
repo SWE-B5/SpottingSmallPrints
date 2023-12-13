@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dwec3yp6sfy1a"]
 
-[ext_resource type="StyleBox" path="res://assets/simonsays/paneltexture.tres" id="1_ujcua"]
+[ext_resource type="StyleBox" uid="uid://buu3vm8g07k1k" path="res://assets/simonsays/paneltexture.tres" id="1_ujcua"]
 [ext_resource type="Script" path="res://scripts/simonsays/simonsays.gd" id="2_xbfyr"]
 [ext_resource type="Texture2D" uid="uid://yoe6qcvhbj2b" path="res://assets/simonsays/buttontextures/greenbutton/greenbutton.png" id="3_bm30d"]
 [ext_resource type="Texture2D" uid="uid://dqyujn2kbojhx" path="res://assets/simonsays/buttontextures/greenbutton/greenbutton_pressed.png" id="4_yak5g"]

@@ -52,7 +52,7 @@ func set_difficulty():
 		max_rounds = 5
 
 func startGame():
-	PlayerVariables.load_easy_game() # kann später vermutlich raus
+	#PlayerVariables.load_easy_game() # kann später vermutlich raus
 	setupHUD()
 	set_difficulty()
 	max_rounds = 2
