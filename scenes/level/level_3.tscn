@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="8_xkosi"]
 [ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="9_qu8x2"]
 [ext_resource type="PackedScene" uid="uid://bmc65gjk84m30" path="res://scenes/items/tür_links.tscn" id="13_5spip"]
+
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="15_ucguw"]
 [ext_resource type="Texture2D" uid="uid://cjtgcucbk56ni" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_2.png" id="17_bb5hf"]
 [ext_resource type="Texture2D" uid="uid://cqa5b0guw7bqm" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_3.png" id="18_wicol"]
@@ -116,7 +117,7 @@ position = Vector2(0, 0)
 [node name="HUD" parent="." instance=ExtResource("4_lxyga")]
 
 [node name="TürRund" parent="." instance=ExtResource("3_jgo8v")]
-position = Vector2(-10, -165)
+position = Vector2(6.37897, -166.26)
 
 [node name="GoldeneTruhe" parent="." instance=ExtResource("7_6vwq6")]
 position = Vector2(84, -177)
