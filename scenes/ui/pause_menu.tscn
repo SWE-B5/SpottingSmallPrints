@@ -27,22 +27,83 @@ scale = Vector2(1.32419, 1.32419)
 texture = ExtResource("3_w0o4f")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 561.0
-offset_top = 461.0
-offset_right = 1089.0
-offset_bottom = 488.0
-scale = Vector2(1.45704, 1.54657)
+offset_top = 120.0
+offset_right = 1920.0
+offset_bottom = 180.0
 theme_override_fonts/font = ExtResource("3_k4vqs")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 50
 text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="Steuerung_titel" type="Label" parent="."]
+offset_top = 260.0
+offset_right = 1920.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 30
+text = "Steuerung"
+horizontal_alignment = 1
+
+[node name="Steuerung2" type="Label" parent="."]
+offset_left = 350.0
+offset_top = 320.0
+offset_right = 870.0
+offset_bottom = 881.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 30
+text = "
+<W>/<A>/<S>/<D>
+
+Bewegen
+
+
+<Esc>
+
+Pausieren
+Entpausieren 
+
+
+<M>
+
+Karte öffnen
+Karte schließen
+
+"
+horizontal_alignment = 1
+
+[node name="Steuerung" type="Label" parent="."]
+offset_left = 990.0
+offset_top = 320.0
+offset_right = 1510.0
+offset_bottom = 881.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 30
+text = "
+<Leertaste>
+
+Dialog weiter
+
+
+<E>
+
+Interagieren
+Bestätigen
+
+
+<Q> 
+
+Abbrechen
+
+
+"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 65.0
-offset_bottom = 65.0
+offset_top = 900.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
