@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqoxpxne4rcpy"]
+[gd_scene load_steps=5 format=3 uid="uid://dqoxpxne4rcpy"]
 
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="1_8sqo3"]
+[ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="1_t17bx"]
+[ext_resource type="Texture2D" uid="uid://b2fbnhta1nneh" path="res://scenes/ui/title.png" id="2_2ah1h"]
 
 [sub_resource type="GDScript" id="GDScript_ijatr"]
 script/source = "extends CanvasLayer
 
-@onready var start_menu = $StartMenu # Start Menu mit Laden, Neues Spiel, Credits, Quit
+@onready var start_menu = $StartMenu # Start Menu mit Laden, Neues Spiel, Quit
 @onready var difficulty_selector = $DifficultySelector # 3 Schwierigkeiten wählen
-@onready var credits = $CreditsMenu # Credit Menu
 @onready var load_game_error = $LoadGameError # Fehler Nachricht, maybe popup möglich?
 
 func _ready():
 	start_menu.show()
 	difficulty_selector.hide()
-	credits.hide()
 	load_game_error.hide()
 
 func spawn_to_hub():
@@ -30,17 +30,9 @@ func _on_load_game_button_pressed():
 		return
 	spawn_to_hub()
 
-func _on_credits_button_pressed():
-	credits.show()
-	start_menu.hide()
-
 func _on_load_game_error_back_button_pressed():
 	start_menu.show()
 	load_game_error.hide()
-	
-func _on_credits_back_to_menu_button_pressed():
-	credits.hide()
-	start_menu.show()
 
 func _on_difficulty_back_to_menu_button_pressed():
 	difficulty_selector.hide()
@@ -65,11 +57,22 @@ func _on_hard_difficulty_button_pressed():
 [node name="StartMenu" type="CanvasLayer"]
 script = SubResource("GDScript_ijatr")
 
+[node name="BackgroundV1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.32419, 1.32419)
+texture = ExtResource("1_t17bx")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(960, 377)
+scale = Vector2(1.73965, 1.73965)
+texture = ExtResource("2_2ah1h")
+
 [node name="StartMenu" type="CenterContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 234.0
+offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -88,43 +91,44 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 40
-text = "Spotting Small Prints"
-
 [node name="NewGameButton" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "NEUES SPIEL"
+text = "Neues Spiel"
 
 [node name="LoadGameButton" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "LETZTEN SPIELSTAND LADEN"
-
-[node name="CreditsButton" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 24
-text = "CREDITS"
+text = "Letzten Spielstand laden"
 
 [node name="QuitButton" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "SPIEL VERLASSEN"
+text = "Spiel beenden"
 
 [node name="DifficultySelector" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="DifficultySelector"]
+offset_left = 585.0
+offset_top = 625.0
+offset_right = 1335.0
+offset_bottom = 658.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 30
+text = "Schwierigkeitsgrad wählen"
+uppercase = true
 
 [node name="CenterContainer" type="CenterContainer" parent="DifficultySelector"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 233.0
+offset_bottom = 233.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -142,13 +146,6 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DifficultySelector/CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 40
-text = "Schwierigkeitsgrad wählen"
 
 [node name="EasyDifficultyButton" type="Button" parent="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -172,48 +169,26 @@ text = "SCHWER"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "ZÜRUCK ZUM MENU"
-
-[node name="CreditsMenu" type="CanvasLayer" parent="."]
-
-[node name="CenterContainer" type="CenterContainer" parent="CreditsMenu"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CreditsMenu/CenterContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CreditsMenu/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Credits von Spotting Small Prints"
-
-[node name="Label2" type="Label" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "von AppVenture"
-
-[node name="CreditsBackToMenuButton" type="Button" parent="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ZÜRUCK ZUM MENU"
+text = "Zurück zum Hauptmenü"
 
 [node name="LoadGameError" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="LoadGameError"]
+offset_left = 215.0
+offset_top = 626.0
+offset_right = 1715.0
+offset_bottom = 659.0
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 30
+text = "ES WURDE LEIDER KEIN LAUFENDER SPIELSTAND GEFUNDEN"
 
 [node name="CenterContainer" type="CenterContainer" parent="LoadGameError"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 232.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -230,19 +205,14 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="LoadGameError/CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="LoadGameError/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 30
-text = "ES WURDE LEIDER KEIN LAUFENDER SPIELSTAND GEFUNDEN"
-
 [node name="LoadGameErrorBackButton" type="Button" parent="LoadGameError/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
-theme_override_font_sizes/font_size = 20
-text = "ZÜRUCK ZUM MENU"
+theme_override_font_sizes/font_size = 25
+text = "Zurück zum Hauptmenü"
 
 [node name="Death Screen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Death Screen"]
 anchors_preset = 15
@@ -268,11 +238,9 @@ layout_mode = 2
 
 [connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
-[connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/EasyDifficultyButton" to="." method="_on_easy_difficulty_button_pressed"]
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NormalDifficultyButton" to="." method="_on_normal_difficulty_button_pressed"]
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HardDifficultyButton" to="." method="_on_hard_difficulty_button_pressed"]
 [connection signal="pressed" from="DifficultySelector/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DifficultyBackToMenuButton" to="." method="_on_difficulty_back_to_menu_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CreditsBackToMenuButton" to="." method="_on_credits_back_to_menu_button_pressed"]
 [connection signal="pressed" from="LoadGameError/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/LoadGameErrorBackButton" to="." method="_on_load_game_error_back_button_pressed"]

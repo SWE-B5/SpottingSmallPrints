@@ -104,3 +104,9 @@ var notes_collected = []
 
 # Die Notes die wir gerade im Level gespeichert haben
 var current_level_collected_notes = []
+
+# Immunity Frames
+var immunity_frames: float
+
+# Immunity Duration
+const immunity_duration = 1.2
