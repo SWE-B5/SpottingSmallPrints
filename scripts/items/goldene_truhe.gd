@@ -22,6 +22,7 @@ enum rätsel_typ {SIMONSAYS, MEMORY}
 
 
 signal startSimonSays
+signal startMemory
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
@@ -38,31 +39,34 @@ func _on_interact():
 		PlayerVariables.immobile = true
 		if type == rätsel_typ.SIMONSAYS:
 			startSimonSays.emit()
-			awaitingSignal = true
 		if type == rätsel_typ.MEMORY:
-			# Hier Memory Rätsel starten
-			# Schluessel wird nach erfolgreichem Raetsel eingesammelt
-			Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+			startMemory.emit()
+		awaitingSignal = true
 		
 
-
-
-func _on_simon_says_puzzle_successful():
-	if awaitingSignal:
-		print("Simon Says successful: adding item To Inventory")
-		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
-		print(Inventory)
-		PlayerVariables.immobile = false
-		awaitingSignal = false
-
-
-func _on_simon_says_puzzle_canceled():
+func _puzzle_canceled():
 	if awaitingSignal:
 		awaitingSignal = false
-		print("Simon Says Cancelled")
+		print("Puzzle Cancelled")
+		
+		#TODO: Dialog hinzufügen
+		
 		is_closed = true
 		detecion_area.disabled = false
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "closed"
 		PlayerVariables.immobile = false
+
+
+func _puzzle_successful():
+	if awaitingSignal:
+		print("Puzzle successful: adding item To Inventory")
+		
+		#TODO: Dialog hinzufügen und zum Hub teleportieren
+		
+		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+		print(Inventory)
+		PlayerVariables.immobile = false
+		awaitingSignal = false
+		
 		

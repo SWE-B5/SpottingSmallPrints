@@ -5,6 +5,26 @@ var memory_scene_path = "res://scenes/memory/memory.tscn"
 var next_scene_path = "res://path/to/your_next_scene.tscn"
 
 var max_game_moves
+
+
+var isActive = false
+signal memorySuccessful
+signal memoryCanceled
+
+#Goldene Truhe implementation
+func _on_goldene_truhe_start_memory():
+	isActive = true
+	print("Starting Memory")
+	visible = isActive
+	$CanvasLayer.visible = isActive
+	startGame()
+
+func closeMemory():
+	isActive = false
+	visible = false
+	$CanvasLayer.visible = false
+###################
+
 func set_difficulty():
 	if (PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY):
 		max_game_moves = 50
@@ -12,6 +32,7 @@ func set_difficulty():
 		max_game_moves = 30
 	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.HARD):
 		max_game_moves = 20
+
 
 # lade memory karten assets
 var card = preload("res://scenes/memory/card.tscn")
@@ -37,13 +58,15 @@ var PairsToBeFound = (ROW * COL) / 2
 var gameMoves = 0
 var gameMovesLabel
 
-func _ready():
-	PlayerVariables.load_easy_game() # kann später vermutlich raus
+func startGame():
 	set_difficulty()
+	#max_game_moves = 2
+	var cards_container = get_node("CanvasLayer/Panel/cards") # pfad zum sprite an dem die karten spawnen
+	gameMoves = 0
+	cards = []
+	open_cards = []
 	setupHUD()
 	print(max_game_moves)
-	var cards_container = get_node("CanvasLayer/Panel/cards") # pfad zum sprite an dem die karten spawnen
-	
 	# instanziiere memory karten
 	for t in Textures:
 		var newCard = card.instantiate()
@@ -75,7 +98,8 @@ func check():
 	if len(open_cards) >= 2:
 		increase_move_count()
 		for card in cards:
-			card.can_control = false
+			if card != null:
+				card.can_control = false
 		# prüfe ob selbe karte
 		if open_cards[0] == open_cards[1]:
 			$TurnBackTimer.start()
@@ -95,31 +119,45 @@ func check():
 
 # clear array
 func continue_control():
-	for card in cards:
-		card.can_control = true
-	open_cards = []
+	if success:
+		for card in cards:
+			if card != null:
+				card.can_control = true
+		open_cards = []
 
 # timer: wenn karten ein match waren -> karten werden gelöscht
 func _on_delete_timer_timeout():
 	for card in open_cards:
-		card.queue_free()
-		cards.erase(card)
+		if card != null:
+			card.queue_free()
+			cards.erase(card)
 	continue_control()
 
 # timer: karten werden wieder umgedreht
 func _on_turn_back_timer_timeout():
 	for card in open_cards:
-		card.get_node("AnimationPlayer").play("turn_back")
+		if card != null:
+			card.get_node("AnimationPlayer").play("turn_back")
 	continue_control()
 
+var success = true
 # timer: wenn spiel gelöst -> scenen wechsel
 func _on_scene_change_timer_timeout():
-	# hier kann eine neue scene geladen werden 
-	# zum beispiel: get_tree().change_scene(next_scene_path)
-	print("Alle Paare gefunden! Scene wechsel.")
+	if success:
+		print("Alle Paare gefunden! Scene wechsel.")
+		memorySuccessful.emit()
+		closeMemory()
+	else:
+		for card in cards:
+			if card != null:
+				card.queue_free()
+		startGame()
+		success = true
 
 # funktion für timer start nach ende
 func on_all_pairs_found():
+	success = true
+	gameMovesLabel.text = "Memory erfolgreich bestanden"
 	$SceneChangeTimer.start()
 
 # funktion fängt <q> tastendruck ab -> scenen wechsel
@@ -128,14 +166,14 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_Q) and not is_scene_changing:
 		is_scene_changing = true
 		print("q")
-		# taste q gedrückt -> wechsel scene
-		# zum beispiel: get_tree().change_scene(next_scene_path)
+		#var oldCards = $CanvasLayer/Panel/cards.get_children()
+		for card in cards:
+			if card != null:
+				card.queue_free()
+		memoryCanceled.emit()
+		closeMemory()
+		is_scene_changing = false
 
-# button: fängt tastendruck im interface ab
-func _on_button_pressed():
-	print("q") 
-	# button q gedrückt -> wechsel scene
-	# zum beispiel: get_tree().change_scene(next_scene_path)
 
 # inkrementiert 'gameMoves', aktualiert HUD 
 # und prüft ob 'max_game_moves' erreicht -> neue memory scene wird geladen
@@ -147,10 +185,18 @@ func increase_move_count():
 
 # lädt neue memory scene
 func load_new_memory_game():
-	get_tree().reload_current_scene()
-	print("new scene")
+	#get_tree().reload_current_scene()
+	print("Reset")
+	for card in cards:
+		if card != null:
+			card.can_control = false
+	gameMovesLabel.text = "Keine Moves mehr, Memory wird resettet"
+	success = false
+	$SceneChangeTimer.start()
+	#startGame()
 
 # ruft check() methode auf
 func card_selected(card):
 	open_cards.append(card)
 	check()
+
