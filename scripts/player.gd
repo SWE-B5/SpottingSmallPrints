@@ -82,3 +82,10 @@ func can_open_map():
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
 	return false
+
+func damage_animation():
+	for i in 4:
+		anim.self_modulate = Color(1,0,0,0.5)
+		await get_tree().create_timer(0.15).timeout
+		anim.self_modulate = Color(1,1,1,1)
+		await get_tree().create_timer(0.15).timeout
