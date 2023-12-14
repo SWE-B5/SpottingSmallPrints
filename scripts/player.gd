@@ -9,7 +9,7 @@ enum MovementState { WALK, IDLE }
 var direction: Direction = Direction.DOWN
 
 var is_zooming_in: bool = false
-var is_zooming_out: bool = true
+var is_zooming_out: bool = false
 signal is_zooming_in_finished
 signal is_zooming_out_finished
 
