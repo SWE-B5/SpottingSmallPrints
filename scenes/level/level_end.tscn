@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="3_rd1mj"]
 [ext_resource type="PackedScene" uid="uid://cmdrvi7sks0ta" path="res://scenes/games/lights_out_game.tscn" id="4_urxlk"]
 [ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="5_8a8ql"]
-[ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="6_pyw88"]
+[ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="6_pyw88"]
 [ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="8_uasjf"]
 
 [node name="level_end" type="Node2D"]
