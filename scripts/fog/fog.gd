@@ -41,7 +41,7 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 
 func update_pos(pos):
 	#print("player pos: ", pos)
-	PLAYER_POS = Vector2(pos.x, pos.y + 8)
+	PLAYER_POS = Vector2(pos.x, pos.y + 16)
 
 func _physics_process(delta):
 	if(PLAYER_POS == null):
@@ -104,6 +104,10 @@ func scatter_erase(pos: Vector2):
 	if(TILEMAP.get_cell_tile_data(WALL_ID, bottom_left_corner) && !TILEMAP.get_cell_tile_data(WALL_ID, Vector2i(pos.x - 2, pos.y + 2))):
 		erase_cell(FOG_LAYER, bottom_left_corner)
 		revealed_tiles[stringify_vector(bottom_left_corner)] = ''
+	var top_left_corner = Vector2i(pos.x - 1, pos.y - 1)
+	if(TILEMAP.get_cell_tile_data(WALL_ID, top_left_corner) && !TILEMAP.get_cell_tile_data(WALL_ID, Vector2i(pos.x - 2, pos.y - 2))):
+		erase_cell(FOG_LAYER, top_left_corner)
+		revealed_tiles[stringify_vector(top_left_corner)] = ''
 
 func save_fog():
 	var file = FileAccess.open(get_file_path(), FileAccess.WRITE)

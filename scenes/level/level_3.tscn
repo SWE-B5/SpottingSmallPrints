@@ -17,7 +17,6 @@
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(0, -8)
 script = ExtResource("1_mbl2y")
 
 [node name="TürRund" parent="." instance=ExtResource("3_jgo8v")]
