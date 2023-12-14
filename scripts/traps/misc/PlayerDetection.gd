@@ -3,8 +3,8 @@ extends Area2D
 var ACTIVE: bool
 var ACTIVATION_TIME: float
 var DEVIATION: float
-const SPEED_FACTOR = 0.004
-const DEVIATION_FACTOR = 0.5
+const SPEED_FACTOR = 0.0002
+const DEVIATION_FACTOR = 1.2
 var RANDOMIZER = RandomNumberGenerator.new()
 
 func _on_body_entered(body):
