@@ -19,15 +19,8 @@ func _ready():
 	
 func _process(delta):
 	PlayerVariables.global_position = self.global_position
+	
 	handle_zoom()
-	
-	if Input.is_key_pressed(KEY_7):
-		switch_level("testing/a")
-	elif Input.is_key_pressed(KEY_8):
-		switch_level("testing/b")
-	elif Input.is_key_pressed(KEY_9):
-		switch_level("level_3")
-	
 	handle_movement_input()
 	if PlayerVariables.immunity_frames > 0:
 		PlayerVariables.immunity_frames -= delta
