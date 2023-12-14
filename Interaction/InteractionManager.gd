@@ -5,9 +5,6 @@ extends Node2D
 @onready var active_areas = []
 @onready var can_interact = true
 
-
-
-
 func register_area(area : InteractionArea):
 	active_areas.push_back(area)
 	print(active_areas)
@@ -38,10 +35,8 @@ func _input(event):
 			await active_areas[0].interact.call()
 			can_interact = true
 		
-	
-		
-		
 func _sort_by_distance_to_player(area1, area2):
+	player = get_tree().get_first_node_in_group("Player")
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
 	var area2_to_player = player.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player

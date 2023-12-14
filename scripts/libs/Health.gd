@@ -55,13 +55,17 @@ func damage_player(damage:int = 1):
 		current_lives -= damage
 	update_hud()
 	if current_lives <= 0 :
-		print("death_screen") #Screens.go_to_deathscreen()
+		is_death = true
+		get_tree().current_scene.fog.save_fog()
+		get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
 
 ###########################################
 # Alles hier drunter nur intern verwendet #
 ###########################################
 
+#Var für death_screen in start_menu Scene
+var is_death: bool = false 
 
 #Shield_sates type
 enum Shield_States {ACTIVE = 1, INACTIVE = 0}
