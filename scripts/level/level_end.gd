@@ -5,7 +5,6 @@ extends Node2D
 @onready var tilemap = $TileMap
 
 func _ready():
-	PlayerVariables.load_medium_game()
 	fog.init(tilemap, player)
 	Health.reset_health()
 	Inventory.update_after_death()
