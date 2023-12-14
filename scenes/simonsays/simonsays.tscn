@@ -1,0 +1,192 @@
+[gd_scene load_steps=26 format=3 uid="uid://dwec3yp6sfy1a"]
+
+[ext_resource type="StyleBox" uid="uid://buu3vm8g07k1k" path="res://assets/simonsays/paneltexture.tres" id="1_ujcua"]
+[ext_resource type="Script" path="res://scripts/simonsays/simonsays.gd" id="2_xbfyr"]
+[ext_resource type="Texture2D" uid="uid://yoe6qcvhbj2b" path="res://assets/simonsays/buttontextures/greenbutton/greenbutton.png" id="3_bm30d"]
+[ext_resource type="Texture2D" uid="uid://dqyujn2kbojhx" path="res://assets/simonsays/buttontextures/greenbutton/greenbutton_pressed.png" id="4_yak5g"]
+[ext_resource type="Texture2D" uid="uid://2cm72rhq08kc" path="res://assets/simonsays/buttontextures/greenbutton/greenbutton_hovered.png" id="5_nvhqu"]
+[ext_resource type="Texture2D" uid="uid://b2rpjd2wgglw6" path="res://assets/simonsays/buttontextures/bluebutton/bluebutton.png" id="6_urgx4"]
+[ext_resource type="Texture2D" uid="uid://fukmemy5ku1u" path="res://assets/simonsays/buttontextures/bluebutton/bluebutton_pressed.png" id="7_hxp4t"]
+[ext_resource type="Texture2D" uid="uid://badwxcsgdqyeq" path="res://assets/simonsays/buttontextures/bluebutton/bluebutton_hovered.png" id="8_1pcof"]
+[ext_resource type="Texture2D" uid="uid://bm2kihfpn7ham" path="res://assets/simonsays/buttontextures/redbutton/redbutton.png" id="9_4ieab"]
+[ext_resource type="Texture2D" uid="uid://dgc1lwtdvuknn" path="res://assets/simonsays/buttontextures/redbutton/redbutton_pressed.png" id="10_uaey7"]
+[ext_resource type="Texture2D" uid="uid://chcpf4adp3a7f" path="res://assets/simonsays/buttontextures/redbutton/redbutton_hovered.png" id="11_eur2i"]
+[ext_resource type="Texture2D" uid="uid://dh2fndlgihodh" path="res://assets/simonsays/buttontextures/yellowbutton/yellowbutton.png" id="12_mbwj3"]
+[ext_resource type="Texture2D" uid="uid://dvkljoeaby0g5" path="res://assets/simonsays/buttontextures/yellowbutton/yellowbutton_pressed.png" id="13_iaaek"]
+[ext_resource type="Texture2D" uid="uid://bywt1iluk5iok" path="res://assets/simonsays/buttontextures/yellowbutton/yellowbutton_hovered.png" id="14_uusxg"]
+[ext_resource type="Theme" uid="uid://dgaagtf2ilgyq" path="res://scenes/memory/raetsel_theme.tres" id="15_qwv7s"]
+[ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="16_tno0n"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g5p08"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1e4m"]
+texture = SubResource("CompressedTexture2D_g5p08")
+
+[sub_resource type="Theme" id="Theme_lbnxl"]
+/styles/Panel = SubResource("StyleBoxTexture_b1e4m")
+Panel/styles/panel = ExtResource("1_ujcua")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr57w"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.176471)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ugti"]
+line_spacing = 30.0
+font = ExtResource("16_tno0n")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_ytkbt"]
+line_spacing = 10.0
+font = ExtResource("16_tno0n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bagx4"]
+line_spacing = 30.0
+font = ExtResource("16_tno0n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rir38"]
+line_spacing = 10.0
+font = ExtResource("16_tno0n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0321y"]
+line_spacing = 5.0
+font = ExtResource("16_tno0n")
+
+[node name="SimonSays" type="CanvasLayer"]
+layer = 0
+visible = false
+script = ExtResource("2_xbfyr")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_lbnxl")
+
+[node name="SceneChangeTimer" type="Timer" parent="Panel"]
+wait_time = 3.0
+one_shot = true
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -404.0
+offset_top = -100.0
+offset_right = 404.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GreenButton" type="TextureButton" parent="Panel/BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("3_bm30d")
+texture_pressed = ExtResource("4_yak5g")
+texture_hover = ExtResource("5_nvhqu")
+texture_disabled = ExtResource("3_bm30d")
+
+[node name="BlueButton" type="TextureButton" parent="Panel/BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_urgx4")
+texture_pressed = ExtResource("7_hxp4t")
+texture_hover = ExtResource("8_1pcof")
+texture_disabled = ExtResource("6_urgx4")
+
+[node name="RedButton" type="TextureButton" parent="Panel/BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("9_4ieab")
+texture_pressed = ExtResource("10_uaey7")
+texture_hover = ExtResource("11_eur2i")
+texture_disabled = ExtResource("9_4ieab")
+
+[node name="YellowButton" type="TextureButton" parent="Panel/BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("12_mbwj3")
+texture_pressed = ExtResource("13_iaaek")
+texture_hover = ExtResource("14_uusxg")
+texture_disabled = ExtResource("12_mbwj3")
+
+[node name="PanelContainerTop" type="PanelContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 83.0
+offset_right = 1548.0
+offset_bottom = 277.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nr57w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainerTop"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="titel" type="Label" parent="Panel/PanelContainerTop/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("15_qwv7s")
+text = "Simon Says"
+label_settings = SubResource("LabelSettings_3ugti")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="infobox" type="Label" parent="Panel/PanelContainerTop/VBoxContainer"]
+layout_mode = 2
+text = "Merke dir die leuchtende Farbsequenz und wiederhole sie genau, 
+indem du die entsprechenden Tasten in der gleichen Reihenfolge drückst."
+label_settings = SubResource("LabelSettings_ytkbt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PanelContainerTop/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="verbrauchteZuege" type="Label" parent="Panel/PanelContainerTop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"counter"
+text = "Aktuelle Runde:"
+label_settings = SubResource("LabelSettings_bagx4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="counter" type="Label" parent="Panel/PanelContainerTop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_rir38")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainerBottom" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.014
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 784.0
+offset_right = -159.866
+offset_bottom = -137.0
+
+[node name="Label" type="Label" parent="Panel/PanelContainerBottom"]
+layout_mode = 2
+text = "<Q> Rätsel abbrechen und Truhe schließen"
+label_settings = SubResource("LabelSettings_0321y")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/PanelContainerBottom"]
+layout_mode = 2
+
+[connection signal="timeout" from="Panel/SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
+[connection signal="pressed" from="Panel/BoxContainer/GreenButton" to="." method="_on_green_button_pressed"]
+[connection signal="pressed" from="Panel/BoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="Panel/BoxContainer/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="Panel/BoxContainer/YellowButton" to="." method="_on_yellow_button_pressed"]
+[connection signal="pressed" from="Panel/PanelContainerBottom/Button" to="Panel" method="_on_button_pressed"]

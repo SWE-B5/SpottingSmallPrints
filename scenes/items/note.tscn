@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://c56sm2eycxxt3"]
+
+[ext_resource type="Script" path="res://scripts/items/note.gd" id="1_jvn6a"]
+[ext_resource type="Texture2D" uid="uid://bvoi3u0igh0ud" path="res://assets/pixel_dungeon/character and tileset/Dungeon_Tileset.png" id="2_s56u5"]
+[ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="3_0qyn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls6r7"]
+atlas = ExtResource("2_s56u5")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bv5g1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls6r7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewyat"]
+radius = 17.0294
+
+[node name="Note" type="StaticBody2D"]
+z_index = 2
+script = ExtResource("1_jvn6a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bv5g1")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_0qyn7")]
+collision_mask = 16
+action_name = "<E> Notiz aufsammeln"
+
+[node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_ewyat")

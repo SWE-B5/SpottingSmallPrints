@@ -1,0 +1,256 @@
+[gd_scene load_steps=6 format=3 uid="uid://v5kfkbko8h6a"]
+
+[ext_resource type="Script" path="res://scripts/ui/OutroCredits_script.gd" id="1_tpdn5"]
+[ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="2_yskrm"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_eg8le"]
+[ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="4_0ayxk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys4w5"]
+shader = ExtResource("3_eg8le")
+shader_parameter/blur = 0.674
+shader_parameter/brightness = 0.764
+
+[node name="OutroCredits" type="CanvasLayer"]
+script = ExtResource("1_tpdn5")
+metadata/_edit_vertical_guides_ = [953.0]
+metadata/_edit_horizontal_guides_ = [191.0]
+
+[node name="BackgroundV1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.32419, 1.32419)
+texture = ExtResource("2_yskrm")
+
+[node name="BlurBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ys4w5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Outro" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Label5" type="Label" parent="Outro"]
+offset_left = 195.0
+offset_top = 100.0
+offset_right = 1755.0
+offset_bottom = 760.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = " §16
+
+Findet der Neuling selbstständig auf dem Labyrinth, 
+
+so gilt seine Prüfung als bestanden.
+
+
+Alle Mitglieder des Ordens mögen ihn auf der anderen
+
+Seite der Dimanttür empfangen.
+
+
+Das älteste Mitglied möge ihm seine neue Robe
+
+überreichen und ihn im Orden willkommen heißen.
+
+
+Er ist nur berechtigt an den Sitzungen des Ordens
+
+am großen Tisch teilzunehmen."
+
+[node name="CenterContainer2" type="CenterContainer" parent="Outro"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 940.0
+offset_right = -300.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Outro/CenterContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Outro/CenterContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outro/CenterContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="Outro/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 24
+text = "Zu den Credits"
+
+[node name="Credits" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="titel" type="Label" parent="Credits"]
+anchors_preset = -1
+anchor_left = 0.325
+anchor_top = 0.044
+anchor_right = 0.325
+anchor_bottom = 0.044
+offset_left = 7.99994
+offset_top = -11.52
+offset_right = 673.0
+offset_bottom = 67.48
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 35
+text = "Danke fürs Spielen."
+
+[node name="credits" type="TextEdit" parent="Credits"]
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 1860.0
+offset_bottom = 920.0
+
+[node name="team_mitglieder" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 72.0
+offset_top = 10.0
+offset_right = 882.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = "Team B5 Mitglieder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="auftraggeber" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 949.0
+offset_top = 10.0
+offset_right = 1759.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = "Auftraggeber - AppVenture"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lizenzen" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 61.0
+offset_top = 354.0
+offset_right = 1741.0
+offset_bottom = 414.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 30
+text = "Lizenzen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lizenzen_text" type="TextEdit" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 59.0
+offset_top = 410.0
+offset_right = 1739.0
+offset_bottom = 768.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 22
+text = "Game Asset: 
+
+  Mystic Woods (https://game-endeavor.itch.io/mystic-woods)
+
+  2D Pixel Dungeon (https://pixel-poem.itch.io/dungeon-assetpuck)
+
+Bild:
+
+  Dungeon Hintergrund (MIDJOURNEY™)
+
+Font:
+
+  (https://fontmeme.com/fonts/dabir-font/)
+
+"
+
+[node name="team_namen" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 73.0
+offset_right = 870.0
+offset_bottom = 373.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 22
+text = "
+Amro Elsaadany
+Benedikt Schmitz
+Julius Boeder
+Kilian Wiesen
+Leon Frings
+Marc Spitzfaden
+Martin Packbier
+Till Voss
+Til Zölzer
+Wei-Ting Chang"
+horizontal_alignment = 1
+
+[node name="namen" type="Label" parent="Credits/credits"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 930.0
+offset_top = 74.0
+offset_right = 1740.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 22
+text = "
+	
+Fabian Ferrari
+
+Hannes Gierth
+
+Jonah Heisterkamp"
+horizontal_alignment = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 940.0
+offset_right = -300.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Credits/CenterContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/CenterContainer3/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer3/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Hauptmenu" type="Button" parent="Credits/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0ayxk")
+theme_override_font_sizes/font_size = 24
+text = "Zum Hauptmenü"
+
+[connection signal="pressed" from="Outro/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Credits/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer/Hauptmenu" to="." method="_on_hauptmenu_pressed"]

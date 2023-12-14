@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv1bj68apbp42"]
+
+[ext_resource type="Texture2D" uid="uid://nuvrpaynjvt8" path="res://assets/pixel_dungeon/items and trap_animation/keys/keys_2_1.png" id="1_ule5u"]
+
+[node name="Silver_key_panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(112, 112)
+offset_right = 112.0
+offset_bottom = 112.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-29, -24)
+scale = Vector2(10, 10)
+texture = ExtResource("1_ule5u")
+centered = false
