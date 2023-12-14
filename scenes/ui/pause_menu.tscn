@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c70emhr8dng6o"]
+[gd_scene load_steps=6 format=3 uid="uid://c70emhr8dng6o"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_tk502"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_v6hhf"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="3_k4vqs"]
+[ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="3_w0o4f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0a32"]
 shader = ExtResource("1_v6hhf")
@@ -20,10 +21,89 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BackgroundV1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.32419, 1.32419)
+texture = ExtResource("3_w0o4f")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 120.0
+offset_right = 1920.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 50
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="Steuerung_titel" type="Label" parent="."]
+offset_top = 260.0
+offset_right = 1920.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 30
+text = "Steuerung"
+horizontal_alignment = 1
+
+[node name="Steuerung2" type="Label" parent="."]
+offset_left = 350.0
+offset_top = 320.0
+offset_right = 870.0
+offset_bottom = 881.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 30
+text = "
+<W>/<A>/<S>/<D>
+
+Bewegen
+
+
+<Esc>
+
+Pausieren
+Entpausieren 
+
+
+<M>
+
+Karte öffnen
+Karte schließen
+
+"
+horizontal_alignment = 1
+
+[node name="Steuerung" type="Label" parent="."]
+offset_left = 990.0
+offset_top = 320.0
+offset_right = 1510.0
+offset_bottom = 881.0
+theme_override_fonts/font = ExtResource("3_k4vqs")
+theme_override_font_sizes/font_size = 30
+text = "
+<Leertaste>
+
+Dialog weiter
+
+
+<E>
+
+Interagieren
+Bestätigen
+
+
+<Q> 
+
+Abbrechen
+
+
+"
+horizontal_alignment = 1
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 900.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -42,20 +122,14 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_k4vqs")
-theme_override_font_sizes/font_size = 24
-text = "DAS SPIEL IST PAUSIERT"
-
 [node name="ResumeButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 24
-text = "SPIELEN"
+text = "Spiel fortsetzen"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 24
-text = "VERLASSEN"
+text = "Zurück zum Hauptmenü"

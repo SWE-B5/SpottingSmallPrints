@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 enum Direction { UP, DOWN, LEFT, RIGHT }
 enum MovementState { WALK, IDLE }
@@ -8,11 +8,14 @@ enum MovementState { WALK, IDLE }
 @onready var follow_camera = $FollowCamera
 var direction: Direction = Direction.DOWN
 
+
 func _ready():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
 func _process(delta):
 	handle_movement_input()
+	if PlayerVariables.immunity_frames > 0:
+		PlayerVariables.immunity_frames -= delta
 
 func handle_movement_input():
 	if PlayerVariables.immobile:
@@ -79,3 +82,10 @@ func can_open_map():
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
 	return false
+
+func damage_animation():
+	for i in 4:
+		anim.self_modulate = Color(1,0,0,0.5)
+		await get_tree().create_timer(0.15).timeout
+		anim.self_modulate = Color(1,1,1,1)
+		await get_tree().create_timer(0.15).timeout

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://xhfk7v8osp1m"]
+
+[node name="Note_hud" type="HBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -121.0
+offset_right = 364.0
+offset_bottom = -9.0
+grow_vertical = 0

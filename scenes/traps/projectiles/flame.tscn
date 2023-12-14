@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg8im2ubppjtc"]
+
+[ext_resource type="Texture2D" uid="uid://c6nqhtkwp1jk6" path="res://assets/pixel_dungeon/items and trap_animation/flamethrower/flamethrower_flame.png" id="1_qm3wi"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+texture = ExtResource("1_qm3wi")
+hframes = 4
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -8, -8, 8, 0, 16, 8, 8, 8, -8, 0, -16)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c32ls2dnnx73l"]
+
+[ext_resource type="Script" path="res://scripts/traps/projectiles/arrow.gd" id="1_7od7g"]
+[ext_resource type="Texture2D" uid="uid://dvp4s4hs6ur0x" path="res://assets/pixel_dungeon/items and trap_animation/arrow/Just_arrow.png" id="1_b7wtr"]
+
+[node name="arrow" type="StaticBody2D"]
+show_behind_parent = true
+top_level = true
+light_mask = 0
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_7od7g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 0
+polygon = PackedVector2Array(-2.97449, -4.37343, 6.99109, -0.499763, -2.97449, 3.44012)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+light_mask = 0
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_b7wtr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
