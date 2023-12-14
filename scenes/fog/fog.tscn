@@ -73,7 +73,6 @@ sources/2 = SubResource("TileSetAtlasSource_5c32f")
 
 [node name="Fog" type="TileMap"]
 z_index = 10
-position = Vector2(0, 1)
 tile_set = SubResource("TileSet_lvu8u")
 format = 2
 layer_0/z_index = 4
