@@ -5,7 +5,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PlayerVariables.load_easy_game()
 	var tilemap = $TileMap
 	fog.init(tilemap)
 
