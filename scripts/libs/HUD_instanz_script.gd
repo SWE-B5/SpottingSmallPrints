@@ -64,6 +64,7 @@ func update_note_hud(number_of_notes: int):
 func update_health_hud(number_of_lives: int, shield_active: Health.Shield_States):
 	var node = self.get_child(4)
 	for n in node.get_child_count():
+		node.get_child(n).hide()
 		node.get_child(n).queue_free()
 	for i in number_of_lives:
 		var heart = HeartGuiClass.instantiate()

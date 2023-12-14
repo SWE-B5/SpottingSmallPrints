@@ -84,4 +84,6 @@ const KEEP_SHIELD_AT_RESET = false
 
 #short form
 func update_hud():
+	#if get_tree().get_first_node_in_group("Group HUDs"):
+	#	.update_health_hud(current_lives, shield)
 	get_tree().call_group("Group HUDs", "update_health_hud", current_lives, shield)

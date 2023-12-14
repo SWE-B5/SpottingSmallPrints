@@ -6,8 +6,8 @@ extends Node2D
 
 func _ready():
 	fog.init(tilemap, player)
-	Health.reset_health()
-	Inventory.update_after_death()
+	Health.reset_health() #muss drin bleiben!
+	Inventory.update_after_death() #muss drin bleiben!
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

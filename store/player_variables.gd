@@ -52,11 +52,11 @@ func initialize_new_game(diff: Difficulty):
 			Health.reset_health(2, Health.INACTIVE)
 		Difficulty.HARD:
 			Health.reset_health(1, Health.INACTIVE)
+	print(Health.max_lives)
 	initialize_unsaved_vars()
 	save_game()
 
 func initialize_unsaved_vars():
-	difficulty = Difficulty.EASY
 	active_camera = CameraTypes.FOLLOW
 	zoom_niveau = 5
 	immobile = false
@@ -64,7 +64,7 @@ func initialize_unsaved_vars():
 		Difficulty.EASY:
 			speed = Constants.EASY_SPEED
 		Difficulty.MEDIUM:
-			speed = Constants.MEDUIUM_SPEED
+			speed = Constants.MEDIUM_SPEED
 		Difficulty.HARD:
 			speed = Constants.HARD_SPEED
 
