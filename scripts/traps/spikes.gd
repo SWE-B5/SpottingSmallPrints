@@ -4,7 +4,7 @@ var PLAYER: CharacterBody2D
 
 func _ready():
 	$AnimationPlayer.play("spikes")
-	PLAYER = get_parent().get_node("Player")
+	PLAYER = get_tree().current_scene.get_node("Player")
 
 func _on_body_entered(body):
 	if(PlayerVariables.immunity_frames <= 0):
