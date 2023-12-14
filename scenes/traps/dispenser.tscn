@@ -13,6 +13,7 @@ script = ExtResource("1_xiwwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fm0g6")
+one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
