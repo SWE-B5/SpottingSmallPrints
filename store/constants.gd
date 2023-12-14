@@ -1,5 +1,3 @@
-extends Node
-
 # fyi: C:\Users\UserName\AppData\Roaming\Godot\app_userdata\Spotting Small Prints\spotting_small_prints.save
 # Linux: /home/UserName/.local/share/godot/app_userdata/Spooting Small Prints/spotting_small_prints.save
 # falls man löschen will oder sowas
@@ -28,3 +26,7 @@ const LEVEL_1_PATH = ""
 const LEVEL_2_PATH = ""
 const LEVEL_3_PATH = ""
 const LEVEL_4_PATH = ""
+
+const DEFAULT_ZOOM_NIVEAU = 5
+const HEAD_ZOOM_NIVEAU = 10
+const ZOOM_TICK = 0.2
