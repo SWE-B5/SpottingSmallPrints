@@ -10,7 +10,7 @@ var ARROW_ACTIVE = false
 var TIMER_ACTIVE = false
 
 func _ready():
-	TILEMAP = get_parent().get_node("TileMap")
+	TILEMAP = get_tree().current_scene.get_node("TileMap")
 
 func _on_timer_timeout():
 	TIMER_ACTIVE = false
