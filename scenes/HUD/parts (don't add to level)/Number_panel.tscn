@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://jks0p4ddilrt"]
+
+[ext_resource type="Texture2D" uid="uid://cd54h00b4o1f7" path="res://assets/utils/Zahlen.png" id="1_gph3r"]
+
+[node name="Number_panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(112, 112)
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-15, 16)
+scale = Vector2(5, 5)
+texture = ExtResource("1_gph3r")
+centered = false
+hframes = 10

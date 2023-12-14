@@ -2,12 +2,12 @@ extends CanvasLayer
 
 var is_active = false
 @onready var resume_button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResumeButton
-@onready var quit_button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton
+@onready var mainmenu_button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenuButton
 
 func _ready():
 	hide()
 	resume_button.connect("pressed", toggle)
-	quit_button.connect("pressed", quit)
+	mainmenu_button.connect("pressed", back_to_mainmenu)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -15,10 +15,15 @@ func _process(delta):
 		toggle()
 	get_tree().paused = is_active # wenns nicht hier ist, spielt er trotzdem weiter
 
-func quit():
-	PlayerVariables.save_to_path(Constants.SAVE_PATH)
-	get_tree().quit()
+func back_to_mainmenu():
+	PlayerVariables.save_game() #notwendig
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
 func toggle():
+	if is_active:
+		Hud.dequeue_overlay()
+	else:
+		Hud.queue_overlay()
 	is_active = !is_active
 	visible = is_active

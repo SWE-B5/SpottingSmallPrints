@@ -1,0 +1,21 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgo0cfvv4hc57"]
+
+[ext_resource type="Script" path="res://scripts/libs/HUD_instanz_script.gd" id="1_ywok0"]
+[ext_resource type="PackedScene" uid="uid://b8wewp1i1g6uh" path="res://scenes/HUD/parts (don't add to level)/Silver_key_hud.tscn" id="2_dw07o"]
+[ext_resource type="PackedScene" uid="uid://bxxqvectsp1xk" path="res://scenes/HUD/parts (don't add to level)/Health_hud.tscn" id="3_2ybww"]
+[ext_resource type="PackedScene" uid="uid://ca0no172y4e8b" path="res://scenes/HUD/parts (don't add to level)/Gold_key_hud.tscn" id="3_qpxcc"]
+[ext_resource type="PackedScene" uid="uid://xhfk7v8osp1m" path="res://scenes/HUD/parts (don't add to level)/Note_hud.tscn" id="4_4yob6"]
+[ext_resource type="PackedScene" uid="uid://dkwgn5nm7tc10" path="res://scenes/HUD/parts (don't add to level)/Diamond_key_hud.tscn" id="4_a52ik"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ywok0")
+
+[node name="Silver_key_hud" parent="." instance=ExtResource("2_dw07o")]
+
+[node name="Gold_key_hud" parent="." instance=ExtResource("3_qpxcc")]
+
+[node name="Diamond_key_hud" parent="." instance=ExtResource("4_a52ik")]
+
+[node name="Note_hud" parent="." instance=ExtResource("4_4yob6")]
+
+[node name="Health_hud" parent="." instance=ExtResource("3_2ybww")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2080l5vuqkp8"]
+
+[ext_resource type="Script" path="res://Interaction/InteractionManager.gd" id="1_sqdje"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ncuh4"]
+font_size = 9
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_sqdje")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 53.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "[E] to interact"
+label_settings = SubResource("LabelSettings_ncuh4")
+horizontal_alignment = 1
+vertical_alignment = 1

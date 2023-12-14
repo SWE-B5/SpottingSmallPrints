@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8wewp1i1g6uh"]
+
+[ext_resource type="PackedScene" uid="uid://bv1bj68apbp42" path="res://scenes/HUD/parts (don't add to level)/Silver_key_panel.tscn" id="1_ngvnl"]
+[ext_resource type="PackedScene" uid="uid://bb46ffsrq3rri" path="res://scenes/HUD/parts (don't add to level)/Multiplikation_panel.tscn" id="2_8pr57"]
+[ext_resource type="PackedScene" uid="uid://jks0p4ddilrt" path="res://scenes/HUD/parts (don't add to level)/Number_panel.tscn" id="3_sswjm"]
+
+[node name="Silver_key_hud" type="HBoxContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -121.0
+offset_right = 32.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Silver_key_panel" parent="." instance=ExtResource("1_ngvnl")]
+layout_mode = 2
+
+[node name="multiplikation_panel" parent="." instance=ExtResource("2_8pr57")]
+layout_mode = 2
+
+[node name="Number_panel" parent="." instance=ExtResource("3_sswjm")]
+layout_mode = 2

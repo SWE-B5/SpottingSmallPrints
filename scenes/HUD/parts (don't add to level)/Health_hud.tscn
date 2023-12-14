@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bxxqvectsp1xk"]
+
+[node name="Health_hud" type="HBoxContainer"]
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 480.0
+offset_bottom = 120.0
