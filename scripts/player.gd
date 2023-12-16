@@ -8,6 +8,10 @@ enum MovementState { WALK, IDLE }
 @onready var follow_camera = $FollowCamera
 var direction: Direction = Direction.DOWN
 
+var is_zooming_in: bool = false
+var is_zooming_out: bool = false
+signal is_zooming_in_finished
+signal is_zooming_out_finished
 
 func _ready():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
@@ -79,10 +83,13 @@ func play_animation(movement: MovementState):
 
 func can_open_map():
 	# check if nicht in der hub noch machen
+	if is_zooming_in || is_zooming_out:
+		return false
+	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
 	return false
-
+ 
 func damage_animation():
 	for i in 4:
 		anim.self_modulate = Color(1,0,0,0.5)
