@@ -67,7 +67,6 @@ func _on_easy_difficulty_button_pressed():
 	difficulty_selector.hide()
 	background_blurr.show()
 	intro_part_1.show()
-	
 
 func _on_normal_difficulty_button_pressed():
 	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.MEDIUM)
@@ -98,7 +97,6 @@ func _on_respawn_pressed():
 	Health.is_death = true # damit fog save geladen wird
 	go_to_level()
 
-
 func _on_hauptmenu_pressed():
 	death_screen.hide()
 	start_menu.show()
@@ -110,27 +108,20 @@ func _on_confirm_abbruch_pressed():
 	confirmation_screen.hide()
 	start_menu.show()
 
-
-
 func _on_easy_difficulty_button_mouse_entered(): #neu
 	difficulty_selector.get_child(2).show()
-
 
 func _on_easy_difficulty_button_mouse_exited(): #neu
 	difficulty_selector.get_child(2).hide()
 
-
 func _on_normal_difficulty_button_mouse_entered():
 	difficulty_selector.get_child(3).show()
-
 
 func _on_normal_difficulty_button_mouse_exited():
 	difficulty_selector.get_child(3).hide()
 
-
 func _on_hard_difficulty_button_mouse_entered():
 	difficulty_selector.get_child(4).show()
-
 
 func _on_hard_difficulty_button_mouse_exited():
 	difficulty_selector.get_child(4).hide()

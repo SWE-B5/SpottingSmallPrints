@@ -35,11 +35,12 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	
 	if FileAccess.file_exists(get_file_path()):
 		#einfacher als gezielt vorher löschen, da fog script nicht global verfügbar
+		load_fog()
+		#obsolete? @Leon
 		if Health.is_death:	
-			load_fog()
 			Health.is_death = false
-		var dir = DirAccess.open("user://")
-		dir.remove(get_file_path())
+		
+		DirAccess.open("user://").remove(get_file_path())
 	#init_timer()
 
 func update_pos(pos):

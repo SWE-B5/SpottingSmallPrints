@@ -39,7 +39,6 @@ func delete_save_file():
 	var dir = DirAccess.open(Constants.SAVE_DIRECTORY)
 	dir.remove(Constants.SAVE_FILE_NAME)
 
-
 func initialize_new_game(diff: Difficulty):
 	delete_save_file()
 	difficulty = diff
