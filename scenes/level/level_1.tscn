@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dx35ajh5kengc"]
+[gd_scene load_steps=78 format=3 uid="uid://dx35ajh5kengc"]
 
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="1_ya33k"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_mi72s"]
@@ -444,6 +444,86 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="GDScript" id="GDScript_c5qfc"]
+script/source = "extends Node2D
+
+@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
+@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
+@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
+@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
+@onready var timer = $hitbox_timer
+@export var speed = 100
+
+func _ready():
+	sprite.play()
+	
+func _process(delta):
+	path_follow.progress += speed * delta
+	
+func _on_hitbox_timer_timeout():
+	hitbox.set_deferred(\"disabled\", false)
+	collision_shape.set_deferred(\"disabled\", false)
+	
+func _on_hitbox_area_entered(area):
+	print(\"Damage dealt to player:\")
+	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
+		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
+		get_tree().get_first_node_in_group('Player').damage_animation()
+		await get_tree().create_timer(0.1).timeout
+		hitbox.set_deferred(\"disabled\", true)
+		collision_shape.set_deferred(\"disabled\", true)
+		timer.start()
+		Health.damage_player(1)
+"
+
+[sub_resource type="Curve2D" id="Curve2D_8o4u6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 165, 2, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo6no"]
+atlas = ExtResource("9_7g8q1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r62f"]
+atlas = ExtResource("9_7g8q1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndpol"]
+atlas = ExtResource("10_efs0a")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyisc"]
+atlas = ExtResource("11_16ls3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p41js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo6no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r62f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndpol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyisc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbxjf"]
+radius = 4.47214
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jexji"]
+radius = 6.08276
+
 [node name="test_tilemap" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ya33k")
@@ -464,47 +544,15 @@ position = Vector2(67, 449)
 [node name="Spikes1-1" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(555, 408)
 
-[node name="Spikes1-2" parent="Spikes1-1" instance=ExtResource("5_04wwp")]
-position = Vector2(571, 408)
-
-[node name="Spikes1-3" parent="Spikes1-1/Spikes1-2" instance=ExtResource("5_04wwp")]
-position = Vector2(587, 408)
-
 [node name="Spikes2-1" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(-581, -215)
-
-[node name="Spikes2-2" parent="Spikes2-1" instance=ExtResource("5_04wwp")]
-position = Vector2(-597, -215)
-
-[node name="Spikes2-3" parent="Spikes2-1/Spikes2-2" instance=ExtResource("5_04wwp")]
-position = Vector2(-613, -215)
 
 [node name="Flamethrower1-1" parent="." instance=ExtResource("6_erdrq")]
 position = Vector2(-229, -161)
 rotation = 0.0074263
 
-[node name="Flamethrower1-2" parent="Flamethrower1-1" instance=ExtResource("6_erdrq")]
-position = Vector2(-85, -160)
-rotation = 0.00935012
-
-[node name="Flamethrower1-3" parent="Flamethrower1-1/Flamethrower1-2" instance=ExtResource("6_erdrq")]
-position = Vector2(651, -224)
-rotation = 0.0074263
-
 [node name="Flamethrower2-1" parent="." instance=ExtResource("6_erdrq")]
 position = Vector2(-839, 16)
-rotation = -3.13355
-
-[node name="Flamethrower2-2" parent="Flamethrower2-1" instance=ExtResource("6_erdrq")]
-position = Vector2(-826, 16)
-rotation = -3.13355
-
-[node name="Flamethrower2-3" parent="Flamethrower2-1/Flamethrower2-2" instance=ExtResource("6_erdrq")]
-position = Vector2(-804, 87)
-rotation = -3.13355
-
-[node name="Flamethrower2-4" parent="Flamethrower2-1/Flamethrower2-2/Flamethrower2-3" instance=ExtResource("6_erdrq")]
-position = Vector2(-817, 87)
 rotation = -3.13355
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -630,16 +678,16 @@ position = Vector2(549, -184)
 markerid = "marker2"
 
 [node name="Marker2D" type="Marker2D" parent="Node2D3" groups=["marker2"]]
-position = Vector2(510, -239)
+position = Vector2(511, -228)
 
 [node name="Marker2D2" type="Marker2D" parent="Node2D3" groups=["marker2"]]
 position = Vector2(564, -221)
 
 [node name="Marker2D3" type="Marker2D" parent="Node2D3" groups=["marker2"]]
-position = Vector2(525, -95)
+position = Vector2(519, -113)
 
 [node name="Marker2D4" type="Marker2D" parent="Node2D3" groups=["marker2"]]
-position = Vector2(557, -134)
+position = Vector2(557, -147)
 
 [node name="Node2D4" type="Node2D" parent="."]
 
@@ -648,16 +696,16 @@ position = Vector2(-830.786, 195.958)
 markerid = "marker3"
 
 [node name="Marker2D" type="Marker2D" parent="Node2D4" groups=["marker3"]]
-position = Vector2(-863, 158)
+position = Vector2(-862, 169)
 
 [node name="Marker2D2" type="Marker2D" parent="Node2D4" groups=["marker3"]]
 position = Vector2(-779, 167)
 
 [node name="Marker2D3" type="Marker2D" parent="Node2D4" groups=["marker3"]]
-position = Vector2(-850, 232)
+position = Vector2(-862, 244)
 
 [node name="Marker2D4" type="Marker2D" parent="Node2D4" groups=["marker3"]]
-position = Vector2(-794, 220)
+position = Vector2(-791, 244)
 
 [node name="sceleton4" type="Node2D" parent="."]
 z_index = 1
@@ -711,16 +759,16 @@ position = Vector2(858, 61)
 markerid = "marker4"
 
 [node name="Marker2D" type="Marker2D" parent="Node2D5" groups=["marker4"]]
-position = Vector2(815, 62)
+position = Vector2(818, 63)
 
 [node name="Marker2D2" type="Marker2D" parent="Node2D5" groups=["marker4"]]
-position = Vector2(825, 96)
+position = Vector2(807, 98)
 
 [node name="Marker2D3" type="Marker2D" parent="Node2D5" groups=["marker4"]]
-position = Vector2(895, 30)
+position = Vector2(891, 42)
 
 [node name="Marker2D4" type="Marker2D" parent="Node2D5" groups=["marker4"]]
-position = Vector2(895, 84)
+position = Vector2(894, 93)
 
 [node name="Flamethrower2-2" parent="." instance=ExtResource("6_erdrq")]
 position = Vector2(-821, -160)
@@ -733,12 +781,9 @@ rotation = -6.28319
 position = Vector2(-181, -496)
 rotation = -6.28318
 
-[node name="Flamethrower2-1" parent="Flamethrower2-4" instance=ExtResource("6_erdrq")]
-position = Vector2(-420, 400)
-
 [node name="sceleton5" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(-733, -460)
+position = Vector2(-726, -449)
 script = SubResource("GDScript_7p257")
 
 [node name="Path2D" type="Path2D" parent="sceleton5"]
@@ -839,20 +884,8 @@ position = Vector2(475, 432)
 [node name="Spikes3-1" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(187, -350)
 
-[node name="Spikes3-2" parent="Spikes3-1" instance=ExtResource("5_04wwp")]
-position = Vector2(187, -335)
-
-[node name="Spikes3-3" parent="Spikes3-1" instance=ExtResource("5_04wwp")]
-position = Vector2(187, -318)
-
 [node name="Spikes4-1" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(858, -270)
-
-[node name="Spikes4-2" parent="Spikes4-1" instance=ExtResource("5_04wwp")]
-position = Vector2(858, -254)
-
-[node name="Spikes4-3" parent="Spikes4-1" instance=ExtResource("5_04wwp")]
-position = Vector2(858, -286)
 
 [node name="sceleton7" type="Node2D" parent="."]
 z_index = 1
@@ -952,27 +985,6 @@ rotation = 1.5708
 [node name="Spikes" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(-645, 466)
 
-[node name="Spikes" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-664, 481)
-
-[node name="Spikes" parent="Spikes/Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-645, 498)
-
-[node name="Spikes2" parent="Spikes/Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-682, 466)
-
-[node name="Spikes" parent="Spikes/Spikes/Spikes2" instance=ExtResource("5_04wwp")]
-position = Vector2(-682, 498)
-
-[node name="Spikes" parent="Spikes/Spikes/Spikes2/Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-700, 481)
-
-[node name="Spikes" parent="Spikes/Spikes/Spikes2/Spikes/Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-718, 466)
-
-[node name="Spikes" parent="Spikes/Spikes/Spikes2/Spikes/Spikes/Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-718, 498)
-
 [node name="dispenser11" parent="." instance=ExtResource("8_fhyc1")]
 position = Vector2(-565, -78)
 rotation = 1.5708
@@ -983,15 +995,6 @@ rotation = 1.5708
 
 [node name="Spikes2" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(362, 18)
-
-[node name="Spikes" parent="Spikes2" instance=ExtResource("5_04wwp")]
-position = Vector2(362, 50)
-
-[node name="Spikes" parent="Spikes2/Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(379, 34)
-
-[node name="Flamethrower" parent="Spikes2/Spikes/Spikes" instance=ExtResource("6_erdrq")]
-position = Vector2(395, 16)
 
 [node name="TürRund" parent="." instance=ExtResource("18_p1l7x")]
 position = Vector2(67, 481)
@@ -1135,6 +1138,121 @@ rotation = 1.5708
 [node name="dispenser20" parent="." instance=ExtResource("8_fhyc1")]
 position = Vector2(317.5, -302.5)
 
+[node name="Spikes1-2" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(571, 408)
+
+[node name="Spikes2-2" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-597, -215)
+
+[node name="Flamethrower1-5" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(-85, -160)
+rotation = 0.00935012
+
+[node name="Flamethrower2-5" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(-826, 16)
+rotation = -3.13355
+scale = Vector2(1, 1)
+
+[node name="Flamethrower2-6" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(-420, 400)
+
+[node name="Spikes3-2" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(187, -335)
+
+[node name="Spikes3-3" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(187, -318)
+
+[node name="Spikes4-2" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(858, -254)
+
+[node name="Spikes4-3" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(858, -286)
+
+[node name="Spikes3" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-664, 481)
+
+[node name="Spikes4" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(362, 50)
+
+[node name="Spikes1-3" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(587, 408)
+
+[node name="Spikes2-3" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-613, -215)
+
+[node name="Flamethrower1-6" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(651, -224)
+rotation = 0.0074263
+scale = Vector2(1, 1)
+
+[node name="Flamethrower2-7" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(-804, 87)
+rotation = -3.13355
+scale = Vector2(1, 1)
+
+[node name="Spikes5" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-645, 498)
+
+[node name="Spikes6" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-682, 466)
+
+[node name="Spikes7" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(379, 34)
+
+[node name="Flamethrower2-8" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(-817, 87)
+rotation = -3.13355
+scale = Vector2(1, 1)
+
+[node name="Spikes8" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-682, 498)
+
+[node name="Flamethrower" parent="." instance=ExtResource("6_erdrq")]
+position = Vector2(395, 16)
+
+[node name="Spikes9" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-700, 481)
+
+[node name="Spikes10" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-718, 466)
+
+[node name="Spikes11" parent="." instance=ExtResource("5_04wwp")]
+position = Vector2(-718, 498)
+
+[node name="sceleton11" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(455, -71)
+script = SubResource("GDScript_c5qfc")
+
+[node name="Path2D" type="Path2D" parent="sceleton11"]
+curve = SubResource("Curve2D_8o4u6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="sceleton11/Path2D"]
+position = Vector2(0, -1)
+rotation = 0.0128198
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="sceleton11/Path2D/PathFollow2D"]
+
+[node name="sprite" type="AnimatedSprite2D" parent="sceleton11/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.974281, -2.01266)
+sprite_frames = SubResource("SpriteFrames_p41js")
+frame_progress = 0.52065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton11/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.025639, 1.99984)
+shape = SubResource("CircleShape2D_xbxjf")
+
+[node name="hitbox" type="Area2D" parent="sceleton11/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.0128195, 0.999918)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton11/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
+position = Vector2(5.96046e-08, 0)
+shape = SubResource("CircleShape2D_jexji")
+
+[node name="hitbox_timer" type="Timer" parent="sceleton11"]
+
 [connection signal="area_entered" from="sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton2" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton2/hitbox_timer" to="sceleton2" method="_on_hitbox_timer_timeout" flags=18]
 [connection signal="area_entered" from="sceleton3/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton3" method="_on_hitbox_area_entered" flags=18]
@@ -1153,3 +1271,5 @@ position = Vector2(317.5, -302.5)
 [connection signal="timeout" from="sceleton9/hitbox_timer" to="sceleton9" method="_on_hitbox_timer_timeout" flags=18]
 [connection signal="area_entered" from="sceleton10/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton10" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton10/hitbox_timer" to="sceleton10" method="_on_hitbox_timer_timeout" flags=18]
+[connection signal="area_entered" from="sceleton11/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton11" method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="sceleton11/hitbox_timer" to="sceleton11" method="_on_hitbox_timer_timeout" flags=18]
