@@ -23,7 +23,7 @@ func _ready():
 	#print("group self")
 	#print(self)
 	add_to_group("Group HUDs")
-	Hud.is_Hub = PlayerVariables.current_level == 0
+	Hud.is_Hub = PlayerVariables.current_level == 2
 	Hud.reset_queue_overlay()
 	#print(get_tree().get_current_scene().name)
 	#print(Hud.is_Hub)
@@ -64,6 +64,7 @@ func update_note_hud(number_of_notes: int):
 func update_health_hud(number_of_lives: int, shield_active: Health.Shield_States):
 	var node = self.get_child(4)
 	for n in node.get_child_count():
+		node.get_child(n).hide()
 		node.get_child(n).queue_free()
 	for i in number_of_lives:
 		var heart = HeartGuiClass.instantiate()
