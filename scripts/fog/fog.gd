@@ -46,7 +46,7 @@ func update_pos(pos):
 	PLAYER_POS = Vector2(pos.x, pos.y + 16)
 
 func _physics_process(delta):
-	if(PLAYER_POS == null || PLAYER_POS == Vector2(0, 0)):
+	if(PLAYER_POS == null):
 		return
 	
 	var pos = PLAYER_POS
