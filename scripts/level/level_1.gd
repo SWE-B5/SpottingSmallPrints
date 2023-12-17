@@ -1,11 +1,14 @@
 extends Node2D
 
+@onready var player = $Player
+@onready var fog = $Fog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.EASY)
+	#PlayerVariables.load_easy_game()
+	fog.init($TileMap, $Player)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	fog.update_pos(player.position)
