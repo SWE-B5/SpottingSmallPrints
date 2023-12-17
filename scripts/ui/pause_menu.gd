@@ -20,7 +20,6 @@ func back_to_mainmenu():
 	var Fog = get_tree().current_scene.get_node("Fog")
 	if(Fog):
 		Fog.save_fog()
-	print(get_tree().current_scene.get_node("Fog"))
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
