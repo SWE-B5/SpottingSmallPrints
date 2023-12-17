@@ -26,16 +26,19 @@ size = Vector2(6, 32)
 radius = 25.4951
 
 [node name="TürLinks" type="StaticBody2D"]
-z_index = 2
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_xefr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(5, 0)
 sprite_frames = SubResource("SpriteFrames_kyqyf")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
+y_sort_enabled = true
 shape = SubResource("RectangleShape2D_0reds")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_05icb")]

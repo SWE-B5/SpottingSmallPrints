@@ -40,9 +40,12 @@ radius = 28.0
 size = Vector2(14, 7)
 
 [node name="Kiste" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = SubResource("GDScript_221v3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_74y71")
 
 [node name="Interaction_Area" parent="." instance=ExtResource("3_wmr4e")]

@@ -939,11 +939,11 @@ position = Vector2(-632, -346)
 type = 1
 
 [node name="TürEckig" parent="." instance=ExtResource("14_0116h")]
-position = Vector2(-48, -680)
+position = Vector2(-48, -688)
 id = 2
 
 [node name="TürEckig2" parent="." instance=ExtResource("14_0116h")]
-position = Vector2(144, -520)
+position = Vector2(144, -528)
 id = 4
 
 [node name="NormaleTruhe5" parent="." instance=ExtResource("12_lqj3k")]

@@ -41,7 +41,8 @@ size = Vector2(14, 6)
 radius = 20.0
 
 [node name="GoldeneTruhe" type="StaticBody2D"]
-z_index = 2
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_epo18")
 
 [node name="SimonSays" parent="." instance=ExtResource("2_il7m6")]
@@ -50,6 +51,7 @@ script = ExtResource("1_epo18")
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_7emc8")
 animation = &"closed"
 

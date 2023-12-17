@@ -47,7 +47,7 @@ func _physics_process(delta):
 	if(PLAYER == null):
 		return
 	
-	PLAYER_POS = Vector2(PLAYER.global_position.x, PLAYER.global_position.y + 16)
+	PLAYER_POS = PLAYER.global_position
 	var pos = PLAYER_POS
 	var space_state = TILEMAP.get_world_2d().direct_space_state
 

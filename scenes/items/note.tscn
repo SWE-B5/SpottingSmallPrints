@@ -23,7 +23,7 @@ animations = [{
 radius = 17.0294
 
 [node name="Note" type="StaticBody2D"]
-z_index = 2
+top_level = true
 script = ExtResource("1_jvn6a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
