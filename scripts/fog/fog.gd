@@ -16,6 +16,7 @@ const TILE_SIZE = 16
 var TILEMAP: TileMap
 var PLAYER_RID: RID
 var PLAYER_POS: Vector2
+var PLAYER: CharacterBody2D
 
 const FOG_PATH = "fog_level.save"
 var revealed_tiles = {}
@@ -23,8 +24,9 @@ var revealed_tiles = {}
 #var timer: Timer
 
 func init(tilemap: TileMap, player: CharacterBody2D):
+	PLAYER = player
 	TILEMAP = tilemap
-	PLAYER_RID = player.get_rid()
+	PLAYER_RID = PLAYER.get_rid()
 	var canvas = TILEMAP.get_used_rect()
 	var pos = Vector2(canvas.position.x - 50, canvas.position.y - 50)
 	var size = Vector2(canvas.size.x + 100, canvas.size.y + 100)
@@ -41,14 +43,11 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 		DirAccess.open("user://").remove(get_file_path())
 	#init_timer()
 
-func update_pos(pos):
-	#print("player pos: ", pos)
-	PLAYER_POS = Vector2(pos.x, pos.y + 16)
-
 func _physics_process(delta):
-	if(PLAYER_POS == null):
+	if(PLAYER == null):
 		return
 	
+	PLAYER_POS = Vector2(PLAYER.global_position.x, PLAYER.global_position.y + 16)
 	var pos = PLAYER_POS
 	var space_state = TILEMAP.get_world_2d().direct_space_state
 
