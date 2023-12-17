@@ -7,23 +7,27 @@ enum MovementState { WALK, IDLE }
 @onready var anim = $AnimatedSprite2D
 @onready var follow_camera = $FollowCamera
 
+# Fade in and out related stuff
 @onready var fade_screen = $CanvasLayer/FadeScreen
 @onready var fade_player = $CanvasLayer/FadeScreen/AnimationPlayer
+signal from_black_fade_finished
+signal to_black_fade_finished
+var currently_fading = false
 
 var direction: Direction = Direction.DOWN
 
-var is_zooming_in: bool = false
-var is_zooming_out: bool = false
-signal is_zooming_in_finished
-signal is_zooming_out_finished
-
 func _ready():
 	set_zoom_niveau()
+	fade_out()
 	
-	fade_screen.show()
-	fade_player.play("fade_from_black")
-
 func _process(delta):
+	if Input.is_key_pressed(KEY_7):
+		switch_level("level_2")
+	elif Input.is_key_pressed(KEY_8):
+		switch_level("level_3")
+	elif Input.is_key_pressed(KEY_9):
+		switch_level("level_end")
+	
 	PlayerVariables.global_position = self.global_position
 
 	handle_movement_input()
@@ -92,6 +96,8 @@ func play_animation(movement: MovementState):
 
 func can_open_map():
 	# check if nicht in der hub noch machen
+	if currently_fading:
+		return false
 	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
@@ -102,8 +108,12 @@ func set_zoom_niveau():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
 func switch_level(level: String):
-	var scene_name = "res://scenes/level/" + level + ".tscn"
-	get_tree().change_scene_to_file(scene_name)
+	currently_fading = true
+	PlayerVariables.immobile = true
+	fade_player.play("fade_to_black")
+	
+	await to_black_fade_finished
+	get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
 	
 func damage_animation():
 	for i in 4:
@@ -111,3 +121,17 @@ func damage_animation():
 		await get_tree().create_timer(0.15).timeout
 		anim.self_modulate = Color(1,1,1,1)
 		await get_tree().create_timer(0.15).timeout
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "fade_from_black":
+		from_black_fade_finished.emit()
+	elif anim_name == "fade_to_black":
+		to_black_fade_finished.emit()
+
+func fade_out():
+	currently_fading = true
+	PlayerVariables.immobile = true
+	fade_player.play("fade_from_black")
+	await from_black_fade_finished
+	PlayerVariables.immobile = false
+	currently_fading = false

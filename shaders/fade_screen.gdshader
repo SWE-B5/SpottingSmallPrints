@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D mask;
-uniform float scale : hint_range(0.0, 1.0, 0.1);
+uniform float scale : hint_range(0.0, 1.0, 0.05);
 
 void fragment() {
 	float s = scale == 0.0 ? 0.0 : pow(2.0, 10.0 * scale - 10.0);
