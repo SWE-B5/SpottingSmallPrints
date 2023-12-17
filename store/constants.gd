@@ -30,3 +30,5 @@ const LEVEL_4_PATH = ""
 const DEFAULT_ZOOM_NIVEAU = 5
 const HEAD_ZOOM_NIVEAU = 10
 const ZOOM_TICK = 0.01
+
+const FADE_SPEED = 1
