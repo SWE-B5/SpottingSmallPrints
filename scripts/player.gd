@@ -21,13 +21,6 @@ func _ready():
 	fade_out()
 	
 func _process(delta):
-	if Input.is_key_pressed(KEY_7):
-		switch_level("level_2")
-	elif Input.is_key_pressed(KEY_8):
-		switch_level("level_3")
-	elif Input.is_key_pressed(KEY_9):
-		switch_level("level_end")
-	
 	PlayerVariables.global_position = self.global_position
 
 	handle_movement_input()
