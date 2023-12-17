@@ -6,7 +6,10 @@ enum MovementState { WALK, IDLE }
 
 @onready var anim = $AnimatedSprite2D
 @onready var follow_camera = $FollowCamera
-@onready var fade_player = $FadeScreen/AnimationPlayer
+
+@onready var fade_screen = $CanvasLayer/FadeScreen
+@onready var fade_player = $CanvasLayer/FadeScreen/AnimationPlayer
+
 var direction: Direction = Direction.DOWN
 
 var is_zooming_in: bool = false
@@ -15,7 +18,9 @@ signal is_zooming_in_finished
 signal is_zooming_out_finished
 
 func _ready():
-	$FollowCamera.make_current()
+	set_zoom_niveau()
+	
+	fade_screen.show()
 	fade_player.play("fade_from_black")
 
 func _process(delta):
@@ -106,6 +111,3 @@ func damage_animation():
 		await get_tree().create_timer(0.15).timeout
 		anim.self_modulate = Color(1,1,1,1)
 		await get_tree().create_timer(0.15).timeout
-
-func _on_animation_player_animation_finished(anim_name):
-	print("finished: " + anim_name)

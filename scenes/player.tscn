@@ -333,9 +333,11 @@ collision_mask = 17
 up_direction = Vector2(0, 1)
 script = ExtResource("1_6i7u1")
 
-[node name="FadeScreen" parent="." instance=ExtResource("3_redh7")]
-offset_top = 4.0
-offset_bottom = 4.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("3_redh7")]
+offset_top = -10.0
+offset_bottom = -10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
@@ -384,6 +386,4 @@ position = Vector2(0, 15)
 shape = SubResource("CircleShape2D_inm15")
 debug_color = Color(0.705882, 0.486275, 0.0666667, 0.419608)
 
-[connection signal="animation_finished" from="FadeScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-
-[editable path="FadeScreen"]
+[editable path="CanvasLayer/FadeScreen"]
