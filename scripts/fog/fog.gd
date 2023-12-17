@@ -36,10 +36,8 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	if FileAccess.file_exists(get_file_path()):
 		#einfacher als gezielt vorher löschen, da fog script nicht global verfügbar
 		load_fog()
-		#obsolete? @Leon
 		if Health.is_death:	
 			Health.is_death = false
-		
 		DirAccess.open("user://").remove(get_file_path())
 	#init_timer()
 
@@ -48,7 +46,7 @@ func update_pos(pos):
 	PLAYER_POS = Vector2(pos.x, pos.y + 16)
 
 func _physics_process(delta):
-	if(PLAYER_POS == null):
+	if(PLAYER_POS == null || PLAYER_POS == Vector2(0, 0)):
 		return
 	
 	var pos = PLAYER_POS

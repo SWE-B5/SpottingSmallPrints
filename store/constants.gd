@@ -9,19 +9,13 @@ const START_HP = 100
 
 const DAMAGE_X = 1
 
-const HUB_SPAWN = Vector2(0, 0)
-
-const LEVEL_1_SPAWN = Vector2(0, 0)
-const LEVEL_1_MAP_OFFSET = Vector2(0, 0)
-const LEVEL_1_MAP_ZOOM = Vector2(0.5, 0.5)
-
 const EASY_SPEED = 120
 const MEDIUM_SPEED = 100
 const HARD_SPEED = 80
 
 #muss aktualisiert werden, wenn Level eingefügt werden
 const LEVEL_PATHS = [HUB_PATH, LEVEL_1_PATH, LEVEL_2_PATH, LEVEL_3_PATH, LEVEL_4_PATH]
-const HUB_PATH = "res://scenes/level/level_2.tscn"
+const HUB_PATH = "res://scenes/level/level_1.tscn"
 const LEVEL_1_PATH = "res://scenes/level/level_1.tscn"
 const LEVEL_2_PATH = "res://scenes/level/level_2.tscn"
 const LEVEL_3_PATH = "res://scenes/level/level_3.tscn"
