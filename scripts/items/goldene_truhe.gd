@@ -19,7 +19,7 @@ enum rätsel_typ {SIMONSAYS, MEMORY}
 
 @onready var awaitingSignal = false
 
-
+@onready var notesInLevel = []
 
 signal startSimonSays
 signal startMemory
@@ -27,21 +27,37 @@ signal startMemory
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	sprite.animation =  "closed"
-#Schluessel Drop
+	var levelSzene = get_parent()
+	var noteSzene = preload("res://scenes/items/note.tscn")
+	for child in levelSzene.get_children():
+		if "Note" in child.name:
+			notesInLevel.append(child)
+
+func can_be_opened():
+	var res = true
+	for note in notesInLevel:
+		if !note.collected:
+			res = false
+	return res 
+
 func _on_interact():
 	if is_closed:
-		#Hier muss noch der Dialog abgespielt werden
-		is_closed = false
-		# Interaktion mit Truhe deaktivieren
-		detecion_area.disabled = true
-		# Textur der offenen Truhe laden 
-		sprite.animation =  "open"
-		PlayerVariables.immobile = true
-		if type == rätsel_typ.SIMONSAYS:
-			startSimonSays.emit()
-		if type == rätsel_typ.MEMORY:
-			startMemory.emit()
-		awaitingSignal = true
+		if can_be_opened():
+			#Hier muss noch der Dialog abgespielt werden
+			is_closed = false
+			# Interaktion mit Truhe deaktivieren
+			detecion_area.disabled = true
+			# Textur der offenen Truhe laden 
+			sprite.animation =  "open"
+			PlayerVariables.immobile = true
+			if type == rätsel_typ.SIMONSAYS:
+				startSimonSays.emit()
+			if type == rätsel_typ.MEMORY:
+				startMemory.emit()
+			awaitingSignal = true
+		else:
+			#TODO: Dialog
+			print("Es fehlen noch Notes")
 		
 
 func _puzzle_canceled():
@@ -57,7 +73,7 @@ func _puzzle_canceled():
 		sprite.animation =  "closed"
 		PlayerVariables.immobile = false
 
-
+#Schluessel Drop
 func _puzzle_successful():
 	if awaitingSignal:
 		print("Puzzle successful: adding item To Inventory")
