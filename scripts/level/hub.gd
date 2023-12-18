@@ -11,7 +11,7 @@ extends Node2D
 
 @onready var scene
 func _ready():
-	PlayerVariables.load_easy_game()
+	Inventory.update_after_death() #muss drin bleiben!
 	for i in anzahl_Notes:
 		var id = Inventory.get_xth_found_note_id(i)
 		scene = node_scene.instantiate()

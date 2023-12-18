@@ -39,7 +39,6 @@ func delete_save_file():
 	var dir = DirAccess.open(Constants.SAVE_DIRECTORY)
 	dir.remove(Constants.SAVE_FILE_NAME)
 
-
 func initialize_new_game(diff: Difficulty):
 	delete_save_file()
 	difficulty = diff
@@ -52,11 +51,11 @@ func initialize_new_game(diff: Difficulty):
 			Health.reset_health(2, Health.INACTIVE)
 		Difficulty.HARD:
 			Health.reset_health(1, Health.INACTIVE)
+	print(Health.max_lives)
 	initialize_unsaved_vars()
 	save_game()
 
 func initialize_unsaved_vars():
-	difficulty = Difficulty.EASY
 	active_camera = CameraTypes.FOLLOW
 	zoom_niveau = 5
 	immobile = false
@@ -64,7 +63,7 @@ func initialize_unsaved_vars():
 		Difficulty.EASY:
 			speed = Constants.EASY_SPEED
 		Difficulty.MEDIUM:
-			speed = Constants.MEDUIUM_SPEED
+			speed = Constants.MEDIUM_SPEED
 		Difficulty.HARD:
 			speed = Constants.HARD_SPEED
 
@@ -86,3 +85,7 @@ var immunity_frames: float
 
 # Immunity Duration
 const immunity_duration = 1.2
+
+var global_position: Vector2
+#flag for fog deletion when "new game"
+var flag_is_new_game = false

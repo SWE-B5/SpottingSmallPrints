@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://vx4xx8vyfj7b"]
+[gd_scene load_steps=29 format=3 uid="uid://vx4xx8vyfj7b"]
 
 [ext_resource type="Script" path="res://scripts/level/level_3.gd" id="1_mbl2y"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_jquff"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bmc65gjk84m30" path="res://scenes/items/tür_links.tscn" id="13_5spip"]
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="15_ucguw"]
 [ext_resource type="Texture2D" uid="uid://cjtgcucbk56ni" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_2.png" id="17_bb5hf"]
+[ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="18_kdlb5"]
 [ext_resource type="Texture2D" uid="uid://cqa5b0guw7bqm" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_3.png" id="18_wicol"]
 [ext_resource type="Texture2D" uid="uid://bo2r1uhp842eg" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_4.png" id="19_qgs2o"]
 
@@ -443,57 +444,57 @@ layer_2/tile_data = PackedInt32Array(-31, 65536, 3, 131072, 65536, 3, 196607, 0,
 position = Vector2(-8.61526, 0.186539)
 
 [node name="Spikes" parent="." instance=ExtResource("5_ibvwb")]
-position = Vector2(-40, -64)
+position = Vector2(-40, -56)
 
 [node name="Spikes2" parent="." instance=ExtResource("5_ibvwb")]
-position = Vector2(-40, -80)
+position = Vector2(-40, -72)
 
 [node name="Spikes3" parent="." instance=ExtResource("5_ibvwb")]
-position = Vector2(-40, -96)
+position = Vector2(-40, -88)
 
 [node name="Spikes4" parent="." instance=ExtResource("5_ibvwb")]
-position = Vector2(-40, -112)
+position = Vector2(-40, -104)
 
 [node name="Flamethrower4" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-232, -64)
+position = Vector2(-232, -104)
 rotation = -1.5708
 
 [node name="Flamethrower3" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-232, -80)
+position = Vector2(-232, -88)
 rotation = -1.5708
 
 [node name="Flamethrower2" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-184, -96)
+position = Vector2(-184, -72)
 rotation = -1.5708
 
 [node name="Flamethrower" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-184, -112)
+position = Vector2(-184, -56)
 rotation = -1.5708
 
 [node name="Flamethrower5" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-296, -112)
+position = Vector2(-328, -105)
 
 [node name="Flamethrower6" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-288, -115)
+position = Vector2(-312, -105)
 
 [node name="Flamethrower7" parent="." instance=ExtResource("6_774h7")]
-position = Vector2(-295, -106)
+position = Vector2(-296, -105)
 
 [node name="TürEckig" parent="." instance=ExtResource("9_qu8x2")]
-position = Vector2(5, -73)
+position = Vector2(15, -57)
 
 [node name="NormaleTruhe" parent="." instance=ExtResource("8_22t8n")]
-position = Vector2(-10, -36)
+position = Vector2(25, -40)
 
 [node name="NormaleTruhe2" parent="." instance=ExtResource("8_22t8n")]
-position = Vector2(-63, -57)
+position = Vector2(-79, -57)
 "schlüssel_id" = 1
 
 [node name="Note" parent="." instance=ExtResource("8_xkosi")]
-position = Vector2(20, 0)
+position = Vector2(25, -9)
 
 [node name="TürLinks" parent="." instance=ExtResource("13_5spip")]
-position = Vector2(-93, -85)
+position = Vector2(-93, -101)
 id = 1
 
 [node name="dispenser" parent="." instance=ExtResource("8_w8w8t")]
