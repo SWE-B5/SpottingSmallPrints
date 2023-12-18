@@ -1246,6 +1246,9 @@ shape = SubResource("CircleShape2D_jexji")
 
 [node name="hitbox_timer" type="Timer" parent="sceleton11"]
 
+[node name="Note4" parent="." instance=ExtResource("17_dt5m5")]
+position = Vector2(0, -134)
+
 [connection signal="area_entered" from="sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton2" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton2/hitbox_timer" to="sceleton2" method="_on_hitbox_timer_timeout" flags=18]
 [connection signal="area_entered" from="sceleton3/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton3" method="_on_hitbox_area_entered" flags=18]

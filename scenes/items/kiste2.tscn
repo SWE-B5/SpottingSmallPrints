@@ -41,21 +41,22 @@ size = Vector2(14, 7)
 
 [node name="Kiste" type="Node2D"]
 z_index = 1
-y_sort_enabled = true
 script = SubResource("GDScript_221v3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_74y71")
 
 [node name="Interaction_Area" parent="." instance=ExtResource("3_wmr4e")]
+position = Vector2(0, 8)
 action_name = "1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area"]
 shape = SubResource("CircleShape2D_3me2t")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_6law0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 8)

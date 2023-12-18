@@ -42,7 +42,6 @@ radius = 20.0
 
 [node name="GoldeneTruhe" type="StaticBody2D"]
 z_index = 1
-y_sort_enabled = true
 script = ExtResource("1_epo18")
 
 [node name="SimonSays" parent="." instance=ExtResource("2_il7m6")]
@@ -51,15 +50,16 @@ script = ExtResource("1_epo18")
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_7emc8")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_lqe5m")
 
 [node name="InteractionArea" parent="." instance=ExtResource("4_vehks")]
+position = Vector2(0, 8)
 collision_mask = 16
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
