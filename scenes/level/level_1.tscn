@@ -745,10 +745,6 @@ rotation = 1.57079
 [node name="dispenser6" parent="." instance=ExtResource("8_fhyc1")]
 position = Vector2(792, 120)
 
-[node name="dispenser7" parent="." instance=ExtResource("8_fhyc1")]
-position = Vector2(920, 120)
-rotation = 3.14159
-
 [node name="Node2D5" type="Node2D" parent="."]
 
 [node name="skull" parent="Node2D5" instance=ExtResource("7_wrpf2")]
