@@ -36,10 +36,7 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 			set_cell(FOG_LAYER, Vector2i(pos.x + i, pos.y + j), FOG_ID, Vector2i(0, 0))
 	
 	if FileAccess.file_exists(get_file_path()):
-		#einfacher als gezielt vorher löschen, da fog script nicht global verfügbar
 		load_fog()
-		if Health.is_death:	
-			Health.is_death = false
 		DirAccess.open("user://").remove(get_file_path())
 	#init_timer()
 
