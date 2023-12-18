@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://vx4xx8vyfj7b"]
+[gd_scene load_steps=63 format=3 uid="uid://vx4xx8vyfj7b"]
 
 [ext_resource type="Script" path="res://scripts/level/level_3.gd" id="1_mbl2y"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_jquff"]
@@ -348,8 +348,89 @@ radius = 4.47214
 [sub_resource type="CircleShape2D" id="CircleShape2D_hyt61"]
 radius = 6.08276
 
+[sub_resource type="GDScript" id="GDScript_8wexr"]
+script/source = "extends Node2D
+
+@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
+@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
+@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
+@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
+@onready var timer = $hitbox_timer
+@export var speed = 100
+
+func _ready():
+	sprite.play()
+	
+func _process(delta):
+	path_follow.progress += speed * delta
+	
+func _on_hitbox_timer_timeout():
+	hitbox.set_deferred(\"disabled\", false)
+	collision_shape.set_deferred(\"disabled\", false)
+	
+func _on_hitbox_area_entered(area):
+	print(\"Damage dealt to player:\")
+	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
+		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
+		get_tree().get_first_node_in_group('Player').damage_animation()
+		await get_tree().create_timer(0.1).timeout
+		hitbox.set_deferred(\"disabled\", true)
+		collision_shape.set_deferred(\"disabled\", true)
+		timer.start()
+		Health.damage_player(1)
+"
+
+[sub_resource type="Curve2D" id="Curve2D_y6nwv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 54.09, 0.623169, 0, 0, 0, 0, -8.91003, 57.6232, 0, 0, 0, 0, 56.09, 59.6232, 0, 0, 0, 0, 0.0899658, -2.37683)
+}
+point_count = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa75y"]
+atlas = ExtResource("17_bb5hf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rul1b"]
+atlas = ExtResource("17_bb5hf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j0m6"]
+atlas = ExtResource("18_wicol")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2lir"]
+atlas = ExtResource("19_qgs2o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2455"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa75y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rul1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j0m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2lir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3xk6"]
+radius = 4.47214
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f0po"]
+radius = 6.08276
+
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(23, -2)
 script = ExtResource("1_mbl2y")
 
 [node name="Fog" parent="." instance=ExtResource("2_o0co3")]
@@ -1167,6 +1248,318 @@ rotation = 1.56353
 position = Vector2(-744, -840)
 rotation = 1.56353
 
+[node name="Node12" type="Node" parent="."]
+
+[node name="skull" parent="Node12" instance=ExtResource("15_ucguw")]
+position = Vector2(1268, -1304)
+markerid = "marker11"
+
+[node name="Marker2D" type="Marker2D" parent="Node12" groups=["marker11"]]
+position = Vector2(1326, -1284)
+
+[node name="Marker2D2" type="Marker2D" parent="Node12" groups=["marker11"]]
+position = Vector2(1222, -1280)
+
+[node name="Marker2D3" type="Marker2D" parent="Node12" groups=["marker11"]]
+position = Vector2(1323, -1326)
+
+[node name="Marker2D4" type="Marker2D" parent="Node12" groups=["marker11"]]
+position = Vector2(1225, -1326)
+
+[node name="Node13" type="Node" parent="."]
+
+[node name="skull" parent="Node13" instance=ExtResource("15_ucguw")]
+position = Vector2(1272, -1197)
+markerid = "marker12"
+
+[node name="Marker2D" type="Marker2D" parent="Node13" groups=["marker12"]]
+position = Vector2(1305, -1175)
+
+[node name="Marker2D2" type="Marker2D" parent="Node13" groups=["marker12"]]
+position = Vector2(1219, -1174)
+
+[node name="Marker2D3" type="Marker2D" parent="Node13" groups=["marker12"]]
+position = Vector2(1325, -1228)
+
+[node name="Marker2D4" type="Marker2D" parent="Node13" groups=["marker12"]]
+position = Vector2(1220, -1228)
+
+[node name="Node14" type="Node" parent="."]
+
+[node name="skull" parent="Node14" instance=ExtResource("15_ucguw")]
+position = Vector2(1517, -1304)
+markerid = "marker13"
+
+[node name="Marker2D" type="Marker2D" parent="Node14" groups=["marker13"]]
+position = Vector2(1563, -1282)
+
+[node name="Marker2D2" type="Marker2D" parent="Node14" groups=["marker13"]]
+position = Vector2(1463, -1281)
+
+[node name="Marker2D3" type="Marker2D" parent="Node14" groups=["marker13"]]
+position = Vector2(1563, -1325)
+
+[node name="Marker2D4" type="Marker2D" parent="Node14" groups=["marker13"]]
+position = Vector2(1463, -1324)
+
+[node name="Node15" type="Node" parent="."]
+
+[node name="skull" parent="Node15" instance=ExtResource("15_ucguw")]
+position = Vector2(1525, -1200)
+markerid = " marker14"
+
+[node name="Marker2D" type="Marker2D" parent="Node15" groups=["marker14"]]
+position = Vector2(1564, -1168)
+
+[node name="Marker2D2" type="Marker2D" parent="Node15" groups=["marker14"]]
+position = Vector2(1482, -1170)
+
+[node name="Marker2D3" type="Marker2D" parent="Node15" groups=["marker14"]]
+position = Vector2(1564, -1224)
+
+[node name="Marker2D4" type="Marker2D" parent="Node15" groups=["marker14"]]
+position = Vector2(1462, -1225)
+
+[node name="Spikes23" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1239, -1249)
+
+[node name="Spikes24" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1254.5, -1248.5)
+
+[node name="Spikes25" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1268.5, -1248.5)
+
+[node name="Spikes26" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1283.5, -1248.5)
+
+[node name="Spikes27" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1298.5, -1248.5)
+
+[node name="Spikes28" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1313.5, -1248.5)
+
+[node name="Spikes29" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1479, -1249)
+
+[node name="Spikes30" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1494.5, -1248.5)
+
+[node name="Spikes31" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1508.5, -1248.5)
+
+[node name="Spikes32" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1523.5, -1248.5)
+
+[node name="Spikes33" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1538.5, -1248.5)
+
+[node name="Spikes34" parent="." instance=ExtResource("5_ibvwb")]
+position = Vector2(1553.5, -1248.5)
+
+[node name="Flamethrower29" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(1374, -1161)
+
+[node name="Flamethrower30" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(1359, -1161)
+
+[node name="Flamethrower31" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(1367, -1166)
+
+[node name="Flamethrower32" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(1422, -1161)
+
+[node name="Flamethrower33" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(1407, -1161)
+
+[node name="Flamethrower34" parent="." instance=ExtResource("6_774h7")]
+position = Vector2(1415, -1166)
+
+[node name="sceleton12" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1204, -1063)
+script = SubResource("GDScript_8wexr")
+
+[node name="Path2D" type="Path2D" parent="sceleton12"]
+curve = SubResource("Curve2D_y6nwv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="sceleton12/Path2D"]
+position = Vector2(0, -1)
+rotation = 0.0128198
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="sceleton12/Path2D/PathFollow2D"]
+
+[node name="sprite" type="AnimatedSprite2D" parent="sceleton12/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.974281, -2.01266)
+sprite_frames = SubResource("SpriteFrames_h2455")
+frame_progress = 0.52065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton12/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.025639, 1.99984)
+shape = SubResource("CircleShape2D_w3xk6")
+
+[node name="hitbox" type="Area2D" parent="sceleton12/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.0128195, 0.999918)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton12/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
+position = Vector2(5.96046e-08, 0)
+shape = SubResource("CircleShape2D_1f0po")
+
+[node name="hitbox_timer" type="Timer" parent="sceleton12"]
+
+[node name="sceleton13" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1275, -1091)
+script = SubResource("GDScript_8wexr")
+
+[node name="Path2D" type="Path2D" parent="sceleton13"]
+curve = SubResource("Curve2D_y6nwv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="sceleton13/Path2D"]
+position = Vector2(0, -1)
+rotation = 0.0128198
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="sceleton13/Path2D/PathFollow2D"]
+
+[node name="sprite" type="AnimatedSprite2D" parent="sceleton13/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.974281, -2.01266)
+sprite_frames = SubResource("SpriteFrames_h2455")
+frame_progress = 0.52065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton13/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.025639, 1.99984)
+shape = SubResource("CircleShape2D_w3xk6")
+
+[node name="hitbox" type="Area2D" parent="sceleton13/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.0128195, 0.999918)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton13/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
+position = Vector2(5.96046e-08, 0)
+shape = SubResource("CircleShape2D_1f0po")
+
+[node name="hitbox_timer" type="Timer" parent="sceleton13"]
+
+[node name="sceleton14" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1344, -1064)
+script = SubResource("GDScript_8wexr")
+
+[node name="Path2D" type="Path2D" parent="sceleton14"]
+curve = SubResource("Curve2D_y6nwv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="sceleton14/Path2D"]
+position = Vector2(0, -1)
+rotation = 0.0128198
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="sceleton14/Path2D/PathFollow2D"]
+
+[node name="sprite" type="AnimatedSprite2D" parent="sceleton14/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.974281, -2.01266)
+sprite_frames = SubResource("SpriteFrames_h2455")
+frame_progress = 0.52065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton14/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.025639, 1.99984)
+shape = SubResource("CircleShape2D_w3xk6")
+
+[node name="hitbox" type="Area2D" parent="sceleton14/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.0128195, 0.999918)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton14/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
+position = Vector2(5.96046e-08, 0)
+shape = SubResource("CircleShape2D_1f0po")
+
+[node name="hitbox_timer" type="Timer" parent="sceleton14"]
+
+[node name="sceleton15" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1415, -1090)
+script = SubResource("GDScript_8wexr")
+
+[node name="Path2D" type="Path2D" parent="sceleton15"]
+curve = SubResource("Curve2D_y6nwv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="sceleton15/Path2D"]
+position = Vector2(0, -1)
+rotation = 0.0128198
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="sceleton15/Path2D/PathFollow2D"]
+
+[node name="sprite" type="AnimatedSprite2D" parent="sceleton15/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.974281, -2.01266)
+sprite_frames = SubResource("SpriteFrames_h2455")
+frame_progress = 0.52065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton15/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.025639, 1.99984)
+shape = SubResource("CircleShape2D_w3xk6")
+
+[node name="hitbox" type="Area2D" parent="sceleton15/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.0128195, 0.999918)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton15/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
+position = Vector2(5.96046e-08, 0)
+shape = SubResource("CircleShape2D_1f0po")
+
+[node name="hitbox_timer" type="Timer" parent="sceleton15"]
+
+[node name="sceleton16" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1483, -1069)
+script = SubResource("GDScript_8wexr")
+
+[node name="Path2D" type="Path2D" parent="sceleton16"]
+curve = SubResource("Curve2D_y6nwv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="sceleton16/Path2D"]
+position = Vector2(0, -1)
+rotation = 0.0128198
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="sceleton16/Path2D/PathFollow2D"]
+
+[node name="sprite" type="AnimatedSprite2D" parent="sceleton16/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.974281, -2.01266)
+sprite_frames = SubResource("SpriteFrames_h2455")
+frame_progress = 0.52065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton16/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.025639, 1.99984)
+shape = SubResource("CircleShape2D_w3xk6")
+
+[node name="hitbox" type="Area2D" parent="sceleton16/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(0.0128195, 0.999918)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceleton16/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
+position = Vector2(5.96046e-08, 0)
+shape = SubResource("CircleShape2D_1f0po")
+
+[node name="hitbox_timer" type="Timer" parent="sceleton16"]
+
+[node name="dispenser14" parent="." instance=ExtResource("8_w8w8t")]
+position = Vector2(1320, -920)
+rotation = 1.5719
+
+[node name="dispenser15" parent="." instance=ExtResource("8_w8w8t")]
+position = Vector2(1368, -920)
+rotation = 1.5719
+
+[node name="dispenser16" parent="." instance=ExtResource("8_w8w8t")]
+position = Vector2(1432, -920)
+rotation = 1.5719
+
+[node name="dispenser17" parent="." instance=ExtResource("8_w8w8t")]
+position = Vector2(1480, -920)
+rotation = 1.5719
+
 [connection signal="area_entered" from="sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton2" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton2/hitbox_timer" to="sceleton2" method="_on_hitbox_timer_timeout" flags=18]
 [connection signal="area_entered" from="sceleton3/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton3" method="_on_hitbox_area_entered" flags=18]
@@ -1187,3 +1580,13 @@ rotation = 1.56353
 [connection signal="timeout" from="sceleton10/hitbox_timer" to="sceleton10" method="_on_hitbox_timer_timeout" flags=18]
 [connection signal="area_entered" from="sceleton11/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton11" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton11/hitbox_timer" to="sceleton11" method="_on_hitbox_timer_timeout" flags=18]
+[connection signal="area_entered" from="sceleton12/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton12" method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="sceleton12/hitbox_timer" to="sceleton12" method="_on_hitbox_timer_timeout" flags=18]
+[connection signal="area_entered" from="sceleton13/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton13" method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="sceleton13/hitbox_timer" to="sceleton13" method="_on_hitbox_timer_timeout" flags=18]
+[connection signal="area_entered" from="sceleton14/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton14" method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="sceleton14/hitbox_timer" to="sceleton14" method="_on_hitbox_timer_timeout" flags=18]
+[connection signal="area_entered" from="sceleton15/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton15" method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="sceleton15/hitbox_timer" to="sceleton15" method="_on_hitbox_timer_timeout" flags=18]
+[connection signal="area_entered" from="sceleton16/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton16" method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="sceleton16/hitbox_timer" to="sceleton16" method="_on_hitbox_timer_timeout" flags=18]
