@@ -83,7 +83,7 @@ var max_lives = 1
 const SAVE_LIVES = false
 const SAVE_SHIELD = false
 const KEEP_SHIELD_AT_RESET = false
-const debug_immunity = true
+const debug_immunity = false
 
 #short form
 func update_hud():

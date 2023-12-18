@@ -961,11 +961,9 @@ id = 3
 
 [node name="Note" parent="." instance=ExtResource("17_dt5m5")]
 position = Vector2(-760, -179)
-note_id = 4
 
 [node name="Note2" parent="." instance=ExtResource("17_dt5m5")]
 position = Vector2(795, -479)
-note_id = 5
 
 [node name="Note3" parent="." instance=ExtResource("17_dt5m5")]
 position = Vector2(830, -986)

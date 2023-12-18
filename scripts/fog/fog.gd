@@ -38,7 +38,7 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	if FileAccess.file_exists(get_file_path()):
 		if not PlayerVariables.flag_is_new_game:
 			load_fog()
-		else :
+		else:
 			PlayerVariables.flag_is_new_game = false
 		DirAccess.open("user://").remove(get_file_path())
 	#init_timer()
