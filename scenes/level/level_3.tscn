@@ -277,6 +277,27 @@ shape = SubResource("CircleShape2D_1oiqy")
 
 [node name="hitbox_timer" type="Timer" parent="sceleton3"]
 
+[node name="Node3" type="Node" parent="."]
+
+[node name="skull" parent="Node3" instance=ExtResource("15_ucguw")]
+position = Vector2(-1547, -109)
+markerid = "marker2"
+
+[node name="Marker2D" type="Marker2D" parent="Node3" groups=["marker2"]]
+position = Vector2(-1488, -139)
+
+[node name="Marker2D2" type="Marker2D" parent="Node3" groups=["marker2"]]
+position = Vector2(-1526, -53)
+
+[node name="Marker2D3" type="Marker2D" parent="Node3" groups=["marker2"]]
+position = Vector2(-1600, -129)
+
+[node name="Marker2D4" type="Marker2D" parent="Node3" groups=["marker2"]]
+position = Vector2(-1649, -48)
+
+[node name="Marker2D5" type="Marker2D" parent="Node3" groups=["marker2"]]
+position = Vector2(-1540, -103)
+
 [connection signal="area_entered" from="sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton2" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton2/hitbox_timer" to="sceleton2" method="_on_hitbox_timer_timeout" flags=18]
 [connection signal="area_entered" from="sceleton3/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton3" method="_on_hitbox_area_entered" flags=18]
