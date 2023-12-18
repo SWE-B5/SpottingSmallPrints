@@ -1,4 +1,4 @@
-xtends Node2D
+extends Node2D
 
 @onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
 @onready var hitbox : Area2D = $Path2D/PathFollow2D/CharacterBody2D/hitbox

@@ -20,25 +20,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0reds"]
-size = Vector2(32, 9)
+size = Vector2(32, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pvkv"]
 radius = 25.4951
 
 [node name="TürRund" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 script = ExtResource("1_dxfm4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_kyqyf")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0, 3.5)
+position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_0reds")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_05icb")]
+position = Vector2(0, 8)
 collision_mask = 16
 action_name = "<E> Tür öffnen"
 

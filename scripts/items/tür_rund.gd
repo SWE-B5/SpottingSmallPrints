@@ -19,9 +19,16 @@ func _ready():
 func _on_interact():
 	
 	# Überprüft ob man den passenden Schlüssel hat
-	if is_closed && Inventory.check_key(Inventory.Item_Type.GOLD, id):
-		#Sucht nach dem passenden Schlüssel
-		is_closed = false
-		self.visible = false
-		collisionshape.queue_free()
-		detecion_area.disabled = true
+	if is_closed:
+		var resource = load("res://dialogs/note_dialog.dialogue")
+		Inventory.dialogue_temp_gold_id = id
+		if Inventory.check_key(Inventory.Item_Type.GOLD, id):
+			#Sucht nach dem passenden Schlüssel
+			is_closed = false
+			self.visible = false
+			collisionshape.queue_free()
+			detecion_area.disabled = true
+			Inventory.use_key(Inventory.Item_Type.GOLD)
+			DialogueManager.show_dialogue_balloon(resource, "Goldene_Tür" )
+		else:
+			DialogueManager.show_dialogue_balloon(resource, "Goldene_Tür_negative" )

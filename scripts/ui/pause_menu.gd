@@ -17,6 +17,9 @@ func _process(delta):
 
 func back_to_mainmenu():
 	PlayerVariables.save_game() #notwendig
+	var Fog = get_tree().current_scene.get_node("Fog")
+	if(Fog):
+		Fog.save_fog()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 

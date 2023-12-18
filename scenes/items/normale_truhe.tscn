@@ -39,21 +39,23 @@ size = Vector2(12, 7)
 radius = 16.0312
 
 [node name="NormaleTruhe" type="StaticBody2D"]
-z_index = 2
-y_sort_enabled = true
+z_index = 1
 script = ExtResource("1_vq06w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_mc5db")
 animation = &"open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+z_index = 1
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_b0hc3")
 
 [node name="InteractionArea" parent="." instance=ExtResource("4_j15wj")]
+position = Vector2(0, 8)
 collision_mask = 16
-action_name = "<E> Truhe öffnen"
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
+z_index = 2
 shape = SubResource("CircleShape2D_nk88w")

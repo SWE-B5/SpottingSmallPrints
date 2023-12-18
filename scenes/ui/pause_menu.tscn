@@ -48,7 +48,7 @@ horizontal_alignment = 1
 offset_left = 350.0
 offset_top = 320.0
 offset_right = 870.0
-offset_bottom = 881.0
+offset_bottom = 870.0
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 30
 text = "
@@ -57,25 +57,22 @@ text = "
 Bewegen
 
 
-<Esc>
-
-Pausieren
-Entpausieren 
-
-
 <M>
 
 Karte öffnen
 Karte schließen
 
-"
+
+<E>
+
+Interagieren"
 horizontal_alignment = 1
 
 [node name="Steuerung" type="Label" parent="."]
 offset_left = 990.0
 offset_top = 320.0
 offset_right = 1510.0
-offset_bottom = 881.0
+offset_bottom = 870.0
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 30
 text = "
@@ -84,18 +81,15 @@ text = "
 Dialog weiter
 
 
-<E>
+<Esc>
 
-Interagieren
-Bestätigen
+Pausieren
+Entpausieren 
 
 
 <Q> 
 
-Abbrechen
-
-
-"
+Rätsel abbrechen"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

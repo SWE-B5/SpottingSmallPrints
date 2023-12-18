@@ -121,7 +121,7 @@ layer_1/tile_data = PackedInt32Array(-4522090, 2, 2, -5111914, 2, 1, -5046378, 2
 layer_2/tile_data = PackedInt32Array(-31, 65536, 3, -32, 0, 3, -4980815, 0, 3, -4980814, 65536, 3, -6619111, 65536, 3, -6619112, 0, 3, -5570483, 0, 3, -5570482, 65536, 3, -5570468, 0, 3, -5570467, 65536, 3, -7012381, 262146, 7, -6160343, 262146, 7, -2687010, 262146, 7, -6291445, 262145, 0, 196607, 0, 3, 131072, 65536, 3)
 
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
-position = Vector2(0, -2.6)
+position = Vector2(0, -2)
 
 [node name="Spikes" parent="." instance=ExtResource("5_ibvwb")]
 position = Vector2(-40, -56)
