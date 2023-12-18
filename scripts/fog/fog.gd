@@ -9,7 +9,7 @@ const NUM_RAYS = (360 / 4) * 0.35
 const RAYS_INC = (360 / NUM_RAYS)
 #RAY_OFFSET very delicate and is related to collision box sizes
 const RAY_OFFSET = 10
-const RAY_LENGTH = 75
+const RAY_LENGTH = 96
 const PATH_ERASE_ACC = RAY_LENGTH * 0.1
 const PATH_ERASE_INTERVAL = RAY_LENGTH / PATH_ERASE_ACC
 const TILE_SIZE = 16
@@ -35,11 +35,12 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	
 	if FileAccess.file_exists(get_file_path()):
 		#einfacher als gezielt vorher löschen, da fog script nicht global verfügbar
+		load_fog()
+		#obsolete? @Leon
 		if Health.is_death:	
-			load_fog()
 			Health.is_death = false
-		var dir = DirAccess.open("user://")
-		dir.remove(get_file_path())
+		
+		DirAccess.open("user://").remove(get_file_path())
 	#init_timer()
 
 func update_pos(pos):

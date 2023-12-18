@@ -16,8 +16,8 @@ func init(parent: StaticBody2D, dispenser_pos: Vector2i):
 	DISPENSER_POS = dispenser_pos
 
 func _ready():
-	TILEMAP = get_parent().get_node("TileMap")
-	PLAYER = get_parent().get_node("Player")
+	TILEMAP = get_tree().current_scene.get_node("TileMap")
+	PLAYER = get_tree().current_scene.get_node("Player")
 	self.rotate(ROTATION)
 
 func _process(delta):
@@ -26,8 +26,9 @@ func _process(delta):
 	var result = move_and_collide(Vector2(cos(self.rotation), sin(self.rotation)) * SPEED * delta)
 	if(result != null):
 		if(result.get_collider() == get_parent().find_child("Player")):
-			Health.damage_player()
-			PLAYER.damage_animation()
-			PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
+			if(PlayerVariables.immunity_frames <= 0):
+				Health.damage_player()
+				PLAYER.damage_animation()
+				PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
 		queue_free()
 		PARENT.ARROW_ACTIVE = false

@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/level/hub.gd" id="1_v80s3"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="2_a5if6"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="3_0pf2n"]
-[ext_resource type="PackedScene" path="res://scenes/items/goldene_truhe.tscn" id="4_faca4"]
-[ext_resource type="PackedScene" path="res://scenes/items/tür_rund.tscn" id="4_khuwt"]
+[ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="4_faca4"]
+[ext_resource type="PackedScene" uid="uid://d1grckqpis1r8" path="res://scenes/items/tür_rund.tscn" id="4_khuwt"]
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="5_rc8as"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="7_22o45"]
 
