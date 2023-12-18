@@ -227,8 +227,7 @@ Hiermit hast du das Level erfolgreich abgeschlossen.
 => END
 
 ~ Goldene_Kiste_negative
-Du kannst diese Truhe erst öffnen,
-wenn du alle in diesem Level gefunden hast.
+Du kannst diese Truhe erst öffnen, wenn du alle {{Inventory.NOTES_PER_LEVEL}} Notes in diesem Level gefunden hast.
 => END
 
 
