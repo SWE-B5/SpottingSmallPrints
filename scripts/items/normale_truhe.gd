@@ -23,21 +23,28 @@ func _ready():
 # Funktion wird ausgeführt wenn Spieler mit der Truhe interagiert
 func _on_interact():
 	if is_closed:
+		var resource = load("res://dialogs/note_dialog.dialogue")
+		if type == truhen_typ.TRANK:
+			# Überprüfen ob Schildtrank schon aktiv ist
+			if not Health.check_shield_possible():
+				DialogueManager.show_dialogue_balloon(resource,"Schildtrank_Kiste_negative" )
+				return
+			else:
+				Health.apply_shield()
+				print(Health.shield)
+				DialogueManager.show_dialogue_balloon(resource,"Schildtrank_Kiste" )
+		if type == truhen_typ.SCHLÜSSEL:
+			Inventory.collect_item(Inventory.Item_Type.SILVER, schlüssel_id)
+			Inventory.dialogue_temp_silver_id = schlüssel_id
+			DialogueManager.show_dialogue_balloon(resource, "Silberne_Kiste" )
+			print(Inventory.inventory)
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
 		# Interaktion mit Truhe deaktivieren
 		detecion_area.disabled = true
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
-		if type == truhen_typ.SCHLÜSSEL:
-			# Silbernen schluessel zu den gesammelten schluesseln hinzufuegen
-			Inventory.collect_item(Inventory.Item_Type.SILVER, schlüssel_id)
-			print(Inventory.inventory)
-		if type == truhen_typ.TRANK:
-			# Überprüfen ob Schildtrank schon aktiv ist
-			if Health.check_shield_possible():
-				# Wenn nicht, Schildtrank auffüllen
-				Health.apply_shield()
-				print(Health.shield)
+		
+		
 		
 		
