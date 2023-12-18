@@ -699,10 +699,10 @@ position = Vector2(-862, 169)
 position = Vector2(-779, 167)
 
 [node name="Marker2D3" type="Marker2D" parent="Node2D4" groups=["marker3"]]
-position = Vector2(-862, 244)
+position = Vector2(-861, 230)
 
 [node name="Marker2D4" type="Marker2D" parent="Node2D4" groups=["marker3"]]
-position = Vector2(-791, 244)
+position = Vector2(-791, 232)
 
 [node name="sceleton4" type="Node2D" parent="."]
 z_index = 1
@@ -755,7 +755,7 @@ markerid = "marker4"
 position = Vector2(818, 63)
 
 [node name="Marker2D2" type="Marker2D" parent="Node2D5" groups=["marker4"]]
-position = Vector2(807, 98)
+position = Vector2(819, 95)
 
 [node name="Marker2D3" type="Marker2D" parent="Node2D5" groups=["marker4"]]
 position = Vector2(891, 42)
@@ -853,13 +853,13 @@ position = Vector2(173, -479)
 markerid = "marker5"
 
 [node name="Marker2D" type="Marker2D" parent="Node2D6" groups=["marker5"]]
-position = Vector2(134, -435)
+position = Vector2(131, -447)
 
 [node name="Marker2D2" type="Marker2D" parent="Node2D6" groups=["marker5"]]
-position = Vector2(211, -424)
+position = Vector2(208, -442)
 
 [node name="Marker2D3" type="Marker2D" parent="Node2D6" groups=["marker5"]]
-position = Vector2(145, -495)
+position = Vector2(139, -507)
 
 [node name="Marker2D4" type="Marker2D" parent="Node2D6" groups=["marker5"]]
 position = Vector2(220, -495)
