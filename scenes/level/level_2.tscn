@@ -615,6 +615,7 @@ radius = 4.47214
 radius = 6.08276
 
 [node name="Level2" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_5e837")
 
 [node name="HUD" parent="." instance=ExtResource("2_ip5p7")]
@@ -1396,6 +1397,56 @@ position = Vector2(536, -712)
 [node name="Flamethrower19" parent="Traps/Flamthrower" instance=ExtResource("11_v6atj")]
 position = Vector2(520, -712)
 
+[node name="Dispenser" type="Node" parent="Traps"]
+
+[node name="dispenser" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(984, -104)
+rotation = 1.5708
+
+[node name="dispenser2" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(1000, -104)
+rotation = 1.5708
+
+[node name="dispenser3" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(888, -104)
+rotation = 1.5708
+
+[node name="dispenser4" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(904, -104)
+rotation = 1.5708
+
+[node name="dispenser5" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(792, -104)
+rotation = 1.5708
+
+[node name="dispenser6" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(808, -104)
+rotation = 1.5708
+
+[node name="dispenser7" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(1192, -1032)
+rotation = 1.5708
+
+[node name="dispenser8" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(-152, -616)
+rotation = 1.5708
+
+[node name="dispenser9" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(-312, -1096)
+rotation = 1.5708
+
+[node name="dispenser10" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(472, -1064)
+rotation = 1.5708
+
+[node name="dispenser11" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(568, -1176)
+rotation = 1.5708
+
+[node name="dispenser12" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
+position = Vector2(600, -1176)
+rotation = 1.5708
+
 [node name="Türen" type="Node" parent="."]
 
 [node name="TürLinks" parent="Türen" instance=ExtResource("12_61yfx")]
@@ -1472,54 +1523,6 @@ note_id = 8
 [node name="Note3" parent="Notes" instance=ExtResource("14_8inur")]
 position = Vector2(-1120, -672)
 note_id = 7
-
-[node name="dispenser" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(984, -104)
-rotation = 1.5708
-
-[node name="dispenser2" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(1000, -104)
-rotation = 1.5708
-
-[node name="dispenser3" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(888, -104)
-rotation = 1.5708
-
-[node name="dispenser4" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(904, -104)
-rotation = 1.5708
-
-[node name="dispenser5" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(792, -104)
-rotation = 1.5708
-
-[node name="dispenser6" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(808, -104)
-rotation = 1.5708
-
-[node name="dispenser7" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(1192, -1032)
-rotation = 1.5708
-
-[node name="dispenser8" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(-152, -616)
-rotation = 1.5708
-
-[node name="dispenser9" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(-312, -1096)
-rotation = 1.5708
-
-[node name="dispenser10" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(472, -1064)
-rotation = 1.5708
-
-[node name="dispenser11" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(568, -1176)
-rotation = 1.5708
-
-[node name="dispenser12" parent="." instance=ExtResource("12_1c02k")]
-position = Vector2(600, -1176)
-rotation = 1.5708
 
 [connection signal="area_entered" from="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton2" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="Gegner/Skeletons/sceleton2/hitbox_timer" to="Gegner/Skeletons/sceleton2" method="_on_hitbox_timer_timeout" flags=18]
