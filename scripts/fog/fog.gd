@@ -5,7 +5,7 @@ const FOG_LAYER = 0
 const FOG_START = 3
 const WALL_ID = 1
 const COLLISION_ID = 1
-const NUM_RAYS = (360 / 4) * 0.35
+const NUM_RAYS = (360 / 4) * 0.5 # 0.35
 const RAYS_INC = (360 / NUM_RAYS)
 #RAY_OFFSET very delicate and is related to collision box sizes
 const RAY_OFFSET = 10
