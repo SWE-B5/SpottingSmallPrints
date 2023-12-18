@@ -27,7 +27,6 @@ radius = 25.4951
 
 [node name="TürRund" type="StaticBody2D"]
 z_index = 1
-y_sort_enabled = true
 script = ExtResource("1_dxfm4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

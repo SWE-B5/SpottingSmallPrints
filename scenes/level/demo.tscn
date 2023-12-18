@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bjdf6n6tyl4pw" path="res://scenes/traps/spikes.tscn" id="16_dmwd1"]
 
 [node name="demo" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_aoo23")
 
 [node name="TileMap" parent="." instance=ExtResource("1_gw0yb")]
@@ -45,6 +46,7 @@ position = Vector2(-112, -168)
 position = Vector2(200, -168)
 
 [node name="TürRund" parent="." instance=ExtResource("10_wu8o7")]
+y_sort_enabled = false
 position = Vector2(152, -168)
 
 [node name="TürRechts" parent="." instance=ExtResource("11_dx4ef")]
