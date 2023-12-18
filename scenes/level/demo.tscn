@@ -73,3 +73,11 @@ position = Vector2(-3, 98)
 
 [node name="Spikes" parent="." instance=ExtResource("16_dmwd1")]
 position = Vector2(55, 87)
+
+[node name="dispenser2" parent="." instance=ExtResource("14_wyh51")]
+position = Vector2(-57, -28)
+
+[node name="dispenser3" parent="." instance=ExtResource("14_wyh51")]
+y_sort_enabled = true
+position = Vector2(-29, -65)
+rotation = 1.5708
