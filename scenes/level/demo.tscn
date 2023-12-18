@@ -38,6 +38,7 @@ position = Vector2(-160, -168)
 
 [node name="NormaleTruhe2" parent="." instance=ExtResource("7_kp6b4")]
 position = Vector2(-136, -168)
+type = 1
 
 [node name="Note" parent="." instance=ExtResource("8_vuxer")]
 position = Vector2(-112, -168)
@@ -46,7 +47,6 @@ position = Vector2(-112, -168)
 position = Vector2(200, -168)
 
 [node name="TürRund" parent="." instance=ExtResource("10_wu8o7")]
-y_sort_enabled = false
 position = Vector2(152, -168)
 
 [node name="TürRechts" parent="." instance=ExtResource("11_dx4ef")]

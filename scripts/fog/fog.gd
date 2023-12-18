@@ -9,7 +9,7 @@ const NUM_RAYS = (360 / 4) * 0.5 # 0.35
 const RAYS_INC = (360 / NUM_RAYS)
 #RAY_OFFSET very delicate and is related to collision box sizes
 const RAY_OFFSET = 10
-const RAY_LENGTH = 96
+const RAY_LENGTH = 64
 const PATH_ERASE_ACC = RAY_LENGTH * 0.1
 const PATH_ERASE_INTERVAL = RAY_LENGTH / PATH_ERASE_ACC
 const TILE_SIZE = 16
