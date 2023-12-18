@@ -919,23 +919,23 @@ shape = SubResource("CircleShape2D_8kptx")
 [node name="hitbox_timer" type="Timer" parent="sceleton7"]
 
 [node name="NormaleTruhe" parent="." instance=ExtResource("12_lqj3k")]
-position = Vector2(688, -168)
+position = Vector2(688, -176)
 "schlüssel_id" = 3
 
 [node name="NormaleTruhe2" parent="." instance=ExtResource("12_lqj3k")]
-position = Vector2(-520, -956)
+position = Vector2(-520, -962)
 "schlüssel_id" = 2
 
 [node name="GoldeneTruhe" parent="." instance=ExtResource("13_e4jlt")]
-position = Vector2(109, -703)
+position = Vector2(109, -724)
 "schlüssel_id" = 1
 
 [node name="NormaleTruhe3" parent="." instance=ExtResource("12_lqj3k")]
-position = Vector2(-664, -346)
+position = Vector2(-664, -356)
 "schlüssel_id" = 4
 
 [node name="NormaleTruhe4" parent="." instance=ExtResource("12_lqj3k")]
-position = Vector2(-632, -346)
+position = Vector2(-632, -356)
 type = 1
 
 [node name="TürEckig" parent="." instance=ExtResource("14_0116h")]
@@ -947,7 +947,7 @@ position = Vector2(144, -528)
 id = 4
 
 [node name="NormaleTruhe5" parent="." instance=ExtResource("12_lqj3k")]
-position = Vector2(299, -743)
+position = Vector2(296, -760)
 type = 1
 "schlüssel_id" = 5
 
@@ -960,13 +960,13 @@ position = Vector2(-605, -848)
 id = 3
 
 [node name="Note" parent="." instance=ExtResource("17_dt5m5")]
-position = Vector2(-760, -179)
+position = Vector2(-760, -185)
 
 [node name="Note2" parent="." instance=ExtResource("17_dt5m5")]
-position = Vector2(795, -479)
+position = Vector2(794, -488)
 
 [node name="Note3" parent="." instance=ExtResource("17_dt5m5")]
-position = Vector2(830, -986)
+position = Vector2(830, -995)
 
 [node name="dispenser9" parent="." instance=ExtResource("8_fhyc1")]
 position = Vector2(-56, -1016)
@@ -1245,9 +1245,6 @@ position = Vector2(5.96046e-08, 0)
 shape = SubResource("CircleShape2D_jexji")
 
 [node name="hitbox_timer" type="Timer" parent="sceleton11"]
-
-[node name="Note4" parent="." instance=ExtResource("17_dt5m5")]
-position = Vector2(0, -134)
 
 [connection signal="area_entered" from="sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="sceleton2" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="sceleton2/hitbox_timer" to="sceleton2" method="_on_hitbox_timer_timeout" flags=18]
