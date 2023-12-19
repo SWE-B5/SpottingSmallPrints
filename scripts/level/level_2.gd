@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var player = $Player
 @onready var fog = $Fog
-
+@onready var tilemap = $TileMap
+ 
 @onready var skeletons = $Gegner/Skeletons
 
 func update_skeleton_speed():
@@ -20,12 +21,8 @@ func update_skeleton_speed():
 		skeleton.speed = speed
 
 # Called when the node enters the scene tree for the first time.
+ 
 func _ready():
-	fog.init($TileMap, $Player)
+	fog.init(tilemap, player)
 	Health.reset_health() #muss drin bleiben!
 	Inventory.update_after_death() #muss drin bleiben!
-	update_skeleton_speed()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	fog.update_pos(player.position)

@@ -30,13 +30,12 @@ grow_vertical = 2
 
 [node name="Outro" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="Label5" type="Label" parent="Outro"]
-offset_left = 195.0
-offset_top = 100.0
-offset_right = 1755.0
-offset_bottom = 760.0
+offset_left = 180.0
+offset_top = 145.0
+offset_right = 1740.0
+offset_bottom = 805.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
@@ -66,9 +65,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 300.0
-offset_top = 940.0
+offset_top = 950.0
 offset_right = -300.0
-offset_bottom = -40.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -95,6 +94,7 @@ text = "Zu den Credits"
 
 [node name="Credits" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="titel" type="Label" parent="Credits"]
 anchors_preset = -1
@@ -102,10 +102,10 @@ anchor_left = 0.325
 anchor_top = 0.044
 anchor_right = 0.325
 anchor_bottom = 0.044
-offset_left = 7.99994
-offset_top = -11.52
-offset_right = 673.0
-offset_bottom = 67.48
+offset_left = 3.0
+offset_top = -7.52
+offset_right = 669.0
+offset_bottom = 72.48
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 35
 text = "Danke fürs Spielen."
@@ -119,9 +119,9 @@ offset_bottom = 920.0
 [node name="team_mitglieder" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 72.0
+offset_left = 60.0
 offset_top = 10.0
-offset_right = 882.0
+offset_right = 890.0
 offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
@@ -132,9 +132,9 @@ vertical_alignment = 1
 [node name="auftraggeber" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 949.0
+offset_left = 900.0
 offset_top = 10.0
-offset_right = 1759.0
+offset_right = 1740.0
 offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
@@ -145,10 +145,10 @@ vertical_alignment = 1
 [node name="lizenzen" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 61.0
-offset_top = 354.0
-offset_right = 1741.0
-offset_bottom = 414.0
+offset_left = 60.0
+offset_top = 350.0
+offset_right = 1740.0
+offset_bottom = 410.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
 text = "Lizenzen"
@@ -158,10 +158,10 @@ vertical_alignment = 1
 [node name="lizenzen_text" type="TextEdit" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 59.0
+offset_left = 60.0
 offset_top = 410.0
-offset_right = 1739.0
-offset_bottom = 768.0
+offset_right = 1740.0
+offset_bottom = 770.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
 text = "Game Asset: 
@@ -184,9 +184,9 @@ Font:
 layout_mode = 1
 anchors_preset = -1
 offset_left = 60.0
-offset_top = 73.0
-offset_right = 870.0
-offset_bottom = 373.0
+offset_top = 70.0
+offset_right = 900.0
+offset_bottom = 350.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
 text = "
@@ -205,10 +205,10 @@ horizontal_alignment = 1
 [node name="namen" type="Label" parent="Credits/credits"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 930.0
-offset_top = 74.0
+offset_left = 900.0
+offset_top = 70.0
 offset_right = 1740.0
-offset_bottom = 374.0
+offset_bottom = 350.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
 text = "
@@ -225,9 +225,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 300.0
-offset_top = 940.0
+offset_top = 950.0
 offset_right = -300.0
-offset_bottom = -40.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
