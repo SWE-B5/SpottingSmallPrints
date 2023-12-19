@@ -1,10 +1,13 @@
 [gd_scene load_steps=51 format=3 uid="uid://bk3qkmqb7sbic"]
 
+
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6i7u1"]
 [ext_resource type="Texture2D" uid="uid://cgp4qmso1hc8y" path="res://assets/mystic_woods/characters/player.png" id="2_2s7u1"]
 [ext_resource type="Script" path="res://scripts/map_node.gd" id="3_igln0"]
 [ext_resource type="PackedScene" uid="uid://c70emhr8dng6o" path="res://scenes/ui/pause_menu.tscn" id="3_qr3mx"]
+[ext_resource type="PackedScene" uid="uid://dd5jllsc5vgnt" path="res://scenes/ui/fade_screen.tscn" id="3_redh7"]
 [ext_resource type="Texture2D" uid="uid://bgn7t5tmfvryb" path="res://assets/utils/Alert.png" id="5_i6r5b"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y3j0"]
 atlas = ExtResource("2_2s7u1")
@@ -371,6 +374,12 @@ collision_mask = 17
 up_direction = Vector2(0, 1)
 script = ExtResource("1_6i7u1")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("3_redh7")]
+offset_top = -10.0
+offset_bottom = -10.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -15)
@@ -420,6 +429,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_k65mb")
 debug_color = Color(0.705882, 0.486275, 0.0666667, 0.419608)
 
+
+[connection signal="animation_finished" from="CanvasLayer/FadeScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="CanvasLayer/FadeScreen"]
+ 
 [node name="Alert" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 texture = ExtResource("5_i6r5b")
