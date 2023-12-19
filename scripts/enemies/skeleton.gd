@@ -11,7 +11,13 @@ extends Node2D
 func _ready():
 	sprite.play()
 	path.curve = export_path.curve
-	path.rotate(0)
+	match PlayerVariables.difficulty:
+		PlayerVariables.Difficulty.EASY:
+			speed = Constants.SPEED_SKULL_EASY
+		PlayerVariables.Difficulty.MEDIUM:
+			speed = Constants.SPEED_SKULL_MEDIUM
+		PlayerVariables.Difficulty.HARD:
+			speed = Constants.SPEED_SKULL_HARD
 	
 	
 func _process(delta):
