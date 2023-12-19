@@ -24,14 +24,20 @@ func _ready():
 func _on_interact():
 	var resource = load("res://dialogs/note_dialog.dialogue")
 	if is_closed:
-		Inventory.collect_item(Inventory.Item_Type.DIAMOND, schlüssel_id)
-		#Hier muss noch der Dialog abgespielt werden
-		is_closed = false
-		# Interaktion mit Truhe deaktivieren
-		detecion_area.disabled = true
-		# Textur der offenen Truhe laden 
-		sprite.animation =  "open"
-		DialogManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
+		if PlayerVariables.lightsout_is_finnished:
+			Inventory.collect_item(Inventory.Item_Type.DIAMOND, schlüssel_id)
+			#Hier muss noch der Dialog abgespielt werden
+			is_closed = false
+			# Interaktion mit Truhe deaktivieren
+			detecion_area.disabled = true
+			# Textur der offenen Truhe laden 
+			sprite.animation =  "open"
+			DialogManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
+			print("is finnished")
+		else:
+			DialogManager.show_dialogue_balloon(resource,"Diamantene_Kiste_negative")
+			print("is not finnished")
+			
 		
 		
 		

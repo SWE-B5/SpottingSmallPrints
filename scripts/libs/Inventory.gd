@@ -108,6 +108,7 @@ const DIAMOND = Item_Type.DIAMOND
 const NOTE = Item_Type.NOTE
 const NOTE_GLOBAL = Item_Type.NOTE_GLOBAL
 
+
 #Inventory
 var inventory = [[],[],[],[],[]] 
 #count of items, not yet used

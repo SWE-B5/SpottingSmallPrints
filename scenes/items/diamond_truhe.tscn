@@ -1,16 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5uxkj10om5na"]
+[gd_scene load_steps=10 format=3 uid="uid://0d7scai7abqy"]
 
 [ext_resource type="Script" path="res://scripts/items/diamond_truhe.gd" id="1_rol2o"]
 [ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="2_b6tsj"]
+[ext_resource type="Texture2D" uid="uid://d0v3xlmjj32t6" path="res://assets/pixel_dungeon/customs/diaTruheVerschlossen.png" id="2_oej0d"]
+[ext_resource type="Texture2D" uid="uid://rkn41rjtrb5y" path="res://assets/pixel_dungeon/customs/diaTruheOffen.png" id="3_ygpdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsy"]
+size = Vector2(14, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18kig"]
+atlas = ExtResource("2_oej0d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkw2a"]
+atlas = ExtResource("3_ygpdw")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m7wya"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18kig")
+}],
 "loop": true,
 "name": &"closed",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkw2a")
+}],
 "loop": true,
 "name": &"open",
 "speed": 5.0
@@ -23,10 +42,12 @@ radius = 25.0799
 script = ExtResource("1_rol2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_s7wsy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m7wya")
-animation = &"closed"
+animation = &"open"
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_b6tsj")]
 
