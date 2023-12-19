@@ -217,6 +217,10 @@ position = Vector2(-488, -66)
 [node name="Marker2D4" type="Marker2D" parent="Node2" groups=["marker1"]]
 position = Vector2(-578, -30)
 
+[node name="Gegner" type="Node" parent="."]
+
+[node name="Skeletons" type="Node" parent="Gegner"]
+
 [node name="sceleton2" type="Node2D" parent="."]
 z_index = 5
 position = Vector2(-456, -151)
