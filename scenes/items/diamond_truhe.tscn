@@ -50,6 +50,7 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_s7wsy")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_b6tsj")]
+collision_mask = 16
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_fmxhf")
