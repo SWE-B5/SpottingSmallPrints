@@ -1,13 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://bk3qkmqb7sbic"]
-
+[gd_scene load_steps=52 format=3 uid="uid://bk3qkmqb7sbic"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6i7u1"]
 [ext_resource type="Texture2D" uid="uid://cgp4qmso1hc8y" path="res://assets/mystic_woods/characters/player.png" id="2_2s7u1"]
 [ext_resource type="Script" path="res://scripts/map_node.gd" id="3_igln0"]
 [ext_resource type="PackedScene" uid="uid://c70emhr8dng6o" path="res://scenes/ui/pause_menu.tscn" id="3_qr3mx"]
-[ext_resource type="PackedScene" uid="uid://dd5jllsc5vgnt" path="res://scenes/ui/fade_screen.tscn" id="3_redh7"]
-[ext_resource type="Texture2D" uid="uid://bgn7t5tmfvryb" path="res://assets/utils/Alert.png" id="5_i6r5b"]
-
+[ext_resource type="PackedScene" path="res://scenes/ui/fade_screen.tscn" id="3_redh7"]
+[ext_resource type="Texture2D" uid="uid://demjftbru4syd" path="res://assets/utils/Alert.png" id="5_i6r5b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y3j0"]
 atlas = ExtResource("2_2s7u1")
@@ -328,6 +326,21 @@ height = 14.0
 radius = 5.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_vhkrq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alert:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_sa6uy"]
 resource_name = "alert_animation"
 length = 1.8
@@ -343,21 +356,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_vhkrq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Alert:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bd5w"]
@@ -429,11 +427,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_k65mb")
 debug_color = Color(0.705882, 0.486275, 0.0666667, 0.419608)
 
-
-[connection signal="animation_finished" from="CanvasLayer/FadeScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-
-[editable path="CanvasLayer/FadeScreen"]
- 
 [node name="Alert" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 texture = ExtResource("5_i6r5b")
@@ -444,4 +437,7 @@ libraries = {
 "": SubResource("AnimationLibrary_1bd5w")
 }
 
+[connection signal="animation_finished" from="CanvasLayer/FadeScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AlertPlayer" to="." method="_on_alert_player_animation_finished"]
+
+[editable path="CanvasLayer/FadeScreen"]
