@@ -38,7 +38,7 @@ func _process(_delta):
 		self.get_child(0).visible = false
 		self.get_child(1).visible = true
 		self.get_child(2).visible = true
-		self.get_child(3).visible = false
+		self.get_child(3).visible = true
 		self.get_child(4).visible = false
 	else:
 		self.get_child(0).visible = true
