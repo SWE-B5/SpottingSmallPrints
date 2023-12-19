@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://db13ulmou4axm"]
+
+[ext_resource type="Script" path="res://scenes/items/tür_diamant.gd" id="1_dlpng"]
+[ext_resource type="Texture2D" uid="uid://cveb33dq2trtw" path="res://assets/pixel_dungeon/customs/diamond_door.png" id="2_6hgj2"]
+[ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="3_ps7sg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1434"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6hgj2")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0reds"]
+size = Vector2(32, 9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pvkv"]
+radius = 25.4951
+
+[node name="TürDiamant" type="StaticBody2D"]
+z_index = 2
+script = ExtResource("1_dlpng")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i1434")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_0reds")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_ps7sg")]
+collision_mask = 16
+action_name = "<E> Tür öffnen"
+
+[node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
+z_index = 2
+shape = SubResource("CircleShape2D_6pvkv")
