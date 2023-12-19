@@ -143,3 +143,13 @@ func damage_animation():
 		await get_tree().create_timer(0.15).timeout
 		anim.self_modulate = Color(1,1,1,1)
 		await get_tree().create_timer(0.15).timeout
+		
+func alert():
+	if($AlertPlayer.is_playing()):
+		$AlertPlayer.seek(0.2)
+	else:
+		$AlertPlayer.play("alert_animation")
+
+
+func _on_alert_player_animation_finished(anim_name):
+	$AlertPlayer.stop()

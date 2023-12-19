@@ -113,6 +113,9 @@ var inventory = [[],[],[],[],[]]
 #count of items, not yet used
 var active_items_count = [0,0,0,0,0]
 
+var dialogue_temp_silver_id = 0
+var dialogue_temp_gold_id = 0
+
 #short form
 func update_huds(type: Item_Type):
 	if type == 3:

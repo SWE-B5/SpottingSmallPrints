@@ -87,3 +87,5 @@ var immunity_frames: float
 const immunity_duration = 1.2
 
 var global_position: Vector2
+#flag for fog deletion when "new game"
+var flag_is_new_game = false
