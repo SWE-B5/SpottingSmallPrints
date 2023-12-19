@@ -10,4 +10,4 @@ func _ready():
 	Inventory.update_after_death()
 	
 func _process(_delta):
-	#fog.update_pos(player.position)
+	fog.update_pos(player.position)

@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://d0v3xlmjj32t6" path="res://assets/pixel_dungeon/customs/diaTruheVerschlossen.png" id="2_oej0d"]
 [ext_resource type="Texture2D" uid="uid://rkn41rjtrb5y" path="res://assets/pixel_dungeon/customs/diaTruheOffen.png" id="3_ygpdw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsy"]
-size = Vector2(14, 7)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_18kig"]
 atlas = ExtResource("2_oej0d")
 region = Rect2(0, 0, 16, 16)
@@ -35,19 +32,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsy"]
+size = Vector2(14, 7)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmxhf"]
 radius = 25.0799
 
 [node name="diamond_truhe" type="StaticBody2D"]
 script = ExtResource("1_rol2o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_s7wsy")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m7wya")
 animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_s7wsy")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_b6tsj")]
 

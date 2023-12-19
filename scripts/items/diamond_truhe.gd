@@ -33,11 +33,8 @@ func _on_interact():
 			# Textur der offenen Truhe laden 
 			sprite.animation =  "open"
 			DialogManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
-			print("is finnished")
 		else:
 			DialogManager.show_dialogue_balloon(resource,"Diamantene_Kiste_negative")
-			print("is not finnished")
-			
 		
 		
 		
