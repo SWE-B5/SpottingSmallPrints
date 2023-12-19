@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b5uxkj10om5na"]
+
+[node name="diamond_truhe" type="StaticBody2D"]
