@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Skull
 
 # Hier muss speed nach Schwierigkeitsgrad eingestellt werden
 @export var speed: float = 100
@@ -16,6 +17,14 @@ func _ready():
 	for marker in get_tree().get_nodes_in_group(markerid):
 		if marker is Marker2D:
 			destination_points.append(marker.global_position)
+	
+	match PlayerVariables.difficulty:
+		PlayerVariables.Difficulty.EASY:
+			speed = Constants.SPEED_SKULL_EASY
+		PlayerVariables.Difficulty.MEDIUM:
+			speed = Constants.SPEED_SKULL_MEDIUM
+		PlayerVariables.Difficulty.HARD:
+			speed = Constants.SPEED_SKULL_HARD
 
 	# Start the enemy at a random destination
 	choose_random_destination()

@@ -115,6 +115,7 @@ func damage_animation():
 		anim.self_modulate = Color(1,1,1,1)
 		await get_tree().create_timer(0.15).timeout
 
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_from_black":
 		from_black_fade_finished.emit()
@@ -128,3 +129,15 @@ func fade_out():
 	await from_black_fade_finished
 	PlayerVariables.immobile = false
 	currently_fading = false
+
+		
+func alert():
+	if($AlertPlayer.is_playing()):
+		$AlertPlayer.seek(0.2)
+	else:
+		$AlertPlayer.play("alert_animation")
+
+
+func _on_alert_player_animation_finished(anim_name):
+	$AlertPlayer.stop()
+

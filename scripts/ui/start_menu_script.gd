@@ -63,6 +63,7 @@ func _on_quit_button_pressed():
 
 func _on_easy_difficulty_button_pressed():
 	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.EASY)
+	PlayerVariables.flag_is_new_game = true
 	title.hide()
 	difficulty_selector.hide()
 	background_blurr.show()
@@ -94,7 +95,6 @@ func _on_respawn_pressed():
 		death_screen.hide()
 		load_game_error.show()
 		return
-	Health.is_death = true # damit fog save geladen wird
 	go_to_level()
 
 func _on_hauptmenu_pressed():
