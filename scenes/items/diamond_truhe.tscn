@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://b5uxkj10om5na"]
+[gd_scene load_steps=5 format=3 uid="uid://b5uxkj10om5na"]
+
+[ext_resource type="Script" path="res://scripts/items/diamond_truhe.gd" id="1_rol2o"]
+[ext_resource type="PackedScene" uid="uid://ca6q64hy18v07" path="res://Interaction/interaction_area/interaction_area.tscn" id="2_b6tsj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7wya"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmxhf"]
+radius = 25.0799
 
 [node name="diamond_truhe" type="StaticBody2D"]
+script = ExtResource("1_rol2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m7wya")
+animation = &"closed"
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_b6tsj")]
+
+[node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_fmxhf")
