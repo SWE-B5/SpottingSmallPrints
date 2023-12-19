@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://ddu70jts25yxf"]
+[gd_scene load_steps=87 format=3 uid="uid://dx35ajh5kengc"]
 
 [ext_resource type="Script" path="res://scripts/level/level_2.gd" id="1_5e837"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_bhmd3"]
@@ -626,7 +626,6 @@ layer_2/tile_data = PackedInt32Array(-458754, 2, 9, -524287, 2, 9, -458761, 2, 9
 [node name="Fog" parent="." instance=ExtResource("4_ria2j")]
 
 [node name="Player" parent="." instance=ExtResource("3_lqxyn")]
-position = Vector2(0, 0)
 
 [node name="Gegner" type="Node" parent="."]
 
@@ -1431,76 +1430,76 @@ id = 9
 [node name="Truhen" type="Node" parent="."]
 
 [node name="NormaleTruhe" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(744, -328)
+position = Vector2(744, -336)
 type = 1
 
 [node name="NormaleTruhe2" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(704, -88)
+position = Vector2(704, -96)
 "schlüssel_id" = 8
 
 [node name="NormaleTruhe3" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(1192, -1080)
+position = Vector2(1192, -1088)
 type = 1
 
 [node name="NormaleTruhe4" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-632, -856)
+position = Vector2(-632, -864)
 "schlüssel_id" = 9
 
 [node name="NormaleTruhe5" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-200, -1112)
+position = Vector2(-200, -1120)
 type = 1
 
 [node name="NormaleTruhe6" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-616, -136)
+position = Vector2(-616, -144)
 "schlüssel_id" = 7
 
 [node name="NormaleTruhe7" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-328, -648)
+position = Vector2(-328, -656)
 type = 1
 
 [node name="NormaleTruhe8" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(240, -408)
+position = Vector2(240, -416)
 type = 1
 
 [node name="NormaleTruhe9" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(328, -112)
+position = Vector2(328, -120)
 type = 1
 
 [node name="NormaleTruhe10" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-128, -688)
+position = Vector2(-128, -696)
 type = 1
 
 [node name="GoldeneTruhe" parent="Truhen" instance=ExtResource("15_kpbhj")]
-position = Vector2(-1144, -1080)
+position = Vector2(-1144, -1088)
 
 [node name="NormaleTruhe11" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-664, -680)
+position = Vector2(-664, -688)
 type = 1
 
 [node name="NormaleTruhe12" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-1024, -760)
+position = Vector2(-1024, -768)
 type = 1
 
 [node name="NormaleTruhe13" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-1056, -336)
+position = Vector2(-1056, -344)
 type = 1
 
 [node name="NormaleTruhe14" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-160, -200)
+position = Vector2(-160, -208)
 type = 1
 
 [node name="Notes" type="Node" parent="."]
 
 [node name="Note" parent="Notes" instance=ExtResource("14_8inur")]
-position = Vector2(424, -1144)
+position = Vector2(424, -1152)
 note_id = 9
 
 [node name="Note2" parent="Notes" instance=ExtResource("14_8inur")]
-position = Vector2(840, -952)
+position = Vector2(840, -960)
 note_id = 8
 
 [node name="Note3" parent="Notes" instance=ExtResource("14_8inur")]
-position = Vector2(-1120, -672)
+position = Vector2(-1120, -680)
 note_id = 7
 
 [node name="dispenser" parent="." instance=ExtResource("12_1c02k")]
