@@ -30,6 +30,11 @@ func _ready():
 #Schluessel Drop
 func _on_interact():
 	if is_closed:
+		var resource = load("res://dialogs/note_dialog.dialogue")
+		if not Inventory.check_all_notes_current_level():
+			DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
+			return
+		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
 		# Interaktion mit Truhe deaktivieren
@@ -65,6 +70,10 @@ func _puzzle_successful():
 		#TODO: Dialog hinzufügen und zum Hub teleportieren
 		
 		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
+		Inventory.update_after_level_completed()
+		var resource = load("res://dialogs/note_dialog.dialogue")
+		Inventory.dialogue_temp_gold_id = schlüssel_id
+		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
 		print(Inventory)
 		PlayerVariables.immobile = false
 		awaitingSignal = false
