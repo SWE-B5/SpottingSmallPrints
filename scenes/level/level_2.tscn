@@ -626,7 +626,7 @@ layer_2/tile_data = PackedInt32Array(-458754, 2, 9, -524287, 2, 9, -458761, 2, 9
 [node name="Fog" parent="." instance=ExtResource("4_ria2j")]
 
 [node name="Player" parent="." instance=ExtResource("3_lqxyn")]
-position = Vector2(0, -16)
+position = Vector2(-408, -368)
 
 [node name="Gegner" type="Node" parent="."]
 
