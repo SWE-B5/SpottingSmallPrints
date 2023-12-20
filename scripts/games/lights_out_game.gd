@@ -20,6 +20,7 @@ func check_game():
 	if is_finished():
 		block_all_changes()
 		finish.emit()
+		PlayerVariables.lightsout_is_finnished = true
 
 func _on__change_mode0(new_mode):
 	$"1".toggle()
