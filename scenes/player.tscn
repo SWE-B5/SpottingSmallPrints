@@ -4,7 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cgp4qmso1hc8y" path="res://assets/mystic_woods/characters/player.png" id="2_2s7u1"]
 [ext_resource type="Script" path="res://scripts/map_node.gd" id="3_igln0"]
 [ext_resource type="PackedScene" uid="uid://c70emhr8dng6o" path="res://scenes/ui/pause_menu.tscn" id="3_qr3mx"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/fade_screen.tscn" id="3_redh7"]
+
 [ext_resource type="PackedScene" uid="uid://dd5jllsc5vgnt" path="res://scenes/ui/fade_screen.tscn" id="3_redh7"]
+
 [ext_resource type="Texture2D" uid="uid://demjftbru4syd" path="res://assets/utils/Alert.png" id="5_i6r5b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y3j0"]
