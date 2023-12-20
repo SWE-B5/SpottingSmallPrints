@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bwkl6br8k7yx4"]
 
 [ext_resource type="Script" path="res://scripts/memory/memory.gd" id="1_5lp68"]
-[ext_resource type="Theme" path="res://scenes/memory/raetsel_theme.tres" id="2_2kxt3"]
+[ext_resource type="Theme" uid="uid://dgaagtf2ilgyq" path="res://scenes/memory/raetsel_theme.tres" id="2_2kxt3"]
 [ext_resource type="StyleBox" uid="uid://buu3vm8g07k1k" path="res://assets/simonsays/paneltexture.tres" id="2_4dvq0"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="3_1hgq8"]
 
