@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dm0h4gtqwyuqk"]
+[gd_scene load_steps=18 format=3 uid="uid://dm0h4gtqwyuqk"]
 
 [ext_resource type="Script" path="res://scripts/level/demo.gd" id="1_aoo23"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="1_gw0yb"]
@@ -29,6 +29,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2.16098, 2.90472, 0, 0, 0, 0, 82.161, 0.904716, 0, 0, 0, 0, 0.16098, 1.90472)
 }
 point_count = 3
+
+[ext_resource type="PackedScene" uid="uid://0d7scai7abqy" path="res://scenes/items/diamond_truhe.tscn" id="17_85nij"]
 
 [node name="demo" type="Node2D"]
 y_sort_enabled = true
@@ -95,6 +97,7 @@ y_sort_enabled = true
 position = Vector2(-29, -65)
 rotation = 1.5708
 
+
 [node name="skeleton2" parent="." node_paths=PackedStringArray("export_path") instance=ExtResource("17_jl372")]
 position = Vector2(90.2984, 40.9386)
 export_path = NodePath("Path2")
@@ -108,3 +111,7 @@ export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="skeleton"]
 curve = SubResource("Curve2D_bm0gu")
+
+[node name="diamond_truhe" parent="." instance=ExtResource("17_85nij")]
+position = Vector2(93.2119, 8.62501)
+
