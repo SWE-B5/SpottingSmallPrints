@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dx35ajh5kengc"]
+[gd_scene load_steps=28 format=3 uid="uid://bhbxuydhgxxgn"]
 
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="1_ya33k"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_mi72s"]
@@ -165,7 +165,7 @@ position = Vector2(-456, -460)
 "schlüssel_id" = 2
 
 [node name="GoldeneTruhe" parent="." instance=ExtResource("13_e4jlt")]
-position = Vector2(173, -207)
+position = Vector2(170, -223)
 "schlüssel_id" = 1
 
 [node name="NormaleTruhe3" parent="." instance=ExtResource("12_lqj3k")]
@@ -177,11 +177,11 @@ position = Vector2(-568, 150)
 type = 1
 
 [node name="TürEckig" parent="." instance=ExtResource("14_0116h")]
-position = Vector2(16, -184)
+position = Vector2(16, -192)
 id = 2
 
 [node name="TürEckig2" parent="." instance=ExtResource("14_0116h")]
-position = Vector2(208, -24)
+position = Vector2(208, -32)
 id = 4
 
 [node name="NormaleTruhe5" parent="." instance=ExtResource("12_lqj3k")]
