@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhbxuydhgxxgn"]
+[gd_scene load_steps=31 format=3 uid="uid://dipri4s8ociqb"]
 
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="1_ya33k"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_mi72s"]
@@ -11,12 +11,30 @@
 [ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="12_lqj3k"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="13_e4jlt"]
 [ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="14_0116h"]
+[ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="14_akvqm"]
 [ext_resource type="PackedScene" uid="uid://bmc65gjk84m30" path="res://scenes/items/tür_links.tscn" id="15_yyeqv"]
 [ext_resource type="PackedScene" uid="uid://k1jrqqjkdxlh" path="res://scenes/items/tür_rechts.tscn" id="16_hu83a"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/skeleton.tscn" id="16_nua11"]
+[ext_resource type="PackedScene" uid="uid://doomhse7fon5r" path="res://scenes/enemies/skeleton.tscn" id="16_nua11"]
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="17_dt5m5"]
-[ext_resource type="PackedScene" uid="uid://d1grckqpis1r8" path="res://scenes/items/tür_rund.tscn" id="18_p1l7x"]
 [ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="19_d1sdo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tqo1"]
+atlas = ExtResource("14_akvqm")
+region = Rect2(0, 48, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyqyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tqo1")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0reds"]
+size = Vector2(32, 3)
 
 [sub_resource type="Curve2D" id="Curve2D_weth4"]
 _data = {
@@ -90,7 +108,7 @@ layer_2/tile_data = PackedInt32Array(1310722, 327682, 9, 1310725, 327682, 9, 137
 [node name="Fog" parent="." instance=ExtResource("3_8i062")]
 
 [node name="Player" parent="." instance=ExtResource("4_ytvme")]
-position = Vector2(64, 450)
+position = Vector2(64, 479)
 
 [node name="Spikes1-1" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(552, 408)
@@ -230,8 +248,20 @@ rotation = 1.5708
 [node name="Spikes2" parent="." instance=ExtResource("5_04wwp")]
 position = Vector2(360, 9)
 
-[node name="TürRund" parent="." instance=ExtResource("18_p1l7x")]
+[node name="TürRund" type="StaticBody2D" parent="."]
+z_index = 1
 position = Vector2(64, 487)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TürRund"]
+y_sort_enabled = true
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_kyqyf")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TürRund"]
+z_index = 1
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_0reds")
 
 [node name="dispenser13" parent="." instance=ExtResource("8_fhyc1")]
 position = Vector2(-472, -296)
