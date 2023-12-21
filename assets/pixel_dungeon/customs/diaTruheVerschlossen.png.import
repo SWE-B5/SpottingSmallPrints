@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://demjftbru4syd"
-path="res://.godot/imported/Alert.png-7ebed0b3f7cedae1bda3c8e202d2bcbe.ctex"
+uid="uid://d0v3xlmjj32t6"
+path="res://.godot/imported/diaTruheVerschlossen.png-698d5b9f42ccdd864d3e0ee2a8d55ab8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/utils/Alert.png"
-dest_files=["res://.godot/imported/Alert.png-7ebed0b3f7cedae1bda3c8e202d2bcbe.ctex"]
+source_file="res://assets/pixel_dungeon/customs/diaTruheVerschlossen.png"
+dest_files=["res://.godot/imported/diaTruheVerschlossen.png-698d5b9f42ccdd864d3e0ee2a8d55ab8.ctex"]
 
 [params]
 

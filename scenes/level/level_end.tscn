@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://u2gprynpwfyb"]
+[gd_scene load_steps=10 format=3 uid="uid://u2gprynpwfyb"]
 
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="1_c05wa"]
 [ext_resource type="Script" path="res://scripts/level/level_end.gd" id="1_o1okh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="3_rd1mj"]
 [ext_resource type="PackedScene" uid="uid://cmdrvi7sks0ta" path="res://scenes/games/lights_out_game.tscn" id="4_urxlk"]
 [ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="5_8a8ql"]
+[ext_resource type="PackedScene" uid="uid://0d7scai7abqy" path="res://scenes/items/diamond_truhe.tscn" id="6_m7p4y"]
 [ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="6_pyw88"]
 [ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="8_uasjf"]
 
@@ -23,6 +24,9 @@ position = Vector2(0, -18)
 
 [node name="LightsOutGame" parent="." instance=ExtResource("4_urxlk")]
 position = Vector2(-40, -1787.02)
+
+[node name="diamond_truhe" parent="LightsOutGame" instance=ExtResource("6_m7p4y")]
+position = Vector2(37, -57.98)
 
 [node name="HUD" parent="." instance=ExtResource("5_8a8ql")]
 

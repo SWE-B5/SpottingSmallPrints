@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://demjftbru4syd"
-path="res://.godot/imported/Alert.png-7ebed0b3f7cedae1bda3c8e202d2bcbe.ctex"
+uid="uid://cy4uyibsqktgd"
+path="res://.godot/imported/fade.png-7dd15fb429c35fad79cc587cf6d4aef2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/utils/Alert.png"
-dest_files=["res://.godot/imported/Alert.png-7ebed0b3f7cedae1bda3c8e202d2bcbe.ctex"]
+source_file="res://assets/fade/fade.png"
+dest_files=["res://.godot/imported/fade.png-7dd15fb429c35fad79cc587cf6d4aef2.ctex"]
 
 [params]
 
