@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://ddu70jts25yxf"]
+[gd_scene load_steps=35 format=3 uid="uid://ddu70jts25yxf"]
 
 [ext_resource type="Script" path="res://scripts/level/level_2.gd" id="1_5e837"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_bhmd3"]
@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="3_lqxyn"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="4_ria2j"]
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="5_skdgs"]
-[ext_resource type="Texture2D" uid="uid://cjtgcucbk56ni" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_2.png" id="7_qfxb4"]
-[ext_resource type="Texture2D" uid="uid://cqa5b0guw7bqm" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_3.png" id="8_rc54m"]
-[ext_resource type="Texture2D" uid="uid://bo2r1uhp842eg" path="res://assets/pixel_dungeon/Character_animation/monsters_idle/skeleton2/v2/skeleton2_v2_4.png" id="9_s4ggy"]
+[ext_resource type="PackedScene" uid="uid://doomhse7fon5r" path="res://scenes/enemies/skeleton.tscn" id="7_fmeus"]
 [ext_resource type="PackedScene" uid="uid://bjdf6n6tyl4pw" path="res://scenes/traps/spikes.tscn" id="10_f07fy"]
 [ext_resource type="PackedScene" uid="uid://m5k8w8y5lkaj" path="res://scenes/traps/flamethrower.tscn" id="11_v6atj"]
 [ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="12_1c02k"]
@@ -19,601 +17,95 @@
 [ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="15_bw2bf"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="15_kpbhj"]
 
-[sub_resource type="GDScript" id="GDScript_bqapj"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_28uvt"]
+[sub_resource type="Curve2D" id="Curve2D_ym733"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -40, 165, 0, 0, 0, 0, -41, 124, 0, 0, 0, 0, 97, 126, 0, 0, 0, 0, 98, 167, 0, 0, 0, 0, -40, 165)
+"points": PackedVector2Array(0, 0, 0, 0, -0.999939, 2.00003, 0, 0, 0, 0, 172, 1.00003, 0, 0, 0, 0, 171, 42, 0, 0, 0, 0, -0.999939, 43, 0, 0, 0, 0, 6.10352e-05, 2.00003)
 }
 point_count = 5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7u7mi"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqtxs"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpv5o"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3wvs"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7te5j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7u7mi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uqtxs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gpv5o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c3wvs")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wcg2q"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1oiqy"]
-radius = 6.08276
-
-[sub_resource type="GDScript" id="GDScript_l2owo"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_uk0ef"]
+[sub_resource type="Curve2D" id="Curve2D_0ccc6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -42.3342, -8.17267, 0, 0, 0, 0, -43.3342, 30.8273, 0, 0, 0, 0, 95.6658, 30.8273, 0, 0, 0, 0, 95.6658, -9.17267, 0, 0, 0, 0, -42.3342, -8.17267)
+"points": PackedVector2Array(0, 0, 0, 0, -1.00006, 3, 0, 0, 0, 0, -6.10352e-05, -35, 0, 0, 0, 0, 175, -37, 0, 0, 0, 0, 175, 3, 0, 0, 0, 0, -1.00006, 3)
 }
 point_count = 5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oqquk"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0n8e6"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8f5r"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8hpr"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0sjyf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oqquk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0n8e6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g8f5r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8hpr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_myla5"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ulrm6"]
-radius = 6.08276
-
-[sub_resource type="GDScript" id="GDScript_ari4k"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_00xhg"]
+[sub_resource type="Curve2D" id="Curve2D_2tb73"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 99.2095, -7.62367, 0, 0, 0, 0, -111.79, -7.62367, 0, 0, 0, 0, -111.79, 24.3763, 0, 0, 0, 0, 98.2095, 24.3763, 0, 0, 0, 0, 99.2095, -7.62367)
+"points": PackedVector2Array(0, 0, 0, 0, -1.00012, 3, 0, 0, 0, 0, -97.0001, -16, 0, 0, 0, 0, -172, 1, 0, 0, 0, 0, -97.0001, 20, 0, 0, 0, 0, -1.00012, 3)
 }
 point_count = 5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbf17"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2la7m"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vns0o"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dborr"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_axgge"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fbf17")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2la7m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vns0o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dborr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_a7kmt"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kpyi3"]
-radius = 6.08276
-
-[sub_resource type="GDScript" id="GDScript_j714u"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_0kiln"]
+[sub_resource type="Curve2D" id="Curve2D_3sh2m"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4.85474, -4.53094, 0, 0, 0, 0, 3.85474, 249.469, 0, 0, 0, 0, 4.85474, -5.53094)
+"points": PackedVector2Array(0, 0, 0, 0, -0.540649, 0.152893, 0, 0, 0, 0, -2.54065, 259.153, 0, 0, 0, 0, -0.540649, -0.847107)
 }
 point_count = 3
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_njg5y"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_khupt"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7112"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_arse6"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_th4b5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_njg5y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_khupt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v7112")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_arse6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i6kdt"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_l63yk"]
-radius = 6.08276
-
-[sub_resource type="GDScript" id="GDScript_nrojx"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_ys3w7"]
+[sub_resource type="Curve2D" id="Curve2D_p7vt0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -128.456, 83.6959, 0, 0, 0, 0, 39, 83, 0, 0, 0, 0, -127.456, 83.6959)
+"points": PackedVector2Array(0, 0, 0, 0, -0.999878, 1.99988, 0, 0, 0, 0, -0.999878, -106, 0, 0, 0, 0, -0.999878, 2.99988)
 }
 point_count = 3
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xug8g"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyni6"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6b6j6"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ni5nh"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uthpt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xug8g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dyni6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6b6j6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ni5nh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_oedwd"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kes0b"]
-radius = 6.08276
-
-[sub_resource type="Curve2D" id="Curve2D_28o10"]
+[sub_resource type="Curve2D" id="Curve2D_gx05p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -128.456, 83.6959, 0, 0, 0, 0, -286, 84, 0, 0, 0, 0, -127.456, 83.6959)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 4, 0, 0, 0, 0, -1, -105, 0, 0, 0, 0, 0, 4)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_mrmfe"]
+[sub_resource type="Curve2D" id="Curve2D_vlhyb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -207, 84, 0, 0, 0, 0, -291, 84, 0, 0, 0, 0, -120, 83, 0, 0, 0, 0, -206, 84)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2.00012, 0, 0, 0, 0, -1, 111, 0, 0, 0, 0, -1, 2.00012)
 }
-point_count = 4
+point_count = 3
 
-[sub_resource type="GDScript" id="GDScript_fxfuv"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_kmv3q"]
+[sub_resource type="Curve2D" id="Curve2D_tcbia"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, -73, 0, 0, 0, 0, 1, 91, 0, 0, 0, 0, 68, 92, 0, 0, 0, 0, -58, 90, 0, 0, 0, 0, 1, 91, 0, 0, 0, 0, 0, -73, 0, 0, 0, 0, -69, -74, 0, 0, 0, 0, -2, -74)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 109, 0, 0, 0, 0, 0, 1)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_yw3hm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, -96, 3, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 164, 0, 0, 0, 0, -54, 164, 0, 0, 0, 0, 71, 163, 0, 0, 0, 0, 1, 163, 0, 0, 0, 0, -1, 2)
 }
 point_count = 8
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpkiu"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7euf3"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8w64y"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqsvc"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yicp5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mpkiu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7euf3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8w64y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqsvc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0qb8y"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xljhr"]
-radius = 6.08276
-
-[sub_resource type="Curve2D" id="Curve2D_xvfwc"]
+[sub_resource type="Curve2D" id="Curve2D_xk6aa"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -38.3307, -54.4913, 0, 0, 0, 0, -39.3307, 70.5087, 0, 0, 0, 0, 82.6693, -58.4913, 0, 0, 0, 0, 82.6693, 71.5087, 0, 0, 0, 0, -37.3307, -53.4913)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2, 0, 0, 0, 0, -2, 111, 0, 0, 0, 0, 115, 4, 0, 0, 0, 0, 115, 112, 0, 0, 0, 0, -1, 3)
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_n6u8l"]
+[sub_resource type="Curve2D" id="Curve2D_joakr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0.00012207, 110, 0, 0, 0, 0, 1, 2)
+"points": PackedVector2Array(0, 0, 0, 0, 3.05176e-05, 2, 0, 0, 0, 0, 93, 34, 0, 0, 0, 0, 222, 0, 0, 0, 0, 0, 349, 35, 0, 0, 0, 0, 445, 0, 0, 0, 0, 0, 349, 34, 0, 0, 0, 0, 221, 0, 0, 0, 0, 0, 93, 34, 0, 0, 0, 0, -0.999969, 2)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_gfbd8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1.99994, 0, 0, 0, 0, -150, 3.99994, 0, 0, 0, 0, 0, 2.99994)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_haa5j"]
+[sub_resource type="Curve2D" id="Curve2D_ae0k7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, -110, 0, 0, 0, 0, 1, 2)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 73, 0, 0, 0, 0, 0, -74, 1, 0, 0, 0, 0, 0, 1)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_gf36o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -0.999939, 3, 0, 0, 0, 0, 150, 8, 0, 0, 0, 0, -1.99994, 4)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_6oke5"]
+[sub_resource type="Curve2D" id="Curve2D_ks3w4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 120, -24, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 120, 24, 0, 0, 0, 0, 216, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, -202, 2, 0, 0, 0, 0, -201, 31, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 2)
 }
 point_count = 5
-
-[sub_resource type="GDScript" id="GDScript_mot6s"]
-script/source = "extends Node2D
-
-@onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/sprite
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-@onready var hitbox = $Path2D/PathFollow2D/CharacterBody2D/hitbox
-@onready var collision_shape  = $Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D
-@onready var timer = $hitbox_timer
-@export var speed = 100
-
-func _ready():
-	sprite.play()
-	
-func _process(delta):
-	path_follow.progress += speed * delta
-	
-func _on_hitbox_timer_timeout():
-	hitbox.set_deferred(\"disabled\", false)
-	collision_shape.set_deferred(\"disabled\", false)
-	
-func _on_hitbox_area_entered(area):
-	print(\"Damage dealt to player:\")
-	if area.is_in_group(\"hitbox_player\") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
-		await get_tree().create_timer(0.1).timeout
-		hitbox.set_deferred(\"disabled\", true)
-		collision_shape.set_deferred(\"disabled\", true)
-		timer.start()
-		Health.damage_player(1)
-"
-
-[sub_resource type="Curve2D" id="Curve2D_re70f"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16, -40, 0, 0, 0, 0, 80, 8, 0, 0, 0, 0, 144, -40, 0, 0, 0, 0, 208, 8, 0, 0, 0, 0, 272, -40, 0, 0, 0, 0, 336, 8, 0, 0, 0, 0, 400, -40, 0, 0, 0, 0, 336, 8, 0, 0, 0, 0, 272, -40, 0, 0, 0, 0, 208, 8, 0, 0, 0, 0, 144, -40, 0, 0, 0, 0, 80, 8, 0, 0, 0, 0, 16, -40)
-}
-point_count = 13
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5pklb"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vnkpn"]
-atlas = ExtResource("7_qfxb4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bf48f"]
-atlas = ExtResource("8_rc54m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wapmr"]
-atlas = ExtResource("9_s4ggy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1lbkk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5pklb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vnkpn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bf48f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wapmr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gmmq5"]
-radius = 4.47214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2m117"]
-radius = 6.08276
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tqo1"]
 atlas = ExtResource("15_bw2bf")
@@ -785,518 +277,110 @@ position = Vector2(-1.7782, 24.0001)
 
 [node name="Skeletons" type="Node" parent="Gegner"]
 
-[node name="sceleton2" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-785, -255)
-script = SubResource("GDScript_bqapj")
+[node name="skeleton" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-830, -260)
+export_path = NodePath("Path2D")
 
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton2"]
-curve = SubResource("Curve2D_28uvt")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton"]
+curve = SubResource("Curve2D_ym733")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton2/Path2D"]
-position = Vector2(-40, 165)
-rotation = 0.0128198
-rotates = false
+[node name="skeleton2" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-834, -91)
+export_path = NodePath("Path2D")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D"]
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton2"]
+curve = SubResource("Curve2D_0ccc6")
 
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_7te5j")
-frame_progress = 0.52065
+[node name="skeleton3" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-1071, -10)
+export_path = NodePath("Path2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_wcg2q")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton3"]
+curve = SubResource("Curve2D_2tb73")
 
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
+[node name="skeleton4" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-1165.46, -364.153)
+export_path = NodePath("Path2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_1oiqy")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton4"]
+curve = SubResource("Curve2D_3sh2m")
 
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton2"]
+[node name="skeleton5" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-1097, -990)
+export_path = NodePath("Path2D")
 
-[node name="sceleton3" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-783.666, -251.827)
-script = SubResource("GDScript_l2owo")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton5"]
+curve = SubResource("Curve2D_p7vt0")
 
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton3"]
-curve = SubResource("Curve2D_uk0ef")
+[node name="skeleton6" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-1077, -990)
+export_path = NodePath("Path2D")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton3/Path2D"]
-position = Vector2(-42.3342, -8.17267)
-rotation = 0.0128198
-rotates = false
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton6"]
+curve = SubResource("Curve2D_gx05p")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton3/Path2D/PathFollow2D"]
+[node name="skeleton7" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-1029, -1094)
+export_path = NodePath("Path2D")
 
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton3/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_0sjyf")
-frame_progress = 0.52065
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton7"]
+curve = SubResource("Curve2D_vlhyb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton3/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_myla5")
+[node name="skeleton8" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-1010, -1094)
+export_path = NodePath("Path2D")
 
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton3/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton8"]
+curve = SubResource("Curve2D_tcbia")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton3/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_ulrm6")
+[node name="skeleton9" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-760, -859)
+export_path = NodePath("Path2D")
 
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton3"]
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton9"]
+curve = SubResource("Curve2D_yw3hm")
 
-[node name="sceleton4" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-15.2095, -208.376)
-script = SubResource("GDScript_ari4k")
+[node name="skeleton10" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-592, -970)
+export_path = NodePath("Path2D")
 
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton4"]
-position = Vector2(0.209503, 0.376328)
-curve = SubResource("Curve2D_00xhg")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton10"]
+curve = SubResource("Curve2D_xk6aa")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton4/Path2D"]
-position = Vector2(99.2095, -7.62367)
-rotation = 0.0128198
-rotates = false
+[node name="skeleton11" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(-277, -937)
+export_path = NodePath("Path2D")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton4/Path2D/PathFollow2D"]
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton11"]
+curve = SubResource("Curve2D_joakr")
 
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton4/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_axgge")
-frame_progress = 0.52065
+[node name="skeleton12" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(1147, -662)
+export_path = NodePath("Path2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton4/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_a7kmt")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton12"]
+curve = SubResource("Curve2D_gfbd8")
 
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton4/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
+[node name="skeleton13" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(1073, -588)
+export_path = NodePath("Path2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton4/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_kpyi3")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton13"]
+curve = SubResource("Curve2D_ae0k7")
 
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton4"]
+[node name="skeleton14" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(998, -504)
+export_path = NodePath("Path2D")
 
-[node name="sceleton5" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-1172.85, -360.469)
-script = SubResource("GDScript_j714u")
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton14"]
+curve = SubResource("Curve2D_gf36o")
 
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton5"]
-position = Vector2(0.854736, 0.469055)
-curve = SubResource("Curve2D_0kiln")
+[node name="skeleton15" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(91, -215)
+export_path = NodePath("Path2D")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton5/Path2D"]
-position = Vector2(4.85474, -4.53094)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton5/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton5/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_th4b5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton5/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_i6kdt")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton5/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton5/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_l63yk")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton5"]
-
-[node name="sceleton6" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(1123, -597)
-script = SubResource("GDScript_nrojx")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton6"]
-curve = SubResource("Curve2D_ys3w7")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton6/Path2D"]
-position = Vector2(-128.456, 83.6959)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton6/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton6/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_uthpt")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton6/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_oedwd")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton6/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton6/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_kes0b")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton6"]
-
-[node name="sceleton7" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(1276, -740)
-script = SubResource("GDScript_nrojx")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton7"]
-curve = SubResource("Curve2D_28o10")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton7/Path2D"]
-position = Vector2(-128.456, 83.6959)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton7/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton7/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_uthpt")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton7/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_oedwd")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton7/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton7/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_kes0b")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton7"]
-
-[node name="sceleton8" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(1278, -671)
-script = SubResource("GDScript_nrojx")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton8"]
-curve = SubResource("Curve2D_mrmfe")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton8/Path2D"]
-position = Vector2(-207, 84)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton8/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton8/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_uthpt")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton8/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_oedwd")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton8/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton8/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_kes0b")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton8"]
-
-[node name="sceleton9" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-758, -780)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton9"]
-position = Vector2(-2, -3)
-curve = SubResource("Curve2D_kmv3q")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton9/Path2D"]
-position = Vector2(1, -73)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton9/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton9/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton9/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton9/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton9/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton9"]
-
-[node name="sceleton10" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-558.669, -919.509)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton10"]
-curve = SubResource("Curve2D_xvfwc")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton10/Path2D"]
-position = Vector2(-38.3307, -54.4913)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton10/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton10/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton10/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton10/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton10/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton10"]
-
-[node name="sceleton11" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-1009, -1093)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton11"]
-curve = SubResource("Curve2D_n6u8l")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton11/Path2D"]
-position = Vector2(0, -1)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton11/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton11/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton11/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton11/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton11/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton11"]
-
-[node name="sceleton12" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-1027, -1093)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton12"]
-curve = SubResource("Curve2D_n6u8l")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton12/Path2D"]
-position = Vector2(0, -1)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton12/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton12/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton12/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton12/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton12/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton12"]
-
-[node name="sceleton13" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-1074, -989)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton13"]
-curve = SubResource("Curve2D_haa5j")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton13/Path2D"]
-position = Vector2(0, -1)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton13/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton13/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton13/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton13/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton13/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton13"]
-
-[node name="sceleton14" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-1091, -989)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton14"]
-curve = SubResource("Curve2D_haa5j")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton14/Path2D"]
-position = Vector2(0, -1)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton14/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton14/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton14/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton14/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton14/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton14"]
-
-[node name="sceleton15" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-1272, -8)
-script = SubResource("GDScript_fxfuv")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton15"]
-curve = SubResource("Curve2D_6oke5")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton15/Path2D"]
-position = Vector2(216, 0)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton15/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton15/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_yicp5")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton15/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_0qb8y")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton15/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton15/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_xljhr")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton15"]
-
-[node name="sceleton16" type="Node2D" parent="Gegner/Skeletons"]
-z_index = 1
-position = Vector2(-272, -904)
-script = SubResource("GDScript_mot6s")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/sceleton16"]
-curve = SubResource("Curve2D_re70f")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Gegner/Skeletons/sceleton16/Path2D"]
-position = Vector2(16, -40)
-rotation = 0.0128198
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Gegner/Skeletons/sceleton16/Path2D/PathFollow2D"]
-
-[node name="sprite" type="AnimatedSprite2D" parent="Gegner/Skeletons/sceleton16/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.974281, -2.01266)
-sprite_frames = SubResource("SpriteFrames_1lbkk")
-frame_progress = 0.52065
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton16/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.025639, 1.99984)
-shape = SubResource("CircleShape2D_gmmq5")
-
-[node name="hitbox" type="Area2D" parent="Gegner/Skeletons/sceleton16/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(0.0128195, 0.999918)
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gegner/Skeletons/sceleton16/Path2D/PathFollow2D/CharacterBody2D/hitbox"]
-position = Vector2(5.96046e-08, 0)
-shape = SubResource("CircleShape2D_2m117")
-
-[node name="hitbox_timer" type="Timer" parent="Gegner/Skeletons/sceleton16"]
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton15"]
+curve = SubResource("Curve2D_ks3w4")
 
 [node name="Traps" type="Node" parent="."]
 
@@ -1584,36 +668,5 @@ rotation = 1.5708
 [node name="dispenser12" parent="." instance=ExtResource("12_1c02k")]
 position = Vector2(600, -1176)
 rotation = 1.5708
-
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton2/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton2" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton2/hitbox_timer" to="Gegner/Skeletons/sceleton2" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton3/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton3" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton3/hitbox_timer" to="Gegner/Skeletons/sceleton3" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton4/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton4" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton4/hitbox_timer" to="Gegner/Skeletons/sceleton4" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton5/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton5" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton5/hitbox_timer" to="Gegner/Skeletons/sceleton5" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton6/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton6" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton6/hitbox_timer" to="Gegner/Skeletons/sceleton6" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton7/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton7" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton7/hitbox_timer" to="Gegner/Skeletons/sceleton7" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton8/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton8" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton8/hitbox_timer" to="Gegner/Skeletons/sceleton8" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton9/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton9" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton9/hitbox_timer" to="Gegner/Skeletons/sceleton9" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton10/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton10" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton10/hitbox_timer" to="Gegner/Skeletons/sceleton10" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton11/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton11" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton11/hitbox_timer" to="Gegner/Skeletons/sceleton11" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton12/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton12" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton12/hitbox_timer" to="Gegner/Skeletons/sceleton12" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton13/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton13" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton13/hitbox_timer" to="Gegner/Skeletons/sceleton13" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton14/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton14" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton14/hitbox_timer" to="Gegner/Skeletons/sceleton14" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton15/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton15" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton15/hitbox_timer" to="Gegner/Skeletons/sceleton15" method="_on_hitbox_timer_timeout" flags=18]
-[connection signal="area_entered" from="Gegner/Skeletons/sceleton16/Path2D/PathFollow2D/CharacterBody2D/hitbox" to="Gegner/Skeletons/sceleton16" method="_on_hitbox_area_entered" flags=18]
-[connection signal="timeout" from="Gegner/Skeletons/sceleton16/hitbox_timer" to="Gegner/Skeletons/sceleton16" method="_on_hitbox_timer_timeout" flags=18]
 
 [editable path="Fog"]
