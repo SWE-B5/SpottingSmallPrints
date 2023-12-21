@@ -225,6 +225,7 @@ note_id = 5
 
 [node name="Note3" parent="." instance=ExtResource("17_dt5m5")]
 position = Vector2(894, -490)
+note_id = 6
 
 [node name="dispenser9" parent="." instance=ExtResource("8_fhyc1")]
 position = Vector2(8, -520)
