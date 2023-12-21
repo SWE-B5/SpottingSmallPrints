@@ -20,22 +20,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0reds"]
-size = Vector2(6, 31.5)
+size = Vector2(6, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pvkv"]
 radius = 25.4951
 
 [node name="TürRechts" type="StaticBody2D"]
-z_index = 2
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_xefr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_kyqyf")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-position = Vector2(0, -0.75)
+y_sort_enabled = true
 shape = SubResource("RectangleShape2D_0reds")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_05icb")]

@@ -40,6 +40,7 @@ func delete_save_file():
 	dir.remove(Constants.SAVE_FILE_NAME)
 
 func initialize_new_game(diff: Difficulty):
+	
 	delete_save_file()
 	difficulty = diff
 	Inventory.update_new_game()
@@ -56,6 +57,7 @@ func initialize_new_game(diff: Difficulty):
 	save_game()
 
 func initialize_unsaved_vars():
+	lightsout_is_finnished = false
 	active_camera = CameraTypes.FOLLOW
 	zoom_niveau = 5
 	immobile = false
@@ -70,7 +72,7 @@ func initialize_unsaved_vars():
 var speed: int
 var active_camera: CameraTypes = CameraTypes.FOLLOW
 var difficulty: Difficulty
-
+var lightsout_is_finnished = false
 # Je höher das Zoom Niveau ist desto mehr reingezoomt ist der Spieler
 var zoom_niveau: float = 5
 
@@ -87,3 +89,5 @@ var immunity_frames: float
 const immunity_duration = 1.2
 
 var global_position: Vector2
+#flag for fog deletion when "new game"
+var flag_is_new_game = false
