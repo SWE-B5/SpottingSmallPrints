@@ -23,4 +23,4 @@ func _on_level_end_body_entered(body):
 
 
 func _on_finish_game_body_entered(body):
-	pass
+	body.switch_level("outro")

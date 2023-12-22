@@ -110,7 +110,10 @@ func switch_level(level: String):
 	fade_player.play("fade_to_black")
 	
 	await to_black_fade_finished
-	get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
+	if level == "outro" || level == "Outro":
+		get_tree().change_scene_to_file("res://scenes/ui/OutroCredits.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
 	
 func damage_animation():
 	for i in 4:
