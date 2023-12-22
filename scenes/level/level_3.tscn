@@ -262,7 +262,7 @@ position = Vector2(-594, -439)
 position = Vector2(-578, -439)
 
 [node name="Flamethrower95" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-332, -439)
+position = Vector2(-332, -454)
 
 [node name="Flamethrower97" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-315, -439)
