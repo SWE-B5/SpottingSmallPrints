@@ -19,7 +19,7 @@ const HUB_PATH = "res://scenes/level/level_2.tscn"
 const LEVEL_1_PATH = "res://scenes/level/level_1.tscn"
 const LEVEL_2_PATH = "res://scenes/level/level_2.tscn"
 const LEVEL_3_PATH = "res://scenes/level/level_3.tscn"
-const LEVEL_4_PATH = ""
+const LEVEL_4_PATH = "res://scenes/level/level_end.tscn"
 
 const DEFAULT_ZOOM_NIVEAU = 5
 const HEAD_ZOOM_NIVEAU = 10

@@ -19,35 +19,26 @@ enum rätsel_typ {SIMONSAYS, MEMORY}
 
 @onready var awaitingSignal = false
 
-@onready var notesInLevel = []
-
 signal startSimonSays
 signal startMemory
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	sprite.animation =  "closed"
-	var levelSzene = get_parent()
-	var noteSzene = preload("res://scenes/items/note.tscn")
-	for child in levelSzene.get_children():
-		if "Note" in child.name:
-			notesInLevel.append(child)
-
-func can_be_opened():
-	var res = true
-	for note in notesInLevel:
-		if !note.collected:
-			res = false
-	return res 
 
 func _on_interact():
-
-
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if not Inventory.check_all_notes_current_level():
-			DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
+			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
 			return
-		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
+		PlayerVariables.flag_dialog_open = true
+		if type == rätsel_typ.MEMORY:
+			PlayerVariables.flag_action_after_dialog = 1
+		else:
+			PlayerVariables.flag_action_after_dialog = 2
+		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
 		# Interaktion mit Truhe deaktivieren
@@ -55,10 +46,6 @@ func _on_interact():
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
 		PlayerVariables.immobile = true
-		if type == rätsel_typ.SIMONSAYS:
-			startSimonSays.emit()
-		if type == rätsel_typ.MEMORY:
-			startMemory.emit()
 		awaitingSignal = true
 		
 
@@ -74,6 +61,8 @@ func _puzzle_canceled():
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "closed"
 		PlayerVariables.immobile = false
+		Hud.dequeue_overlay()
+		PlayerVariables.flag_raetsel_open = false
 
 #Schluessel Drop
 func _puzzle_successful():
@@ -83,10 +72,13 @@ func _puzzle_successful():
 		#TODO: Dialog hinzufügen und zum Hub teleportieren
 		
 		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
-		Inventory.update_after_level_completed()
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = schlüssel_id
-		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
+		Hud.dequeue_overlay()
+		PlayerVariables.flag_raetsel_open = false
+		PlayerVariables.flag_dialog_open = true
+		PlayerVariables.flag_action_after_dialog = 3
+		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
 		print(Inventory)
 		PlayerVariables.immobile = false
 		awaitingSignal = false
