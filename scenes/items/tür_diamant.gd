@@ -29,8 +29,8 @@ func _on_interact():
 			detecion_area.disabled = true
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0
-			DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür" )
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür" )
 		else:
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0
-			DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür_negative" )
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür_negative" )

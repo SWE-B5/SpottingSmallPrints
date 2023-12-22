@@ -47,14 +47,14 @@ func _on_interact():
 		if not Inventory.check_all_notes_current_level():
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0
-			DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
 			return
 		PlayerVariables.flag_dialog_open = true
 		if type == rätsel_typ.MEMORY:
 			PlayerVariables.flag_action_after_dialog = 1
 		else:
 			PlayerVariables.flag_action_after_dialog = 2
-		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
+		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
 		# Interaktion mit Truhe deaktivieren
@@ -90,7 +90,7 @@ func _puzzle_successful():
 		Inventory.dialogue_temp_gold_id = schlüssel_id
 		PlayerVariables.flag_dialog_open = true
 		PlayerVariables.flag_action_after_dialog = 3
-		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
+		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
 		print(Inventory)
 		PlayerVariables.immobile = false
 		awaitingSignal = false

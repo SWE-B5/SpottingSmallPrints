@@ -94,12 +94,14 @@ var flag_is_new_game = false #kann gelöscht werden?
 
 var flag_dialog_open = false
 var flag_action_after_dialog = 0
+var ref_last_dialog = 0
 
 func _ready():
 	DialogueManager.dialogue_ended.connect(PlayerVariables.action_after_dialog)
 
 func action_after_dialog(x):
 	flag_dialog_open = false
+	ref_last_dialog = 0
 	match flag_action_after_dialog:
 		0:
 			pass #normal weiter

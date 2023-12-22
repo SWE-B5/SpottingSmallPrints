@@ -34,11 +34,11 @@ func _on_interact():
 			sprite.animation =  "open"
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 3
-			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
 		else:
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0
-			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste_negative")
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste_negative")
 		
 		
 		
