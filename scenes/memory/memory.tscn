@@ -61,7 +61,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
+layer = 2
 visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]

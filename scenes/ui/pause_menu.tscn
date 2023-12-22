@@ -11,6 +11,7 @@ shader_parameter/blur = 2.191
 shader_parameter/brightness = 0.345
 
 [node name="PauseMenu" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_tk502")
 
 [node name="BlurBackground" type="ColorRect" parent="."]

@@ -23,10 +23,16 @@ func back_to_mainmenu():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
 
+var temp
 func toggle():
 	if is_active:
+		if PlayerVariables.flag_dialog_open:
+			PlayerVariables.ref_last_dialog.layer = temp
 		Hud.dequeue_overlay()
 	else:
+		if PlayerVariables.flag_dialog_open:
+			temp = PlayerVariables.ref_last_dialog.layer
+			PlayerVariables.ref_last_dialog.layer = -10
 		Hud.queue_overlay()
 	is_active = !is_active
 	visible = is_active
