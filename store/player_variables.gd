@@ -40,7 +40,6 @@ func delete_save_file():
 	dir.remove(Constants.SAVE_FILE_NAME)
 
 func initialize_new_game(diff: Difficulty):
-	
 	delete_save_file()
 	difficulty = diff
 	Inventory.update_new_game()

@@ -101,6 +101,10 @@ func set_zoom_niveau():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
 func switch_level(level: String):
+	if FileAccess.file_exists("user://fog_level.save"):
+		var dir = DirAccess.open("user://")
+		dir.remove("user://fog_level.save")
+	
 	currently_fading = true
 	PlayerVariables.immobile = true
 	fade_player.play("fade_to_black")

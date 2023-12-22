@@ -5,6 +5,9 @@ extends Node2D
 @onready var tilemap = $TileMap
 
 func _ready():
+	PlayerVariables.current_level = 1
+	PlayerVariables.save_game()
+	
 	fog.init(tilemap, player)
 	Health.reset_health() #muss drin bleiben!
 	Inventory.update_after_death() #muss drin bleiben!
