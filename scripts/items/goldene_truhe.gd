@@ -19,30 +19,14 @@ enum rätsel_typ {SIMONSAYS, MEMORY}
 
 @onready var awaitingSignal = false
 
-@onready var notesInLevel = []
-
 signal startSimonSays
 signal startMemory
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	sprite.animation =  "closed"
-	var levelSzene = get_parent()
-	var noteSzene = preload("res://scenes/items/note.tscn")
-	for child in levelSzene.get_children():
-		if "Note" in child.name:
-			notesInLevel.append(child)
-
-func can_be_opened():
-	var res = true
-	for note in notesInLevel:
-		if !note.collected:
-			res = false
-	return res 
 
 func _on_interact():
-
-	if !PlayerVariables.flag_dialog_open:
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if not Inventory.check_all_notes_current_level():
 			PlayerVariables.flag_dialog_open = true
