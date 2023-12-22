@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="3_0pf2n"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="4_faca4"]
 [ext_resource type="PackedScene" uid="uid://d1grckqpis1r8" path="res://scenes/items/tür_rund.tscn" id="4_khuwt"]
-[ext_resource type="PackedScene" path="res://scenes/items/tür_diamant.tscn" id="5_g3e5f"]
+[ext_resource type="PackedScene" uid="uid://db13ulmou4axm" path="res://scenes/items/tür_diamant.tscn" id="5_g3e5f"]
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="5_rc8as"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="7_22o45"]
 [ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="8_pl0at"]
@@ -26,9 +26,10 @@ layer_2/tile_data = PackedInt32Array(-131059, 262146, 6, -131083, 524290, 6, -13
 [node name="GoldeneTruhe" parent="." instance=ExtResource("4_faca4")]
 position = Vector2(24, 200)
 type = 1
+"schlüssel_id" = 1
 
 [node name="Tür_Level_1" parent="." instance=ExtResource("4_khuwt")]
-position = Vector2(-216, -48)
+position = Vector2(-216, -96)
 id = 1
 
 [node name="Tür_Level_2" parent="." instance=ExtResource("4_khuwt")]
