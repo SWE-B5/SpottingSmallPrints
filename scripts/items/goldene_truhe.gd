@@ -78,6 +78,7 @@ func _puzzle_canceled():
 		sprite.animation =  "closed"
 		PlayerVariables.immobile = false
 		Hud.dequeue_overlay()
+		PlayerVariables.flag_raetsel_open = false
 
 #Schluessel Drop
 func _puzzle_successful():
@@ -90,6 +91,7 @@ func _puzzle_successful():
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = schlüssel_id
 		Hud.dequeue_overlay()
+		PlayerVariables.flag_raetsel_open = false
 		PlayerVariables.flag_dialog_open = true
 		PlayerVariables.flag_action_after_dialog = 3
 		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )

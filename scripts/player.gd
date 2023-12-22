@@ -93,6 +93,8 @@ func can_open_map():
 		return false
 	if PlayerVariables.flag_dialog_open:
 		return false
+	if PlayerVariables.flag_raetsel_open:
+		return false
 	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true

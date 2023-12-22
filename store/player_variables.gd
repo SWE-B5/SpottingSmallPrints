@@ -95,6 +95,7 @@ var flag_is_new_game = false #kann gelöscht werden?
 var flag_dialog_open = false
 var flag_action_after_dialog = 0
 var ref_last_dialog = 0
+var flag_raetsel_open = false
 
 func _ready():
 	DialogueManager.dialogue_ended.connect(PlayerVariables.action_after_dialog)
@@ -108,10 +109,12 @@ func action_after_dialog(x):
 		1:
 			#rätsel öffnen memory
 			Hud.queue_overlay()
+			flag_raetsel_open = true
 			get_tree().current_scene.get_node("GoldeneTruhe").startMemory.emit()
 		2:
 			#rätsel öffnen simon
 			Hud.queue_overlay()
+			flag_raetsel_open = true
 			get_tree().current_scene.get_node("GoldeneTruhe").startSimonSays.emit()
 		3:
 			Inventory.update_after_level_completed()
