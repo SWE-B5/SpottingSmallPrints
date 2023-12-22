@@ -1,9 +1,10 @@
-[gd_scene load_steps=51 format=3 uid="uid://vx4xx8vyfj7b"]
+[gd_scene load_steps=52 format=3 uid="uid://vx4xx8vyfj7b"]
 
 [ext_resource type="Script" path="res://scripts/level/level_3.gd" id="1_mbl2y"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_jquff"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="2_o0co3"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="3_5hg0y"]
+[ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="4_lxyga"]
 [ext_resource type="PackedScene" uid="uid://bjdf6n6tyl4pw" path="res://scenes/traps/spikes.tscn" id="5_ibvwb"]
 [ext_resource type="PackedScene" uid="uid://m5k8w8y5lkaj" path="res://scenes/traps/flamethrower.tscn" id="6_774h7"]
 [ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="8_22t8n"]
@@ -12,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="9_qu8x2"]
 [ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="14_0jnqf"]
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="15_ucguw"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/skeleton.tscn" id="16_o8lex"]
+[ext_resource type="PackedScene" uid="uid://doomhse7fon5r" path="res://scenes/enemies/skeleton.tscn" id="16_o8lex"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="18_kdlb5"]
 
 [sub_resource type="Curve2D" id="Curve2D_sc78x"]
@@ -244,6 +245,8 @@ layer_2/tile_data = PackedInt32Array(-31, 393218, 0, -32, 393218, 0, -4980815, 3
 
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
 position = Vector2(0, 59)
+
+[node name="HUD" parent="." instance=ExtResource("4_lxyga")]
 
 [node name="Traps" type="Node" parent="."]
 
