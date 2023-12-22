@@ -25,7 +25,7 @@ position = Vector2(0, -18)
 position = Vector2(-40, -1787.02)
 
 [node name="diamond_truhe" parent="LightsOutGame" instance=ExtResource("6_m7p4y")]
-position = Vector2(37, -57.98)
+position = Vector2(40, -73.98)
 
 [node name="HUD" parent="." instance=ExtResource("5_8a8ql")]
 
