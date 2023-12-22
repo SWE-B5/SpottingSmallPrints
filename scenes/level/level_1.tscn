@@ -112,9 +112,11 @@ layer_2/tile_data = PackedInt32Array(1310722, 327682, 9, 1310725, 327682, 9, 137
 [node name="Player" parent="." instance=ExtResource("4_ytvme")]
 position = Vector2(64, 479)
 
-[node name="Gegner" type="Node" parent="."]
+[node name="Gegner" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Skeletons" type="Node" parent="Gegner"]
+[node name="Skeletons" type="Node2D" parent="Gegner"]
+y_sort_enabled = true
 
 [node name="skeleton" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("16_nua11")]
 position = Vector2(-712, 161)
@@ -186,7 +188,8 @@ export_path = NodePath("Path2D")
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton10"]
 curve = SubResource("Curve2D_qs7ss")
 
-[node name="Skulls" type="Node" parent="Gegner"]
+[node name="Skulls" type="Node2D" parent="Gegner"]
+y_sort_enabled = true
 
 [node name="Node2D6" type="Node2D" parent="Gegner/Skulls"]
 
@@ -296,62 +299,224 @@ position = Vector2(891, 42)
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skulls/Node2D5" groups=["marker4"]]
 position = Vector2(894, 93)
 
-[node name="Flamethrower" type="Node" parent="."]
+[node name="Traps" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Flamethrower1-1" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower" type="Node2D" parent="Traps"]
+y_sort_enabled = true
+
+[node name="Flamethrower1-1" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-232, -168)
 rotation = 0.0074263
+scale = Vector2(1, 1)
 
-[node name="Flamethrower2-1" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-1" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-839, 16)
 rotation = -3.13355
+scale = Vector2(1, 1)
 
-[node name="Flamethrower2-2" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-2" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-824, -168)
 
-[node name="Flamethrower2-3" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-3" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(808, 216)
 
-[node name="Flamethrower2-4" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-4" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-184, -505)
 
-[node name="Flamethrower1-2" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower1-2" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(552, -487)
 rotation = 0.0074263
+scale = Vector2(1, 1)
 
-[node name="Flamethrower1-3" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower1-3" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-504, -280)
 
-[node name="Flamethrower1-4" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower1-4" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(472, 423)
 
-[node name="Flamethrower1-5" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower1-5" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-88, -168)
 rotation = 0.00935012
 
-[node name="Flamethrower2-5" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-5" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-823, 16)
 rotation = -3.13355
+scale = Vector2(1, 1)
 
-[node name="Flamethrower2-6" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-6" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-424, 392)
 
-[node name="Flamethrower1-6" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower1-6" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(664, -232)
 rotation = 0.0074263
+scale = Vector2(1, 1)
 
-[node name="Flamethrower2-7" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-7" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-808, 93)
 rotation = -3.13355
+scale = Vector2(1, 1)
 
-[node name="Flamethrower2-8" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower2-8" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-824, 93)
 rotation = -3.13355
+scale = Vector2(1, 1)
 
-[node name="Flamethrower" parent="Flamethrower" instance=ExtResource("6_erdrq")]
+[node name="Flamethrower" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(392, 8)
 
-[node name="Notes" type="Node" parent="."]
+[node name="Dispenser" type="Node2D" parent="Traps"]
+y_sort_enabled = true
+
+[node name="dispenser" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-344, 40)
+rotation = 1.57079
+
+[node name="dispenser3" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(488, -264)
+rotation = 1.57079
+
+[node name="dispenser4" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(583, -264)
+rotation = 1.57079
+
+[node name="dispenser5" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-648, 199)
+rotation = 1.57079
+
+[node name="dispenser6" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(792, 120)
+
+[node name="dispenser8" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-680, -488)
+rotation = 1.57079
+
+[node name="dispenser9" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(8, -520)
+rotation = 1.5708
+
+[node name="dispenser10" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-312, -520)
+rotation = 1.5708
+
+[node name="dispenser11" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-568, -88)
+rotation = 1.5708
+
+[node name="dispenser12" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(712, -120)
+rotation = 1.5708
+
+[node name="dispenser13" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-472, -296)
+rotation = 1.5708
+
+[node name="dispenser14" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-488, -152)
+rotation = 1.5708
+
+[node name="dispenser15" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-456, -231)
+rotation = 1.5708
+
+[node name="dispenser16" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-473, -24)
+rotation = 1.5708
+
+[node name="dispenser17" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-440, 40)
+rotation = 1.5708
+
+[node name="dispenser18" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-488, 72)
+rotation = 1.5708
+
+[node name="dispenser2" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-760, -488)
+rotation = 1.5708
+
+[node name="dispenser19" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(-600, -488)
+rotation = 1.5708
+
+[node name="dispenser7" parent="Traps/Dispenser" instance=ExtResource("8_fhyc1")]
+position = Vector2(264, -376)
+rotation = 1.5708
+
+[node name="Spikes" type="Node2D" parent="Traps"]
+y_sort_enabled = true
+
+[node name="Spikes1-1" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(552, 408)
+
+[node name="Spikes2-1" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-584, -215)
+
+[node name="Spikes3-1" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(184, -360)
+
+[node name="Spikes4-1" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(856, -280)
+
+[node name="Spikes" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-664, 456)
+
+[node name="Spikes2" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(360, 9)
+
+[node name="Spikes1-2" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(568, 408)
+
+[node name="Spikes2-2" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-600, -215)
+
+[node name="Spikes3-2" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(184, -344)
+
+[node name="Spikes3-3" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(184, -328)
+
+[node name="Spikes4-2" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(856, -264)
+
+[node name="Spikes4-3" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(856, -296)
+
+[node name="Spikes3" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-680, 470)
+
+[node name="Spikes4" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(360, 40)
+
+[node name="Spikes1-3" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(583, 408)
+
+[node name="Spikes2-3" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-616, -215)
+
+[node name="Spikes5" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-664, 486)
+
+[node name="Spikes6" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-697, 456)
+
+[node name="Spikes7" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(376, 24)
+
+[node name="Spikes8" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-696, 487)
+
+[node name="Spikes9" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-713, 471)
+
+[node name="Spikes10" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-728, 456)
+
+[node name="Spikes11" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
+position = Vector2(-728, 487)
+
+[node name="Notes" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Note" parent="Notes" instance=ExtResource("17_dt5m5")]
 position = Vector2(-696, 317)
@@ -365,7 +530,8 @@ note_id = 5
 position = Vector2(892, -501)
 note_id = 6
 
-[node name="Türen" type="Node" parent="."]
+[node name="Türen" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="TürEckig" parent="Türen" instance=ExtResource("14_0116h")]
 position = Vector2(16, -192)
@@ -398,7 +564,8 @@ z_index = 1
 position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_0reds")
 
-[node name="Truhen" type="Node" parent="."]
+[node name="Truhen" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="NormaleTruhe" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(747, 319)
@@ -423,151 +590,3 @@ type = 1
 [node name="NormaleTruhe5" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(363, -247)
 "schlüssel_id" = 5
-
-[node name="Dispenser" type="Node" parent="."]
-
-[node name="dispenser" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-344, 40)
-rotation = 1.57079
-
-[node name="dispenser3" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(488, -264)
-rotation = 1.57079
-
-[node name="dispenser4" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(583, -264)
-rotation = 1.57079
-
-[node name="dispenser5" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-648, 199)
-rotation = 1.57079
-
-[node name="dispenser6" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(792, 120)
-
-[node name="dispenser8" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-680, -488)
-rotation = 1.57079
-
-[node name="dispenser9" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(8, -520)
-rotation = 1.5708
-
-[node name="dispenser10" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-312, -520)
-rotation = 1.5708
-
-[node name="dispenser11" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-568, -88)
-rotation = 1.5708
-
-[node name="dispenser12" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(712, -120)
-rotation = 1.5708
-
-[node name="dispenser13" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-472, -296)
-rotation = 1.5708
-
-[node name="dispenser14" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-488, -152)
-rotation = 1.5708
-
-[node name="dispenser15" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-456, -231)
-rotation = 1.5708
-
-[node name="dispenser16" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-473, -24)
-rotation = 1.5708
-
-[node name="dispenser17" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-440, 40)
-rotation = 1.5708
-
-[node name="dispenser18" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-488, 72)
-rotation = 1.5708
-
-[node name="dispenser2" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-760, -488)
-rotation = 1.5708
-
-[node name="dispenser19" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(-600, -488)
-rotation = 1.5708
-
-[node name="dispenser7" parent="Dispenser" instance=ExtResource("8_fhyc1")]
-position = Vector2(264, -376)
-rotation = 1.5708
-
-[node name="Spikes" type="Node" parent="."]
-
-[node name="Spikes1-1" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(552, 408)
-
-[node name="Spikes2-1" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-584, -215)
-
-[node name="Spikes3-1" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(184, -360)
-
-[node name="Spikes4-1" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(856, -280)
-
-[node name="Spikes" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-664, 456)
-
-[node name="Spikes2" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(360, 9)
-
-[node name="Spikes1-2" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(568, 408)
-
-[node name="Spikes2-2" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-600, -215)
-
-[node name="Spikes3-2" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(184, -344)
-
-[node name="Spikes3-3" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(184, -328)
-
-[node name="Spikes4-2" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(856, -264)
-
-[node name="Spikes4-3" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(856, -296)
-
-[node name="Spikes3" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-680, 470)
-
-[node name="Spikes4" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(360, 40)
-
-[node name="Spikes1-3" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(583, 408)
-
-[node name="Spikes2-3" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-616, -215)
-
-[node name="Spikes5" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-664, 486)
-
-[node name="Spikes6" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-697, 456)
-
-[node name="Spikes7" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(376, 24)
-
-[node name="Spikes8" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-696, 487)
-
-[node name="Spikes9" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-713, 471)
-
-[node name="Spikes10" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-728, 456)
-
-[node name="Spikes11" parent="Spikes" instance=ExtResource("5_04wwp")]
-position = Vector2(-728, 487)
