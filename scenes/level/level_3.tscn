@@ -1,17 +1,14 @@
-[gd_scene load_steps=49 format=3 uid="uid://vx4xx8vyfj7b"]
+[gd_scene load_steps=46 format=3 uid="uid://vx4xx8vyfj7b"]
 
 [ext_resource type="Script" path="res://scripts/level/level_3.gd" id="1_mbl2y"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_jquff"]
 [ext_resource type="PackedScene" uid="uid://frg2304h7ods" path="res://scenes/fog/fog.tscn" id="2_o0co3"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="3_5hg0y"]
-[ext_resource type="PackedScene" uid="uid://d1grckqpis1r8" path="res://scenes/items/tür_rund.tscn" id="3_jgo8v"]
 [ext_resource type="PackedScene" uid="uid://bjdf6n6tyl4pw" path="res://scenes/traps/spikes.tscn" id="5_ibvwb"]
 [ext_resource type="PackedScene" uid="uid://m5k8w8y5lkaj" path="res://scenes/traps/flamethrower.tscn" id="6_774h7"]
 [ext_resource type="PackedScene" uid="uid://dxc1mwjysdfc8" path="res://scenes/items/normale_truhe.tscn" id="8_22t8n"]
 [ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="8_w8w8t"]
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="8_xkosi"]
-[ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="9_qu8x2"]
-[ext_resource type="PackedScene" uid="uid://bmc65gjk84m30" path="res://scenes/items/tür_links.tscn" id="13_5spip"]
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="15_ucguw"]
 [ext_resource type="PackedScene" uid="uid://doomhse7fon5r" path="res://scenes/enemies/skeleton.tscn" id="16_o8lex"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="18_kdlb5"]
@@ -227,19 +224,6 @@ layer_2/tile_data = PackedInt32Array(-31, 65536, 3, 131072, 65536, 3, 196607, 0,
 
 [node name="Player" parent="." instance=ExtResource("3_5hg0y")]
 position = Vector2(-8, 0)
-
-[node name="TürRund" parent="." instance=ExtResource("3_jgo8v")]
-position = Vector2(-16, -121)
-
-[node name="TürEckig" parent="." instance=ExtResource("9_qu8x2")]
-position = Vector2(15, -57)
-
-[node name="Note" parent="." instance=ExtResource("8_xkosi")]
-position = Vector2(25, -9)
-
-[node name="TürLinks" parent="." instance=ExtResource("13_5spip")]
-position = Vector2(-93, -101)
-id = 1
 
 [node name="Traps" type="Node" parent="."]
 
@@ -1813,7 +1797,7 @@ curve = SubResource("Curve2D_coixi")
 [node name="GoldeneTruhe" type="Node" parent="Truhe"]
 
 [node name="GoldeneTruhe" parent="Truhe/GoldeneTruhe" instance=ExtResource("18_kdlb5")]
-position = Vector2(54, -180)
+position = Vector2(184, -1537)
 
 [node name="NormaleTruhe" type="Node" parent="Truhe"]
 
@@ -1838,9 +1822,17 @@ position = Vector2(630, -1520)
 [node name="NormaleTruhe9" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-1460, -1505)
 
-[node name="NormaleTruhe" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
-position = Vector2(25, -40)
-
 [node name="NormaleTruhe2" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
-position = Vector2(-79, -57)
+position = Vector2(-132, -184)
 "schlüssel_id" = 1
+
+[node name="Notes" type="Node" parent="."]
+
+[node name="Note" parent="Notes" instance=ExtResource("8_xkosi")]
+position = Vector2(25, -9)
+
+[node name="Note2" parent="Notes" instance=ExtResource("8_xkosi")]
+position = Vector2(664, -1504)
+
+[node name="Note3" parent="Notes" instance=ExtResource("8_xkosi")]
+position = Vector2(-1427.54, -1508.48)
