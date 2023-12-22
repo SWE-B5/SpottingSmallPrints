@@ -27,18 +27,14 @@ radius = 25.4951
 
 [node name="TürLinks" type="StaticBody2D"]
 z_index = 1
-y_sort_enabled = true
 script = ExtResource("1_xefr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(5, 0)
 sprite_frames = SubResource("SpriteFrames_kyqyf")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-y_sort_enabled = true
 shape = SubResource("RectangleShape2D_0reds")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_05icb")]
@@ -46,6 +42,5 @@ collision_mask = 16
 action_name = "<E> Tür öffnen"
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
-z_index = 2
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_6pvkv")

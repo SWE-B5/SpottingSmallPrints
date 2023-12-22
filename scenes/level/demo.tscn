@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dm0h4gtqwyuqk"]
+[gd_scene load_steps=19 format=3 uid="uid://dm0h4gtqwyuqk"]
 
 [ext_resource type="Script" path="res://scripts/level/demo.gd" id="1_aoo23"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="1_gw0yb"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cfmxy6x23j4ec" path="res://scenes/traps/dispenser.tscn" id="14_wyh51"]
 [ext_resource type="PackedScene" uid="uid://m5k8w8y5lkaj" path="res://scenes/traps/flamethrower.tscn" id="15_wmlss"]
 [ext_resource type="PackedScene" uid="uid://bjdf6n6tyl4pw" path="res://scenes/traps/spikes.tscn" id="16_dmwd1"]
+[ext_resource type="PackedScene" uid="uid://0d7scai7abqy" path="res://scenes/items/diamond_truhe.tscn" id="17_xupay"]
+[ext_resource type="PackedScene" uid="uid://db13ulmou4axm" path="res://scenes/items/tür_diamant.tscn" id="18_7o6t5"]
 
 [node name="demo" type="Node2D"]
 y_sort_enabled = true
@@ -73,3 +75,27 @@ position = Vector2(-3, 98)
 
 [node name="Spikes" parent="." instance=ExtResource("16_dmwd1")]
 position = Vector2(55, 87)
+
+[node name="diamond_truhe" parent="." instance=ExtResource("17_xupay")]
+position = Vector2(56, -20)
+
+[node name="GoldeneTruhe2" parent="." instance=ExtResource("6_lofh6")]
+position = Vector2(34, -42)
+
+[node name="Note2" parent="." instance=ExtResource("8_vuxer")]
+position = Vector2(-2, -79)
+
+[node name="TürDiamant" parent="." instance=ExtResource("18_7o6t5")]
+position = Vector2(-55, -70)
+
+[node name="TürEckig2" parent="." instance=ExtResource("9_wm34x")]
+position = Vector2(-102, -78)
+
+[node name="TürLinks3" parent="." instance=ExtResource("12_q3kly")]
+position = Vector2(-151, -71)
+
+[node name="TürRechts3" parent="." instance=ExtResource("11_dx4ef")]
+position = Vector2(-153, -2)
+
+[node name="TürRund2" parent="." instance=ExtResource("10_wu8o7")]
+position = Vector2(-97, -4)

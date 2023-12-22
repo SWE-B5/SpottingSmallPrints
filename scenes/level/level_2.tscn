@@ -126,6 +126,7 @@ animations = [{
 size = Vector2(32, 3)
 
 [node name="Level2" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_5e837")
 
 [node name="HUD" parent="." instance=ExtResource("2_ip5p7")]
