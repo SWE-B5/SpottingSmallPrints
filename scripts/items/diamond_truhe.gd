@@ -23,7 +23,7 @@ func _ready():
 
 func _on_interact():
 	var resource = load("res://dialogs/note_dialog.dialogue")
-	if is_closed:
+	if !PlayerVariables.flag_dialog_open && is_closed:
 		if PlayerVariables.lightsout_is_finnished:
 			Inventory.collect_item(Inventory.Item_Type.DIAMOND, schlüssel_id)
 			#Hier muss noch der Dialog abgespielt werden
@@ -32,9 +32,11 @@ func _on_interact():
 			detecion_area.disabled = true
 			# Textur der offenen Truhe laden 
 			sprite.animation =  "open"
+			PlayerVariables.flag_dialog_open = true
 			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
 			get_tree().get_first_node_in_group('Player').switch_level("hub")
 		else:
+			PlayerVariables.flag_dialog_open = true
 			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste_neg")
 		
 		

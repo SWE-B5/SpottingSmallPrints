@@ -42,11 +42,13 @@ func can_be_opened():
 
 func _on_interact():
 
-
+	if !PlayerVariables.flag_dialog_open:
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if not Inventory.check_all_notes_current_level():
+			PlayerVariables.flag_dialog_open = true
 			DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
 			return
+		PlayerVariables.flag_dialog_open = true
 		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
@@ -86,6 +88,7 @@ func _puzzle_successful():
 		Inventory.update_after_level_completed()
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = schlüssel_id
+		PlayerVariables.flag_dialog_open = true
 		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
 		print(Inventory)
 		PlayerVariables.immobile = false

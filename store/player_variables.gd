@@ -90,4 +90,24 @@ const immunity_duration = 1.2
 
 var global_position: Vector2
 #flag for fog deletion when "new game"
-var flag_is_new_game = false
+var flag_is_new_game = false #kann gelöscht werden?
+
+var flag_dialog_open = false
+var flag_action_after_dialog = 0
+
+func _ready():
+	DialogueManager.dialogue_ended.connect(PlayerVariables.action_after_dialog)
+
+func action_after_dialog(x):
+	flag_dialog_open = false
+	match flag_action_after_dialog:
+		0:
+			pass #normal weiter
+		1:
+			pass #rätsel öffnen memory
+		2:
+			pass #rätsel öffnen simon
+		3:
+			pass #teleport_level
+		4:
+			pass
