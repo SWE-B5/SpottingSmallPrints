@@ -518,15 +518,11 @@ rotation = -1.56546
 position = Vector2(-1307, -90)
 
 [node name="Flamethrower9" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1195, -44)
+position = Vector2(-1199, -42)
 rotation = -3.09105
 
 [node name="Flamethrower10" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1281, -90)
-
-[node name="Flamethrower11" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1219, 92)
-rotation = -3.09105
 
 [node name="Flamethrower4" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-232, -104)
@@ -671,6 +667,16 @@ rotation = -1.55194
 [node name="Flamethrower113" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(614, -288)
 rotation = 1.54339
+
+[node name="Flamethrower11" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1387, 38)
+
+[node name="Flamethrower114" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1279, 86)
+rotation = -3.09105
+
+[node name="Flamethrower115" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1361, 38)
 
 [node name="Spikes" type="Node" parent="Traps"]
 
@@ -921,10 +927,10 @@ position = Vector2(-718, -1047)
 position = Vector2(-705, -1047)
 
 [node name="Spikes9" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(-1255, -1207)
+position = Vector2(-1256, -1240)
 
 [node name="Spikes10" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(-1240, -1207)
+position = Vector2(-1241, -1240)
 
 [node name="Spikes5" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
 position = Vector2(-1590, -967)
@@ -2208,6 +2214,34 @@ type = 1
 [node name="NormaleTruhe11" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-270, -1913)
 "schlüssel_id" = 4
+
+[node name="NormaleTruhe12" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(-682, -1834)
+type = 1
+
+[node name="NormaleTruhe13" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(796, -804)
+type = 1
+
+[node name="NormaleTruhe14" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(1381, -88)
+type = 1
+
+[node name="NormaleTruhe15" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(1502.2, -683.145)
+type = 1
+
+[node name="NormaleTruhe16" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(-311.813, -702.998)
+type = 1
+
+[node name="NormaleTruhe17" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(999, -1274)
+type = 1
+
+[node name="NormaleTruhe18" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(577, 59)
+type = 1
 
 [node name="Notes" type="Node" parent="."]
 
