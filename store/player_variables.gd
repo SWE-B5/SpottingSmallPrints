@@ -56,6 +56,7 @@ func initialize_new_game(diff: Difficulty):
 	save_game()
 
 func initialize_unsaved_vars():
+	lightsout_is_finnished = false
 	active_camera = CameraTypes.FOLLOW
 	zoom_niveau = 5
 	immobile = false
@@ -70,7 +71,7 @@ func initialize_unsaved_vars():
 var speed: int
 var active_camera: CameraTypes = CameraTypes.FOLLOW
 var difficulty: Difficulty
-
+var lightsout_is_finnished = false
 # Je höher das Zoom Niveau ist desto mehr reingezoomt ist der Spieler
 var zoom_niveau: float = 5
 

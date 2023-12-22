@@ -57,7 +57,7 @@ line_spacing = 5.0
 font = ExtResource("16_tno0n")
 
 [node name="SimonSays" type="CanvasLayer"]
-layer = 0
+layer = 2
 visible = false
 script = ExtResource("2_xbfyr")
 

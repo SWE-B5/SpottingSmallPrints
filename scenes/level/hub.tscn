@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3lyq4soo8o80"]
+[gd_scene load_steps=12 format=3 uid="uid://b3lyq4soo8o80"]
 
 [ext_resource type="Script" path="res://scripts/level/hub.gd" id="1_v80s3"]
 [ext_resource type="PackedScene" uid="uid://bk3qkmqb7sbic" path="res://scenes/player.tscn" id="2_a5if6"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="5_rc8as"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="7_22o45"]
 [ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="8_pl0at"]
+[ext_resource type="Script" path="res://scripts/level/teleport_zones.gd" id="10_qp2nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqjyq"]
+size = Vector2(32, 64)
 
 [node name="Hub" type="Node2D"]
 script = ExtResource("1_v80s3")
@@ -24,19 +28,20 @@ position = Vector2(24, 200)
 type = 1
 
 [node name="Tür_Level_1" parent="." instance=ExtResource("4_khuwt")]
-position = Vector2(-216, -96)
+position = Vector2(-216, -48)
+id = 1
 
 [node name="Tür_Level_2" parent="." instance=ExtResource("4_khuwt")]
 position = Vector2(-104, -96)
-id = 1
+id = 2
 
 [node name="Tür_Level_3" parent="." instance=ExtResource("4_khuwt")]
 position = Vector2(8, -96)
-id = 1
+id = 3
 
 [node name="Tür_End_Level" parent="." instance=ExtResource("4_khuwt")]
 position = Vector2(120, -96)
-id = 2
+id = 4
 
 [node name="TürDiamant" parent="." instance=ExtResource("5_g3e5f")]
 position = Vector2(-536, -89)
@@ -101,3 +106,57 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HUD" parent="." instance=ExtResource("8_pl0at")]
+
+[node name="teleport_zones" type="Node" parent="."]
+script = ExtResource("10_qp2nr")
+
+[node name="Level1" type="Area2D" parent="teleport_zones"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Level1" type="CollisionShape2D" parent="teleport_zones/Level1"]
+light_mask = 0
+position = Vector2(-216, -208)
+shape = SubResource("RectangleShape2D_sqjyq")
+
+[node name="Level2" type="Area2D" parent="teleport_zones"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Level2" type="CollisionShape2D" parent="teleport_zones/Level2"]
+light_mask = 0
+position = Vector2(-104, -208)
+shape = SubResource("RectangleShape2D_sqjyq")
+
+[node name="Level3" type="Area2D" parent="teleport_zones"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Level3" type="CollisionShape2D" parent="teleport_zones/Level3"]
+light_mask = 0
+position = Vector2(8, -208)
+shape = SubResource("RectangleShape2D_sqjyq")
+
+[node name="Level_End" type="Area2D" parent="teleport_zones"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Level_End" type="CollisionShape2D" parent="teleport_zones/Level_End"]
+light_mask = 0
+position = Vector2(120, -208)
+shape = SubResource("RectangleShape2D_sqjyq")
+
+[node name="Finish_Game" type="Area2D" parent="teleport_zones"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Finish_Game" type="CollisionShape2D" parent="teleport_zones/Finish_Game"]
+light_mask = 0
+position = Vector2(-536, -208)
+shape = SubResource("RectangleShape2D_sqjyq")
+
+[connection signal="body_entered" from="teleport_zones/Level1" to="teleport_zones" method="_on_level_1_body_entered"]
+[connection signal="body_entered" from="teleport_zones/Level2" to="teleport_zones" method="_on_level_2_body_entered"]
+[connection signal="body_entered" from="teleport_zones/Level3" to="teleport_zones" method="_on_level_3_body_entered"]
+[connection signal="body_entered" from="teleport_zones/Level_End" to="teleport_zones" method="_on_level_end_body_entered"]
+[connection signal="body_entered" from="teleport_zones/Finish_Game" to="teleport_zones" method="_on_finish_game_body_entered"]
