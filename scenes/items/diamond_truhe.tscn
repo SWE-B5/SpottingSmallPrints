@@ -42,14 +42,17 @@ radius = 25.0799
 script = ExtResource("1_rol2o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_m7wya")
 animation = &"open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_s7wsy")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_b6tsj")]
+position = Vector2(0, 8)
 collision_mask = 16
 
 [node name="DetectionArea" type="CollisionShape2D" parent="InteractionArea"]
