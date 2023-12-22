@@ -33,11 +33,12 @@ func _on_interact():
 			# Textur der offenen Truhe laden 
 			sprite.animation =  "open"
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 3
 			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste")
-			get_tree().get_first_node_in_group('Player').switch_level("hub")
 		else:
 			PlayerVariables.flag_dialog_open = true
-			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste_neg")
+			PlayerVariables.flag_action_after_dialog = 0
+			DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste_negative")
 		
 		
 		

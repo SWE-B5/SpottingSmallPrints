@@ -24,6 +24,7 @@ func _on_interact():
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if type == note_type.LEVEL:
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Note_" + str(note_id) + "_Level")
 			#Hier muss noch der Dialog abgespielt werden
 			collected = true
@@ -35,6 +36,7 @@ func _on_interact():
 			print(Inventory.inventory)
 		elif type == note_type.HUB:
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Note_" + str(note_id) + "_Hub")
 		
 		

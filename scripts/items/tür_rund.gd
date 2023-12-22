@@ -30,7 +30,9 @@ func _on_interact():
 			detecion_area.disabled = true
 			Inventory.use_key(Inventory.Item_Type.GOLD)
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Goldene_Tür" )
 		else:
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Goldene_Tür_negative" )

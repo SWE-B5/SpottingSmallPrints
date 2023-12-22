@@ -28,7 +28,9 @@ func _on_interact():
 			collisionshape.queue_free()
 			detecion_area.disabled = true
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür" )
 		else:
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür_negative" )

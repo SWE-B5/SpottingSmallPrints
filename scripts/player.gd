@@ -91,6 +91,8 @@ func can_open_map():
 	# check if nicht in der hub noch machen
 	if currently_fading:
 		return false
+	if PlayerVariables.flag_dialog_open:
+		return false
 	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true

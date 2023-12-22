@@ -104,10 +104,13 @@ func action_after_dialog(x):
 		0:
 			pass #normal weiter
 		1:
-			pass #rätsel öffnen memory
+			#rätsel öffnen memory
+			get_tree().current_scene.get_node("GoldeneTruhe").startMemory.emit()
 		2:
-			pass #rätsel öffnen simon
+			#rätsel öffnen simon
+			get_tree().current_scene.get_node("GoldeneTruhe").startSimonSays.emit()
 		3:
-			pass #teleport_level
+			Inventory.update_after_level_completed()
+			get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
 		4:
 			pass

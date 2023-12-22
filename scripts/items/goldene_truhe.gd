@@ -46,9 +46,14 @@ func _on_interact():
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if not Inventory.check_all_notes_current_level():
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_negative" )
 			return
 		PlayerVariables.flag_dialog_open = true
+		if type == rätsel_typ.MEMORY:
+			PlayerVariables.flag_action_after_dialog = 1
+		else:
+			PlayerVariables.flag_action_after_dialog = 2
 		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
@@ -57,10 +62,6 @@ func _on_interact():
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "open"
 		PlayerVariables.immobile = true
-		if type == rätsel_typ.SIMONSAYS:
-			startSimonSays.emit()
-		if type == rätsel_typ.MEMORY:
-			startMemory.emit()
 		awaitingSignal = true
 		
 
@@ -85,10 +86,10 @@ func _puzzle_successful():
 		#TODO: Dialog hinzufügen und zum Hub teleportieren
 		
 		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
-		Inventory.update_after_level_completed()
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = schlüssel_id
 		PlayerVariables.flag_dialog_open = true
+		PlayerVariables.flag_action_after_dialog = 3
 		DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
 		print(Inventory)
 		PlayerVariables.immobile = false

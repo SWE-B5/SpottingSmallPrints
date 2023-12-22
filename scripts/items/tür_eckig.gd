@@ -19,7 +19,7 @@ func _ready():
 func _on_interact():
 	
 	# Überprüft ob man den passenden Schlüssel hat
-	if 	!PlayerVariables.flag_dialog_open && is_closed:
+	if !PlayerVariables.flag_dialog_open && is_closed:
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_silver_id = id
 		if Inventory.check_key(Inventory.Item_Type.SILVER, id):
@@ -31,7 +31,9 @@ func _on_interact():
 			collisionshape.queue_free()
 			detecion_area.disabled = true
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Silberne_Tür" )
 		else:
 			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
 			DialogueManager.show_dialogue_balloon(resource, "Silberne_Tür_negative" )
