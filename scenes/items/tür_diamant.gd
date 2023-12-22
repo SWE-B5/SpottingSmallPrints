@@ -17,13 +17,16 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 #Schluessel Drop
 func _on_interact():
-	
-	# Überprüft ob man den passenden Schlüssel hat
-	if is_closed && Inventory.check_key(Inventory.Item_Type.DIAMOND, id):
-		# Schlüssel wird benutzt
-		Inventory.use_key(Inventory.Item_Type.DIAMOND)
-		# Tür deaktivieren
-		is_closed = false
-		self.visible = false
-		collisionshape.queue_free()
-		detecion_area.disabled = true
+	if is_closed:
+		var resource = load("res://dialogs/note_dialog.dialogue")
+		if Inventory.check_key(Inventory.Item_Type.DIAMOND, id):
+			# Schlüssel wird benutzt
+			Inventory.use_key(Inventory.Item_Type.DIAMOND)
+			# Tür deaktivieren
+			is_closed = false
+			self.visible = false
+			collisionshape.queue_free()
+			detecion_area.disabled = true
+			DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür" )
+		else:
+			DialogueManager.show_dialogue_balloon(resource, "Diamantene_Tür_negative" )
