@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dh2fndlgihodh" path="res://assets/simonsays/buttontextures/yellowbutton/yellowbutton.png" id="12_mbwj3"]
 [ext_resource type="Texture2D" uid="uid://dvkljoeaby0g5" path="res://assets/simonsays/buttontextures/yellowbutton/yellowbutton_pressed.png" id="13_iaaek"]
 [ext_resource type="Texture2D" uid="uid://bywt1iluk5iok" path="res://assets/simonsays/buttontextures/yellowbutton/yellowbutton_hovered.png" id="14_uusxg"]
-[ext_resource type="Theme" path="res://scenes/memory/raetsel_theme.tres" id="15_qwv7s"]
+[ext_resource type="Theme" uid="uid://dgaagtf2ilgyq" path="res://scenes/memory/raetsel_theme.tres" id="15_qwv7s"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="16_tno0n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g5p08"]
@@ -57,7 +57,7 @@ line_spacing = 5.0
 font = ExtResource("16_tno0n")
 
 [node name="SimonSays" type="CanvasLayer"]
-layer = 0
+layer = 2
 visible = false
 script = ExtResource("2_xbfyr")
 
