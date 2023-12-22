@@ -590,6 +590,7 @@ type = 1
 
 [node name="GoldeneTruhe" parent="Truhen" instance=ExtResource("15_kpbhj")]
 position = Vector2(-1144, -1088)
+"schlüssel_id" = 3
 
 [node name="NormaleTruhe11" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(-664, -688)
