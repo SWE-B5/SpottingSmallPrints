@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="3_0pf2n"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="4_faca4"]
 [ext_resource type="PackedScene" uid="uid://d1grckqpis1r8" path="res://scenes/items/tür_rund.tscn" id="4_khuwt"]
-[ext_resource type="PackedScene" uid="uid://db13ulmou4axm" path="res://scenes/items/tür_diamant.tscn" id="5_g3e5f"]
+[ext_resource type="PackedScene" path="res://scenes/items/tür_diamant.tscn" id="5_g3e5f"]
 [ext_resource type="PackedScene" uid="uid://c56sm2eycxxt3" path="res://scenes/items/note.tscn" id="5_rc8as"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="7_22o45"]
 [ext_resource type="PackedScene" uid="uid://cgo0cfvv4hc57" path="res://scenes/HUD/HUD.tscn" id="8_pl0at"]
@@ -28,19 +28,20 @@ position = Vector2(24, 200)
 type = 1
 
 [node name="Tür_Level_1" parent="." instance=ExtResource("4_khuwt")]
-position = Vector2(-216, -96)
+position = Vector2(-216, -48)
+id = 1
 
 [node name="Tür_Level_2" parent="." instance=ExtResource("4_khuwt")]
 position = Vector2(-104, -96)
-id = 1
+id = 2
 
 [node name="Tür_Level_3" parent="." instance=ExtResource("4_khuwt")]
 position = Vector2(8, -96)
-id = 1
+id = 3
 
 [node name="Tür_End_Level" parent="." instance=ExtResource("4_khuwt")]
 position = Vector2(120, -96)
-id = 2
+id = 4
 
 [node name="TürDiamant" parent="." instance=ExtResource("5_g3e5f")]
 position = Vector2(-536, -89)

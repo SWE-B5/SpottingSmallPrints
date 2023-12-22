@@ -36,11 +36,7 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 			set_cell(FOG_LAYER, Vector2i(pos.x + i, pos.y + j), FOG_ID, Vector2i(0, 0))
 	
 	if FileAccess.file_exists(get_file_path()):
-		if not PlayerVariables.flag_is_new_game:
-			load_fog()
-		else:
-			PlayerVariables.flag_is_new_game = false
-		DirAccess.open("user://").remove(get_file_path())
+		load_fog()
 	#init_timer()
 
 func _physics_process(delta):

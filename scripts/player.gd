@@ -91,6 +91,10 @@ func can_open_map():
 	# check if nicht in der hub noch machen
 	if currently_fading:
 		return false
+	if PlayerVariables.flag_dialog_open:
+		return false
+	if PlayerVariables.flag_raetsel_open:
+		return false
 	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
@@ -101,12 +105,19 @@ func set_zoom_niveau():
 	follow_camera.zoom = Vector2(PlayerVariables.zoom_niveau, PlayerVariables.zoom_niveau)
 
 func switch_level(level: String):
+	if FileAccess.file_exists("user://fog_level.save"):
+		var dir = DirAccess.open("user://")
+		dir.remove("user://fog_level.save")
+	
 	currently_fading = true
 	PlayerVariables.immobile = true
 	fade_player.play("fade_to_black")
 	
 	await to_black_fade_finished
-	get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
+	if level == "outro" || level == "Outro":
+		get_tree().change_scene_to_file("res://scenes/ui/OutroCredits.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
 	
 func damage_animation():
 	for i in 4:

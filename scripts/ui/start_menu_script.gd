@@ -63,7 +63,6 @@ func _on_quit_button_pressed():
 
 func _on_easy_difficulty_button_pressed():
 	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.EASY)
-	PlayerVariables.flag_is_new_game = true
 	title.hide()
 	difficulty_selector.hide()
 	background_blurr.show()
@@ -88,6 +87,9 @@ func _on_besiegeln_pressed():
 	intro_part_2.show()
 
 func _on_prufung_starten_pressed():
+	if FileAccess.file_exists("user://fog_level.save"):
+		var dir = DirAccess.open("user://")
+		dir.remove("user://fog_level.save")
 	go_to_level()
 
 func _on_respawn_pressed():

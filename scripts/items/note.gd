@@ -19,10 +19,13 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 #Notiz aufsammeln
 func _on_interact():
-	if !collected:
+	
+	if !PlayerVariables.flag_dialog_open && !collected:
+		var resource = load("res://dialogs/note_dialog.dialogue")
 		if type == note_type.LEVEL:
-			var resource = load("res://dialogs/note_dialog.dialogue")
-			DialogueManager.show_dialogue_balloon(resource, "Note_" + str(note_id) + "_Level")
+			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Note_" + str(note_id) + "_Level")
 			#Hier muss noch der Dialog abgespielt werden
 			collected = true
 			# Interaktion mit Truhe deaktivieren
@@ -32,7 +35,8 @@ func _on_interact():
 			Inventory.collect_item(Inventory.Item_Type.NOTE, note_id)
 			print(Inventory.inventory)
 		elif type == note_type.HUB:
-			var resource = load("res://dialogs/note_dialog.dialogue")
-			DialogueManager.show_dialogue_balloon(resource, "Note_" + str(note_id) + "_Hub")
+			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Note_" + str(note_id) + "_Hub")
 		
 		
