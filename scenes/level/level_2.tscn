@@ -629,7 +629,7 @@ position = Vector2(-200, -1120)
 type = 1
 
 [node name="NormaleTruhe6" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-616, -144)
+position = Vector2(-600, -120)
 "schlüssel_id" = 7
 
 [node name="NormaleTruhe7" parent="Truhen" instance=ExtResource("14_iti7b")]
@@ -680,7 +680,7 @@ position = Vector2(840, -960)
 note_id = 8
 
 [node name="Note3" parent="Notes" instance=ExtResource("14_8inur")]
-position = Vector2(-1120, -680)
+position = Vector2(-1119, -685)
 note_id = 7
 
 [editable path="Fog"]
