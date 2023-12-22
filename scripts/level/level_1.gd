@@ -11,3 +11,4 @@ func _ready():
 	fog.init(tilemap, player)
 	Health.reset_health() #muss drin bleiben!
 	Inventory.update_after_death() #muss drin bleiben!
+	
