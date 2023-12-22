@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c1yv3piwwvbtl" path="res://scenes/items/tür_eckig.tscn" id="9_qu8x2"]
 [ext_resource type="Texture2D" uid="uid://6ojjfsk3x7ip" path="res://assets/pixel_dungeon/customs/GeschlosseneTueren.png" id="14_0jnqf"]
 [ext_resource type="PackedScene" uid="uid://ct52rv75rn1xl" path="res://scenes/enemies/skull.tscn" id="15_ucguw"]
-[ext_resource type="PackedScene" uid="uid://doomhse7fon5r" path="res://scenes/enemies/skeleton.tscn" id="16_o8lex"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/skeleton.tscn" id="16_o8lex"]
 [ext_resource type="PackedScene" uid="uid://ewhc8vnu7phk" path="res://scenes/items/goldene_truhe.tscn" id="18_kdlb5"]
 
 [sub_resource type="Curve2D" id="Curve2D_sc78x"]
@@ -252,128 +252,65 @@ position = Vector2(0, 59)
 [node name="Flamethrower89" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-611, -439)
 
-[node name="Flamethrower90" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-611, -444)
-
 [node name="Flamethrower91" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-594, -439)
-
-[node name="Flamethrower92" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-594, -444)
 
 [node name="Flamethrower93" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-578, -439)
 
-[node name="Flamethrower94" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-578, -444)
-
 [node name="Flamethrower95" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-332, -439)
-
-[node name="Flamethrower96" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-332, -444)
 
 [node name="Flamethrower97" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-315, -439)
 
-[node name="Flamethrower98" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-315, -444)
-
 [node name="Flamethrower99" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-299, -439)
 
-[node name="Flamethrower100" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-299, -444)
-
 [node name="Flamethrower101" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-517, -394)
-rotation = -3.1392
-
-[node name="Flamethrower102" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-517, -399)
 rotation = -3.1392
 
 [node name="Flamethrower103" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-500, -394)
 rotation = -3.1392
 
-[node name="Flamethrower104" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-500, -399)
-rotation = -3.1392
-
 [node name="Flamethrower105" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-484, -394)
-rotation = -3.1392
-
-[node name="Flamethrower106" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-484, -399)
 rotation = -3.1392
 
 [node name="Flamethrower107" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-427, -394)
 rotation = -3.1392
 
-[node name="Flamethrower108" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-427, -399)
-rotation = -3.1392
-
 [node name="Flamethrower109" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-410, -394)
-rotation = -3.1392
-
-[node name="Flamethrower110" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-410, -399)
 rotation = -3.1392
 
 [node name="Flamethrower111" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-394, -394)
 rotation = -3.1392
 
-[node name="Flamethrower112" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-394, -399)
-rotation = -3.1392
-
 [node name="Flamethrower83" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-943, -1959)
-
-[node name="Flamethrower84" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-943, -1964)
 
 [node name="Flamethrower85" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-926, -1959)
 
-[node name="Flamethrower86" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-926, -1964)
-
 [node name="Flamethrower87" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-910, -1959)
 
-[node name="Flamethrower88" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-910, -1964)
-
 [node name="Flamethrower77" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-visible = false
 position = Vector2(727, -999)
 
 [node name="Flamethrower78" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-visible = false
 position = Vector2(712, -999)
 
-[node name="Flamethrower79" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-visible = false
-position = Vector2(720, -1004)
-
 [node name="Flamethrower80" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-visible = false
 position = Vector2(775, -999)
 
 [node name="Flamethrower81" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-visible = false
 position = Vector2(760, -999)
-
-[node name="Flamethrower82" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-visible = false
-position = Vector2(768, -1004)
 
 [node name="Flamethrower73" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-358, -1736)
@@ -394,26 +331,14 @@ rotation = 1.57635
 [node name="Flamethrower65" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(642, -1895)
 
-[node name="Flamethrower66" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(642, -1900)
-
 [node name="Flamethrower67" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(658, -1895)
-
-[node name="Flamethrower68" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(658, -1900)
 
 [node name="Flamethrower69" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(606, -1895)
 
-[node name="Flamethrower70" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(606, -1900)
-
 [node name="Flamethrower71" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(622, -1895)
-
-[node name="Flamethrower72" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(622, -1900)
 
 [node name="Flamethrower55" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1211, -331)
@@ -434,38 +359,20 @@ rotation = -1.63755
 [node name="Flamethrower59" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1344, -423)
 
-[node name="Flamethrower60" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1344, -428)
-
 [node name="Flamethrower61" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1360, -423)
-
-[node name="Flamethrower62" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1360, -428)
 
 [node name="Flamethrower63" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1376, -423)
 
-[node name="Flamethrower64" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1376, -428)
-
 [node name="Flamethrower35" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(267, -550)
-
-[node name="Flamethrower36" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(267, -555)
 
 [node name="Flamethrower37" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(284, -550)
 
-[node name="Flamethrower38" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(284, -555)
-
 [node name="Flamethrower39" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(300, -550)
-
-[node name="Flamethrower40" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(300, -555)
 
 [node name="Flamethrower41" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(377, -550)
@@ -486,20 +393,11 @@ rotation = -1.63755
 [node name="Flamethrower45" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(224, -631)
 
-[node name="Flamethrower46" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(224, -636)
-
 [node name="Flamethrower47" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(240, -631)
 
-[node name="Flamethrower48" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(240, -636)
-
 [node name="Flamethrower49" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(128, -631)
-
-[node name="Flamethrower50" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(128, -636)
 
 [node name="Flamethrower51" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(166, -593)
@@ -521,17 +419,11 @@ position = Vector2(1351, -1159)
 [node name="Flamethrower30" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1336, -1159)
 
-[node name="Flamethrower31" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1344, -1164)
-
 [node name="Flamethrower32" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1399, -1159)
 
 [node name="Flamethrower33" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1384, -1159)
-
-[node name="Flamethrower34" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1392, -1164)
 
 [node name="Flamethrower21" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1227, -1642)
@@ -633,6 +525,107 @@ position = Vector2(-312, -105)
 
 [node name="Flamethrower7" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-296, -105)
+
+[node name="Flamethrower31" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1392, -1435)
+
+[node name="Flamethrower34" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1520, -1435)
+
+[node name="Flamethrower36" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1456, -1386)
+rotation = -3.141
+
+[node name="Flamethrower38" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1462, -720)
+rotation = -1.55194
+
+[node name="Flamethrower40" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1463, -584)
+rotation = -1.55194
+
+[node name="Flamethrower46" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-1462, -864)
+rotation = -1.55194
+
+[node name="Flamethrower48" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-998, -640)
+rotation = -1.55194
+
+[node name="Flamethrower50" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-998, -368)
+rotation = -1.55194
+
+[node name="Flamethrower60" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-999, -232)
+rotation = -1.55194
+
+[node name="Flamethrower62" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-998, -512)
+rotation = -1.55194
+
+[node name="Flamethrower64" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-998, -88)
+rotation = -1.55194
+
+[node name="Flamethrower66" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-954, -576)
+rotation = 1.54339
+
+[node name="Flamethrower68" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-954, -304)
+rotation = 1.54339
+
+[node name="Flamethrower70" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-955, -168)
+rotation = 1.54339
+
+[node name="Flamethrower72" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-954, -448)
+rotation = 1.54339
+
+[node name="Flamethrower79" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-954, -24)
+rotation = 1.54339
+
+[node name="Flamethrower96" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(144, -201)
+
+[node name="Flamethrower98" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(161, -201)
+
+[node name="Flamethrower100" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(177, -201)
+
+[node name="Flamethrower82" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(256, -1099)
+
+[node name="Flamethrower84" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(128, -1099)
+
+[node name="Flamethrower86" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(192, -1050)
+rotation = -3.141
+
+[node name="Flamethrower88" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(832, -1403)
+
+[node name="Flamethrower90" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(704, -1403)
+
+[node name="Flamethrower92" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(768, -1354)
+rotation = -3.141
+
+[node name="Flamethrower94" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-856, -1627)
+
+[node name="Flamethrower102" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-984, -1627)
+
+[node name="Flamethrower104" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
+position = Vector2(-920, -1578)
+rotation = -3.141
 
 [node name="Spikes" type="Node" parent="Traps"]
 
@@ -1088,6 +1081,18 @@ rotation = 3.10136
 [node name="dispenser" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
 position = Vector2(7.99999, -328)
 rotation = 1.5708
+
+[node name="dispenser45" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
+position = Vector2(-488, -1160)
+rotation = 1.56353
+
+[node name="dispenser46" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
+position = Vector2(-455, -1160)
+rotation = 1.56353
+
+[node name="dispenser47" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
+position = Vector2(-1288, -1976)
+rotation = 1.56353
 
 [node name="Gegner" type="Node" parent="."]
 
