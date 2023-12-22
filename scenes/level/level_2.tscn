@@ -138,11 +138,7 @@ layer_2/tile_data = PackedInt32Array(-458754, 2, 9, -524287, 2, 9, -458761, 2, 9
 [node name="Fog" parent="." instance=ExtResource("4_ria2j")]
 
 [node name="Player" parent="." instance=ExtResource("3_lqxyn")]
-<<<<<<< HEAD
-position = Vector2(1064, -375)
-=======
 position = Vector2(0, 22)
->>>>>>> 1574566869e25e6546c505193cab359bbe88bc0b
 
 [node name="Gegner" type="Node" parent="."]
 
