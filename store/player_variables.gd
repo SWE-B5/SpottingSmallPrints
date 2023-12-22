@@ -107,9 +107,11 @@ func action_after_dialog(x):
 			pass #normal weiter
 		1:
 			#rätsel öffnen memory
+			Hud.queue_overlay()
 			get_tree().current_scene.get_node("GoldeneTruhe").startMemory.emit()
 		2:
 			#rätsel öffnen simon
+			Hud.queue_overlay()
 			get_tree().current_scene.get_node("GoldeneTruhe").startSimonSays.emit()
 		3:
 			Inventory.update_after_level_completed()

@@ -77,6 +77,7 @@ func _puzzle_canceled():
 		# Textur der offenen Truhe laden 
 		sprite.animation =  "closed"
 		PlayerVariables.immobile = false
+		Hud.dequeue_overlay()
 
 #Schluessel Drop
 func _puzzle_successful():
@@ -88,6 +89,7 @@ func _puzzle_successful():
 		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = schlüssel_id
+		Hud.dequeue_overlay()
 		PlayerVariables.flag_dialog_open = true
 		PlayerVariables.flag_action_after_dialog = 3
 		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
