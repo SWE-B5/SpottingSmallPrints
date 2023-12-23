@@ -276,7 +276,7 @@ position = Vector2(-594, -439)
 position = Vector2(-578, -439)
 
 [node name="Flamethrower95" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-332, -454)
+position = Vector2(-330, -439)
 
 [node name="Flamethrower97" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-315, -439)
@@ -285,28 +285,22 @@ position = Vector2(-315, -439)
 position = Vector2(-299, -439)
 
 [node name="Flamethrower101" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-517, -394)
-rotation = -3.1392
+position = Vector2(-216, -601)
 
 [node name="Flamethrower103" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-500, -394)
-rotation = -3.1392
+position = Vector2(-199, -601)
 
 [node name="Flamethrower105" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-484, -394)
-rotation = -3.1392
+position = Vector2(-183, -601)
 
 [node name="Flamethrower107" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-427, -394)
-rotation = -3.1392
+position = Vector2(-505, -793)
 
 [node name="Flamethrower109" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-410, -394)
-rotation = -3.1392
+position = Vector2(-488, -793)
 
 [node name="Flamethrower111" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-394, -394)
-rotation = -3.1392
+position = Vector2(-472, -793)
 
 [node name="Flamethrower83" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-943, -1959)
@@ -1682,10 +1676,10 @@ position = Vector2(-1249, -503)
 position = Vector2(-1183, -467)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1243, -328)
+position = Vector2(-1243, -345)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1201, -296)
+position = Vector2(-1186, -356)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
 position = Vector2(-1227, -423)
@@ -2043,7 +2037,7 @@ position = Vector2(-1475, -1313)
 "schlüssel_id" = 1
 
 [node name="NormaleTruhe6" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
-position = Vector2(-1209, 64)
+position = Vector2(-1214, -304)
 type = 1
 
 [node name="NormaleTruhe7" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
