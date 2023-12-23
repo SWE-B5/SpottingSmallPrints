@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://6bcohush5auo"]
+[gd_scene load_steps=54 format=3 uid="uid://6bcohush5auo"]
 
 [ext_resource type="Script" path="res://scripts/level/level_3.gd" id="1_mbl2y"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_jquff"]
@@ -36,9 +36,9 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_sjwo1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2.52393, 1.96191, 0, 0, 0, 0, -178.524, 6.96191, 0, 0, 0, 0, -2.52393, 0.961914)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 5, 0, 0, 0, 0, -3, 184, 0, 0, 0, 0, -237, 184, 0, 0, 0, 0, -240, 284, 0, 0, 0, 0, -237, 185, 0, 0, 0, 0, -3, 185, 0, 0, 0, 0, -2, 5)
 }
-point_count = 3
+point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_b64p0"]
 _data = {
@@ -90,9 +90,9 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_gqtih"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 58, 3, 0, 0, 0, 0, -2, 73, 0, 0, 0, 0, 61, 73, 0, 0, 0, 0, 0, -1)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3, 185, 0, 0, 0, 0, 1, 1)
 }
-point_count = 5
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_sfpnl"]
 _data = {
@@ -102,7 +102,7 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_l51jh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, 1.00012, 0, 0, 0, 0, 52, 4.00012, 0, 0, 0, 0, -10, 73.0001, 0, 0, 0, 0, 53, 74.0001, 0, 0, 0, 0, 0, -0.999878)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 366, 1, 0, 0, 0, 0, 368, 81, 0, 0, 0, 0, 366, 1, 0, 0, 0, 0, 0, 2)
 }
 point_count = 5
 
@@ -124,23 +124,11 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_53d52"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -6.10352e-05, 6.10352e-05, 0, 0, 0, 0, 83.9999, -3.99994, 0, 0, 0, 0, -4.00006, 80.0001, 0, 0, 0, 0, -6.10352e-05, 7.00006, 0, 0, 0, 0, 55.9999, 6.00006, 0, 0, 0, 0, 12.9999, 47.0001, 0, 0, 0, 0, 12.9999, 14.0001, 0, 0, 0, 0, 32.9999, 14.0001, 0, 0, 0, 0, 20.9999, 25.0001, 0, 0, 0, 0, -6.10352e-05, -0.999939)
-}
-point_count = 10
-
-[sub_resource type="Curve2D" id="Curve2D_hk7a1"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 2, 0, 0, 0, 0, -85, 5, 0, 0, 0, 0, -4, -69, 0, 0, 0, 0, -2, -10, 0, 0, 0, 0, -64, -4, 0, 0, 0, 0, -11, -54, 0, 0, 0, 0, -10, -18, 0, 0, 0, 0, -42, -15, 0, 0, 0, 0, -22, -33, 0, 0, 0, 0, -3, 2)
-}
-point_count = 10
-
 [sub_resource type="Curve2D" id="Curve2D_x8r3j"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3.05176e-05, 0, 0, 0, 0, 0, 96, 68, 0, 0, 0, 0, -5.99997, 128, 0, 0, 0, 0, 75, 64, 0, 0, 0, 0, 3.05176e-05, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2, 0, 0, 0, 0, 97, 31, 0, 0, 0, 0, 192, -14, 0, 0, 0, 0, 282, 30, 0, 0, 0, 0, 362, -13, 0, 0, 0, 0, 416, 24, 0, 0, 0, 0, 428, -60, 0, 0, 0, 0, 561, -26, 0, 0, 0, 0, 428, -60, 0, 0, 0, 0, 416, 25, 0, 0, 0, 0, 362, -13, 0, 0, 0, 0, 282, 28, 0, 0, 0, 0, 193, -13, 0, 0, 0, 0, 97, 30, 0, 0, 0, 0, -1, 3)
 }
-point_count = 5
+point_count = 15
 
 [sub_resource type="Curve2D" id="Curve2D_0u1jm"]
 _data = {
@@ -168,21 +156,21 @@ point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_wpmxs"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 0.999985, 0, 0, 0, 0, -6, 73, 0, 0, 0, 0, 26, 55, 0, 0, 0, 0, 30, 16, 0, 0, 0, 0, -2, -1.52588e-05)
+"points": PackedVector2Array(0, 0, 0, 0, -2, 0.999985, 0, 0, 0, 0, -6, 73, 0, 0, 0, 0, 26, 55, 0, 0, 0, 0, 30, 16, 0, 0, 0, 0, -2, -1.52588e-05, 0, 0, 0, 0, 2, 3)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_jq7v3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1.00012, 1, 0, 0, 0, 0, 34.9999, 47, 0, 0, 0, 0, 89.9999, 0, 0, 0, 0, 0, 127, 43, 0, 0, 0, 0, -0.00012207, 2)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 253, 5, 0, 0, 0, 0, 0, 4)
 }
-point_count = 5
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_0em0t"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, 2.99988, 0, 0, 0, 0, -5, -86.0001, 0, 0, 0, 0, 27, -81.0001, 0, 0, 0, 0, 59, -37.0001, 0, 0, 0, 0, -2, 2.99988)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 4, 0, 0, 0, 0, -1, -179, 0, 0, 0, 0, -242, -184, 0, 0, 0, 0, -243, -366, 0, 0, 0, 0, -243, -184, 0, 0, 0, 0, -2, -180, 0, 0, 0, 0, 0, 5)
 }
-point_count = 5
+point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_2k5uf"]
 _data = {
@@ -192,15 +180,15 @@ point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_vrfgt"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1.00012, 2, 0, 0, 0, 0, -64.0001, 40, 0, 0, 0, 0, -69.0001, 95, 0, 0, 0, 0, 3.99988, 56, 0, 0, 0, 0, -0.00012207, 2)
+"points": PackedVector2Array(0, 0, 0, 0, -1.00012, 2, 0, 0, 0, 0, -64.0001, 40, 0, 0, 0, 0, -69.0001, 95, 0, 0, 0, 0, 3.99988, 56, 0, 0, 0, 0, -0.00012207, 2, 0, 0, 0, 0, -9, 4)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_bxn7f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 3, 0, 0, 0, 0, 62, 1, 0, 0, 0, 0, -7, -68, 0, 0, 0, 0, 54, -74, 0, 0, 0, 0, -2, 1)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 3, 0, 0, 0, 0, -1, 396, 0, 0, 0, 0, 0, 3)
 }
-point_count = 5
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_28ml8"]
 _data = {
@@ -210,9 +198,9 @@ point_count = 11
 
 [sub_resource type="Curve2D" id="Curve2D_coixi"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -0.175415, 1.62244, 0, 0, 0, 0, -166, 7.00012, 0, 0, 0, 0, -170, -22.9999, 0, 0, 0, 0, 0, -22.9999, 0, 0, 0, 0, -3, -50.9999, 0, 0, 0, 0, -169, -49.9999, 0, 0, 0, 0, -4, -49.9999, 0, 0, 0, 0, 0, -23.9999, 0, 0, 0, 0, -171, -22.9999, 0, 0, 0, 0, -166, 5.00012, 0, 0, 0, 0, 0, -0.999878)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2, 0, 0, 0, 0, 137, 6, 0, 0, 0, 0, 135, -191, 0, 0, 0, 0, 138, 6, 0, 0, 0, 0, 184, 3, 0, 0, 0, 0, 185, 132, 0, 0, 0, 0, -126, 133, 0, 0, 0, 0, 184, 132, 0, 0, 0, 0, 184, 5, 0, 0, 0, 0, 138, 6, 0, 0, 0, 0, 134, -189, 0, 0, 0, 0, 138, 4, 0, 0, 0, 0, 2, 4)
 }
-point_count = 11
+point_count = 13
 
 [sub_resource type="Curve2D" id="Curve2D_afped"]
 _data = {
@@ -352,12 +340,10 @@ rotation = -1.63755
 [node name="Flamethrower75" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-314, -1706)
 rotation = 1.57635
-scale = Vector2(1, 1)
 
 [node name="Flamethrower76" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-314, -1694)
 rotation = 1.57635
-scale = Vector2(1, 1)
 
 [node name="Flamethrower65" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(642, -1895)
@@ -370,25 +356,6 @@ position = Vector2(606, -1895)
 
 [node name="Flamethrower71" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(622, -1895)
-
-[node name="Flamethrower55" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1211, -331)
-rotation = -1.63755
-
-[node name="Flamethrower56" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1211, -319)
-rotation = -1.63755
-
-[node name="Flamethrower57" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1211, -305)
-rotation = -1.63755
-
-[node name="Flamethrower58" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1211, -293)
-rotation = -1.63755
-
-[node name="Flamethrower59" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(1344, -423)
 
 [node name="Flamethrower61" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1360, -423)
@@ -405,22 +372,6 @@ position = Vector2(284, -550)
 [node name="Flamethrower39" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(300, -550)
 
-[node name="Flamethrower41" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(377, -550)
-rotation = -1.63755
-
-[node name="Flamethrower42" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(377, -538)
-rotation = -1.63755
-
-[node name="Flamethrower43" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(339, -517)
-rotation = -1.63755
-
-[node name="Flamethrower44" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(339, -505)
-rotation = -1.63755
-
 [node name="Flamethrower45" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(224, -631)
 
@@ -429,20 +380,6 @@ position = Vector2(240, -631)
 
 [node name="Flamethrower49" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(128, -631)
-
-[node name="Flamethrower51" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(166, -593)
-
-[node name="Flamethrower52" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(182, -593)
-
-[node name="Flamethrower53" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(159, -517)
-rotation = -1.63755
-
-[node name="Flamethrower54" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(159, -505)
-rotation = -1.63755
 
 [node name="Flamethrower29" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(1351, -1159)
@@ -469,24 +406,18 @@ position = Vector2(-1289, -1642)
 position = Vector2(-1276, -1642)
 
 [node name="Flamethrower25" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1194, -1596)
-rotation = -3.08016
-scale = Vector2(1, 1)
+position = Vector2(-696, -1962)
+rotation = -6.28319
 
 [node name="Flamethrower26" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1181, -1596)
-rotation = -3.08016
-scale = Vector2(1, 1)
+position = Vector2(-1160, -1754)
 
 [node name="Flamethrower27" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1256, -1596)
-rotation = -3.08016
-scale = Vector2(1, 1)
+position = Vector2(-1176, -1754)
+rotation = -6.28319
 
 [node name="Flamethrower28" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1243, -1596)
-rotation = -3.08016
-scale = Vector2(1, 1)
+position = Vector2(-680, -1962)
 
 [node name="Flamethrower12" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1620, -1240)
@@ -502,51 +433,26 @@ rotation = 3.12773
 position = Vector2(-1659, -1117)
 rotation = 3.12773
 
-[node name="Flamethrower16" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1640, -1117)
-rotation = 3.12773
-
-[node name="Flamethrower17" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1667, -1218)
-rotation = -1.56546
-
-[node name="Flamethrower18" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1666, -1203)
-rotation = -1.56546
-
-[node name="Flamethrower19" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1668, -1153)
-rotation = -1.56546
-
-[node name="Flamethrower20" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1667, -1138)
-rotation = -1.56546
-
 [node name="Flamethrower8" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1307, -90)
-
-[node name="Flamethrower9" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1199, -42)
-rotation = -3.09105
-scale = Vector2(1, 1)
 
 [node name="Flamethrower10" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1281, -90)
 
 [node name="Flamethrower4" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-232, -104)
+position = Vector2(-251, -104)
 rotation = -1.5708
 
 [node name="Flamethrower3" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-232, -88)
+position = Vector2(-251, -88)
 rotation = -1.5708
 
 [node name="Flamethrower2" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-184, -72)
+position = Vector2(-169, -70)
 rotation = -1.5708
 
 [node name="Flamethrower" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-184, -56)
+position = Vector2(-169, -54)
 rotation = -1.5708
 
 [node name="Flamethrower5" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
@@ -563,10 +469,6 @@ position = Vector2(-1392, -1435)
 
 [node name="Flamethrower34" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1520, -1435)
-
-[node name="Flamethrower36" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1456, -1386)
-rotation = -3.141
 
 [node name="Flamethrower38" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1462, -720)
@@ -635,19 +537,11 @@ position = Vector2(256, -1099)
 [node name="Flamethrower84" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(128, -1099)
 
-[node name="Flamethrower86" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(192, -1050)
-rotation = -3.141
-
 [node name="Flamethrower88" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(832, -1403)
 
 [node name="Flamethrower90" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(704, -1403)
-
-[node name="Flamethrower92" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(768, -1354)
-rotation = -3.141
 
 [node name="Flamethrower94" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-856, -1627)
@@ -656,8 +550,7 @@ position = Vector2(-856, -1627)
 position = Vector2(-984, -1627)
 
 [node name="Flamethrower104" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-920, -1578)
-rotation = -3.141
+position = Vector2(-920, -1627)
 
 [node name="Flamethrower106" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(400, -1419)
@@ -665,25 +558,14 @@ position = Vector2(400, -1419)
 [node name="Flamethrower108" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(272, -1419)
 
-[node name="Flamethrower110" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(336, -1370)
-rotation = -3.141
-
 [node name="Flamethrower112" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(554, -312)
-rotation = -1.55194
+position = Vector2(488, -88)
 
 [node name="Flamethrower113" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(614, -288)
-rotation = 1.54339
+position = Vector2(520, -88)
 
 [node name="Flamethrower11" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1387, 38)
-
-[node name="Flamethrower114" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
-position = Vector2(-1279, 86)
-rotation = -3.09105
-scale = Vector2(1, 1)
 
 [node name="Flamethrower115" parent="Traps/Flamethrower" instance=ExtResource("6_774h7")]
 position = Vector2(-1361, 38)
@@ -798,72 +680,6 @@ position = Vector2(1399, -262)
 
 [node name="Spikes60" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
 position = Vector2(1413, -262)
-
-[node name="Spikes35" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1068, -787)
-
-[node name="Spikes36" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1082, -772.75)
-
-[node name="Spikes37" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1095, -786.75)
-
-[node name="Spikes38" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1109, -772.5)
-
-[node name="Spikes41" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1054, -772.75)
-
-[node name="Spikes42" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1068, -758.5)
-
-[node name="Spikes43" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1082, -744.75)
-
-[node name="Spikes44" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1095, -758.75)
-
-[node name="Spikes45" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1109, -744.75)
-
-[node name="Spikes39" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1123, -786.75)
-
-[node name="Spikes40" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1137, -772.5)
-
-[node name="Spikes46" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1123, -758.75)
-
-[node name="Spikes47" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1137, -744.5)
-
-[node name="Spikes48" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1152, -758.75)
-
-[node name="Spikes49" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1166, -744.5)
-
-[node name="Spikes50" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1152, -786.75)
-
-[node name="Spikes51" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1166, -772.5)
-
-[node name="Spikes52" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1181, -786.75)
-
-[node name="Spikes53" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1195, -772.5)
-
-[node name="Spikes54" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1181, -758.75)
-
-[node name="Spikes55" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1195, -744.5)
-
-[node name="Spikes56" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
-position = Vector2(1054, -744.75)
 
 [node name="Spikes23" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
 position = Vector2(1216, -1247)
@@ -1159,6 +975,54 @@ position = Vector2(200, -65)
 [node name="Spikes156" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
 position = Vector2(214, -65)
 
+[node name="Spikes157" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1085, -774)
+
+[node name="Spikes158" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1098, -774)
+
+[node name="Spikes159" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1111, -760)
+
+[node name="Spikes160" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1124, -760)
+
+[node name="Spikes161" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1138, -774)
+
+[node name="Spikes162" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1151, -774)
+
+[node name="Spikes163" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1138, -747)
+
+[node name="Spikes164" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1151, -747)
+
+[node name="Spikes165" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1165, -761)
+
+[node name="Spikes166" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1178, -761)
+
+[node name="Spikes167" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1085, -746)
+
+[node name="Spikes168" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1098, -746)
+
+[node name="Spikes169" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1111, -788)
+
+[node name="Spikes170" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1124, -788)
+
+[node name="Spikes171" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1165, -788)
+
+[node name="Spikes172" parent="Traps/Spikes" instance=ExtResource("5_ibvwb")]
+position = Vector2(1178, -788)
+
 [node name="Dispenser" type="Node2D" parent="Traps"]
 y_sort_enabled = true
 
@@ -1326,13 +1190,6 @@ rotation = 1.56441
 position = Vector2(-1320, -1224)
 rotation = 1.56441
 
-[node name="dispenser2" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
-position = Vector2(-1663, -136)
-
-[node name="dispenser3" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
-position = Vector2(-1473, -168)
-rotation = 3.13446
-
 [node name="dispenser" parent="Traps/Dispenser" instance=ExtResource("8_w8w8t")]
 position = Vector2(7.99999, -328)
 rotation = 1.5708
@@ -1389,20 +1246,20 @@ y_sort_enabled = true
 [node name="Node24" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node24" instance=ExtResource("15_ucguw")]
-position = Vector2(694, -1091)
+position = Vector2(563, -1266)
 markerid = "marker23"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node24" groups=["marker23"]]
-position = Vector2(722, -1112)
+position = Vector2(626, -1286)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node24" groups=["marker23"]]
-position = Vector2(739, -1065)
+position = Vector2(654, -1248)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node24" groups=["marker23"]]
-position = Vector2(626, -1066)
+position = Vector2(521, -1286)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node24" groups=["marker23"]]
-position = Vector2(627, -1108)
+position = Vector2(548, -1249)
 
 [node name="Node25" type="Node" parent="Gegner/Skull"]
 
@@ -1467,11 +1324,11 @@ position = Vector2(931, -1738)
 [node name="Node20" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node20" instance=ExtResource("15_ucguw")]
-position = Vector2(1273, -401)
+position = Vector2(1232, -385)
 markerid = "marker19"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node20" groups=["marker19"]]
-position = Vector2(1303, -366)
+position = Vector2(1252, -481)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node20" groups=["marker19"]]
 position = Vector2(1254, -390)
@@ -1479,32 +1336,29 @@ position = Vector2(1254, -390)
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node20" groups=["marker19"]]
 position = Vector2(1210, -362)
 
-[node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node20" groups=["marker19"]]
-position = Vector2(1302, -428)
-
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node20" groups=["marker19"]]
 position = Vector2(1211, -428)
 
 [node name="Node21" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node21" instance=ExtResource("15_ucguw")]
-position = Vector2(1388, -304)
+position = Vector2(1353, -304)
 markerid = "marker20"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node21" groups=["marker20"]]
-position = Vector2(1405, -358)
+position = Vector2(1396, -359)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node21" groups=["marker20"]]
-position = Vector2(1310, -332)
+position = Vector2(1253, -324)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node21" groups=["marker20"]]
-position = Vector2(1372, -317)
+position = Vector2(1275, -288)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node21" groups=["marker20"]]
-position = Vector2(1414, -285)
+position = Vector2(1405, -307)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node21" groups=["marker20"]]
-position = Vector2(1327, -281)
+position = Vector2(1312, -359)
 
 [node name="Node16" type="Node" parent="Gegner/Skull"]
 
@@ -1530,83 +1384,83 @@ position = Vector2(217, -1872)
 [node name="Node17" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node17" instance=ExtResource("15_ucguw")]
-position = Vector2(376.616, -1858.7)
+position = Vector2(-1150.38, -1924.7)
 markerid = "marker16"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node17" groups=["marker16"]]
-position = Vector2(422, -1845)
+position = Vector2(-1105, -1911)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node17" groups=["marker16"]]
-position = Vector2(415, -1895)
+position = Vector2(-1112, -1961)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node17" groups=["marker16"]]
-position = Vector2(372, -1871)
+position = Vector2(-1155, -1937)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node17" groups=["marker16"]]
-position = Vector2(334, -1848)
+position = Vector2(-1193, -1914)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node17" groups=["marker16"]]
-position = Vector2(337, -1896)
+position = Vector2(-1190, -1962)
 
 [node name="Node18" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node18" instance=ExtResource("15_ucguw")]
-position = Vector2(392, -1743)
+position = Vector2(388, -1827)
 markerid = "marker17"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node18" groups=["marker17"]]
-position = Vector2(405, -1761)
+position = Vector2(401, -1845)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node18" groups=["marker17"]]
-position = Vector2(427, -1722)
+position = Vector2(423, -1806)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node18" groups=["marker17"]]
-position = Vector2(377, -1721)
+position = Vector2(373, -1805)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node18" groups=["marker17"]]
-position = Vector2(425, -1802)
+position = Vector2(421, -1886)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node18" groups=["marker17"]]
-position = Vector2(380, -1802)
+position = Vector2(376, -1886)
 
 [node name="Node19" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node19" instance=ExtResource("15_ucguw")]
-position = Vector2(389, -1650)
+position = Vector2(385, -1710)
 markerid = "marker18"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node19" groups=["marker18"]]
-position = Vector2(427, -1683)
+position = Vector2(423, -1743)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node19" groups=["marker18"]]
-position = Vector2(380, -1684)
+position = Vector2(376, -1744)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node19" groups=["marker18"]]
-position = Vector2(403, -1663)
+position = Vector2(399, -1723)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node19" groups=["marker18"]]
-position = Vector2(430, -1631)
+position = Vector2(426, -1691)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node19" groups=["marker18"]]
-position = Vector2(379, -1631)
+position = Vector2(375, -1691)
 
 [node name="Node12" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node12" instance=ExtResource("15_ucguw")]
-position = Vector2(1245, -1302)
+position = Vector2(-40, -1403)
 markerid = "marker11"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node12" groups=["marker11"]]
-position = Vector2(1303, -1282)
+position = Vector2(-59, -1494)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node12" groups=["marker11"]]
-position = Vector2(1199, -1278)
+position = Vector2(-24, -1450)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node12" groups=["marker11"]]
-position = Vector2(1300, -1324)
+position = Vector2(-59, -1379)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node12" groups=["marker11"]]
-position = Vector2(1202, -1324)
+position = Vector2(-16, -1386)
 
 [node name="Node13" type="Node" parent="Gegner/Skull"]
 
@@ -1629,20 +1483,20 @@ position = Vector2(1197, -1226)
 [node name="Node14" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node14" instance=ExtResource("15_ucguw")]
-position = Vector2(1494, -1302)
+position = Vector2(747, -151)
 markerid = "marker13"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node14" groups=["marker13"]]
-position = Vector2(1540, -1280)
+position = Vector2(724, -240)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node14" groups=["marker13"]]
-position = Vector2(1440, -1279)
+position = Vector2(770, -192)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node14" groups=["marker13"]]
-position = Vector2(1540, -1323)
+position = Vector2(722, -90)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node14" groups=["marker13"]]
-position = Vector2(1440, -1322)
+position = Vector2(762, -96)
 
 [node name="Node15" type="Node" parent="Gegner/Skull"]
 
@@ -1743,41 +1597,41 @@ position = Vector2(-966, -1032)
 [node name="Node9" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node9" instance=ExtResource("15_ucguw")]
-position = Vector2(-644, -1119)
+position = Vector2(-345, -1313)
 markerid = "marker8"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node9" groups=["marker8"]]
-position = Vector2(-620, -1148)
+position = Vector2(-315, -1250)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node9" groups=["marker8"]]
-position = Vector2(-684, -1145)
+position = Vector2(-316, -1389)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node9" groups=["marker8"]]
-position = Vector2(-669, -1083)
+position = Vector2(-353, -1345)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node9"]
-position = Vector2(-604, -1102)
+position = Vector2(-345, -1278)
 
 [node name="Node5" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node5" instance=ExtResource("15_ucguw")]
-position = Vector2(-1555, -1044)
+position = Vector2(-1544, -1077)
 markerid = "marker4"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node5" groups=["marker4"]]
-position = Vector2(-1577, -1079)
+position = Vector2(-1566, -1112)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node5" groups=["marker4"]]
-position = Vector2(-1463, -1070)
+position = Vector2(-1452, -1103)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node5" groups=["marker4"]]
-position = Vector2(-1509, -1094)
+position = Vector2(-1498, -1127)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node5" groups=["marker4"]]
-position = Vector2(-1577, -1017)
+position = Vector2(-1566, -1050)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node5" groups=["marker4"]]
-position = Vector2(-1508, -1036)
+position = Vector2(-1497, -1069)
 
 [node name="Node6" type="Node" parent="Gegner/Skull"]
 
@@ -1800,77 +1654,77 @@ position = Vector2(-1356, -1123)
 [node name="Node4" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node4" instance=ExtResource("15_ucguw")]
-position = Vector2(-1626, -68)
+position = Vector2(-1582, -73)
 markerid = "marker3"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node4" groups=["marker3"]]
 position = Vector2(-1651, -102)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node4" groups=["marker3"]]
-position = Vector2(-1604, -37)
+position = Vector2(-1508, -50)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node4" groups=["marker3"]]
-position = Vector2(-1654, -39)
+position = Vector2(-1612, -54)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node4" groups=["marker3"]]
-position = Vector2(-1610, -101)
+position = Vector2(-1546, -101)
 
 [node name="Node3" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node3" instance=ExtResource("15_ucguw")]
-position = Vector2(-1512, -67)
+position = Vector2(-1212, -396)
 markerid = "marker2"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1485, -109)
+position = Vector2(-1249, -503)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1485, -43)
+position = Vector2(-1183, -467)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1560, -106)
+position = Vector2(-1243, -328)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1557, -45)
+position = Vector2(-1201, -296)
 
 [node name="Marker2D5" type="Marker2D" parent="Gegner/Skull/Node3" groups=["marker2"]]
-position = Vector2(-1453, -74)
+position = Vector2(-1227, -423)
 
 [node name="Node" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node" instance=ExtResource("15_ucguw")]
-position = Vector2(-524, -128)
+position = Vector2(-772, 65)
 markerid = "marker0"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node" groups=["marker0"]]
-position = Vector2(-556, -103)
+position = Vector2(-843, 45)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node" groups=["marker0"]]
-position = Vector2(-492, -102)
+position = Vector2(-821, 83)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node" groups=["marker0"]]
-position = Vector2(-496, -152)
+position = Vector2(-745, 45)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node" groups=["marker0"]]
-position = Vector2(-553, -151)
+position = Vector2(-724, 80)
 
 [node name="Node2" type="Node" parent="Gegner/Skull"]
 
 [node name="skull" parent="Gegner/Skull/Node2" instance=ExtResource("15_ucguw")]
-position = Vector2(-519, -50)
+position = Vector2(-530, -81)
 markerid = "marker1"
 
 [node name="Marker2D" type="Marker2D" parent="Gegner/Skull/Node2" groups=["marker1"]]
-position = Vector2(-560, -69)
+position = Vector2(-547, -106)
 
 [node name="Marker2D2" type="Marker2D" parent="Gegner/Skull/Node2" groups=["marker1"]]
-position = Vector2(-480, -28)
+position = Vector2(-496, -46)
 
 [node name="Marker2D3" type="Marker2D" parent="Gegner/Skull/Node2" groups=["marker1"]]
-position = Vector2(-491, -67)
+position = Vector2(-500, -124)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skull/Node2" groups=["marker1"]]
-position = Vector2(-561, -31)
+position = Vector2(-558, -46)
 
 [node name="Node26" type="Node" parent="Gegner/Skull"]
 
@@ -1925,24 +1779,25 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_sc78x")
 
 [node name="skeleton2" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(937.13, -964.185)
+position = Vector2(911, -925)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton2"]
 curve = SubResource("Curve2D_5cgsj")
 
 [node name="skeleton3" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(772, -931)
+position = Vector2(-764, -1419)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton3"]
 curve = SubResource("Curve2D_hy4vw")
 
 [node name="skeleton4" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(883.524, -896.962)
+position = Vector2(945, -869)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton4"]
+position = Vector2(6.10352e-05, -6.10352e-05)
 curve = SubResource("Curve2D_sjwo1")
 
 [node name="skeleton5" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
@@ -1967,7 +1822,7 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_kpf7o")
 
 [node name="skeleton8" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(911.388, -1952.63)
+position = Vector2(911, -1989)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton8"]
@@ -1988,7 +1843,7 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_kib0r")
 
 [node name="skeleton11" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(727, -1924)
+position = Vector2(737, -1921)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton11"]
@@ -2002,7 +1857,7 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_fe5i5")
 
 [node name="skeleton13" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(1277, -1100)
+position = Vector2(1007, -547)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton13"]
@@ -2016,7 +1871,7 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_sfpnl")
 
 [node name="skeleton15" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(1421, -1106)
+position = Vector2(1010, -1573)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton15"]
@@ -2043,22 +1898,8 @@ export_path = NodePath("Path2D")
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton18"]
 curve = SubResource("Curve2D_yax8l")
 
-[node name="skeleton19" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(511, -585)
-export_path = NodePath("Path2D")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton19"]
-curve = SubResource("Curve2D_53d52")
-
-[node name="skeleton20" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(598, -509)
-export_path = NodePath("Path2D")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton20"]
-curve = SubResource("Curve2D_hk7a1")
-
 [node name="skeleton21" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-446, -153)
+position = Vector2(-662, -246)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton21"]
@@ -2072,14 +1913,14 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_0u1jm")
 
 [node name="skeleton23" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1646, -185)
+position = Vector2(-1650, -209)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton23"]
 curve = SubResource("Curve2D_tois4")
 
 [node name="skeleton24" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1581, -260)
+position = Vector2(-1589, -209)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton24"]
@@ -2093,56 +1934,56 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_lk53u")
 
 [node name="skeleton26" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1511, -260)
+position = Vector2(-1517, -194)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton26"]
 curve = SubResource("Curve2D_wpmxs")
 
 [node name="skeleton27" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1524, -1270)
+position = Vector2(-867, -956)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton27"]
 curve = SubResource("Curve2D_jq7v3")
 
 [node name="skeleton28" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1574, -1189)
+position = Vector2(-672, -1521)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton28"]
 curve = SubResource("Curve2D_0em0t")
 
 [node name="skeleton29" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1365, -1241)
+position = Vector2(-1407, -1245)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton29"]
 curve = SubResource("Curve2D_2k5uf")
 
 [node name="skeleton30" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1509, -1212)
+position = Vector2(-1492, -1260)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton30"]
 curve = SubResource("Curve2D_vrfgt")
 
 [node name="skeleton31" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-1485, -1138)
+position = Vector2(512, -1826)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton31"]
 curve = SubResource("Curve2D_bxn7f")
 
 [node name="skeleton32" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-867, -1228)
+position = Vector2(-864, -1187)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton32"]
 curve = SubResource("Curve2D_28ml8")
 
 [node name="skeleton33" parent="Gegner/Skeleton" node_paths=PackedStringArray("export_path") instance=ExtResource("16_o8lex")]
-position = Vector2(-707, -1105)
+position = Vector2(-1256, -1058)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton33"]
