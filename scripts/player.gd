@@ -91,6 +91,10 @@ func can_open_map():
 	# check if nicht in der hub noch machen
 	if currently_fading:
 		return false
+	if PlayerVariables.flag_dialog_open:
+		return false
+	if PlayerVariables.flag_raetsel_open:
+		return false
 	
 	if PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY || PlayerVariables.difficulty == PlayerVariables.Difficulty.MEDIUM:
 		return true
@@ -110,7 +114,10 @@ func switch_level(level: String):
 	fade_player.play("fade_to_black")
 	
 	await to_black_fade_finished
-	get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
+	if level == "outro" || level == "Outro":
+		get_tree().change_scene_to_file("res://scenes/ui/OutroCredits.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
 	
 func damage_animation():
 	for i in 4:
