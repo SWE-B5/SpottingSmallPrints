@@ -23,7 +23,6 @@ func _ready():
 	#print("group self")
 	#print(self)
 	add_to_group("Group HUDs")
-	Hud.is_Hub = PlayerVariables.current_level == 0
 	Hud.reset_queue_overlay()
 	#print(get_tree().get_current_scene().name)
 	#print(Hud.is_Hub)
@@ -34,7 +33,7 @@ func _process(_delta):
 	#print(get_tree().get_current_scene().name)
 	#print("process self")
 	#print(self)
-	if Hud.is_Hub:
+	if PlayerVariables.current_level == 0:
 		self.get_child(0).visible = false
 		self.get_child(1).visible = true
 		self.get_child(2).visible = true
