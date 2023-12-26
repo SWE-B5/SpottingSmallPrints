@@ -90,7 +90,7 @@ func get_xth_found_note_id(x: int):
 			return inventory[NOTE][x]
 		else:
 			x -= inventory[NOTE].size()
-			if (x < inventory[NOTE].size()):
+			if (x < inventory[NOTE_GLOBAL].size()):
 				return inventory[NOTE_GLOBAL][x]
 	return -1
 
