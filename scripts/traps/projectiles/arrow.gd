@@ -22,7 +22,7 @@ func _ready():
 
 func _process(delta):
 	if(self.global_position.distance_squared_to(DISPENSER_POS)  >= 128):
-		collision_mask = WALL_LAYER
+		collision_mask += WALL_LAYER
 	var result = move_and_collide(Vector2(cos(self.rotation), sin(self.rotation)) * SPEED * delta)
 	if(result != null):
 		if(result.get_collider() == get_parent().find_child("Player")):
