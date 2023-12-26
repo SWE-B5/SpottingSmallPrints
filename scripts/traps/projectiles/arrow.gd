@@ -25,7 +25,7 @@ func _process(delta):
 		collision_mask += WALL_LAYER
 	var result = move_and_collide(Vector2(cos(self.rotation), sin(self.rotation)) * SPEED * delta)
 	if(result != null):
-		if(result.get_collider() == get_parent().find_child("Player")):
+		if(result.get_collider() == get_tree().current_scene.find_child("Player")):
 			if(PlayerVariables.immunity_frames <= 0):
 				Health.damage_player()
 				PLAYER.damage_animation()
