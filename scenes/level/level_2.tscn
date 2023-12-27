@@ -648,7 +648,7 @@ type = 1
 position = Vector2(-128, -696)
 type = 1
 
-[node name="GoldeneTruhe" parent="Truhen" instance=ExtResource("15_kpbhj")]
+[node name="GoldeneTruhe" parent="Truhen" groups=["GoldeneTruhe"] instance=ExtResource("15_kpbhj")]
 position = Vector2(-1144, -1088)
 type = 1
 "schlüssel_id" = 3

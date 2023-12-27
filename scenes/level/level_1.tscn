@@ -575,7 +575,7 @@ position = Vector2(747, 319)
 position = Vector2(-456, -460)
 "schlüssel_id" = 2
 
-[node name="GoldeneTruhe" parent="Truhen" instance=ExtResource("13_e4jlt")]
+[node name="GoldeneTruhe" parent="Truhen" groups=["GoldeneTruhe"] instance=ExtResource("13_e4jlt")]
 position = Vector2(170, -223)
 "schlüssel_id" = 2
 

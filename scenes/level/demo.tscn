@@ -30,7 +30,7 @@ layer_1/tile_data = PackedInt32Array(720909, 589826, 7, 655373, 589826, 7, 58983
 
 [node name="HUD" parent="." instance=ExtResource("4_uodbi")]
 
-[node name="GoldeneTruhe" parent="." instance=ExtResource("6_lofh6")]
+[node name="GoldeneTruhe" parent="." groups=["GoldeneTruhe"] instance=ExtResource("6_lofh6")]
 position = Vector2(-184, -168)
 
 [node name="NormaleTruhe" parent="." instance=ExtResource("7_kp6b4")]

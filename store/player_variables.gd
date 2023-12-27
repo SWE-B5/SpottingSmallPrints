@@ -109,12 +109,12 @@ func action_after_dialog(x):
 			#rätsel öffnen memory
 			Hud.queue_overlay()
 			flag_raetsel_open = true
-			get_tree().current_scene.get_node("GoldeneTruhe").startMemory.emit()
+			get_tree().get_first_node_in_group("GoldeneTruhe").startMemory.emit()
 		2:
 			#rätsel öffnen simon
 			Hud.queue_overlay()
 			flag_raetsel_open = true
-			get_tree().current_scene.get_node("GoldeneTruhe").startSimonSays.emit()
+			get_tree().get_first_node_in_group("GoldeneTruhe").startSimonSays.emit()
 		3:
 			Inventory.update_after_level_completed()
 			get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
