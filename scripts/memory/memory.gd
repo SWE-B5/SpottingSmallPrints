@@ -33,6 +33,9 @@ func set_difficulty():
 	elif (PlayerVariables.difficulty == PlayerVariables.Difficulty.HARD):
 		max_game_moves = 20
 
+func _ready():
+	#_on_goldene_truhe_start_memory()
+	pass
 
 # lade memory karten assets
 var card = preload("res://scenes/memory/card.tscn")
@@ -62,6 +65,7 @@ func startGame():
 	set_difficulty()
 	#max_game_moves = 2
 	var cards_container = get_node("CanvasLayer/Panel/cards") # pfad zum sprite an dem die karten spawnen
+	PairsToBeFound = (ROW * COL) / 2
 	gameMoves = 0
 	cards = []
 	open_cards = []
@@ -96,10 +100,10 @@ func check():
 	
 	# wenn zwei karten gewählt wurden
 	if len(open_cards) >= 2:
-		increase_move_count()
 		for card in cards:
 			if card != null:
 				card.can_control = false
+		increase_move_count()
 		# prüfe ob selbe karte
 		if open_cards[0] == open_cards[1]:
 			$TurnBackTimer.start()
@@ -141,7 +145,7 @@ func _on_turn_back_timer_timeout():
 	continue_control()
 
 var success = true
-# timer: wenn spiel gelöst -> scenen wechsel
+# timer: wenn spiel gelöst -> scenen wechsel, falls verloren -> Neustarten
 func _on_scene_change_timer_timeout():
 	if success:
 		print("Alle Paare gefunden! Scene wechsel.")
@@ -185,7 +189,6 @@ func increase_move_count():
 
 # lädt neue memory scene
 func load_new_memory_game():
-	#get_tree().reload_current_scene()
 	print("Reset")
 	for card in cards:
 		if card != null:
@@ -199,6 +202,7 @@ func load_new_memory_game():
 func card_selected(card):
 	open_cards.append(card)
 	check()
+
 
 func _on_button_pressed():
 	is_scene_changing = true
