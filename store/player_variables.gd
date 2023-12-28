@@ -46,11 +46,11 @@ func initialize_new_game(diff: Difficulty):
 	current_level = 0
 	match difficulty:
 		Difficulty.EASY:
-			Health.reset_health(3, Health.INACTIVE)
+			Health.reset_health(5, Health.INACTIVE)
 		Difficulty.MEDIUM:
-			Health.reset_health(2, Health.INACTIVE)
+			Health.reset_health(4, Health.INACTIVE)
 		Difficulty.HARD:
-			Health.reset_health(1, Health.INACTIVE)
+			Health.reset_health(2, Health.INACTIVE)
 	print(Health.max_lives)
 	initialize_unsaved_vars()
 	save_game()
