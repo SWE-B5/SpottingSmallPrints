@@ -12,6 +12,11 @@ extends Node2D
 func _ready():
 	PlayerVariables.current_level = 0
 	PlayerVariables.save_game()
+	PlayerVariables.flag_action_after_dialog = 0
+	PlayerVariables.ref_last_dialog = 0
+	PlayerVariables.flag_raetsel_open = false
+	PlayerVariables.flag_dialog_open = false
+	PlayerVariables.immobile = false
 	anzahl_Notes = Inventory.number_of_notes_found()
 	
 	Inventory.update_after_death() #muss drin bleiben!
