@@ -10,28 +10,28 @@ script = ExtResource("1_1ywts")
 [node name="0" parent="." instance=ExtResource("4_jqnww")]
 
 [node name="1" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(40, 0)
+position = Vector2(56, 0)
 
 [node name="2" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(80, 0)
+position = Vector2(112, 0)
 
 [node name="3" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(0, 40)
+position = Vector2(0, 56)
 
 [node name="4" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(40, 40)
+position = Vector2(56, 56)
 
 [node name="5" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(80, 40)
+position = Vector2(112, 56)
 
 [node name="6" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(0, 80)
+position = Vector2(0, 112)
 
 [node name="7" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(40, 80)
+position = Vector2(56, 112)
 
 [node name="8" parent="." instance=ExtResource("4_jqnww")]
-position = Vector2(80, 80)
+position = Vector2(112, 112)
 
 [connection signal="change_mode" from="0" to="." method="_on__change_mode0"]
 [connection signal="change_mode" from="1" to="." method="_on__change_mode1"]

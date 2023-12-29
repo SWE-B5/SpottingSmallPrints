@@ -23,81 +23,84 @@ layer_2/tile_data = PackedInt32Array(131071, 0, 3, 65536, 65536, 3)
 position = Vector2(0, -18)
 
 [node name="LightsOutGame" parent="." instance=ExtResource("4_urxlk")]
-position = Vector2(-40, -1787.02)
+position = Vector2(-56, -1796)
 
 [node name="diamond_truhe" parent="LightsOutGame" instance=ExtResource("6_m7p4y")]
-position = Vector2(40, -73.98)
+position = Vector2(56, -59)
 
 [node name="HUD" parent="." instance=ExtResource("5_8a8ql")]
 
-[node name="dispenser" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-27, -104)
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="dispenser" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-24, -99)
 rotation = 1.5708
 
-[node name="dispenser2" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(21, -160)
+[node name="dispenser2" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(24, -155)
 rotation = 1.5708
 
-[node name="dispenser3" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(5, -336)
+[node name="dispenser3" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(8, -331)
 rotation = 1.5708
 
-[node name="dispenser4" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-11, -336)
+[node name="dispenser4" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-8, -331)
 rotation = 1.5708
 
-[node name="dispenser5" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(21, -424)
+[node name="dispenser5" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(24, -419)
 rotation = 1.5708
 
-[node name="dispenser6" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-27, -424)
+[node name="dispenser6" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-24, -419)
 rotation = 1.5708
 
-[node name="dispenser7" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-11, -584)
+[node name="dispenser7" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-8, -579)
 rotation = 1.5708
 
-[node name="dispenser8" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(5, -744)
+[node name="dispenser8" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(8, -739)
 rotation = 1.5708
 
-[node name="dispenser9" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-27, -816)
+[node name="dispenser9" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-24, -811)
 rotation = 1.5708
 
-[node name="dispenser10" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-3, -960)
+[node name="dispenser10" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(0, -955)
 rotation = 1.5708
 
-[node name="dispenser11" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(21, -1080)
+[node name="dispenser11" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(24, -1075)
 rotation = 1.5708
 
-[node name="dispenser12" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-11, -1192)
+[node name="dispenser12" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-8, -1187)
 rotation = 1.5708
 
-[node name="dispenser13" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-27, -1080)
+[node name="dispenser13" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-24, -1075)
 rotation = 1.5708
 
-[node name="dispenser14" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(21, -1320)
+[node name="dispenser14" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(24, -1315)
 rotation = 1.5708
 
-[node name="dispenser15" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-11, -1448)
+[node name="dispenser15" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-8, -1443)
 rotation = 1.5708
 
-[node name="dispenser16" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(-27, -1632)
+[node name="dispenser16" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(-24, -1627)
 rotation = 1.5708
 
-[node name="dispenser17" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(21, -1632)
+[node name="dispenser17" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(24, -1627)
 rotation = 1.5708
 
-[node name="dispenser18" parent="." instance=ExtResource("8_uasjf")]
-position = Vector2(5, -1632)
+[node name="dispenser18" parent="Node2D" instance=ExtResource("8_uasjf")]
+position = Vector2(8, -1627)
 rotation = 1.5708

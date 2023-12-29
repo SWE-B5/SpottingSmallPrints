@@ -30,7 +30,7 @@ type = 1
 "schlüssel_id" = 1
 
 [node name="Tür_Level_1" parent="." instance=ExtResource("4_khuwt")]
-position = Vector2(-216, -96)
+position = Vector2(-216, -97)
 id = 1
 
 [node name="Tür_Level_2" parent="." instance=ExtResource("4_khuwt")]
