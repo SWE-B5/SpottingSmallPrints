@@ -27,6 +27,7 @@ func _ready():
 	sprite.animation =  "closed"
 
 func _on_interact():
+	if !PlayerVariables.flag_dialog_open && is_closed:
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if not Inventory.check_all_notes_current_level():
 			PlayerVariables.flag_dialog_open = true
