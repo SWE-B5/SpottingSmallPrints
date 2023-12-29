@@ -41,7 +41,7 @@ theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 30
 text = " §16
 
-Findet der Neuling selbstständig auf dem Labyrinth, 
+Findet der Neuling selbstständig aus dem Labyrinth, 
 
 so gilt seine Prüfung als bestanden.
 
@@ -51,12 +51,12 @@ Alle Mitglieder des Ordens mögen ihn auf der anderen
 Seite der Dimanttür empfangen.
 
 
-Das älteste Mitglied möge ihm seine neue Robe
+Das älteste Mitglied wird ihm seine neue Robe
 
 überreichen und ihn im Orden willkommen heißen.
 
 
-Er ist nur berechtigt an den Sitzungen des Ordens
+Ihm ist es nun erlaubt an den Sitzungen des Ordens
 
 am großen Tisch teilzunehmen."
 
@@ -179,6 +179,7 @@ Font:
   (https://fontmeme.com/fonts/dabir-font/)
 
 "
+scroll_vertical = 1.0
 
 [node name="team_namen" type="Label" parent="Credits/credits"]
 layout_mode = 1
@@ -211,9 +212,7 @@ offset_right = 1740.0
 offset_bottom = 350.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
-text = "
-	
-Fabian Ferrari
+text = "Fabian Ferrari
 
 Hannes Gierth
 

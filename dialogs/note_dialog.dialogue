@@ -8,20 +8,20 @@
 ~ Note_1_Level
 Du hast ein Fragment gefunden.
 § 4
-	Möge der Prüfling die <Leertaste> drücken, um weiter zu lesen.
-	Seine Agilität kann der Prüfling mithilde von <W>, <A>, <S> und <D> unter Beweis stellen.
-	Dem Prüfling ist es jederzeit gestattet mit <ESC> eine Rast einzulegen.
-	Auf diesem Weg soll er sich ebendfalls die Steuerung ins Gedächtnis rufen.
+	Möge der Prüfling die <Leertaste> drücken, um weiterzulesen.
+	Seine Agilität kann der Prüfling mithilfe von <W>, <A>, <S> und <D> unter Beweis stellen.
+	Dem Prüfling ist es jederzeit gestattet, mit <ESC> eine Rast einzulegen.
+	Auf diesem Weg soll er sich ebenfalls die Steuerung ins Gedächtnis rufen.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 
 ~ Note_1_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 4
-	Möge der Prüfling die <Leertaste> drücken, um weiter zu lesen.
-	Seine Agilität kann der Prüfling mithilde von <W>, <A>, <S> und <D> unter Beweis stellen.
-	Dem Prüfling ist es jederzeit gestattet mit <ESC> eine Rast einzulegen.
-	Auf diesem Weg soll er sich ebendfalls die Steuerung ins Gedächtnis rufen.
+	Möge der Prüfling die <Leertaste> drücken, um weiterzulesen.
+	Seine Agilität kann der Prüfling mithilfe von <W>, <A>, <S> und <D> unter Beweis stellen.
+	Dem Prüfling ist es jederzeit gestattet, mit <ESC> eine Rast einzulegen.
+	Auf diesem Weg soll er sich ebenfalls die Steuerung ins Gedächtnis rufen.
 => END
 
 ~ Note_2_Level
@@ -33,7 +33,7 @@ Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 
 ~ Note_2_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 5
 	Auf dem Prüfgelände mögen Türen und Schlüssel verteilt sein.
 	Möge sich dabei jeder Schlüssel sich in einer eigenen Truhe befinden und nur auf eine Tür passen.
@@ -42,16 +42,16 @@ Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 ~ Note_3_Level
 Du hast ein Fragment gefunden.
 § 6
-	Mögen die Gefahren des Labyrinths beginnen, sobald er die erste Tür durchschreit. 
-	Der Prüfling möge den Gegnern und Hindernissen selbständig außweichen,
+	Mögen die Gefahren des Labyrinths beginnen, sobald er die erste Tür durchschreitet. 
+	Der Prüfling möge den Gegnern und Hindernissen selbstständig ausweichen,
 	und so Intelligenz und Agilität zu beweisen.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_3_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 6
-	Mögen die Gefahren des Labyrinths beginnen, sobald er die erste Tür durchschreit. 
-	Der Prüfling möge den Gegnern und Hindernissen selbständig außweichen,
+	Mögen die Gefahren des Labyrinths beginnen, sobald er die erste Tür durchschreitet. 
+	Der Prüfling möge den Gegnern und Hindernissen selbstständig ausweichen,
 	und so Intelligenz und Agilität zu beweisen.
 => END
 
@@ -65,7 +65,7 @@ Du hast ein Fragment gefunden.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_4_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 7
 	Sollte der Prüfling in einem Level des Labyrinths scheitern oder unterbrechen,
 	so muss er den besagten Abschnitt von vorne beginnen.
@@ -76,17 +76,17 @@ Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 ~ Note_5_Level
 Du hast ein Fragment gefunden.
 § 8
-	Der Prüfling muss sich die gefunden Fragmente im Laufe des Levels einprägen.
+	Der Prüfling muss sich die gefundenen Fragmente im Laufe des Levels einprägen.
 	Möge er sein Gedächtnis in Rätseln unter Beweis stellen, um das Level abzuschließen.
-	Anschließend möge er in Folm eines goldenen Schlüssels Zugang zum nächsten Level zu erhalten.
+	Anschließend möge er in Form eines goldenen Schlüssels Zugang zum nächsten Level zu erhalten.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_5_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 8
-	Der Prüfling muss sich die gefunden Fragmente im Laufe des Levels einprägen.
+	Der Prüfling muss sich die gefundenen Fragmente im Laufe des Levels einprägen.
 	Möge er sein Gedächtnis in Rätseln unter Beweis stellen, um das Level abzuschließen.
-	Anschließend möge er in Folm eines goldenen Schlüssels Zugang zum nächsten Level zu erhalten.
+	Anschließend möge er in Form eines goldenen Schlüssels Zugang zum nächsten Level zu erhalten.
 => END
 
 ~ Note_6_Level
@@ -97,39 +97,39 @@ Du hast ein Fragment gefunden.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_6_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 9
 	Möge der Prüfling sich nach einem bestandenem Level unverzüglich zurück zum Hub begeben.
-	Möge er dort rasten, bis er wieder bei vollen Kräften ist, und von Trankeffekten ausgenüchtert ist.
+	Möge er dort rasten, bis er wieder bei vollen Kräften ist und von Trank-Effekten ausgenüchtert ist.
 => END
 
 ~ Note_7_Level
 Du hast ein Fragment gefunden.
 § 10
 	Der Prüfling kann mittels <M> auf die Zehenspitzen gehen und auf bereits erkundete Wege herabblicken.
-	Alledings möge er dies nur versuchen, wenn sein Schwierigkeitsgrad es gestattet.
+	Allerdings möge er dies nur versuchen, wenn sein Schwierigkeitsgrad es gestattet.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_7_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 10
 	Der Prüfling kann mittels <M> auf die Zehenspitzen gehen und auf bereits erkundete Wege herabblicken.
-	Alledings möge er dies nur versuchen, wenn sein Schwierigkeitsgrad es gestattet.
+	Allerdings möge er dies nur versuchen, wenn sein Schwierigkeitsgrad es gestattet.
 => END
 
 
 ~ Note_8_Level
 Du hast ein Fragment gefunden.
 § 11
-	Möge der Prüfling die Bewegungmuster der Gegner observieren.
-	Gegner patrouillieren fest auf einer Linie oder zuällig in einem Bereich.
+	Möge der Prüfling die Bewegungsmuster der Gegner observieren.
+	Gegner patrouillieren fest auf einer Linie oder zufällig in einem Bereich.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_8_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 11
-	Möge der Prüfling die Bewegungmuster der Gegner observieren.
-	Gegner patrouillieren fest auf einer Linie oder zuällig in einem Bereich.
+	Möge der Prüfling die Bewegungsmuster der Gegner observieren.
+	Gegner patrouillieren fest auf einer Linie oder zufällig in einem Bereich.
 => END
 
 ~ Note_9_Level
@@ -141,7 +141,7 @@ Du hast ein Fragment gefunden.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_9_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 12
 	Möge der Prüfling die Reaktionen der verschiedenen Fallen austesten.
 	Manche Fallen reagieren nur in einem bestimmten Sichtfeld.
@@ -154,7 +154,7 @@ Du hast ein Fragment gefunden.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_10_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 13
 	Möge der Prüfling im letzten Level der Prüfung einen diamantenen Schlüssel für die finale Tür im Hub erhalten.
 => END
@@ -167,7 +167,7 @@ Du hast ein Fragment gefunden.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_11_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 14
 	Die Kodex-Fragmente können dem Prüfling nur zusammen ihre volle Weisheit offenbaren.
 	Möge der Prüfling in seinem letzten Rätsel seine Fähigkeiten in der Kombinatorik zeigen.
@@ -183,7 +183,7 @@ Du hast ein Fragment gefunden.
 Gefundene Fragmente werden im rechten Raum des Hubs ausgestellt.
 => END
 ~ Note_12_Hub
---Augestelltes Kodex-Fragment--
+--Aufestelltes Kodex-Fragment--
 § 15
 	Sollte der Prüfling nicht mehr aus dem Labyrinth finden,
 	so möge er dort in bis ans Ende seiner Tage in den Gängen umherirren.
@@ -208,7 +208,7 @@ Du findest einen Schildtrank.
 ~ Silberne_Kiste
 Du findest einen silbernen Schlüssel mit der Nummer {{Inventory.dialogue_temp_silver_id}}.
 	Mit ihm kannst du die zugehörige Tür in diesem Level öffnen.
-	Bereits gefundene silberne Schlüssel werden für die dauer des Levels unten links eingeblendet.
+	Bereits gefundene silberne Schlüssel werden für die Dauer des Levels unten links eingeblendet.
 => END
 
 ~ Silberne_Kiste_negative
@@ -232,8 +232,8 @@ Du kannst diese Truhe erst öffnen, wenn du alle {{Inventory.NOTES_PER_LEVEL}} N
 
 
 ~ Diamantene_Kiste
-Du findest den diamentenen Schlüssel.
-	Mit ihm kannst du die zugehörige Tür im HUb öffnen.
+Du findest den diamantenen Schlüssel.
+	Mit ihm kannst du die zugehörige Tür im HUB öffnen.
 => END
 
 ~ Diamantene_Kiste_negative
@@ -263,15 +263,11 @@ Die Tür ist verschlossen.
 => END
 
 ~ Diamantene_Tür
-Du benutzt den diamentenen Schlüssel, um die Tür zu öffnen.
+Du benutzt den diamantenen Schlüssel, um die Tür zu öffnen.
 	Die Tür gibt den Weg hinter sich frei.
 => END
 
 ~ Diamantene_Tür_negative
 Die Tür ist verschlossen.
-	Finde den diamentenen Schlüssel, um die Tür zu öffnen.
+	Finde den diamantenen Schlüssel, um die Tür zu öffnen.
 => END
-
-
-
-
