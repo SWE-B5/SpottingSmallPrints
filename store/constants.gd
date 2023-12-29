@@ -13,6 +13,10 @@ const EASY_SPEED = 120
 const MEDIUM_SPEED = 100
 const HARD_SPEED = 80
 
+const EASY_MAX_HEALTH = 6
+const MEDUM_MAX_HEALTH = 4
+const HARD_MAX_HEALTH = 2
+
 #muss aktualisiert werden, wenn Level eingefügt werden
 const LEVEL_PATHS = [HUB_PATH, LEVEL_1_PATH, LEVEL_2_PATH, LEVEL_3_PATH, LEVEL_4_PATH]
 const HUB_PATH = "res://scenes/level/hub.tscn"
