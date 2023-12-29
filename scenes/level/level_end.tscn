@@ -23,6 +23,7 @@ layer_2/tile_data = PackedInt32Array(131071, 0, 3, 65536, 65536, 3)
 position = Vector2(0, -18)
 
 [node name="LightsOutGame" parent="." instance=ExtResource("4_urxlk")]
+y_sort_enabled = true
 position = Vector2(-56, -1796)
 
 [node name="diamond_truhe" parent="LightsOutGame" instance=ExtResource("6_m7p4y")]
