@@ -14,7 +14,6 @@ signal memoryCanceled
 #Goldene Truhe implementation
 func _on_goldene_truhe_start_memory():
 	isActive = true
-	print("Starting Memory")
 	visible = isActive
 	$CanvasLayer.visible = isActive
 	startGame()
@@ -70,7 +69,6 @@ func startGame():
 	cards = []
 	open_cards = []
 	setupHUD()
-	print(max_game_moves)
 	# instanziiere memory karten
 	for t in Textures:
 		var newCard = card.instantiate()
@@ -96,7 +94,6 @@ func setupHUD():
 
 # prüft memory karten
 func check():
-	print(open_cards)
 	
 	# wenn zwei karten gewählt wurden
 	if len(open_cards) >= 2:
@@ -118,7 +115,6 @@ func check():
 				on_all_pairs_found()
 		# unmatch
 		else:
-			print("turnback timer start")
 			$TurnBackTimer.start()
 
 # clear array
@@ -148,7 +144,6 @@ var success = true
 # timer: wenn spiel gelöst -> scenen wechsel, falls verloren -> Neustarten
 func _on_scene_change_timer_timeout():
 	if success:
-		print("Alle Paare gefunden! Scene wechsel.")
 		memorySuccessful.emit()
 		closeMemory()
 	else:
@@ -169,7 +164,6 @@ var is_scene_changing = false
 func _process(delta):
 	if Input.is_key_pressed(KEY_Q) and not is_scene_changing:
 		is_scene_changing = true
-		print("q")
 		#var oldCards = $CanvasLayer/Panel/cards.get_children()
 		for card in cards:
 			if card != null:
@@ -189,7 +183,6 @@ func increase_move_count():
 
 # lädt neue memory scene
 func load_new_memory_game():
-	print("Reset")
 	for card in cards:
 		if card != null:
 			card.can_control = false
@@ -201,6 +194,7 @@ func load_new_memory_game():
 # ruft check() methode auf
 func card_selected(card):
 	open_cards.append(card)
+	card.can_control = false
 	check()
 
 

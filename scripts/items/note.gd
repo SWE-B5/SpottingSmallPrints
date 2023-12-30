@@ -33,7 +33,6 @@ func _on_interact():
 			# Textur der offenen Truhe laden 
 			self.hide()
 			Inventory.collect_item(Inventory.Item_Type.NOTE, note_id)
-			print(Inventory.inventory)
 		elif type == note_type.HUB:
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0

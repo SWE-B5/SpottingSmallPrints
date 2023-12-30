@@ -80,3 +80,19 @@ rotation = 1.5708
 
 [node name="TürEckig2" parent="." instance=ExtResource("9_wm34x")]
 position = Vector2(9, -38)
+
+[node name="GoldeneTruhe2" parent="." instance=ExtResource("6_lofh6")]
+position = Vector2(103, -15)
+
+[node name="GoldeneTruhe3" parent="." instance=ExtResource("6_lofh6")]
+position = Vector2(103, -60)
+type = 1
+
+[node name="Note2" parent="." instance=ExtResource("8_vuxer")]
+position = Vector2(20, 24)
+
+[node name="Note3" parent="." instance=ExtResource("8_vuxer")]
+position = Vector2(38, 24)
+
+[node name="Note4" parent="." instance=ExtResource("8_vuxer")]
+position = Vector2(30, 9)

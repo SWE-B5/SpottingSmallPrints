@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://chvmjg662vc5e" path="res://scenes/structures/pressure_plate_lights_out.tscn" id="4_jqnww"]
 
 [node name="LightsOutGame" type="Node2D"]
+y_sort_enabled = true
 position = Vector2(8, 8)
 script = ExtResource("1_1ywts")
 

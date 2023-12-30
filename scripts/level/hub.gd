@@ -10,6 +10,7 @@ extends Node2D
 
 @onready var scene
 func _ready():
+	PlayerVariables.level_end = false
 	PlayerVariables.current_level = 0
 	PlayerVariables.save_game()
 	PlayerVariables.flag_action_after_dialog = 0

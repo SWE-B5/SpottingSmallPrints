@@ -14,8 +14,6 @@ func jsonify():
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
 func load_save_file():
-	print(FileAccess.file_exists(Constants.SAVE_PATH))
-	
 	if not FileAccess.file_exists(Constants.SAVE_PATH):
 		return false
 
@@ -51,7 +49,6 @@ func initialize_new_game(diff: Difficulty):
 			Health.reset_health(Constants.MEDIUM_MAX_HEALTH, Health.INACTIVE)
 		Difficulty.HARD:
 			Health.reset_health(Constants.HARD_MAX_HEALTH, Health.INACTIVE)
-	print(Health.max_lives)
 	initialize_unsaved_vars()
 	save_game()
 
@@ -80,6 +77,7 @@ var immobile: bool = false
 
 # In welchem Level der Spieler sich befindet, 0 ist Hub, 1-N sind die Labyrinthe
 var current_level = 0
+var level_end = false
 
 # Immunity Frames
 var immunity_frames: float
