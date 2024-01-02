@@ -2008,7 +2008,7 @@ y_sort_enabled = true
 [node name="GoldeneTruhe" type="Node2D" parent="Truhe"]
 y_sort_enabled = true
 
-[node name="GoldeneTruhe" parent="Truhe/GoldeneTruhe" instance=ExtResource("18_kdlb5")]
+[node name="GoldeneTruhe" parent="Truhe/GoldeneTruhe" groups=["GoldeneTruhe"] instance=ExtResource("18_kdlb5")]
 position = Vector2(184, -1529)
 "schlüssel_id" = 4
 

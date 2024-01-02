@@ -14,8 +14,6 @@ func jsonify():
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
 func load_save_file():
-	print(FileAccess.file_exists(Constants.SAVE_PATH))
-	
 	if not FileAccess.file_exists(Constants.SAVE_PATH):
 		return false
 
@@ -46,12 +44,11 @@ func initialize_new_game(diff: Difficulty):
 	current_level = 0
 	match difficulty:
 		Difficulty.EASY:
-			Health.reset_health(3, Health.INACTIVE)
+			Health.reset_health(Constants.EASY_MAX_HEALTH, Health.INACTIVE)
 		Difficulty.MEDIUM:
-			Health.reset_health(2, Health.INACTIVE)
+			Health.reset_health(Constants.MEDIUM_MAX_HEALTH, Health.INACTIVE)
 		Difficulty.HARD:
-			Health.reset_health(1, Health.INACTIVE)
-	print(Health.max_lives)
+			Health.reset_health(Constants.HARD_MAX_HEALTH, Health.INACTIVE)
 	initialize_unsaved_vars()
 	save_game()
 
@@ -80,6 +77,7 @@ var immobile: bool = false
 
 # In welchem Level der Spieler sich befindet, 0 ist Hub, 1-N sind die Labyrinthe
 var current_level = 0
+var level_end = false
 
 # Immunity Frames
 var immunity_frames: float
@@ -109,12 +107,12 @@ func action_after_dialog(x):
 			#rätsel öffnen memory
 			Hud.queue_overlay()
 			flag_raetsel_open = true
-			get_tree().current_scene.get_node("GoldeneTruhe").startMemory.emit()
+			get_tree().get_first_node_in_group("GoldeneTruhe").startMemory.emit()
 		2:
 			#rätsel öffnen simon
 			Hud.queue_overlay()
 			flag_raetsel_open = true
-			get_tree().current_scene.get_node("GoldeneTruhe").startSimonSays.emit()
+			get_tree().get_first_node_in_group("GoldeneTruhe").startSimonSays.emit()
 		3:
 			Inventory.update_after_level_completed()
 			get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level

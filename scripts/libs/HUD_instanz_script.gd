@@ -33,7 +33,7 @@ func _process(_delta):
 	#print(get_tree().get_current_scene().name)
 	#print("process self")
 	#print(self)
-	if PlayerVariables.current_level == 0:
+	if PlayerVariables.current_level == 0 && !PlayerVariables.level_end:
 		self.get_child(0).visible = false
 		self.get_child(1).visible = true
 		self.get_child(2).visible = true

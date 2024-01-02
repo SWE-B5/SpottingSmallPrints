@@ -1,27 +1,5 @@
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#_on_goldene_truhe_start_simon_says()
-	pass
-
-
-
-var isActive = false
-signal puzzleSuccessful
-signal puzzleCanceled
-
-func _on_goldene_truhe_start_simon_says():
-	isActive = true
-	print("Starting Simon Says")
-	visible = isActive
-	startGame()
-	
-func closeSimonSays():
-	isActive = false
-	visible = false
-
 # VARIABLEN HIER ANPASSEN UND ENTSPRECHENDE METHODEN UNTEN AUSKOMMENTIEREN
 var next_scene_path = "res://path/to/your_next_scene.tscn"
 
@@ -40,6 +18,23 @@ const speed = 0.5
 var green_texture = preload("res://assets/simonsays/buttontextures/greenbutton/greenbutton_hovered.png")
 var red_texture = preload("res://assets/simonsays/buttontextures/redbutton/redbutton_hovered.png")
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	set_difficulty()
+	pass
+
+var isActive = false
+signal puzzleSuccessful
+signal puzzleCanceled
+
+func _on_goldene_truhe_start_simon_says():
+	isActive = true
+	visible = isActive
+	startGame()
+	
+func closeSimonSays():
+	isActive = false
+	visible = false
 
 func set_difficulty():
 	if (PlayerVariables.difficulty == PlayerVariables.Difficulty.EASY):
@@ -54,16 +49,14 @@ func set_difficulty():
 func startGame():
 	#PlayerVariables.load_easy_game() # kann später vermutlich raus
 	setupHUD()
-	set_difficulty()
-	max_rounds = 2
-	print(max_rounds)
 	buttons = [$Panel/BoxContainer/GreenButton,$Panel/BoxContainer/BlueButton,$Panel/BoxContainer/RedButton,$Panel/BoxContainer/YellowButton]
 	for x in max_rounds:
-		arr.append(rng.randi_range(0, buttons.size()-1))
+		arr.append(rng.randi_range(0, buttons.size() - 1))
 	currentRound = 1
 	await disableButtons();
 	await blinkAllButtons(2,'')
 	await StartRound()
+	
 #disabled den Input vom User -> texture_disabled
 func disableButtons():
 	for x in buttons:
@@ -116,31 +109,27 @@ func checkInput(buttonIndex):
 		disableButtons()
 		awaitingInput = false
 		if arr[pointer] == buttonIndex:
-			pointer=pointer +1
-			print(" war richtig")
+			pointer = pointer +1
 			if pointer >= currentRound:
 				pointer=0
 				if currentRound < max_rounds:
-					print("Neue Runde")
-					currentRound=currentRound+1
+					currentRound = currentRound+1
 					setupHUD()
 					StartRound()
 				else:
 					on_all_pairs_found()
-					print("Geschafft")
 					await blinkAllButtons(3,'green')
 			else:
 				enableButtons()
 			awaitingInput=true
 		else:
-			print("Falsch, reset")
 			pointer = 0
-			currentRound=1
+			currentRound = 1
 			setupHUD()
-			arr =[]
+			arr = []
 			for x in max_rounds:
-				arr.append(rng.randi_range(0, buttons.size()-1))
-			await blinkAllButtons(2,'red')
+				arr.append(rng.randi_range(0, buttons.size() - 1))
+			await blinkAllButtons(2, 'red')
 			StartRound()
 
 func _on_green_button_pressed():
@@ -168,7 +157,6 @@ var is_scene_changing = false
 func _process(delta):
 	if Input.is_key_pressed(KEY_Q) and not is_scene_changing:
 		is_scene_changing = true
-		print("q")
 		puzzleCanceled.emit()
 		closeSimonSays()
 		is_scene_changing = false
@@ -184,7 +172,6 @@ func setupHUD():
 func _on_scene_change_timer_timeout():
 	# hier kann eine neue scene geladen werden 
 	# zum beispiel: get_tree().change_scene(next_scene_path)
-	print("Rätsel gelöst! Scene wechsel.")
 	puzzleSuccessful.emit()
 	closeSimonSays()
 
@@ -194,7 +181,6 @@ func on_all_pairs_found():
 
 # interface button
 func _on_button_pressed():
-	print("q")
 	is_scene_changing = true
 	puzzleCanceled.emit()
 	closeSimonSays()

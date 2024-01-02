@@ -39,10 +39,10 @@ size = Vector2(14, 7)
 radius = 25.0799
 
 [node name="diamond_truhe" type="StaticBody2D"]
+z_index = 1
 script = ExtResource("1_rol2o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
 position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_m7wya")
 animation = &"open"

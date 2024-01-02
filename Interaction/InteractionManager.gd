@@ -7,18 +7,19 @@ extends Node2D
 
 func register_area(area : InteractionArea):
 	active_areas.push_back(area)
-	print(active_areas)
 	
 func unregister_area(area : InteractionArea):
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
-	print(active_areas)
 		
 func _process(delta):
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		label.text = active_areas[0].action_name
+		if PlayerVariables.flag_dialog_open || PlayerVariables.flag_raetsel_open:
+			label.text = "erst Dialog schließen"
+		else:
+			label.text = active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36
 		label.global_position.x -= label.size.x / 2
@@ -29,7 +30,6 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:
 		if active_areas.size() > 0:
-			print('interact')
 			can_interact = false
 			label.hide()
 			await active_areas[0].interact.call()
