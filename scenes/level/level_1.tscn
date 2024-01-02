@@ -308,12 +308,10 @@ y_sort_enabled = true
 [node name="Flamethrower1-1" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-232, -168)
 rotation = 0.0074263
-scale = Vector2(1, 1)
 
 [node name="Flamethrower2-1" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-839, 16)
 rotation = -3.13355
-scale = Vector2(1, 1)
 
 [node name="Flamethrower2-2" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-824, -168)
@@ -327,7 +325,6 @@ position = Vector2(-184, -505)
 [node name="Flamethrower1-2" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(552, -487)
 rotation = 0.0074263
-scale = Vector2(1, 1)
 
 [node name="Flamethrower1-3" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-504, -280)
@@ -342,7 +339,6 @@ rotation = 0.00935012
 [node name="Flamethrower2-5" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-823, 16)
 rotation = -3.13355
-scale = Vector2(1, 1)
 
 [node name="Flamethrower2-6" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-424, 392)
@@ -350,17 +346,14 @@ position = Vector2(-424, 392)
 [node name="Flamethrower1-6" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(664, -232)
 rotation = 0.0074263
-scale = Vector2(1, 1)
 
 [node name="Flamethrower2-7" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-808, 93)
 rotation = -3.13355
-scale = Vector2(1, 1)
 
 [node name="Flamethrower2-8" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(-824, 93)
 rotation = -3.13355
-scale = Vector2(1, 1)
 
 [node name="Flamethrower" parent="Traps/Flamethrower" instance=ExtResource("6_erdrq")]
 position = Vector2(392, 8)
@@ -590,3 +583,11 @@ type = 1
 [node name="NormaleTruhe5" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(363, -247)
 "schlüssel_id" = 5
+
+[node name="NormaleTruhe6" parent="Truhen" instance=ExtResource("12_lqj3k")]
+position = Vector2(744, 411)
+type = 1
+
+[node name="NormaleTruhe7" parent="Truhen" instance=ExtResource("12_lqj3k")]
+position = Vector2(208, 88)
+type = 1
