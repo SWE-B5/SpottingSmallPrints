@@ -127,3 +127,12 @@ func _on_hard_difficulty_button_mouse_entered():
 
 func _on_hard_difficulty_button_mouse_exited():
 	difficulty_selector.get_child(4).hide()
+
+func _on_fullscreen_pressed():
+	if(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		print(start_menu)
+		start_menu.find_child("Fullscreen").text = "Windowed"
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		start_menu.find_child("Fullscreen").text = "Fullscreen"
