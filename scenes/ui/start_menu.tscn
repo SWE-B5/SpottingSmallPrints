@@ -73,6 +73,12 @@ theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
 text = "Letzten Spielstand laden"
 
+[node name="Fullscreen" type="Button" parent="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen"
+
 [node name="QuitButton" type="Button" parent="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
@@ -460,6 +466,7 @@ text = "Prüfung starten"
 
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/confirm_quit" to="." method="_on_confirm_quit_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/confirm_abbruch" to="." method="_on_confirm_abbruch_pressed"]
