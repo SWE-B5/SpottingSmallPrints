@@ -33,7 +33,6 @@ func _on_interact():
 				return
 			else:
 				Health.apply_shield()
-				print(Health.shield)
 				PlayerVariables.flag_dialog_open = true
 				PlayerVariables.flag_action_after_dialog = 0
 				PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource,"Schildtrank_Kiste" )
@@ -43,7 +42,6 @@ func _on_interact():
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0
 			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Silberne_Kiste" )
-			print(Inventory.inventory)
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
 		# Interaktion mit Truhe deaktivieren

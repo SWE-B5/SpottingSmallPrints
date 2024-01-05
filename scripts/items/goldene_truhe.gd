@@ -27,6 +27,7 @@ func _ready():
 	sprite.animation =  "closed"
 
 func _on_interact():
+	if !PlayerVariables.flag_dialog_open && is_closed:
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		if not Inventory.check_all_notes_current_level():
 			PlayerVariables.flag_dialog_open = true
@@ -52,7 +53,6 @@ func _on_interact():
 func _puzzle_canceled():
 	if awaitingSignal:
 		awaitingSignal = false
-		print("Puzzle Cancelled")
 		
 		#TODO: Dialog hinzufügen
 		
@@ -67,7 +67,6 @@ func _puzzle_canceled():
 #Schluessel Drop
 func _puzzle_successful():
 	if awaitingSignal:
-		print("Puzzle successful: adding item To Inventory")
 		
 		#TODO: Dialog hinzufügen und zum Hub teleportieren
 		
@@ -79,7 +78,6 @@ func _puzzle_successful():
 		PlayerVariables.flag_dialog_open = true
 		PlayerVariables.flag_action_after_dialog = 3
 		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
-		print(Inventory)
 		PlayerVariables.immobile = false
 		awaitingSignal = false
 		

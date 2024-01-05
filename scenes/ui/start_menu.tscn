@@ -73,6 +73,12 @@ theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
 text = "Letzten Spielstand laden"
 
+[node name="Fullscreen" type="Button" parent="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen"
+
 [node name="QuitButton" type="Button" parent="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
@@ -202,7 +208,7 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "3 Leben
+text = "6 Leben
 Karte verfügbar
 höhere Geschwindigkeit
 leichtere Rätsel"
@@ -216,7 +222,7 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "2 Leben
+text = "4 Leben
 Karte verfügbar"
 horizontal_alignment = 1
 
@@ -228,7 +234,7 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 12
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "1 Leben
+text = "2 Leben
 keine Karte
 verringerte Geschwindigkeit
 schwierigere Rätsel"
@@ -353,15 +359,15 @@ Die Geheimhaltung des Ordens hat höchste Priorität.
 
 Trifft eine Person versehentlich auf den Orden,
 
-so muss sie vor die Wahl zwischen Beitritt und Tod 
+so wird sie vor die Wahl zwischen Beitritt und Tod 
 
-gestellt werden.
+gestellt.
 
 
 
  -§2-
 
-Ein Beitritt in den Orden wird mit dem eigenen Blut 
+Der Beitritt in den Orden wird mit dem eigenen Blut 
 
 auf dem Kodex besiegelt."
 
@@ -460,6 +466,7 @@ text = "Prüfung starten"
 
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/confirm_quit" to="." method="_on_confirm_quit_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/confirm_abbruch" to="." method="_on_confirm_abbruch_pressed"]

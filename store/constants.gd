@@ -13,6 +13,10 @@ const EASY_SPEED = 120
 const MEDIUM_SPEED = 100
 const HARD_SPEED = 80
 
+const EASY_MAX_HEALTH = 6
+const MEDIUM_MAX_HEALTH = 4
+const HARD_MAX_HEALTH = 2
+
 #muss aktualisiert werden, wenn Level eingefügt werden
 const LEVEL_PATHS = [HUB_PATH, LEVEL_1_PATH, LEVEL_2_PATH, LEVEL_3_PATH, LEVEL_4_PATH]
 const HUB_PATH = "res://scenes/level/hub.tscn"
@@ -27,10 +31,10 @@ const ZOOM_TICK = 0.01
 
 const FADE_SPEED = 1
 
-const SPEED_SKULL_EASY = 100
-const SPEED_SKULL_MEDIUM = 110
-const SPEED_SKULL_HARD = 120
+const SPEED_SKULL_EASY = 80
+const SPEED_SKULL_MEDIUM = 100
+const SPEED_SKULL_HARD = 100
 
-const SPEED_SKELETON_EASY = 100
-const SPEED_SKELETON_MEDIUM = 110
-const SPEED_SKELETON_HARD = 120
+const SPEED_SKELETON_EASY = 80
+const SPEED_SKELETON_MEDIUM = 100
+const SPEED_SKELETON_HARD = 100
