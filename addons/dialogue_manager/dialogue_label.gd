@@ -19,7 +19,7 @@ signal finished_typing()
 
 
 ## The action to press to skip typing.
-@export var skip_action: StringName = &"ui_cancel"
+@export var skip_action: StringName = &"ui_accept" #ui_cancel default value
 
 ## The speed with which the text types out.
 @export var seconds_per_step: float = 0.02

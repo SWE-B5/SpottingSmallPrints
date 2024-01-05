@@ -181,12 +181,8 @@ text = "<Q> Rätsel abbrechen und Truhe schließen"
 label_settings = SubResource("LabelSettings_0321y")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Panel/PanelContainerBottom"]
-layout_mode = 2
-
 [connection signal="timeout" from="Panel/SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
 [connection signal="pressed" from="Panel/BoxContainer/GreenButton" to="." method="_on_green_button_pressed"]
 [connection signal="pressed" from="Panel/BoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
 [connection signal="pressed" from="Panel/BoxContainer/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Panel/BoxContainer/YellowButton" to="." method="_on_yellow_button_pressed"]
-[connection signal="pressed" from="Panel/PanelContainerBottom/Button" to="Panel" method="_on_button_pressed"]

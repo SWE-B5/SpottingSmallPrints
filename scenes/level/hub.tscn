@@ -15,6 +15,7 @@
 size = Vector2(32, 64)
 
 [node name="Hub" type="Node2D"]
+y_sort_enabled = true
 position = Vector2(0, 1)
 script = ExtResource("1_v80s3")
 
