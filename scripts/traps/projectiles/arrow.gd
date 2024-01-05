@@ -3,7 +3,7 @@ extends StaticBody2D
 #speed should be calculated by player speed to allow for evasion
 const PLAYER_LAYER = 16 as int
 const WALL_LAYER = 1 as int
-var SPEED = 200 - (PlayerVariables.speed * 0.8)
+var SPEED = pow((96 - (PlayerVariables.speed * 0.8)) / 20, 2) + 120
 var TILEMAP: TileMap
 var ROTATION: float
 var DISPENSER_POS: Vector2i
