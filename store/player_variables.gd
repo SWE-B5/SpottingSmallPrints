@@ -76,7 +76,7 @@ func initialize_unsaved_vars():
 var speed: int
 var active_camera: CameraTypes = CameraTypes.FOLLOW
 var difficulty: Difficulty
-var lightsout_is_finnished = false
+var lightsout_is_finnished: bool = false
 # Je höher das Zoom Niveau ist desto mehr reingezoomt ist der Spieler
 var zoom_niveau: float = 5
 
@@ -84,9 +84,9 @@ var zoom_niveau: float = 5
 var immobile: bool = false
 
 # In welchem Level der Spieler sich befindet, 0 ist Hub, 1-N sind die Labyrinthe
-var current_level = 0
-var highest_completed_level = -1
-var level_end = false
+var current_level: int = 0
+var highest_completed_level: int = -1
+var level_end: bool = false
 
 # Immunity Frames
 var immunity_frames: float
@@ -135,19 +135,19 @@ func action_after_dialog(x):
 			pass
 
 #internes flag
-var flag_go_to_credits = false
+var flag_go_to_credits: bool = false
 
 #cheat "settings"
-var flag_unsterblich = false
-var flag_open_all_silver_doors = false
-var flag_override_start_level = 0
-var flag_skip_dialogue = false
-var flag_hide_fog = false
-var flag_open_all_gold_chests = false
-var flag_skip_raetsel = false
-var flag_skip_lightsout = false
-var flag_key_helper = true
-var flag_more_speed = false
+var flag_unsterblich: bool= false
+var flag_open_all_silver_doors: bool = false
+var flag_override_start_level: int = 0
+var flag_skip_dialogue: bool = false
+var flag_hide_fog: bool = false
+var flag_open_all_gold_chests: bool = false
+var flag_skip_raetsel: bool = false
+var flag_skip_lightsout: bool = false
+var flag_key_helper: bool = true
+var flag_more_speed: bool = false
 
 func save_cheats():
 	var safe_file = JSON.stringify({
@@ -194,4 +194,4 @@ func reset_cheats():
 	flag_skip_raetsel = false
 	flag_skip_lightsout = false
 	flag_key_helper = true
-	flag_more_speed = false	
+	flag_more_speed = false
