@@ -7,6 +7,7 @@ extends Node2D
 @onready var hub_Note_1 = self.get_child(7)
 @onready var hub_Note_2 = self.get_child(8)
 @onready var hub_Note_3 = self.get_child(9)
+@onready var gold_truhe = $GoldeneTruhe
 
 @onready var scene
 func _ready():
@@ -19,6 +20,10 @@ func _ready():
 	PlayerVariables.flag_dialog_open = false
 	PlayerVariables.immobile = false
 	anzahl_Notes = Inventory.number_of_notes_found()
+	if PlayerVariables.highest_completed_level <= 0:
+		gold_truhe.is_closed = false
+		gold_truhe.detecion_area.disabled = true
+		gold_truhe.sprite.animation =  "open"
 	
 	Inventory.update_after_death() #muss drin bleiben!
 	for i in anzahl_Notes :

@@ -22,7 +22,11 @@ func _on_interact():
 	if !PlayerVariables.flag_dialog_open && is_closed:
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = id
-		if Inventory.check_key(Inventory.Item_Type.GOLD, id):
+		if id <= PlayerVariables.highest_completed_level:
+			PlayerVariables.flag_dialog_open = true
+			PlayerVariables.flag_action_after_dialog = 0
+			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Tür_fertig" )
+		elif Inventory.check_key(Inventory.Item_Type.GOLD, id):
 			#Sucht nach dem passenden Schlüssel
 			is_closed = false
 			self.visible = false

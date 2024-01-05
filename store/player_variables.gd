@@ -9,7 +9,8 @@ func jsonify():
 		"difficulty": difficulty,
 		"health": Health.get_for_save(),
 		"inventory": Inventory.get_for_save(),
-		"current_level": current_level
+		"current_level": current_level,
+		"highest_completed_level": highest_completed_level
 	})
 
 # Lädt Daten von dem vorheringen Spiel in das jetztige
@@ -24,6 +25,7 @@ func load_save_file():
 	Inventory.set_for_load(obj.inventory)
 	Health.set_for_load(obj.health)
 	current_level = obj.current_level
+	highest_completed_level = obj.highest_completed_level
 	initialize_unsaved_vars()
 	return true
 	
@@ -42,6 +44,7 @@ func initialize_new_game(diff: Difficulty):
 	difficulty = diff
 	Inventory.update_new_game()
 	current_level = 0
+	highest_completed_level = -1
 	match difficulty:
 		Difficulty.EASY:
 			Health.reset_health(Constants.EASY_MAX_HEALTH, Health.INACTIVE)
@@ -77,6 +80,7 @@ var immobile: bool = false
 
 # In welchem Level der Spieler sich befindet, 0 ist Hub, 1-N sind die Labyrinthe
 var current_level = 0
+var highest_completed_level = -1
 var level_end = false
 
 # Immunity Frames
@@ -115,6 +119,7 @@ func action_after_dialog(x):
 			get_tree().get_first_node_in_group("GoldeneTruhe").startSimonSays.emit()
 		3:
 			Inventory.update_after_level_completed()
+			highest_completed_level += 1
 			get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
 		4:
 			pass

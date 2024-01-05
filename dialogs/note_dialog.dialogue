@@ -271,3 +271,8 @@ Du benutzt den diamantenen Schlüssel, um die Tür zu öffnen.
 Die Tür ist verschlossen.
 	Finde den diamantenen Schlüssel, um die Tür zu öffnen.
 => END
+
+~ Goldene_Tür_fertig
+Du hast dieses Level bereits abgeschlossen.
+=> END
+
