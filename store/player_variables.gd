@@ -120,6 +120,9 @@ func action_after_dialog(x):
 		3:
 			Inventory.update_after_level_completed()
 			highest_completed_level += 1
-			get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
+			if current_level != 0:
+				get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
+			else:
+				get_tree().current_scene._ready()
 		4:
 			pass

@@ -20,7 +20,7 @@ func _ready():
 	PlayerVariables.flag_dialog_open = false
 	PlayerVariables.immobile = false
 	anzahl_Notes = Inventory.number_of_notes_found()
-	if PlayerVariables.highest_completed_level <= 0:
+	if PlayerVariables.highest_completed_level >= 0:
 		gold_truhe.is_closed = false
 		gold_truhe.detecion_area.disabled = true
 		gold_truhe.sprite.animation =  "open"
