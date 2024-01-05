@@ -24,7 +24,7 @@ func _ready():
 func _on_interact():
 	var resource = load("res://dialogs/note_dialog.dialogue")
 	if !PlayerVariables.flag_dialog_open && is_closed:
-		if PlayerVariables.lightsout_is_finnished:
+		if PlayerVariables.lightsout_is_finnished || PlayerVariables.flag_skip_lightsout:
 			Inventory.collect_item(Inventory.Item_Type.DIAMOND, schlüssel_id)
 			#Hier muss noch der Dialog abgespielt werden
 			is_closed = false

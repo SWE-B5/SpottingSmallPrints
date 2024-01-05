@@ -39,7 +39,7 @@ func _on_interact():
 			PlayerVariables.flag_action_after_dialog = 1
 		else:
 			PlayerVariables.flag_action_after_dialog = 2
-		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
+		
 		#Hier muss noch der Dialog abgespielt werden
 		is_closed = false
 		# Interaktion mit Truhe deaktivieren
@@ -48,7 +48,7 @@ func _on_interact():
 		sprite.animation =  "open"
 		PlayerVariables.immobile = true
 		awaitingSignal = true
-		
+		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil1" )
 
 func _puzzle_canceled():
 	if awaitingSignal:
@@ -69,7 +69,14 @@ func _puzzle_successful():
 	if awaitingSignal:
 		
 		#TODO: Dialog hinzufügen und zum Hub teleportieren
-		
+		if PlayerVariables.flag_open_all_gold_chests:
+			var temp = [0,0,0]
+			var id = PlayerVariables.current_level * Inventory.NOTES_PER_LEVEL + 1
+			for i in 3:
+				temp[i] = id
+				id += 1
+			Inventory.inventory[Inventory.Item_Type.NOTE] = temp
+			Inventory.active_items_count[Inventory.Item_Type.NOTE] = 3
 		Inventory.collect_item(Inventory.Item_Type.GOLD, schlüssel_id)
 		var resource = load("res://dialogs/note_dialog.dialogue")
 		Inventory.dialogue_temp_gold_id = schlüssel_id
@@ -77,8 +84,7 @@ func _puzzle_successful():
 		PlayerVariables.flag_raetsel_open = false
 		PlayerVariables.flag_dialog_open = true
 		PlayerVariables.flag_action_after_dialog = 3
-		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
-		PlayerVariables.immobile = false
-		awaitingSignal = false
 		
+		awaitingSignal = false
+		PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource, "Goldene_Kiste_Teil2" )
 		

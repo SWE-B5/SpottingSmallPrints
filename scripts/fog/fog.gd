@@ -37,6 +37,11 @@ func init(tilemap: TileMap, player: CharacterBody2D):
 	
 	if FileAccess.file_exists(get_file_path()):
 		load_fog()
+	if PlayerVariables.flag_hide_fog:
+		self.set_layer_z_index(0, -20)
+
+	else:
+		self.set_layer_z_index(0, 4)
 	#init_timer()
 
 func _physics_process(delta):

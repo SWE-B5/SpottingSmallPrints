@@ -41,7 +41,10 @@ func initialize_new_game(diff: Difficulty):
 	delete_save_file()
 	difficulty = diff
 	Inventory.update_new_game()
-	current_level = 0
+	if PlayerVariables.flag_override_start_level == 5:
+		current_level = 0
+	else:
+		current_level = PlayerVariables.flag_override_start_level
 	match difficulty:
 		Difficulty.EASY:
 			Health.reset_health(Constants.EASY_MAX_HEALTH, Health.INACTIVE)
@@ -64,6 +67,8 @@ func initialize_unsaved_vars():
 			speed = Constants.MEDIUM_SPEED
 		Difficulty.HARD:
 			speed = Constants.HARD_SPEED
+	if flag_more_speed:
+		speed *= 3
 
 var speed: int
 var active_camera: CameraTypes = CameraTypes.FOLLOW
@@ -96,6 +101,7 @@ var flag_raetsel_open = false
 
 func _ready():
 	DialogueManager.dialogue_ended.connect(PlayerVariables.action_after_dialog)
+	load_cheats()
 
 func action_after_dialog(x):
 	flag_dialog_open = false
@@ -115,6 +121,69 @@ func action_after_dialog(x):
 			get_tree().get_first_node_in_group("GoldeneTruhe").startSimonSays.emit()
 		3:
 			Inventory.update_after_level_completed()
+			PlayerVariables.immobile = false
 			get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
 		4:
 			pass
+
+#internes flag
+var flag_go_to_credits = false
+
+#cheat "settings"
+var flag_unsterblich = false
+var flag_open_all_silver_doors = false
+var flag_override_start_level = 0
+var flag_skip_dialogue = false
+var flag_hide_fog = false
+var flag_open_all_gold_chests = false
+var flag_skip_raetsel = false
+var flag_skip_lightsout = false
+var flag_key_helper = true
+var flag_more_speed = false
+
+func save_cheats():
+	var safe_file = JSON.stringify({
+		"unsterblich": flag_unsterblich,
+		"open_all_silver_doors": flag_open_all_silver_doors,
+		"override_start_level": flag_override_start_level,
+		"skip_dialogue": flag_skip_dialogue,
+		"hide_fog": flag_hide_fog,
+		"open_all_gold_chests": flag_open_all_gold_chests,
+		"skip_raetsel": flag_skip_raetsel,
+		"skip_lightsout": flag_skip_lightsout,
+		"key_helper": flag_key_helper,
+		"more_speed": flag_more_speed
+	})
+	var file = FileAccess.open(Constants.CHEATS_SAVE_PATH, FileAccess.WRITE)
+	file.store_line(safe_file)
+
+func load_cheats():
+	if not FileAccess.file_exists(Constants.CHEATS_SAVE_PATH):
+		return false
+	var file = FileAccess.open(Constants.CHEATS_SAVE_PATH, FileAccess.READ)
+	var obj = JSON.parse_string(file.get_as_text())
+	flag_unsterblich = obj.unsterblich
+	flag_open_all_silver_doors = obj.open_all_silver_doors
+	flag_override_start_level = obj.override_start_level
+	flag_skip_dialogue = obj.skip_dialogue
+	flag_hide_fog = obj.hide_fog
+	flag_open_all_gold_chests = obj.open_all_gold_chests
+	flag_skip_raetsel = obj.skip_raetsel
+	flag_skip_lightsout = obj.skip_lightsout
+	flag_key_helper = obj.key_helper
+	flag_more_speed = obj.more_speed
+	return true
+	
+func reset_cheats():
+	var dir = DirAccess.open(Constants.SAVE_DIRECTORY)
+	dir.remove(Constants.CHEATS_SAFE_FILE_NAME)
+	flag_unsterblich = false
+	flag_open_all_silver_doors = false
+	flag_override_start_level = 0
+	flag_skip_dialogue = false
+	flag_hide_fog = false
+	flag_open_all_gold_chests = false
+	flag_skip_raetsel = false
+	flag_skip_lightsout = false
+	flag_key_helper = true
+	flag_more_speed = false	
