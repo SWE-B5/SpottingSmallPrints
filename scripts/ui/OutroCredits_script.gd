@@ -9,8 +9,14 @@ extends CanvasLayer
 func _ready():
 	background.show()
 	background_blurr.show()
-	outro.show()
-	credits.hide()
+	if (PlayerVariables.flag_go_to_credits):
+		outro.hide()
+		credits.show()
+		PlayerVariables.flag_go_to_credits = false
+	else:
+		credits.hide()
+		outro.show()
+	
 
 func _on_credits_pressed():
 	outro.hide()

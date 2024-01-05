@@ -179,7 +179,6 @@ Font:
   (https://fontmeme.com/fonts/dabir-font/)
 
 "
-scroll_vertical = 1.0
 
 [node name="team_namen" type="Label" parent="Credits/credits"]
 layout_mode = 1
@@ -212,7 +211,8 @@ offset_right = 1740.0
 offset_bottom = 350.0
 theme_override_fonts/font = ExtResource("4_0ayxk")
 theme_override_font_sizes/font_size = 22
-text = "Fabian Ferrari
+text = "
+Fabian Ferrari
 
 Hannes Gierth
 

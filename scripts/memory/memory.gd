@@ -13,10 +13,13 @@ signal memoryCanceled
 
 #Goldene Truhe implementation
 func _on_goldene_truhe_start_memory():
-	isActive = true
-	visible = isActive
-	$CanvasLayer.visible = isActive
-	startGame()
+	if PlayerVariables.flag_skip_raetsel:
+		memorySuccessful.emit()
+	else:
+		isActive = true
+		visible = isActive
+		$CanvasLayer.visible = isActive
+		startGame()
 
 func closeMemory():
 	isActive = false
