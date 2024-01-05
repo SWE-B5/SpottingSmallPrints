@@ -28,7 +28,5 @@ func _process(delta):
 		if(result.get_collider() == get_tree().current_scene.find_child("Player")):
 			if(PlayerVariables.immunity_frames <= 0):
 				Health.damage_player()
-				PLAYER.damage_animation()
-				PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
 		queue_free()
 		PARENT.ARROW_ACTIVE = false

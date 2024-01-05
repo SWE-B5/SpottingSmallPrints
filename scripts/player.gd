@@ -17,6 +17,7 @@ var currently_fading = false
 
 var direction: Direction = Direction.DOWN
 var last_direction_state = Direction.IDLE
+var damage_player = true
 
 func _ready():
 	set_zoom_niveau()
@@ -27,6 +28,11 @@ func _process(delta):
 	handle_movement_input()
 	if PlayerVariables.immunity_frames > 0:
 		PlayerVariables.immunity_frames -= delta
+		if(!damage_player):
+			damage_player = true
+			damage_animation()
+	else:
+		damage_player = false
 
 func handle_movement_input():
 	if PlayerVariables.immobile:
@@ -120,11 +126,12 @@ func switch_level(level: String):
 		get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
 	
 func damage_animation():
-	for i in 4:
+	while(damage_player):
 		anim.self_modulate = Color(1,0,0,0.5)
 		await get_tree().create_timer(0.15).timeout
 		anim.self_modulate = Color(1,1,1,1)
 		await get_tree().create_timer(0.15).timeout
+		
 
 
 func _on_animation_player_animation_finished(anim_name):

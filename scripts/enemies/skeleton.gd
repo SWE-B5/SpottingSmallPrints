@@ -24,8 +24,6 @@ func _process(delta):
 	
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("hitbox_player") && PlayerVariables.immunity_frames <= 0:
-		PlayerVariables.immunity_frames = PlayerVariables.immunity_duration
-		get_tree().get_first_node_in_group('Player').damage_animation()
 		hitbox.set_deferred("disabled", true)
 		timer.start()
 		Health.damage_player(1)

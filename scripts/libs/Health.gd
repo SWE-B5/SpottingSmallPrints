@@ -49,6 +49,7 @@ func reset_health(new_max_lives: int = max_lives, new_shield: Shield_States = sh
 #deals damage to the player/deactivates shield
 #goes to death_screen if player dies 
 func damage_player(damage:int = 1):
+	PlayerVariables.immunity_frames = PlayerVariables.immunity_duration * damage
 	if PlayerVariables.flag_unsterblich:
 		return
 	if shield ==ACTIVE:
