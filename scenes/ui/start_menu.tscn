@@ -208,10 +208,10 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "6 Leben
-Karte verfügbar
-höhere Geschwindigkeit
-leichtere Rätsel"
+text = "6 Leben, Karte verfügbar, leichtere Rätsel,
+20% schneller als Mittel, 12%  langsamere Projektile als Mittel
+
+(ein ggf. vorhandener Speicherstand wird überschrieben)"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="DifficultySelector"]
@@ -222,8 +222,10 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "4 Leben
-Karte verfügbar"
+text = "4 Leben, Karte verfügbar, unveränderte Rätsel,
+unveränderte Geschwindigkeit, unveränderte Projektile
+
+(ein ggf. vorhandener Speicherstand wird überschrieben)"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="DifficultySelector"]
@@ -234,10 +236,10 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 12
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "2 Leben
-keine Karte
-verringerte Geschwindigkeit
-schwierigere Rätsel"
+text = "2 Leben, keine Karte, schwierigere Rätsel,
+20% langsamer als Mittel,  28% schnellere Projektile als Mittel
+
+(ein ggf. vorhandener Speicherstand wird überschrieben)"
 horizontal_alignment = 1
 
 [node name="LoadGameError" type="CanvasLayer" parent="."]
