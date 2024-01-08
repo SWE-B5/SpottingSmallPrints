@@ -16,5 +16,3 @@ func _ready():
 	PlayerVariables.flag_raetsel_open = false
 	PlayerVariables.flag_dialog_open = false
 	PlayerVariables.immobile = false
-
-	
