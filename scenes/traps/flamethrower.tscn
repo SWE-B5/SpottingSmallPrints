@@ -319,6 +319,7 @@ hframes = 10
 one_shot = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetection"]
+visible = false
 light_mask = 0
 polygon = PackedVector2Array(0, -8, -40, 0, -32, 40, 0, 51, 32, 40, 40, 0)
 

@@ -368,7 +368,7 @@ _data = {
 "alert_animation": SubResource("Animation_sa6uy")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 17
