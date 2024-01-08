@@ -437,7 +437,6 @@ position = Vector2(264, -376)
 rotation = 1.5708
 
 [node name="Spikes" type="Node2D" parent="Traps"]
-y_sort_enabled = true
 
 [node name="Spikes1-1" parent="Traps/Spikes" instance=ExtResource("5_04wwp")]
 position = Vector2(552, 408)

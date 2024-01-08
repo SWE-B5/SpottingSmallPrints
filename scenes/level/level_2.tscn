@@ -525,7 +525,6 @@ position = Vector2(536, -712)
 position = Vector2(520, -712)
 
 [node name="Dispenser" type="Node2D" parent="Traps"]
-y_sort_enabled = true
 
 [node name="dispenser" parent="Traps/Dispenser" instance=ExtResource("12_1c02k")]
 position = Vector2(984, -104)
