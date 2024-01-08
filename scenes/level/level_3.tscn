@@ -2029,6 +2029,44 @@ export_path = NodePath("Path2D")
 [node name="Path2D" type="Path2D" parent="Gegner/Skeleton/skeleton37"]
 curve = SubResource("Curve2D_nxo48")
 
+[node name="Türen" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TürEckig" parent="Türen" instance=ExtResource("9_qu8x2")]
+position = Vector2(-1248, -1232)
+id = 1
+
+[node name="TürEckig2" parent="Türen" instance=ExtResource("9_qu8x2")]
+position = Vector2(1248, -1360)
+id = 2
+
+[node name="TürEckig3" parent="Türen" instance=ExtResource("9_qu8x2")]
+position = Vector2(1488, -1360)
+id = 3
+
+[node name="TürEckig4" parent="Türen" instance=ExtResource("9_qu8x2")]
+position = Vector2(400, -1616)
+id = 4
+
+[node name="TürEckig5" parent="Türen" instance=ExtResource("9_qu8x2")]
+position = Vector2(-496, -16)
+id = 5
+
+[node name="TürRund-eingang" type="StaticBody2D" parent="Türen"]
+z_index = 1
+position = Vector2(0, 65)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Türen/TürRund-eingang"]
+y_sort_enabled = true
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_kyqyf")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Türen/TürRund-eingang"]
+z_index = 1
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_0reds")
+
 [node name="Truhe" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -2042,6 +2080,10 @@ position = Vector2(208, -1520)
 [node name="NormaleTruhe" type="Node2D" parent="Truhe"]
 y_sort_enabled = true
 
+[node name="NormaleTruhe5" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(-1480, -1320)
+"schlüssel_id" = 1
+
 [node name="NormaleTruhe3" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(1248, -200)
 "schlüssel_id" = 2
@@ -2050,9 +2092,13 @@ position = Vector2(1248, -200)
 position = Vector2(1224, -776)
 "schlüssel_id" = 3
 
-[node name="NormaleTruhe5" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
-position = Vector2(-1480, -1320)
-"schlüssel_id" = 1
+[node name="NormaleTruhe11" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(-272, -1912)
+"schlüssel_id" = 4
+
+[node name="NormaleTruhe2" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+position = Vector2(-568, -160)
+"schlüssel_id" = 5
 
 [node name="NormaleTruhe6" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-1216, -304)
@@ -2070,10 +2116,6 @@ type = 1
 position = Vector2(-1448, -1512)
 type = 1
 
-[node name="NormaleTruhe2" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
-position = Vector2(-568, -160)
-"schlüssel_id" = 5
-
 [node name="NormaleTruhe" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-1568, -296)
 type = 1
@@ -2081,10 +2123,6 @@ type = 1
 [node name="NormaleTruhe10" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(1064, -1912)
 type = 1
-
-[node name="NormaleTruhe11" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
-position = Vector2(-272, -1912)
-"schlüssel_id" = 4
 
 [node name="NormaleTruhe12" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-682, -1834)
@@ -2128,41 +2166,3 @@ note_id = 11
 [node name="Note3" parent="Notes" instance=ExtResource("8_xkosi")]
 position = Vector2(-528, -672)
 note_id = 12
-
-[node name="Türen" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="TürEckig" parent="Türen" instance=ExtResource("9_qu8x2")]
-position = Vector2(-1248, -1232)
-id = 1
-
-[node name="TürEckig2" parent="Türen" instance=ExtResource("9_qu8x2")]
-position = Vector2(1248, -1360)
-id = 2
-
-[node name="TürEckig3" parent="Türen" instance=ExtResource("9_qu8x2")]
-position = Vector2(1488, -1360)
-id = 3
-
-[node name="TürEckig4" parent="Türen" instance=ExtResource("9_qu8x2")]
-position = Vector2(400, -1616)
-id = 4
-
-[node name="TürEckig5" parent="Türen" instance=ExtResource("9_qu8x2")]
-position = Vector2(-496, -16)
-id = 5
-
-[node name="TürRund-eingang" type="StaticBody2D" parent="Türen"]
-z_index = 1
-position = Vector2(0, 65)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Türen/TürRund-eingang"]
-y_sort_enabled = true
-position = Vector2(0, 8)
-sprite_frames = SubResource("SpriteFrames_kyqyf")
-animation = &"closed"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Türen/TürRund-eingang"]
-z_index = 1
-position = Vector2(0, 14.5)
-shape = SubResource("RectangleShape2D_0reds")
