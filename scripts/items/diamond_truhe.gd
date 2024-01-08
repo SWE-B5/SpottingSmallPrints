@@ -39,6 +39,3 @@ func _on_interact():
 			PlayerVariables.flag_dialog_open = true
 			PlayerVariables.flag_action_after_dialog = 0
 			PlayerVariables.ref_last_dialog = DialogueManager.show_dialogue_balloon(resource,"Diamantene_Kiste_negative")
-		
-		
-		
