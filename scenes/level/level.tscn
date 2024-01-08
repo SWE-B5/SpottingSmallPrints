@@ -23,11 +23,11 @@ _data = {
 }
 point_count = 8
 
-[sub_resource type="Curve2D" id="Curve2D_yxgvw"]
+[sub_resource type="Curve2D" id="Curve2D_2dym2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -96, 32, 0, 0, 0, 0, -48, 32, 0, 0, 0, 0, -24, 8, 0, 0, 0, 0, 24, 8, 0, 0, 0, 0, 16, -96, 0, 0, 0, 0, 96, -96, 0, 0, 0, 0, 88, -16, 0, 0, 0, 0, 48, 16, 0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 8, -64, 0, 0, 0, 0, -64, -64, 0, 0, 0, 0, -72, -48, 0, 0, 0, 0, -152, -48, 0, 0, 0, 0, -144, 32, 0, 0, 0, 0, -96, 32)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32, 16, 0, 0, 0, 0, -112, 16, 0, 0, 0, 0, -136, -24, 0, 0, 0, 0, -120, -64, 0, 0, 0, 0, -56, -64, 0, 0, 0, 0, -24, -80, 0, 0, 0, 0, 40, -80, 0, 0, 0, 0, 48, -112, 0, 0, 0, 0, 120, -112, 0, 0, 0, 0, 120, -32, 0, 0, 0, 0, 88, -32, 0, 0, 0, 0, 72, 8, 0, 0, 0, 0, 48, -32, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 15
+point_count = 16
 
 [sub_resource type="Curve2D" id="Curve2D_iygrh"]
 _data = {
@@ -124,12 +124,11 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_ryh7p")
 
 [node name="skeleton2" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("6_pfxua")]
-position = Vector2(-728, -312)
+position = Vector2(-728, -304)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton2"]
-position = Vector2(24, -8)
-curve = SubResource("Curve2D_yxgvw")
+curve = SubResource("Curve2D_2dym2")
 
 [node name="skeleton3" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("6_pfxua")]
 position = Vector2(-752, -232)
@@ -1474,3 +1473,11 @@ note_id = 11
 [node name="Note3" parent="Notes" instance=ExtResource("11_gbpcj")]
 position = Vector2(-720, -782)
 note_id = 12
+
+[node name="Flamethrower2" parent="." instance=ExtResource("8_ll6d5")]
+position = Vector2(-840, -152)
+rotation = -3.14159
+
+[node name="Flamethrower" parent="." instance=ExtResource("8_ll6d5")]
+position = Vector2(-824, -152)
+rotation = 3.14159
