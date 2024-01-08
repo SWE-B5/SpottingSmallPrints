@@ -245,7 +245,6 @@ script = ExtResource("1_7556i")
 [node name="Frame1" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, -7)
 polygon = PackedVector2Array(-7, -5, 0, 2, 7, -5, 5, -8, -6, -8)
 disabled = true
@@ -253,7 +252,6 @@ disabled = true
 [node name="Frame2" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, -7)
 polygon = PackedVector2Array(7, 0, 0, 6, -7, 1, -7, -5, -4, -7, 4, -7, 7, -5)
 disabled = true
@@ -261,7 +259,6 @@ disabled = true
 [node name="Frame3" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, -6)
 polygon = PackedVector2Array(-6, -5, -8, 4, 0, 9, 7, 4, 5, -5, 0, -5)
 disabled = true
@@ -269,7 +266,6 @@ disabled = true
 [node name="Frame4" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, -6)
 polygon = PackedVector2Array(-8, 5, -6, 9, -1, 13, 6, 9, 8, 5, 5, -7, -5, -7)
 disabled = true
@@ -277,7 +273,6 @@ disabled = true
 [node name="Frame5" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, -2)
 polygon = PackedVector2Array(-8, 5, -6, 9, -1, 13, 6, 9, 8, 5, 5, -7, -5, -7)
 disabled = true
@@ -285,7 +280,6 @@ disabled = true
 [node name="Frame6" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, 2)
 polygon = PackedVector2Array(-8, 5, -5, 10, 0, 13, 5, 10, 8, 3, 6, -5, -6, -5)
 disabled = true
@@ -293,7 +287,6 @@ disabled = true
 [node name="Frame7" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, 5)
 polygon = PackedVector2Array(-8, 3, -7, 7, -3, 12, 3, 12, 7, 7, 8, 3, 5, -1, -5, -1)
 disabled = true
@@ -301,7 +294,6 @@ disabled = true
 [node name="Frame8" type="CollisionPolygon2D" parent="."]
 visible = false
 light_mask = 0
-visibility_layer = 16
 position = Vector2(0, 9)
 polygon = PackedVector2Array(-8, 1, -8, 5, 0, 13, 8, 5, 8, 1, 5, -2, -5, -2)
 disabled = true
@@ -328,11 +320,11 @@ one_shot = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetection"]
 light_mask = 0
-visibility_layer = 16
 polygon = PackedVector2Array(0, -8, -40, 0, -32, 40, 0, 51, 32, 40, 40, 0)
 
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="PlayerDetection" to="PlayerDetection" method="_on_body_entered"]
-[connection signal="body_exited" from="PlayerDetection" to="PlayerDetection" method="_on_body_exited"]
+[connection signal="area_shape_entered" from="PlayerDetection" to="PlayerDetection" method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="PlayerDetection" to="PlayerDetection" method="_on_area_shape_exited"]
 [connection signal="animation_finished" from="PlayerDetection/AnimationPlayer" to="PlayerDetection" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="PlayerDetection/Timer" to="PlayerDetection" method="_on_timer_timeout"]

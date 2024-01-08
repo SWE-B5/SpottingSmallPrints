@@ -72,11 +72,10 @@ _data = {
 top_level = true
 y_sort_enabled = true
 collision_layer = 0
-collision_mask = 16
+collision_mask = 32
 script = ExtResource("1_myasa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 16
 y_sort_enabled = true
 shape = SubResource("RectangleShape2D_jchsy")
 disabled = true
@@ -91,4 +90,4 @@ libraries = {
 "": SubResource("AnimationLibrary_j4nn6")
 }
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
