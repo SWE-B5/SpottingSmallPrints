@@ -580,15 +580,15 @@ y_sort_enabled = true
 
 [node name="TürLinks" parent="Türen" instance=ExtResource("12_61yfx")]
 position = Vector2(-608, 0)
-id = 7
+id = 1
 
 [node name="TürEckig" parent="Türen" instance=ExtResource("13_31req")]
 position = Vector2(1072, -424)
-id = 8
+id = 2
 
 [node name="TürLinks2" parent="Türen" instance=ExtResource("12_61yfx")]
 position = Vector2(-872, -1072)
-id = 9
+id = 3
 
 [node name="TürRund-eingang" type="StaticBody2D" parent="Türen"]
 z_index = 1
@@ -608,29 +608,29 @@ shape = SubResource("RectangleShape2D_0reds")
 [node name="Truhen" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="NormaleTruhe" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(744, -336)
-type = 1
+[node name="NormaleTruhe6" parent="Truhen" instance=ExtResource("14_iti7b")]
+position = Vector2(-600, -120)
+"schlüssel_id" = 1
 
 [node name="NormaleTruhe2" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(704, -96)
-"schlüssel_id" = 8
+"schlüssel_id" = 2
+
+[node name="NormaleTruhe4" parent="Truhen" instance=ExtResource("14_iti7b")]
+position = Vector2(-632, -864)
+"schlüssel_id" = 3
+
+[node name="NormaleTruhe" parent="Truhen" instance=ExtResource("14_iti7b")]
+position = Vector2(744, -336)
+type = 1
 
 [node name="NormaleTruhe3" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(1192, -1088)
 type = 1
 
-[node name="NormaleTruhe4" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-632, -864)
-"schlüssel_id" = 9
-
 [node name="NormaleTruhe5" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(-200, -1120)
 type = 1
-
-[node name="NormaleTruhe6" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-600, -120)
-"schlüssel_id" = 7
 
 [node name="NormaleTruhe7" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(-328, -656)
@@ -644,14 +644,14 @@ type = 1
 position = Vector2(-128, -696)
 type = 1
 
+[node name="NormaleTruhe13" parent="Truhen" instance=ExtResource("14_iti7b")]
+position = Vector2(-1056, -344)
+type = 1
+
 [node name="GoldeneTruhe" parent="Truhen" groups=["GoldeneTruhe"] instance=ExtResource("15_kpbhj")]
 position = Vector2(-1144, -1088)
 type = 1
 "schlüssel_id" = 3
-
-[node name="NormaleTruhe13" parent="Truhen" instance=ExtResource("14_iti7b")]
-position = Vector2(-1056, -344)
-type = 1
 
 [node name="Notes" type="Node2D" parent="."]
 y_sort_enabled = true
