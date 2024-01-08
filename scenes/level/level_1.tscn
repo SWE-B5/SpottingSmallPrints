@@ -528,19 +528,19 @@ y_sort_enabled = true
 
 [node name="TürEckig" parent="Türen" instance=ExtResource("14_0116h")]
 position = Vector2(16, -192)
+id = 1
+
+[node name="TürRechts" parent="Türen" instance=ExtResource("16_hu83a")]
+position = Vector2(-541, -352)
 id = 2
 
 [node name="TürEckig2" parent="Türen" instance=ExtResource("14_0116h")]
 position = Vector2(208, -32)
-id = 4
+id = 3
 
 [node name="TürLinks" parent="Türen" instance=ExtResource("15_yyeqv")]
 position = Vector2(35, 176)
-id = 5
-
-[node name="TürRechts" parent="Türen" instance=ExtResource("16_hu83a")]
-position = Vector2(-541, -352)
-id = 3
+id = 4
 
 [node name="TürRund" type="StaticBody2D" parent="Türen"]
 z_index = 1
@@ -560,29 +560,25 @@ shape = SubResource("RectangleShape2D_0reds")
 [node name="Truhen" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="NormaleTruhe" parent="Truhen" instance=ExtResource("12_lqj3k")]
-position = Vector2(747, 319)
-"schlüssel_id" = 3
-
 [node name="NormaleTruhe2" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(-456, -460)
-"schlüssel_id" = 2
+"schlüssel_id" = 1
 
-[node name="GoldeneTruhe" parent="Truhen" groups=["GoldeneTruhe"] instance=ExtResource("13_e4jlt")]
-position = Vector2(170, -223)
+[node name="NormaleTruhe" parent="Truhen" instance=ExtResource("12_lqj3k")]
+position = Vector2(747, 319)
 "schlüssel_id" = 2
 
 [node name="NormaleTruhe3" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(-600, 150)
+"schlüssel_id" = 3
+
+[node name="NormaleTruhe5" parent="Truhen" instance=ExtResource("12_lqj3k")]
+position = Vector2(363, -247)
 "schlüssel_id" = 4
 
 [node name="NormaleTruhe4" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(-568, 150)
 type = 1
-
-[node name="NormaleTruhe5" parent="Truhen" instance=ExtResource("12_lqj3k")]
-position = Vector2(363, -247)
-"schlüssel_id" = 5
 
 [node name="NormaleTruhe6" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(744, 411)
@@ -591,3 +587,7 @@ type = 1
 [node name="NormaleTruhe7" parent="Truhen" instance=ExtResource("12_lqj3k")]
 position = Vector2(208, 88)
 type = 1
+
+[node name="GoldeneTruhe" parent="Truhen" groups=["GoldeneTruhe"] instance=ExtResource("13_e4jlt")]
+position = Vector2(170, -223)
+"schlüssel_id" = 2
