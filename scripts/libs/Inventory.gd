@@ -60,6 +60,16 @@ func update_after_level_completed():
 #adds item to inventory
 func collect_item(type: Item_Type, id: int):
 	inventory[type] += [id]
+	#sort id's with insertion sort
+	var temp
+	for i in range(1, inventory[type].size()-1):
+		temp = inventory[type][i]
+		var j = i
+		while (j > 0) && (inventory[type][j-1] > temp):
+			inventory[type][j] = inventory[type][j - 1]
+			j = j - 1
+		inventory[type][j] = temp
+	#
 	active_items_count[type] += 1
 	if type <= 3:
 		update_huds(type)
@@ -69,7 +79,11 @@ func use_key(type: Item_Type):
 	if (type == 0 && PlayerVariables.flag_open_all_silver_doors):
 		return
 	if(type == 0):
-		inventory[SILVER].remove(inventory[SILVER].find(dialogue_temp_silver_id))
+		var temp_arr = []
+		for i in inventory[SILVER].size():
+			if inventory[SILVER][i] != dialogue_temp_silver_id:
+				temp_arr += [inventory[SILVER][i]]
+		inventory[SILVER] = temp_arr
 	if(type < 3):
 		if active_items_count[type] > 0:
 			active_items_count[type] -= 1

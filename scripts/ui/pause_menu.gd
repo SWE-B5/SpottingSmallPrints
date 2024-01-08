@@ -48,10 +48,10 @@ func toggle():
 	visible = is_active
 
 func update_key_helper():
-	key_ids.text = "-/-"
+	key_ids.text = ""
 	if (PlayerVariables.current_level > 0 && PlayerVariables.current_level < 4):
-		silver_key.show()
 		if Inventory.active_items_count[Inventory.SILVER] > 0:
+			silver_key.show()
 			var temp = str(Inventory.inventory[Inventory.SILVER][0])
 			for i in range (1, Inventory.active_items_count[Inventory.SILVER]) :
 				temp += "," + str(Inventory.inventory[Inventory.SILVER][i])
@@ -59,15 +59,17 @@ func update_key_helper():
 	elif (PlayerVariables.current_level == 0):
 		if (Inventory.active_items_count[Inventory.DIAMOND] == 1):
 			diamond_key.show()
-			key_ids.text = "*"
 			key_ids.show()
-		else:
+			key_ids.text = "1"
+		elif Inventory.active_items_count[Inventory.GOLD] > 0:
 			gold_key.show()
-			if (Inventory.active_items_count[Inventory.GOLD] == 1):
-				var max = 0
-				for i in Inventory.inventory[Inventory.GOLD].size():
-					if Inventory.inventory[Inventory.GOLD][i] > max:
-						max = Inventory.inventory[Inventory.GOLD][i]
-				key_ids.text = str(max)
+			var arr_size = Inventory.inventory[Inventory.GOLD].size()
+			var i = arr_size - Inventory.active_items_count[Inventory.GOLD]
+			var temp = str(Inventory.inventory[Inventory.GOLD][i])
+			i += 1
+			while i < arr_size:
+				temp += "," + str(Inventory.inventory[Inventory.GOLD][i])
+				i += 1
+			key_ids.text = temp
 	key_ids.show()
 	

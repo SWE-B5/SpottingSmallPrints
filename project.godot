@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Spotting Small Prints"
 run/main_scene="res://scenes/ui/start_menu.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/utils/icon.png"
 config/windows_native_icon="res://assets/utils/icon.ico"
 
