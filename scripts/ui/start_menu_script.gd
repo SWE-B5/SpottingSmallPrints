@@ -75,10 +75,10 @@ func _on_quit_button_pressed():
 
 func _on_easy_difficulty_button_pressed():
 	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.EASY)
-	if (PlayerVariables.flag_override_start_level != 0):
-		if FileAccess.file_exists("user://fog_level.save"):
+	if FileAccess.file_exists("user://fog_level.save"):
 			var dir = DirAccess.open("user://")
 			dir.remove("user://fog_level.save")
+	if (PlayerVariables.flag_override_start_level != 0):
 		go_to_level()
 	else:
 		title.hide()
@@ -88,10 +88,10 @@ func _on_easy_difficulty_button_pressed():
 
 func _on_normal_difficulty_button_pressed():
 	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.MEDIUM)
-	if (PlayerVariables.flag_override_start_level != 0):
-		if FileAccess.file_exists("user://fog_level.save"):
+	if FileAccess.file_exists("user://fog_level.save"):
 			var dir = DirAccess.open("user://")
 			dir.remove("user://fog_level.save")
+	if (PlayerVariables.flag_override_start_level != 0):
 		go_to_level()
 	else:
 		title.hide()
@@ -101,10 +101,10 @@ func _on_normal_difficulty_button_pressed():
 
 func _on_hard_difficulty_button_pressed():
 	PlayerVariables.initialize_new_game(PlayerVariables.Difficulty.HARD)
-	if (PlayerVariables.flag_override_start_level != 0):
-		if FileAccess.file_exists("user://fog_level.save"):
+	if FileAccess.file_exists("user://fog_level.save"):
 			var dir = DirAccess.open("user://")
 			dir.remove("user://fog_level.save")
+	if (PlayerVariables.flag_override_start_level != 0):
 		go_to_level()
 	else:
 		title.hide()
@@ -117,9 +117,6 @@ func _on_besiegeln_pressed():
 	intro_part_2.show()
 
 func _on_prufung_starten_pressed():
-	if FileAccess.file_exists("user://fog_level.save"):
-		var dir = DirAccess.open("user://")
-		dir.remove("user://fog_level.save")
 	go_to_level()
 
 func _on_respawn_pressed():

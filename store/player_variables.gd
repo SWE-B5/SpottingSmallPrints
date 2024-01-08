@@ -84,7 +84,7 @@ var zoom_niveau: float = 5
 var immobile: bool = false
 
 # In welchem Level der Spieler sich befindet, 0 ist Hub, 1-N sind die Labyrinthe
-var current_level: int = 0
+var current_level: int
 var highest_completed_level: int = -1
 var level_end: bool = false
 
@@ -127,7 +127,7 @@ func action_after_dialog(x):
 			Inventory.update_after_level_completed()
 			PlayerVariables.immobile = false
 			highest_completed_level += 1
-			print(current_level)
+			#print(current_level)
 			if current_level != 0 || level_end:
 				get_tree().get_first_node_in_group('Player').switch_level("hub") #teleport_level
 			else:
