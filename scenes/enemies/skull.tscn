@@ -53,6 +53,7 @@ script = ExtResource("1_hvlik")
 sprite_frames = SubResource("SpriteFrames_gcqtb")
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 16
 
 [node name="hitbox_shape" type="CollisionShape2D" parent="hitbox"]

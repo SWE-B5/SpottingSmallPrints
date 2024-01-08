@@ -23,7 +23,7 @@ func _process(delta):
 	path_follow.progress += speed * delta
 	
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("hitbox_player") && PlayerVariables.immunity_frames <= 0:
+	if PlayerVariables.immunity_frames <= 0:
 		hitbox.set_deferred("disabled", true)
 		timer.start()
 		Health.damage_player(1)

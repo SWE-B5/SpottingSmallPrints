@@ -43,7 +43,7 @@ func choose_random_destination():
 	current_destination = destination_points[randi() % destination_points.size()]
 	
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("hitbox_player") && PlayerVariables.immunity_frames <= 0:
+	if PlayerVariables.immunity_frames <= 0:
 		await get_tree().create_timer(0.2).timeout
 		hitbox.set_deferred("disabled", true)
 		timer.start()
