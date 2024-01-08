@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c6rtg62fp46wp"]
+[gd_scene load_steps=30 format=3 uid="uid://c6rtg62fp46wp"]
 
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="1_npblg"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_cfbx1"]
@@ -88,6 +88,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 88, 48, 0, 0, 0, 0, -8, 48, 0, 0, 0, 0, -8, 0, 0, 0, 0, 0, 88, 0)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_6gjmr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 112, 0, 0, 0, 0, 96, 112, 0, 0, 0, 0, 48, 80, 0, 0, 0, 0, 96, 56, 0, 0, 0, 0, 48, 32, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 32, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 48, 80, 0, 0, 0, 0, 0, 112)
+}
+point_count = 11
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -195,6 +201,13 @@ export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton12"]
 curve = SubResource("Curve2D_87yeh")
+
+[node name="skeleton13" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("6_pfxua")]
+position = Vector2(160, -688)
+export_path = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton13"]
+curve = SubResource("Curve2D_6gjmr")
 
 [node name="Skulls" type="Node2D" parent="Gegner"]
 y_sort_enabled = true
@@ -420,6 +433,28 @@ position = Vector2(-56, -56)
 
 [node name="Marker2D4" type="Marker2D" parent="Gegner/Skulls/skull10" groups=["marker8"]]
 position = Vector2(-56, 0)
+
+[node name="skull11" parent="Gegner/Skulls" instance=ExtResource("7_fkr01")]
+position = Vector2(-72, -608)
+markerid = "marker9"
+
+[node name="Marker2D" type="Marker2D" parent="Gegner/Skulls/skull11" groups=["marker9"]]
+position = Vector2(112, 32)
+
+[node name="Marker2D2" type="Marker2D" parent="Gegner/Skulls/skull11" groups=["marker9"]]
+position = Vector2(136, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Gegner/Skulls/skull11" groups=["marker9"]]
+position = Vector2(64, 8)
+
+[node name="Marker2D4" type="Marker2D" parent="Gegner/Skulls/skull11" groups=["marker9"]]
+position = Vector2(0, 48)
+
+[node name="Marker2D5" type="Marker2D" parent="Gegner/Skulls/skull11" groups=["marker9"]]
+position = Vector2(136, 48)
+
+[node name="Marker2D6" type="Marker2D" parent="Gegner/Skulls/skull11" groups=["marker9"]]
+position = Vector2(24, 32)
 
 [node name="Traps" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -667,6 +702,21 @@ position = Vector2(856, -136)
 
 [node name="Flamethrower35" parent="Traps/Flamethrower" instance=ExtResource("8_ll6d5")]
 position = Vector2(936, -136)
+
+[node name="Flamethrower36" parent="Traps/Flamethrower" instance=ExtResource("8_ll6d5")]
+position = Vector2(40, -440)
+
+[node name="Flamethrower37" parent="Traps/Flamethrower" instance=ExtResource("8_ll6d5")]
+position = Vector2(56, -440)
+
+[node name="Flamethrower38" parent="Traps/Flamethrower" instance=ExtResource("8_ll6d5")]
+position = Vector2(72, -440)
+
+[node name="Flamethrower39" parent="Traps/Flamethrower" instance=ExtResource("8_ll6d5")]
+position = Vector2(88, -440)
+
+[node name="Flamethrower40" parent="Traps/Flamethrower" instance=ExtResource("8_ll6d5")]
+position = Vector2(104, -440)
 
 [node name="Spikes" type="Node2D" parent="Traps"]
 y_sort_enabled = true
@@ -1294,6 +1344,36 @@ position = Vector2(472, -568)
 
 [node name="Spikes208" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
 position = Vector2(472, -552)
+
+[node name="Spikes209" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(152, -616)
+
+[node name="Spikes210" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(168, -616)
+
+[node name="Spikes211" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(248, -616)
+
+[node name="Spikes212" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(264, -616)
+
+[node name="Spikes213" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(296, -648)
+
+[node name="Spikes214" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(280, -632)
+
+[node name="Spikes215" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(280, -648)
+
+[node name="Spikes216" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(184, -616)
+
+[node name="Spikes217" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(232, -616)
+
+[node name="Spikes218" parent="Traps/Spikes" instance=ExtResource("10_qotlq")]
+position = Vector2(296, -632)
 
 [node name="Chests" type="Node2D" parent="."]
 y_sort_enabled = true
