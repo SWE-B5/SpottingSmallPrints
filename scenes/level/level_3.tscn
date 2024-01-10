@@ -2092,23 +2092,23 @@ position = Vector2(1248, -200)
 position = Vector2(1224, -776)
 "schlüssel_id" = 3
 
-[node name="NormaleTruhe5" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+[node name="NormaleTruhe6" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(552, -560)
 "schlüssel_id" = 1
 
-[node name="NormaleTruhe6" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+[node name="NormaleTruhe7" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-1216, -304)
 type = 1
 
-[node name="NormaleTruhe7" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+[node name="NormaleTruhe8" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(173.51, -684.117)
 type = 1
 
-[node name="NormaleTruhe8" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+[node name="NormaleTruhe9" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(632, -1504)
 type = 1
 
-[node name="NormaleTruhe9" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+[node name="NormaleTruhe10" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(-1448, -1512)
 type = 1
 
@@ -2120,7 +2120,7 @@ position = Vector2(-312, -712)
 position = Vector2(-1568, -296)
 type = 1
 
-[node name="NormaleTruhe10" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
+[node name="NormaleTruhe11" parent="Truhe/NormaleTruhe" instance=ExtResource("8_22t8n")]
 position = Vector2(1064, -1912)
 type = 1
 
