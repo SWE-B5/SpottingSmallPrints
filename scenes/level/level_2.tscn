@@ -593,7 +593,7 @@ id = 1
 
 [node name="TürEckig" parent="Türen" instance=ExtResource("13_31req")]
 position = Vector2(1072, -424)
-id = 1
+id = 2
 
 [node name="TürLinks2" parent="Türen" instance=ExtResource("12_61yfx")]
 position = Vector2(-680, -1072)
@@ -623,7 +623,7 @@ position = Vector2(-600, -120)
 
 [node name="NormaleTruhe2" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(704, -96)
-"schlüssel_id" = 2
+"schlüssel_id" = 1
 
 [node name="NormaleTruhe4" parent="Truhen" instance=ExtResource("14_iti7b")]
 position = Vector2(48, -832)
