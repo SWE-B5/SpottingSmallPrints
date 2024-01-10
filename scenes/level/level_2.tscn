@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ddu70jts25yxf"]
+[gd_scene load_steps=36 format=3 uid="uid://ddu70jts25yxf"]
 
 [ext_resource type="Script" path="res://scripts/level/level_2.gd" id="1_5e837"]
 [ext_resource type="PackedScene" uid="uid://dvbf27l5utcfv" path="res://scenes/tilemap/tilemap_bitmap.tscn" id="2_bhmd3"]
@@ -101,11 +101,13 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_ks3w4"]
+[sub_resource type="Curve2D" id="Curve2D_4yvlp"]
+
+[sub_resource type="Curve2D" id="Curve2D_nlv1e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 136, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, -104, 0, 0, 0, 0, 0, -104, 16, 0, 0, 0, 0, 48, 16, 0, 0, 0, 0, 136, 16, 0, 0, 0, 0, 136, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 16, -0.300262, 0, 0, 0, 0, -256, -0.300262, 0, 0, 0, 0, -256, 15.6997, 0, 0, 0, 0, 16, 15.6997, 0, 0, 0, 0, 16, -0.300262)
 }
-point_count = 7
+point_count = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tqo1"]
 atlas = ExtResource("15_bw2bf")
@@ -138,7 +140,6 @@ layer_2/tile_data = PackedInt32Array(-458754, 2, 9, -524287, 2, 9, -458761, 2, 9
 [node name="Fog" parent="." instance=ExtResource("4_ria2j")]
 
 [node name="Player" parent="." instance=ExtResource("3_lqxyn")]
-position = Vector2(0, 22)
 
 [node name="Gegner" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -282,14 +283,14 @@ position = Vector2(-1.7782, 24.0001)
 y_sort_enabled = true
 
 [node name="skeleton" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
-position = Vector2(-830, -260)
+position = Vector2(-832, -264)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton"]
 curve = SubResource("Curve2D_ym733")
 
 [node name="skeleton2" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
-position = Vector2(-834, -91)
+position = Vector2(-832, -96)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton2"]
@@ -374,26 +375,26 @@ export_path = NodePath("Path2D")
 curve = SubResource("Curve2D_ae0k7")
 
 [node name="skeleton14" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
-position = Vector2(998, -504)
+position = Vector2(1000, -528)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton14"]
 curve = SubResource("Curve2D_gf36o")
 
+[node name="skeleton16" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
+position = Vector2(272, -800)
+export_path = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton16"]
+curve = SubResource("Curve2D_4yvlp")
+
 [node name="skeleton15" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
-position = Vector2(91, -215)
+position = Vector2(96.7785, -207.7)
 export_path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton15"]
-position = Vector2(-139, 7)
-curve = SubResource("Curve2D_ks3w4")
-
-[node name="skeleton16" parent="Gegner/Skeletons" node_paths=PackedStringArray("export_path") instance=ExtResource("7_fmeus")]
-position = Vector2(136, -808)
-export_path = NodePath("../skeleton11/Path2D")
-
-[node name="Path2D" type="Path2D" parent="Gegner/Skeletons/skeleton16"]
-curve = SubResource("Curve2D_ks3w4")
+position = Vector2(-0.778503, 0)
+curve = SubResource("Curve2D_nlv1e")
 
 [node name="Traps" type="Node2D" parent="."]
 y_sort_enabled = true
