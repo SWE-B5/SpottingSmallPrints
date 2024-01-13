@@ -29,6 +29,9 @@ layer_2/tile_data = PackedInt32Array(-65540, 196610, 9)
 
 [node name="Player" parent="." instance=ExtResource("3_ow6sx")]
 
+[node name="Spikes" parent="Player" instance=ExtResource("16_dmwd1")]
+position = Vector2(55, 87)
+
 [node name="HUD" parent="." instance=ExtResource("4_uodbi")]
 
 [node name="GoldeneTruhe" parent="." groups=["GoldeneTruhe"] instance=ExtResource("6_lofh6")]
@@ -63,7 +66,7 @@ position = Vector2(227, -16)
 position = Vector2(227, 64)
 
 [node name="LightsOutGame" parent="." instance=ExtResource("13_an3ym")]
-position = Vector2(-184, 89)
+position = Vector2(-192, 33)
 
 [node name="dispenser" parent="." instance=ExtResource("14_wyh51")]
 position = Vector2(-57, 87)
@@ -73,7 +76,13 @@ rotation = 1.5708
 position = Vector2(-3, 98)
 
 [node name="Spikes" parent="." instance=ExtResource("16_dmwd1")]
-position = Vector2(55, 87)
+position = Vector2(71, 103)
+
+[node name="Spikes" parent="Spikes" instance=ExtResource("16_dmwd1")]
+position = Vector2(39, 103)
+
+[node name="Spikes" parent="Spikes/Spikes" instance=ExtResource("16_dmwd1")]
+position = Vector2(55, 119)
 
 [node name="dispenser2" parent="." instance=ExtResource("14_wyh51")]
 position = Vector2(4, -171)

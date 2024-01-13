@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-enum Direction { UP, DOWN, LEFT, RIGHT }
+enum Direction { UP, DOWN, LEFT, RIGHT, IDLE }
 enum MovementState { WALK, IDLE }
 
 @onready var anim = $AnimatedSprite2D
@@ -10,11 +10,14 @@ enum MovementState { WALK, IDLE }
 # Fade in and out related stuff
 @onready var fade_screen = $CanvasLayer/FadeScreen
 @onready var fade_player = $CanvasLayer/FadeScreen/AnimationPlayer
+
 signal from_black_fade_finished
 signal to_black_fade_finished
 var currently_fading = false
 
 var direction: Direction = Direction.DOWN
+var last_direction_state = Direction.IDLE
+var damage_player = true
 
 func _ready():
 	set_zoom_niveau()
@@ -22,40 +25,42 @@ func _ready():
 	
 func _process(delta):
 	PlayerVariables.global_position = self.global_position
-
 	handle_movement_input()
 	if PlayerVariables.immunity_frames > 0:
 		PlayerVariables.immunity_frames -= delta
+		if(!damage_player):
+			damage_player = true
+			damage_animation()
+	else:
+		damage_player = false
 
 func handle_movement_input():
 	if PlayerVariables.immobile:
 		velocity = Vector2.ZERO
-		play_animation(MovementState.IDLE)
+		play_animation(MovementState.IDLE, velocity)
 		move_and_slide()
 		return
-	
-	if Input.is_action_pressed("up"):
-		velocity = Vector2(0, -PlayerVariables.speed)
-		play_animation(MovementState.WALK)
-		direction = Direction.UP
-	elif Input.is_action_pressed("down"):
-		velocity = Vector2(0, PlayerVariables.speed)
-		play_animation(MovementState.WALK)
-		direction = Direction.DOWN
-	elif Input.is_action_pressed("left"):
-		velocity = Vector2(-PlayerVariables.speed, 0)
-		play_animation(MovementState.WALK)
-		direction = Direction.LEFT
-	elif Input.is_action_pressed("right"):
-		velocity = Vector2(PlayerVariables.speed, 0)
-		play_animation(MovementState.WALK)
-		direction = Direction.RIGHT
-	else:
-		velocity = Vector2.ZERO
-		play_animation(MovementState.IDLE)
-	move_and_slide()
 
-func play_animation(movement: MovementState):
+	var dir = Vector2(0, 0)
+	if Input.is_action_pressed("up"):
+		direction = Direction.UP
+		dir.y -= 1
+	if Input.is_action_pressed("down"):
+		direction = Direction.DOWN
+		dir.y += 1
+	if Input.is_action_pressed("left"):#
+		direction = Direction.LEFT
+		dir.x -= 1
+	if Input.is_action_pressed("right"):
+		direction = Direction.RIGHT
+		dir.x += 1
+
+	velocity = dir.normalized() * PlayerVariables.speed
+	move_and_slide()
+	
+	play_animation(MovementState.WALK if velocity != Vector2.ZERO else MovementState.IDLE, dir)
+
+func play_animation(movement: MovementState, dir: Vector2):
 	match direction:
 		Direction.UP:
 			anim.flip_h = false # Flip H => Horizontal den Charachter rotieren
@@ -86,7 +91,8 @@ func play_animation(movement: MovementState):
 				anim.play("side_walk")
 			else:
 				anim.play("side_idle")	
-
+		
+	
 func can_open_map():
 	# check if nicht in der hub noch machen
 	if currently_fading:
@@ -120,11 +126,12 @@ func switch_level(level: String):
 		get_tree().change_scene_to_file("res://scenes/level/" + level + ".tscn")
 	
 func damage_animation():
-	for i in 4:
+	while(damage_player):
 		anim.self_modulate = Color(1,0,0,0.5)
 		await get_tree().create_timer(0.15).timeout
 		anim.self_modulate = Color(1,1,1,1)
 		await get_tree().create_timer(0.15).timeout
+		
 
 
 func _on_animation_player_animation_finished(anim_name):

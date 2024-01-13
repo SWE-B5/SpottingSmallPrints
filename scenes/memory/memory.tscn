@@ -107,7 +107,7 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"counter"
-text = "Verbrauchte Züge:"
+text = "Übrige Züge:"
 label_settings = SubResource("LabelSettings_qbiwv")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -135,13 +135,9 @@ text = "<Q> Rätsel abbrechen und Truhe schließen"
 label_settings = SubResource("LabelSettings_5wqgr")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/PanelContainerBottom"]
-layout_mode = 2
-
 [node name="cards" type="Sprite2D" parent="CanvasLayer/Panel"]
 position = Vector2(702, 368)
 
 [connection signal="timeout" from="SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
 [connection signal="timeout" from="TurnBackTimer" to="." method="_on_turn_back_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/Panel/PanelContainerBottom/Button" to="." method="_on_button_pressed"]

@@ -5,6 +5,8 @@
 const SAVE_PATH = SAVE_DIRECTORY + SAVE_FILE_NAME
 const SAVE_DIRECTORY = "user://"
 const SAVE_FILE_NAME = "spotting_small_prints.save"
+const CHEATS_SAFE_FILE_NAME = "cheat_settings.save"
+const CHEATS_SAVE_PATH = SAVE_DIRECTORY + CHEATS_SAFE_FILE_NAME
 const START_HP = 100
 
 const DAMAGE_X = 1

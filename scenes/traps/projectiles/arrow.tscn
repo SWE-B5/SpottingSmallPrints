@@ -3,11 +3,17 @@
 [ext_resource type="Script" path="res://scripts/traps/projectiles/arrow.gd" id="1_7od7g"]
 [ext_resource type="Texture2D" uid="uid://dvp4s4hs6ur0x" path="res://assets/pixel_dungeon/items and trap_animation/arrow/Just_arrow.png" id="1_b7wtr"]
 
-[node name="arrow" type="StaticBody2D"]
+[node name="arrow" type="RigidBody2D"]
 top_level = true
 light_mask = 0
+z_index = 1
+y_sort_enabled = true
 collision_layer = 0
 collision_mask = 16
+collision_priority = 5.0
+mass = 0.01
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_7od7g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

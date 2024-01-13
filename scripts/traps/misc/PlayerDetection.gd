@@ -7,11 +7,11 @@ var SPEED_FACTOR = 0.005 - (PlayerVariables.speed - 80) * 0.000075
 const DEVIATION_FACTOR = 0.4
 var RANDOMIZER = RandomNumberGenerator.new()
 
-func _on_body_entered(body):
+func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	randomize_timer()
 	$Timer.start()
 
-func _on_body_exited(body):
+func _on_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
 	ACTIVE = false
 	$Timer.stop()
 

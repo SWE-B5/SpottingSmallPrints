@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqoxpxne4rcpy"]
+[gd_scene load_steps=8 format=3 uid="uid://dqoxpxne4rcpy"]
 
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="1_8sqo3"]
 [ext_resource type="Script" path="res://scripts/ui/start_menu_script.gd" id="1_i2cnv"]
@@ -11,15 +11,23 @@ shader = ExtResource("4_oalls")
 shader_parameter/blur = 0.674
 shader_parameter/brightness = 0.764
 
+[sub_resource type="GDScript" id="GDScript_8fxyt"]
+script/source = "extends OptionButton
+
+func _ready():
+	self.select(PlayerVariables.flag_override_start_level)
+"
+
 [node name="StartMenu" type="CanvasLayer"]
 script = ExtResource("1_i2cnv")
 
 [node name="BackgroundV1" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-scale = Vector2(1.32419, 1.32419)
+scale = Vector2(1.35, 1.35)
 texture = ExtResource("1_t17bx")
 
 [node name="Title" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 377)
 scale = Vector2(1.73965, 1.73965)
 texture = ExtResource("2_2ah1h")
@@ -78,6 +86,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
 text = "Fullscreen"
+
+[node name="Extras" type="Button" parent="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Extras"
 
 [node name="QuitButton" type="Button" parent="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -208,10 +222,10 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "6 Leben
-Karte verfügbar
-höhere Geschwindigkeit
-leichtere Rätsel"
+text = "6 Leben, Karte verfügbar, leichtere Rätsel,
+20% schneller als Mittel, 12%  langsamere Projektile als Mittel
+
+(ein ggf. vorhandener Speicherstand wird überschrieben)"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="DifficultySelector"]
@@ -222,8 +236,10 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "4 Leben
-Karte verfügbar"
+text = "4 Leben, Karte verfügbar, unveränderte Rätsel,
+unveränderte Geschwindigkeit, unveränderte Projektile
+
+(ein ggf. vorhandener Speicherstand wird überschrieben)"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="DifficultySelector"]
@@ -234,10 +250,10 @@ offset_bottom = 1080.0
 theme_override_constants/line_spacing = 12
 theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
-text = "2 Leben
-keine Karte
-verringerte Geschwindigkeit
-schwierigere Rätsel"
+text = "2 Leben, keine Karte, schwierigere Rätsel,
+20% langsamer als Mittel,  28% schnellere Projektile als Mittel
+
+(ein ggf. vorhandener Speicherstand wird überschrieben)"
 horizontal_alignment = 1
 
 [node name="LoadGameError" type="CanvasLayer" parent="."]
@@ -402,6 +418,7 @@ theme_override_font_sizes/font_size = 24
 text = "Kodex hier besiegeln"
 
 [node name="IntroPart2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Label3" type="Label" parent="IntroPart2"]
 offset_top = 100.0
@@ -464,9 +481,211 @@ theme_override_fonts/font = ExtResource("1_8sqo3")
 theme_override_font_sizes/font_size = 24
 text = "Prüfung starten"
 
+[node name="Extras_menu" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Extras_menu"]
+offset_left = 60.0
+offset_top = 150.0
+offset_right = 1860.0
+offset_bottom = 210.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 30
+text = "Extras"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Extras_menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 210.0
+offset_bottom = -750.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Extras_menu/CenterContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Extras_menu/CenterContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Extras_menu/CenterContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Extras_menu/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Extras_menu/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 22
+text = "Neues Spiel starten bei "
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="start_level" type="OptionButton" parent="Extras_menu/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+item_count = 6
+selected = 0
+popup/item_0/text = "Tutorial"
+popup/item_0/id = 0
+popup/item_1/text = "Level 1"
+popup/item_1/id = 1
+popup/item_2/text = "Level 2"
+popup/item_2/id = 2
+popup/item_3/text = "Level 3"
+popup/item_3/id = 3
+popup/item_4/text = "End-Level"
+popup/item_4/id = 4
+popup/item_5/text = "Diamanttür"
+popup/item_5/id = 5
+script = SubResource("GDScript_8fxyt")
+
+[node name="Label2" type="Label" parent="Extras_menu"]
+offset_left = 444.0
+offset_top = 400.0
+offset_right = 1476.0
+offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 30
+text = "Cheats"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Extras_menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 450.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Extras_menu/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Extras_menu/CenterContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="silver_key_helper" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Schlüsselnummern im Pausenmenü anzeigen"
+
+[node name="skip_lightsout" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Diamantene Truhe ohne Rätsel öffnen"
+
+[node name="alle_gold_truhen_oeffnen" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Goldene Truhen ohne Notes öffnen"
+
+[node name="skip_raetsel" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Rätsel überspringen"
+
+[node name="open_all_silver_doors" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Silbere Türen ohne Schlüssel öffnen"
+
+[node name="hide_fog" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Fog of War deaktivieren"
+
+[node name="unsterblich" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Unsterblichkeit"
+
+[node name="more_speed" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Spielergeschwindigkeit erhöhen"
+
+[node name="keine_dialoge" type="CheckButton" parent="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Dialoge überspringen"
+
+[node name="CenterContainer3" type="CenterContainer" parent="Extras_menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 900.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Extras_menu/CenterContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Extras_menu/CenterContainer3/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Extras_menu/CenterContainer3/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="reset" type="Button" parent="Extras_menu/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Cheats zurücksetzen"
+
+[node name="go_to_credits" type="Button" parent="Extras_menu/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
+[node name="go_to_main" type="Button" parent="Extras_menu/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8sqo3")
+theme_override_font_sizes/font_size = 24
+text = "Zum Hauptmenü"
+
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/Extras" to="." method="_on_extras_pressed"]
 [connection signal="pressed" from="StartMenu/StartMenu/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/confirm_quit" to="." method="_on_confirm_quit_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/confirm_abbruch" to="." method="_on_confirm_abbruch_pressed"]
@@ -485,3 +704,16 @@ text = "Prüfung starten"
 [connection signal="pressed" from="DeathScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Hauptmenu" to="." method="_on_hauptmenu_pressed"]
 [connection signal="pressed" from="IntroPart1/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/besiegeln" to="." method="_on_besiegeln_pressed"]
 [connection signal="pressed" from="IntroPart2/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/prufung starten" to="." method="_on_prufung_starten_pressed"]
+[connection signal="item_selected" from="Extras_menu/CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/start_level" to="." method="_on_start_level_item_selected"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/silver_key_helper" to="." method="_on_silver_key_helper_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/skip_lightsout" to="." method="_on_skip_lightsout_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/alle_gold_truhen_oeffnen" to="." method="_on_alle_gold_truhen_oeffnen_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/skip_raetsel" to="." method="_on_skip_raetsel_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/open_all_silver_doors" to="." method="_on_open_all_silver_doors_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/hide_fog" to="." method="_on_hide_fog_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/unsterblich" to="." method="_on_unsterblich_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/more_speed" to="." method="_on_more_speed_toggled"]
+[connection signal="toggled" from="Extras_menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/keine_dialoge" to="." method="_on_keine_dialoge_toggled"]
+[connection signal="pressed" from="Extras_menu/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Extras_menu/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer/go_to_credits" to="." method="_on_go_to_credits_pressed"]
+[connection signal="pressed" from="Extras_menu/CenterContainer3/PanelContainer/MarginContainer/VBoxContainer/go_to_main" to="." method="_on_go_to_main_pressed"]

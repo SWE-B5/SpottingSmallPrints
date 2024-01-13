@@ -63,6 +63,7 @@ rotates = false
 sprite_frames = SubResource("SpriteFrames_2e0ks")
 
 [node name="hitbox" type="Area2D" parent="path/pathfollow/characterbody"]
+collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="path/pathfollow/characterbody/hitbox"]

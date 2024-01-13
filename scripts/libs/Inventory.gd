@@ -15,8 +15,25 @@ func set_for_load(array):
 
 #resets inventory completely
 func update_new_game():
-	inventory = [[],[],[],[],[]]
-	active_items_count = [0,0,0,0,0]
+	match PlayerVariables.flag_override_start_level:
+		0:
+			inventory = [[],[],[],[],[]]
+			active_items_count = [0,0,0,0,0]
+		1:
+			inventory = [[],[1],[],[],[1,2,3]]
+			active_items_count = [0,0,0,0,3]
+		2:
+			inventory = [[],[1,2],[],[],[1,2,3,4,5,6]]
+			active_items_count = [0,0,0,0,6]
+		3:
+			inventory = [[],[1,2,3],[],[],[1,2,3,4,5,6,7,8,9]]
+			active_items_count = [0,0,0,0,9]
+		4:
+			inventory = [[],[1,2,3,4],[],[],[1,2,3,4,5,6,7,8,9,10,11,12]]
+			active_items_count = [0,0,0,0,12]
+		5:
+			inventory = [[],[1,2,3,4],[0],[],[1,2,3,4,5,6,7,8,9,10,11,12]]
+			active_items_count = [0,0,1,0,12]
 	update_huds(SILVER)
 	update_huds(GOLD)
 	update_huds(DIAMOND)
@@ -43,12 +60,30 @@ func update_after_level_completed():
 #adds item to inventory
 func collect_item(type: Item_Type, id: int):
 	inventory[type] += [id]
+	#sort id's with insertion sort
+	var temp
+	for i in range(1, inventory[type].size()-1):
+		temp = inventory[type][i]
+		var j = i
+		while (j > 0) && (inventory[type][j-1] > temp):
+			inventory[type][j] = inventory[type][j - 1]
+			j = j - 1
+		inventory[type][j] = temp
+	#
 	active_items_count[type] += 1
 	if type <= 3:
 		update_huds(type)
 
 #decreases usable KEY count for key_type, if possible
 func use_key(type: Item_Type):
+	if (type == 0 && PlayerVariables.flag_open_all_silver_doors):
+		return
+	if(type == 0):
+		var temp_arr = []
+		for i in inventory[SILVER].size():
+			if inventory[SILVER][i] != dialogue_temp_silver_id:
+				temp_arr += [inventory[SILVER][i]]
+		inventory[SILVER] = temp_arr
 	if(type < 3):
 		if active_items_count[type] > 0:
 			active_items_count[type] -= 1
@@ -58,6 +93,8 @@ func use_key(type: Item_Type):
 #is in invenotory = true
 #not in inventory/wrong type = false
 func check_key(type: Item_Type, id: int):
+	if (type == 0 && PlayerVariables.flag_open_all_silver_doors):
+		return true
 	if (type < 3):
 		for n in inventory[type].size():
 			if inventory[type][n] == id:
@@ -68,7 +105,10 @@ func check_key(type: Item_Type, id: int):
 #all found = true
 #not all found = false
 func check_all_notes_current_level():
-	return NOTES_PER_LEVEL <= inventory[NOTE].size()
+	if PlayerVariables.flag_open_all_gold_chests:
+		return true
+	else:
+		return NOTES_PER_LEVEL <= inventory[NOTE].size()
 
 #for hub setup
 #returns the number of opened gold doors

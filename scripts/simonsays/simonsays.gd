@@ -28,9 +28,12 @@ signal puzzleSuccessful
 signal puzzleCanceled
 
 func _on_goldene_truhe_start_simon_says():
-	isActive = true
-	visible = isActive
-	startGame()
+	if PlayerVariables.flag_skip_raetsel:
+		puzzleSuccessful.emit()
+	else:
+		isActive = true
+		visible = isActive
+		startGame()
 	
 func closeSimonSays():
 	isActive = false

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c70emhr8dng6o"]
+[gd_scene load_steps=9 format=3 uid="uid://c70emhr8dng6o"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_tk502"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_v6hhf"]
 [ext_resource type="FontFile" uid="uid://b6ejypfn354pw" path="res://fonts/PressStart2P-Regular.ttf" id="3_k4vqs"]
 [ext_resource type="Texture2D" uid="uid://cx4yb24vkl1ky" path="res://scenes/ui/background_v1.png" id="3_w0o4f"]
 [ext_resource type="PackedScene" uid="uid://bv1bj68apbp42" path="res://scenes/HUD/parts (don't add to level)/Silver_key_panel.tscn" id="5_6gm0n"]
+[ext_resource type="PackedScene" uid="uid://bxg4pgimi4pt6" path="res://scenes/HUD/parts (don't add to level)/Gold_key_panel.tscn" id="6_t870p"]
+[ext_resource type="PackedScene" uid="uid://dlc701wuhd0qn" path="res://scenes/HUD/parts (don't add to level)/Diamond_key_panel.tscn" id="7_bspyx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0a32"]
 shader = ExtResource("1_v6hhf")
@@ -137,7 +139,21 @@ offset_right = 1563.0
 offset_bottom = 1070.0
 scale = Vector2(0.7, 0.7)
 
-[node name="Label2" type="Label" parent="."]
+[node name="Gold_key_panel" parent="." instance=ExtResource("6_t870p")]
+offset_left = 1451.0
+offset_top = 958.0
+offset_right = 1563.0
+offset_bottom = 1070.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Diamond_key_panel" parent="." instance=ExtResource("7_bspyx")]
+offset_left = 1451.0
+offset_top = 958.0
+offset_right = 1563.0
+offset_bottom = 1070.0
+scale = Vector2(0.7, 0.7)
+
+[node name="key_ids" type="Label" parent="."]
 offset_left = 1572.0
 offset_top = 982.0
 offset_right = 1722.0
@@ -145,5 +161,4 @@ offset_bottom = 1015.0
 theme_override_fonts/font = ExtResource("3_k4vqs")
 theme_override_font_sizes/font_size = 30
 text = "1,2,4"
-horizontal_alignment = 2
 vertical_alignment = 1

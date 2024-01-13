@@ -13,10 +13,13 @@ signal memoryCanceled
 
 #Goldene Truhe implementation
 func _on_goldene_truhe_start_memory():
-	isActive = true
-	visible = isActive
-	$CanvasLayer.visible = isActive
-	startGame()
+	if PlayerVariables.flag_skip_raetsel:
+		memorySuccessful.emit()
+	else:
+		isActive = true
+		visible = isActive
+		$CanvasLayer.visible = isActive
+		startGame()
 
 func closeMemory():
 	isActive = false
@@ -90,11 +93,10 @@ func startGame():
 # instanziiert/aktualisiert HUD
 func setupHUD():
 	gameMovesLabel = get_node("CanvasLayer/Panel/PanelContainerTop/VBoxContainer/HBoxContainer/counter")
-	gameMovesLabel.text = str(gameMoves)
+	gameMovesLabel.text = str(max_game_moves - gameMoves)
 
 # prüft memory karten
 func check():
-	
 	# wenn zwei karten gewählt wurden
 	if len(open_cards) >= 2:
 		for card in cards:
@@ -196,14 +198,3 @@ func card_selected(card):
 	open_cards.append(card)
 	card.can_control = false
 	check()
-
-
-func _on_button_pressed():
-	is_scene_changing = true
-	#var oldCards = $CanvasLayer/Panel/cards.get_children()
-	for card in cards:
-		if card != null:
-			card.queue_free()
-	memoryCanceled.emit()
-	closeMemory()
-	is_scene_changing = false
